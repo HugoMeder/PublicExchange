@@ -1,0 +1,1334 @@
+\def\titlestr{Thermodynamik}
+\ifx\makebook\undefined
+	\input{../latexsrcs/preamble}
+\else
+	\begin{chapter}{\titlestr}
+\fi
+
+
+\begin{section}{Historisches}
+\end{section}
+
+\begin{section}{Bewegung im Phasenraum, mikro-kanonisches Ensemble}
+\begin{subsection}{Bewegung im Phasenraum}
+Die Hamilton-Bewegungsgleichung
+\begin{eqnarray*}
+\dot{p}_k &=&-\frac{\partial H}{\partial q_k}(p,q)\\
+\dot{q}_k &=& \frac{\partial H}{\partial q_k}(p,q)
+\end{eqnarray*}
+werden den nachfolgenden Untersuchungen zu Grunde gelegt. Dabei spielen die beiden Eigenschaften der Hamilton-Bewegungsgleichung
+\begin{itemize}
+	\item Energie-Erhaltung $\frac{d H}{dt}(p,q)=0$.
+	\item Inkompressible Strömung $(\dot{p},\dot{q})$.
+\end{itemize}
+die entscheidende Rolle. Für eine Trajektorie (Bahnkurve im Phasenraum) $\gamma(t)=(p(t),q(t))$, die die Hamilton-Bewegungsgleichung
+erfüllt, gilt:
+\begin{eqnarray*}
+H(\gamma(t)) = H(p(t),q(t)) &=& H(p(0),q(0))
+\end{eqnarray*}
+
+\begin{subsubsection}{Ergoden-Hypothese (Chaos-Hypothese)}
+Nennen wir $O(E)$ die Menge aller System-Zustände $(p,q)$ mit gegebener Energie $E$:
+\begin{eqnarray*}
+O(E) &=& \{(p,q)|H(p,q)=E\}
+\end{eqnarray*}
+dann gilt
+\begin{eqnarray*}
+\gamma(t) &\in& O(H(\gamma(0))
+\end{eqnarray*}
+Wir wollen im folgenden weiter annehmen, dass jeder Systemzustand $(p,q)$ der Energie $E$, also $(p,q)\in O(E)$ von jedem anderen Startpunkt $(p_0,q_0)\in O(E)$ aus durch eine physikalische Trajektorie in endlicher Zeit beliebig angenähert wird. Eine formale Definition:
+\begin{definition}
+Es sei $(p,q)\in O(E)$ und $U$ eine Umgebung von $(p,q)$, ebenso sei $(p_0.q_0)\in O(E)$, dann gibt es eine \textbf{endliche} Zeit $\tau$ ($0<\tau<\infty$), so dass für die Trajektorie $\gamma(t)$, für die gilt:
+\begin{itemize}
+	\item $\gamma(0) = (p_0, q_0)$.
+	\item $\gamma$ erfüllt die Hamilton-Bewegungsgleichung
+\end{itemize}
+$\gamma(\tau)\in U$. Gilt dies für \textbf{alle} möglichen Energien $E$, dann hat die Hamilton-Funktion $H(p,q)$ die Ergoden-Eigenschaft.
+\end{definition}
+Wir werden im Folgenden diese Ergoden-Eigenschaft voraussetzen. Mehr noch, wir bezeichnen Systeme für die die Ergoden-Eigenschaft zutrifft als \textbf{thermodynamische} Systeme.
+\end{subsubsection}
+\end{subsection}
+
+
+\begin{subsection}{Gleichgewicht und Wahrscheinlichkeits-Verteilung}
+\begin{subsubsection}{Wahrscheinlichkeits-Dichte}
+Die Wahrscheinlichkeit ein System in einem Zustand $(p,q)$ vorzufinden ist Null. Hingegen ist die Wahrscheinlichkeit
+ein System in einem Phasenraum-\textbf{Volumen}
+\begin{eqnarray*}
+p_1 &\in& [p_{01},p_{01}+\Delta p_1]\\
+p_2 &\in& [p_{02},p_{02}+\Delta p_2]\\
+p_3 &\in& [p_{03},p_{03}+\Delta p_3]\\
+&...&\\
+q_1 &\in& [q_{01},q_{01}+\Delta q_1]\\
+q_2 &\in& [q_{02},q_{02}+\Delta q_2]\\
+q_3 &\in& [q_{03},q_{03}+\Delta q_3]\\
+&...&
+\end{eqnarray*}
+vorzufinden ist für kleine $\Delta p_1, \Delta p_2,,,$, $\Delta q_1, \Delta q_2,,,$ proportional zu diesem Volumen $d\mu$
+\begin{eqnarray*}
+d\mu &=& \Delta p_1\Delta p_2\Delta p_3...\Delta q_1\Delta q_2\Delta q_3...
+\end{eqnarray*}
+Das heißt, die besagte Wahrscheinlichkeit $dp$ ist
+\begin{eqnarray*}
+dp &=& \rho(p,q)d\mu
+\end{eqnarray*}
+Die Größe $\rho(p,q)$ nennen wir die Wahrscheinlichkeits-Dichte an der Stelle $(p,q)$.
+Das Integral über den gesamten Phasenraum ist gleich 1, denn in irgend einem Zustand muss sich das System ja befinden.
+\begin{eqnarray*}
+\int dp &=& \int \rho(p,q)d\mu =1
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Wahrscheinlichkeits-Dichte und Ensemble}
+Eine anschauliche Vorstellung zur Wahrscheinlichkeits-Dichte ist die des Ensembles. Ein Ensemble ist eine sehr große Anzahl $N$
+von System-Zuständen $(p,q)$. Nun zählen wir die Anzahl $dn(p,q)$ der Zustände, die sich in einem Phasenraum-Volumen $d\mu$ befinden. Wählen wir nun zufällig einen Zustand aus dem Ensemble aus, dann ist die Wahrscheinlichkeit, dass ich einen Zustand innerhalb
+Phasenraum-Volumens $d\mu$ gezogen habe
+\begin{eqnarray*}
+dp &=& \frac{dn(p,q)}{N}
+\end{eqnarray*}
+Dann ist auch
+\begin{eqnarray*}
+\frac{dn(p,q)}{N} &=&\rho(p,q)d\mu
+\end{eqnarray*}
+oder
+\begin{eqnarray*}
+\rho(p,q) &=& \frac{1}{N}\frac{dn(p,q)}{d\mu}
+\end{eqnarray*}
+Die Grösse $\frac{dn(p,q)}{d\mu}$ nennen wir auch die Zustandsdichte eines Ensembles.
+\end{subsubsection}
+
+\begin{subsubsection}{Zeitabhängigkeit der Wahrscheinlichkeits-Dichte}
+Wir betrachten die Wahrscheinlichkeits-Dichte $\rho(p,q,t)$ in ihrer Abhängigkeit von der Zeit $t$.
+Genau so gut können wir dies für die Zustandsdichte $\frac{dn}{d\mu}(p,q,t)$ eines Ensembles tun. Es gilt der Zusammenhang
+\begin{eqnarray*}
+\rho(p,q,t) &=& \frac{1}{N}\frac{dn}{d\mu}(p,q,t)
+\end{eqnarray*}
+Die $dn(p,q,t)$ System-Zustände eines Ensembles, die sich zu einem Zeitpunkt $t=0$ im Phasenraum-Volumen $d\mu$ befinden, 
+befinden sich innerhalb eines kleinen Würfels $\omega(0)$ mit dem Volumen $V(\omega(0))=d\mu$. Dieser Würfel deformiert und verschiebt sich nach einer Zeit $t$ in die Menge
+\begin{eqnarray*}
+\omega ( t ) &=& \{ (p(t),q(t)) | (p(0),q(0))\in \omega ( t )\}
+\end{eqnarray*}
+Nun ist aber wegen der Inkompressibilität der Hamilton-Strömung
+\begin{eqnarray*}
+V(\omega ( t )) &=& V(\omega (0))=d\mu
+\end{eqnarray*}
+Und die Anzahl $dn(p,q,t)$, die sich nunmehr in $\omega(t)$ befindet ist auch unverändert. Das heißt dann aber, dass für die Zustandsdichte
+\begin{eqnarray*}
+\frac{dn}{d\mu}(p,q,t) = \frac{dn}{d\mu}(p(t),q(t),t) &=& \frac{dn}{d\mu}(p,q,0)=\frac{dn}{d\mu}(p(0),q(0),0)
+\end{eqnarray*}
+und damit für die Wahrscheinlichkeits-Dichte:
+\begin{eqnarray*}
+\rho(p(t),q(t),t) &=& \rho(p(0),q(0),0)
+\end{eqnarray*}
+Oder auch
+\begin{eqnarray*}
+\rho(p(0),q(0),t) &=& \rho(p(-t),q(-t),0)
+\end{eqnarray*}
+Für kleine $t=\Delta t$ gilt
+\begin{eqnarray*}
+\rho(p(0),q(0),\Delta t) &=& \rho(p(0),q(0),0)\\
+&&-\left(\sum_k\frac{\partial \rho}{\partial \dot{p}_k}(p(0),q(0),0)\dot{p}_k(0)
+\right)\Delta t\\
+&&-\left(\sum_k\frac{\partial \rho}{\partial \dot{q}_k}(p(0),q(0),0)\dot{q}_k(0)
+\right)\Delta t
+\end{eqnarray*}
+und damit
+\begin{eqnarray*}
+\frac{d\rho}{dt}(p(0),p(0),0) &=& -\left(\sum_k\frac{\partial \rho}{\partial \dot{p}_k}(p(0),q(0),0)\dot{p}_k(0)
+\right)\\
+&& -\left(\sum_k\frac{\partial \rho}{\partial \dot{q}_k}(p(0),q(0),0)\dot{q}_k(0)
+\right)
+\end{eqnarray*}
+oder allgemein
+\begin{eqnarray*}
+\frac{d\rho}{dt}(p,q) &=& -\sum_k\left(\frac{\partial \rho}{\partial \dot{p}_k}(p,q)\dot{p}_k
++\frac{\partial \rho}{\partial \dot{q}_k}(p,q)\dot{q}_k
+\right)
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Zeitunabhängige Wahrscheinlichkeits-Dichte, mikro-kanonisches Ensemble}
+Für eine zeitunabhängige Wahrscheinlichkeits-Dichte gilt:
+\begin{eqnarray*}
+\frac{d\rho}{dt}(p,q) &=& -\sum_k\left(\frac{\partial \rho}{\partial \dot{p}_k}(p,q,t)\dot{p}_k
++\frac{\partial \rho}{\partial \dot{q}_k}(p,q,t)\dot{q}_k
+\right) =0
+\end{eqnarray*}
+Das heißt, die Wahrscheinlichkeits-Dichte entlang einer Bahn $(p(t),q(t))$ ist konstant.
+Aufgrund der Chaos-Hypothese
+folgt daraus auch, dass die Wahrscheinlichkeits-Dichte auf der ganzen Energie-Fläche $O(E)=\{(p,q)|H(p,q)=E\}$ konstant sein muss.
+ 
+Wir nehmen nun an, wir kennen die Energie $E$ des Systems, genauer gesagt wissen wir dass die Energie
+sich in einem kleinen Intervall $E\in [E_0,E_0+\Delta E[$ befindet. Dann ist der Phasenraum $\Phi(E_0,\Delta E)$
+in dem sich der Mikro-Zustand $(p,q)$ befinden muss wohldefiniert. Das entsprechende Phasenraum-Volumen $V(E_0,\Delta E)$ muss proportional zu $\Delta E$ sein. Wir schreiben:
+\begin{eqnarray}
+\label{omega_def}
+\Phi(E_0,\Delta E) &=& \{ (p,q) | E_0 \le H(p,q) < E_0+\Delta E\}\\
+V(E_0,\Delta E) &=& V(\Phi(E_0,\Delta E) = \omega(E_0)\Delta E
+\end{eqnarray}
+Da $\Delta E$ sehr klein ist, ist die Wahrscheinlichkeits-Dichte $\rho$ innerhalb der Energie-Schale $\Phi(E_0,\Delta E)$ konstant.
+Außerhalb gilt $\rho(p,q)=0$. Es muss gelten:
+\begin{eqnarray*}
+\rho &=& \frac{1}{V(E_0,\Delta E)}=\frac{1}{\omega(E_0)\Delta E}
+\end{eqnarray*}
+Dieses $\rho$ nennen wir die mikro-kanonische  Wahrscheinlichkeits-Dichte. Entsprechend nennen wir ein Ensemble mit $N$ Zuständen und der konstanten Zustands-Dichte
+\begin{eqnarray*}
+\frac{dn}{d\mu} &=& \rho N=\frac{N}{\omega(E_0)\Delta E}
+\end{eqnarray*}
+das mikro-kanonische Ensemble zu $E_0,\Delta E$.
+\end{subsubsection}
+\end{subsection}
+
+\begin{subsection}{Fazit}
+Gegeben ein \textbf{chaotisches} (ergodisches) System durch eine \textbf{Hamilton-Funktion} $H(p,q)$. Weiter sei bekannt, dass die Energie $E$
+des Systems in einem kleinen \textbf{Energie-Intervall} $E\in [E_0, E_O+\Delta E[$ liegt und sonst liegen \textbf{keine weiteren Informationen} vor, dann ist die Wahrscheinlichkeit, das System in einem \textbf{Mikro-Zustand} $(p,q)$ vorzufinden durch die mikro-kanonischen Wahrscheinlichkeits-Dichte gegeben.
+Gleichbedeutend wird das System durch das entsprechende \textbf{mikro-kanonische Ensemble} repräsentiert.
+\end{subsection}
+\end{section}
+
+\begin{section}{Thermodynamisches Gleichgewicht zwischen Systemen, Temperatur und Entropie}
+\begin{subsection}{Zwei Systeme in Wechselwirkung}
+Gegeben zwei Hamilton-Funktionen $H_1(p_1,q_1)$ und $H_2(p_2,q_2)$ und eine kleine Wechselwirkung $H_{int}((p_1,p_2),(p_1,q_2))$
+so dass das System, welches durch die Hamilton-Funktion
+\begin{eqnarray*}
+H((p_1,p_2),(q_1,q_2)) &=& H_1(p_1,q_1)+H_2(p_2,q_2)+H_{int}((p_1,p_2),(q_1,q_2))
+\end{eqnarray*}
+gegeben ist, chaotisch (ergodisch) ist. $H_{int}$ soll also zu einem Energie-Austausch zwischen den beiden Systemen führen, ansonsten aber vernachlässigbar sein.
+Wir definieren:
+\begin{eqnarray}
+\label{microcanonic_phase_space_volume}
+\Phi_1(E_1,\Delta E_1) &=& \{(p_1,q_1) | E_1 \le H_1(p_1,q_1) < E_1+\Delta E_1 \}\cr
+\Phi_2(E_2,\Delta E_2) &=& \{(p_2,q_2) | E_2 \le H_2(p_2,q_2) < E_2+\Delta E_2 \}\cr
+\Phi(E,\Delta E) &=& \{((p_1,p_2),(q_1,q_2)) | E \le H_1(p_1,q_1)+H_2(p_2,q_2) < E+\Delta E \}\cr
+V(\Phi_1(E_1,\Delta E_1)) &=& \omega_1(E_1)\Delta E_1\cr
+V(\Phi_2(E_2,\Delta E_2)) &=& \omega_2(E_2)\Delta E_2\cr
+V(\Phi(E,\Delta E)) &=& \omega(E)\Delta E
+\end{eqnarray}
+Wir nehmen nun an, dass für das Gesamtsystem die mikro-kanonische Wahrscheinlichkeits-Verteilung gilt. 
+Dann gilt:
+\begin{eqnarray}
+\label{entropy_coupled}
+\omega(E) &=& \int \omega_1(e_1)\omega_2(E-e_1) de_1
+\end{eqnarray}
+Eine formale Herleitung ist im Anhang \ref{omega_fold}
+zu finden. Die Wahrscheinlichkeit, das System 1 mit einer Energie $E_1$ im Intervall
+$E_1\in [E_1,E_1+\Delta E_1[$ vorzufinden ist
+\begin{eqnarray*}
+p_1(E_1,\Delta E_1) &=& \frac{\int_{E_1}^{E_1+\Delta E_1} \omega_1(e_1)\omega_2(E-e_1) de_1}{\omega(E)}
+\end{eqnarray*}
+Dies gilt auch für große $\Delta E_1$. Ist $\Delta E_1$ hingegen infinitesimal klein, dann gilt:
+\begin{eqnarray}
+\label{2_systems_microcanonic}
+p_1(E_1,\Delta E_1) &=& \frac{\omega_1(E_1)\omega_2(E-E_1) \Delta E_1}{\omega(E)}=\sigma(E_1)\Delta E_1\cr
+\sigma(E_1) &=& \frac{\omega_1(E_1)\omega_2(E-E_1)}{\omega(E)}
+\end{eqnarray}
+$\sigma$ ist eine Wahrscheinlichkeits-Dichte. Diese hat ein Maximum bei
+\begin{eqnarray}
+\label{equilib_cond}
+0 &=& \frac{d\sigma}{dE_1}(E_1)\cr
+&=& \frac{1}{\omega}\left(\frac{d\omega_1}{d E_1}(E_1)\omega_2(E-E_1)-\omega_1(E_1)\frac{d\omega_2}{d E_2}(E-E_1)\right)\cr
+\frac{d\omega_1}{d E_1}(E_1)\omega_2(E-E_1)&=&\omega_1(E_1)\frac{d\omega_2}{d E_2}(E-E_1)\cr
+\frac{\frac{d\omega_1}{d E_1}(E_1)}{\omega_1(E_1)} &=& \frac{\frac{d\omega_2}{d E_2}(E-E_1)}{\omega_2(E-E_1)}\cr
+\frac{d}{dE_1}\ln(\omega_1(E_1)) &=& \frac{d}{dE_2}\ln(\omega_2(E-E_1))
+\end{eqnarray}
+Das Wahrscheinlichkeits-Maximum wird also bei der Energie $E_1$ für welche die obige Gleichung erfüllt wird angenommen.
+\end{subsection}
+
+
+\begin{subsection}{Definition von Temperatur und Entropie}
+Wir bezeichnen das Phasenraum-Volumen \ref{microcanonic_phase_space_volume} mit
+\begin{eqnarray*}
+\Omega(E,\Delta E) &=& V(\Phi(E,\Delta E)) = \omega(E)\Delta E
+\end{eqnarray*}
+Wir \textbf{definieren} die Entropie eines Systems wie folgt
+\footnote{Diese Definition der Entropie hängt von der verwendeten Maßeinheit für das Phasenraum-Element $d\mu = \Delta p_1\Delta p_2\Delta p_3...\Delta q_1\Delta q_2\Delta q_3...
+$ ab. $\Delta q_k\Delta p_k$ hat immer die Dimension einer Wirkung (Energie$\times$Zeit). Die Festlegung eines Volumenelementes führt zu eine additiven Konstante, die aber für alle übrigen Rechnungen irrelevant ist.}:
+\begin{eqnarray}
+\label{entropy_def}
+S(E,\Delta E) &=& \kb \ln (\Omega(E,\Delta E)) = \kb \ln (\omega(E))+\kb \ln (\Delta E)
+\end{eqnarray}
+wobei $\kb $ die sogenannte Boltzmann-Konstante ist. Es gilt:
+\begin{eqnarray*}
+\frac{dS}{dE}(E,\Delta E) &=& \kb \frac{d}{dE}\ln(\omega(E))
+\end{eqnarray*}
+Daher wird die Gleichgewichts-Bedingung \ref{equilib_cond} zu
+\begin{eqnarray*}
+\frac{dS_1}{dE_1}(E_1,\Delta E) &=& \frac{dS_2}{dE_2}(E-E_1,\Delta E)
+\end{eqnarray*}
+Weiter \textbf{definieren} wir die \textbf{Temperatur} eines Systems
+\begin{eqnarray}
+\label{temperature_def}
+T(E) &=& \frac{1}{\frac{dS}{dE}(E)}=\frac{1}{\kb \frac{d}{dE}\ln(\omega(E))}
+\end{eqnarray}
+Die Gleichgewichts-Bedingung \ref{equilib_cond} wird nun zu
+\begin{eqnarray*}
+\frac{1}{T_1(E_1)} &=& \frac{1}{T_2(E-E_1)}
+\end{eqnarray*}
+oder eben
+\begin{eqnarray*}
+T_1(E_1) &=& T_2(E-E_1)
+\end{eqnarray*}
+\end{subsection}
+\end{section}
+
+\begin{section}{Ideale Gase}
+\begin{subsection}{Die Hamilton-Funktion}
+Wir betrachten ein System bei dem sehr viele ($N$) Teilchen (Atome oder Moleküle) in einem Volumen $V$ eingeschlossen sind.
+Die kinetische Energie ist
+\begin{eqnarray*}
+T(\dot{v}) &=& \sum_k \frac{1}{2}mv_k^2
+\end{eqnarray*}
+oder in den (kanonischen) Impulsen ausgedrückt:
+\begin{eqnarray*}
+T(p) &=& \sum_k \frac{1}{2}\frac{p_k^2}{m}
+\end{eqnarray*}
+Die Hamilton-Funktion ist dann
+\begin{eqnarray*}
+H(p,x) &=& \sum_k \frac{1}{2}\frac{p_k^2}{m}+V(x)
+\end{eqnarray*}
+...
+\end{subsection}
+
+\begin{subsection}{Die Funktion \titlemath{$\omega(E)$}{}}
+\begin{eqnarray*}
+\Xi(E) &=& \left\{(p,x)|\frac{1}{2m}\sum_k p_k^2<E\land x_k\in K\right\}\\
+&=& \left\{(p,x)|\sum_k p_k^2<2mE\land x_k\in K\right\}
+\end{eqnarray*}
+$3N$ dimensionale Kugel mit Radius $P=\sqrt{2mE}$. Volumen der Kugel:
+\begin{eqnarray}
+\label{omega_ideal}
+V_P &=& \kappa_{3N}P^{3N} = \kappa_{3N}(2mE)^{\frac{3}{2}N}=\kappa_{3N}(2m)^{\frac{3}{2}N}E^{\frac{3}{2}N}\cr
+V(\Xi(E)) &=& \kappa_{3N}(2m)^{\frac{3}{2}N}E^{\frac{3}{2}N}V^N\cr
+\omega(E) &=& \frac{d}{dE}V(\Xi(E))=\kappa_{3N}(2m)^{\frac{3}{2}N}\frac{3}{2}NE^{\frac{3}{2}N-1}V^N
+\end{eqnarray}
+\end{subsection}
+
+\begin{subsection}{Entropie und Temperatur}
+\begin{eqnarray*}
+S(E,\Delta E) &=& \kb  \ln(\omega(E))+\kb \ln(\Delta E)\\
+&=&\kb \left(\ln\left(\kappa_{3N}(2m)^{\frac{3}{2}N}\frac{3}{2}NV^N\right)+\left(\frac{3}{2}N-1\right)\ln(E)\right)+\kb \ln(\Delta E)\\
+\frac{dS}{dE}(E) &=& \kb \left(\frac{3}{2}N-1\right)\frac{1}{E}\\
+T(E) &=& \frac{E}{\kb \left(\frac{3}{2}N-1\right)}\approx \frac{2E}{3\kb N}
+\end{eqnarray*}
+Energie pro Atom:
+\begin{eqnarray}
+\label{energy_per_atom}
+\frac{E}{N} &=& \frac{3}{2}\kb T=\left<\frac{1}{2m}p^2\right>=\left<\frac{m}{2}v^2\right>
+\end{eqnarray}
+
+
+\begin{subsubsection}{Entropie-Formel und Vergleich mit der Sackur-Tetrode-Gleichung}
+Wir wollen den ersten, nicht von $\Delta E$ abhängigen Teil der Entropie genauer auswerten.
+\begin{eqnarray*}
+S(E,V,N) &=& \kb \left(\ln\left(\kappa_{3N}(2m)^{\frac{3}{2}N}\frac{3}{2}NV^N\right)+\left(\frac{3}{2}N-1\right)\ln(E)\right)
+\end{eqnarray*}
+Dazu brauchen wir einen Ausdruck für $\kappa_{3N}$. Das Volumen einer $N$-dimensionalen Kugel mit Radius 1 ist
+\begin{eqnarray*}
+\kappa_N &=& \frac{2\pi^\frac{N}{2}}{N\Gamma(\frac{N}{2})}
+\end{eqnarray*}
+Für die $\Gamma$-Funktion kann die Stirling-Formel verwendet werden:
+\begin{eqnarray}
+\label{stirling_gamma}
+\Gamma(x) = \sqrt{2\pi}x^{x-1/2}e^{-x}e^{\mu(x)}
+\end{eqnarray}
+Der letzte Term verschwindet für große $x$. Somit erhalten wir
+\begin{eqnarray*}
+\kappa_{3N} &=& \frac{2\pi^{\frac{3}{2}N}}{3N\Gamma(\frac{3}{2}N)}
+=\frac{2\pi^{\frac{3}{2}N}}{3N\sqrt{2\pi}\left(\frac{3}{2}N\right)^{\frac{3}{2}N-1/2}e^{-\frac{3}{2}N}}
+\end{eqnarray*}
+eingesetzt:
+\begin{eqnarray*}
+S(E,V,N) &=& \kb \left(\ln\left(\frac{2\pi^{\frac{3}{2}N}}{3N\sqrt{2\pi}\left(\frac{3}{2}N\right)^{\frac{3}{2}N-1/2}e^{-\frac{3}{2}N}}(2m)^{\frac{3}{2}N}\frac{3}{2}NV^N\right)+\left(\frac{3}{2}N-1\right)\ln(E)\right)\\
+&=& \kb \left(\ln\left(\frac{(2m\pi)^{\frac{3}{2}N}}{\sqrt{2\pi}\left(\frac{3}{2}N\right)^{\frac{3}{2}N-1/2}e^{-\frac{3}{2}N}}V^N\right)+\left(\frac{3}{2}N-1\right)\ln(E)\right)\\
+&=& \kb \left(\ln\left(\left(\frac{2m\pi e}{\frac{3}{2}N}\right)^{\frac{3}{2}N}
+\frac{1}{\sqrt{2\pi}\left(\frac{3}{2}N\right)^{-1/2}}V^N\right)+\left(\frac{3}{2}N-1\right)\ln(E)\right)\\
+&=& \kb \left(\ln\left(\left(\frac{2m\pi e}{\frac{3}{2}N}\right)^{\frac{3}{2}N}
+V^N\right)-\ln\left(\sqrt{2\pi}\left(\frac{3}{2}N\right)^{-1/2}\right)+\left(\frac{3}{2}N-1\right)\ln(E)\right)\\
+&=& \kb \left(
+\ln\left(\left(\frac{1}{N}\right)^{\frac{3}{2}N}V^N\right)
++\ln\left(\left(\frac{2m\pi e}{\frac{3}{2}}\right)^{\frac{3}{2}N}\right)
+-\ln\left(\sqrt{2\pi}\left(\frac{3}{2}N\right)^{-1/2}\right)+\left(\frac{3}{2}N-1\right)\ln(E)\right)\\
+&=& \kb \left(
+\ln\left(\left(\frac{E}{N}\right)^{\frac{3}{2}N}V^N\right)
++\ln\left(\left(\frac{4m\pi e}{3}\right)^{\frac{3}{2}N}\right)
+-\ln\left(\sqrt{2\pi}\left(\frac{3}{2}N\right)^{-1/2}\right)-\ln(E)\right)\\
+&=& \kb \left(
+N\ln\left(\left(\frac{E}{N}\right)^{\frac{3}{2}}V\right)
++\frac{3}{2}N\ln\left(\frac{4m\pi e}{3}\right)
+-\ln\left(\sqrt{2\pi}\left(\frac{3}{2}N\right)^{-1/2}\right)-\ln(E)\right)
+\end{eqnarray*}
+Der extensive Teil ist
+\begin{eqnarray*}
+S_A = S(E,V,N) &=&\kb N\ln\left(\left(\frac{E}{N}\right)^{\frac{3}{2}}V\right)
++\frac{3}{2}\kb N\left(1+\ln\left(\frac{4m\pi}{3}\right)\right)
+\end{eqnarray*}
+Wir vergleichen das mit der Sackur-Tetrode-Gleichung
+\begin{eqnarray*}
+S_B = S(E,V,N) &=& k_\mathrm{B} N \ln \left( \left(\frac VN\right) \left(\frac EN \right)^{\frac 32}\right)+ {\frac 32}k_\mathrm{B} N\left( {\frac 53}+ \ln\left(\frac{4\pi m}{3h^2}\right)\right)
+\end{eqnarray*}
+Die Differenz ist
+\begin{eqnarray*}
+S_B-S_A &=& - \kb  N \ln (N)+{\frac 32}k_\mathrm{B} N\left( {\frac 53}+ \ln\left(\frac{4\pi m}{3h^2}\right)\right)
+-\frac{3}{2}\kb N\left(1+\ln\left(\frac{4m\pi}{3}\right)\right)\\
+&=& - \kb  N \ln (N)+\frac{3}{2}\kb N\left(\frac{2}{3}-\ln\left(h^2\right)\right)
+\end{eqnarray*}
+Der dominierende Term ist $N \ln (N)$ wir benutzen nochmals die Stirling-Formel
+\begin{eqnarray*}
+\Gamma(N) &=& \sqrt{2\pi}N^{N-\frac{1}{2}}e^{-N}=(N-1)!\\
+\ln((N-1)!) &=& \frac{1}{2}\ln(2\pi)+\left(N-\frac{1}{2}\right)\ln(N)-N\\
+&=& \frac{1}{2}\ln(2\pi)+N\ln(N)-\frac{1}{2}\ln(N)-N\\
+N\ln(N) &=&\ln((N-1)!)-\frac{1}{2}\ln(2\pi)+\frac{1}{2}\ln(N)+N
+\end{eqnarray*}
+und setzen ein:
+\begin{eqnarray*}
+S_B-S_A &=&- \kb  N \ln (N)+\kb N-\kb N\frac{3}{2}\ln\left(h^2\right)\\
+&=&- \kb  \left(\ln((N-1)!)-\frac{1}{2}\ln(2\pi)+\frac{1}{2}\ln(N)+N\right)+\kb N-\kb N\frac{3}{2}\ln\left(h^2\right)\\
+&=&- \kb  \left(\ln((N-1)!)-\frac{1}{2}\ln(2\pi)+\frac{1}{2}\ln(N)\right)-\kb N\ln\left(h^3\right)\\
+&=&- \kb \ln((N-1)!h^{3N})-\frac{1}{2}\kb \ln\left(\frac{N}{2\pi}\right)
+\end{eqnarray*}
+Wir fügen wir noch den nicht-extensiven Teil von $S_A$ hinzu:
+\begin{eqnarray*}
+S_B-S_A &=&- \kb \ln((N-1)!h^{3N})-\frac{1}{2}\kb \ln\left(\frac{N}{2\pi}\right)
++\kb \left(\ln\left(\sqrt{2\pi}\left(\frac{3}{2}N\right)^{-1/2}\right)+\ln(E)\right)\\
+ &=&- \kb \ln((N-1)!h^{3N})-\frac{1}{2}\kb \ln\left(\frac{N}{2\pi}\right)
++\frac{1}{2}\kb \ln\left(2\pi \frac{2}{3N}\right)+\kb \ln(E)\\
+ &=&- \kb \ln((N-1)!h^{3N})-\kb \ln\left(N\right)
++\kb \ln(E)+\frac{1}{2}\kb \ln\left((2\pi)^2 \frac{2}{3}\right)\\
+ &=&\kb \ln\left(\frac{E}{N!h^{3N}}\right)+\frac{1}{2}\kb \ln\left((2\pi)^2 \frac{2}{3}\right)
+\end{eqnarray*}
+Der letzte Term ist eine sehr kleine Konstante und kann vernachlässigt werden.
+Wir erhalten:
+\begin{eqnarray*}
+S_B &=& \kb \ln\left(\frac{\omega(E)E}{N!h^{3N}}\right)
+\end{eqnarray*}
+Wir setzen \ref{omega_ideal}
+\begin{eqnarray*}
+\omega(E) &=& \frac{d}{dE}V(\Xi(E))=\kappa_{3N}(2m)^{\frac{3}{2}N}\frac{3}{2}NE^{\frac{3}{2}N-1}V^N
+\end{eqnarray*}
+ein und erhalten ein modifiziertes $\omega^\prime(E)$:
+\begin{eqnarray}
+\label{correct_sigma}
+\omega^\prime(E) &=& \frac{\omega(E)E}{N!h^{3N}}\cr
+&=&\frac{\kappa_{3N}(2m)^{\frac{3}{2}N}\frac{3}{2}NE^{\frac{3}{2}N}V^N}{N!h^{3N}}
+\end{eqnarray}
+Der Faktor $E$ führt dazu, dass
+\begin{eqnarray*}
+T(E) &=& \kb \frac{\omega^\prime(E)}{\frac{d\omega^\prime}{dE}(E)} = \frac{2E}{3\kb }
+\end{eqnarray*}
+exakt gilt.
+\end{subsubsection}
+
+\begin{subsubsection}{Nichtunterscheidbarkeit von gleichen Atomen}
+Die Nichtunterscheidbarkeit von gleichen Atomen führt zu einem Faktor $\frac{1}{N!}$ für $\omega(E)$.
+\end{subsubsection}
+
+\begin{subsubsection}{Normierung der Entropie mittels der Planck-Konstanten \titlemath{$h$}{}}
+Zur Normierung der Phasenraum-Elementes dien das Pancksche Wirkungsquantum $h$. Dies führt zu einem Faktor $\frac{1}{h^{3N}}$ für $\omega(E)$.
+\end{subsubsection}
+
+\begin{subsubsection}{Fazit}
+Dies alles führt zu einer Entropie
+\begin{eqnarray}
+\label{ln_omega}
+S(N,V,E) &=& \ln(\omega(E))\cr
+&=& \kb\left( N \ln \left( \left(\frac VN\right) \left(\frac EN \right)^{\frac 32}\right)+ {\frac 32}N\left( {\frac 53}+ \ln\left(\frac{4\pi m}{3h^2}\right)\right)-\ln(E)\right)
+\end{eqnarray}
+und für ein mikro-kanonisches Ensemble zu
+\begin{eqnarray*}
+S(N,V,E, \Delta E) &=& S(N,V,E)-\kb\ln(\Delta E)
+\end{eqnarray*}
+
+\end{subsubsection}
+
+\end{subsection}
+
+\begin{subsection}{Druck}
+\begin{subsubsection}{Druck durch Atome bestimmter Geschwindigkeit}
+Anzehl Stöße Pro Sekunde:
+\begin{eqnarray*}
+N &=& \rho v_xA
+\end{eqnarray*}
+wobei $N$ die Anzahl der Stöße, $\rho$ die Teilchendichte für die Geschwindigkeit $v$ und $A$ die Fläche beutet.
+Impuls-Übertrag pro Stoß:
+\begin{eqnarray*}
+\Delta p &=& 2mv_x
+\end{eqnarray*}
+Gesamter Impulsübertrag
+\begin{eqnarray*}
+p_{Av} &=& \rho v_xA2mv_x = 2\rho mv_x^2A
+\end{eqnarray*}
+Druckanteil
+\begin{eqnarray*}
+p_v &=& 2\rho mv_x^2 =\frac{N_{v_x}}{V}2mv_x^2=\frac{N_{v_x}}{N}\frac{N}{V}2mv_x^2
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Gesamtdruck}
+\begin{eqnarray*}
+p &=&\frac{1}{2}2\frac{N}{V}m<v_x^2>=m\frac{N}{V}<v_x^2>
+\end{eqnarray*}
+denn nur $v_x>0$ tragen bei.
+\begin{eqnarray*}
+p &=& \frac{m}{3}\frac{N}{V}(<v_x^2>+<v_y^2>+<v_z^2>)=\frac{m}{3}\frac{N}{V}<v_x^2+v_y^2+v_z^2>\\
+&=&\frac{2}{3}\frac{N}{V}\left<\frac{m}{2}v^2\right>
+\end{eqnarray*}
+mit \ref{energy_per_atom}
+\begin{eqnarray*}
+\left<\frac{m}{2}v^2\right> &=&\frac{3}{2}\kb T
+\end{eqnarray*}
+ergibt sich
+\begin{eqnarray*}
+p &=& \frac{N\kb T}{V}
+\end{eqnarray*}
+oder
+\begin{eqnarray}
+\label{ideal_gas_state_eqn}
+pV &=& N\kb T
+\end{eqnarray}
+Das ist die sogenannte Zustandsgleichung für ideale Gase. Oft wird diese auch so
+\begin{eqnarray*}
+pV &=& n_mRT
+\end{eqnarray*}
+Wobei $n_m$ die Mol-Zahl, und $R$ die allgemeine Gaskonstante ist:
+\begin{eqnarray*}
+n_m &=& \frac{N}{mol}\\
+R &=& \kb \times mol
+\end{eqnarray*}
+Ein Mol hat
+\begin{eqnarray*}
+mol &=&6.02214076\times 10^{23}
+\end{eqnarray*}
+Teilchen (Atome).
+\end{subsubsection}
+\end{subsection}
+\end{section}
+
+\begin{section}{System in einem Wärmebad}
+\begin{subsection}{Wärmebad}
+Ein Wärmebad ist ein System, dass genügend groß ist, dass sich die Temperatur $T(E)$ bei Zufuhr von Energie $\Delta E$ nur wenig 
+und im Idealfall gar nicht ändert. Es gilt also nach \ref{temperature_def} und \ref{entropy_def}:
+\begin{eqnarray*}
+T &=& \frac{1}{\frac{dS}{dE}(E)}\\
+\frac{dS}{dE}(E) &=& \kb \frac{d\ln(\omega(E))}{dE} = \frac{1}{T}\\
+\ln(\omega(E_0+\Delta E)) &=& \ln(\omega(E_0))+\frac{\Delta E}{\kb T}\\
+\omega(E_0+\Delta E) &=& \omega(E_0)e^\frac{\Delta E}{\kb T}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{System im Wärmebad, kanonisches Ensembles}
+Wir rekapitulieren \ref{2_systems_microcanonic}
+\begin{eqnarray*}
+p_1(E_1,\Delta E_1) &=& \frac{\omega_1(E_1)\omega_2(E-E_1)}{\omega(E)}\Delta E_1=\sigma(E_1)\Delta E_1
+\end{eqnarray*}
+Wobei
+\begin{eqnarray*}
+\omega(E) &=& \int\omega_1(E_1)\omega_2(E-E_1)d E_1
+\end{eqnarray*}
+Das zweite System sei nun ein Wärmebad. Dann erhalten wir
+\begin{eqnarray*}
+\sigma(E_1)&=& \frac{\omega_1(E_1)\omega_2(E_0)e^{\frac{E-E_1-E_0}{\kb T}}}{\omega(E)}\\
+\omega(E) &=& \omega_2(E_0)\int\omega_1(E_1)e^{\frac{E-E_1-E_0}{\kb T}}dE_1
+\end{eqnarray*}
+Der Faktor $\omega_2(E_0)e^{\frac{E-E_0}{\kb T}}$ kürzt sich weg:
+\begin{eqnarray*}
+\sigma(E_1)&=& \frac{\omega_1(E_1)e^{\frac{-E_1}{\kb T}}}{\omega(E)}\\
+\omega(E) &=& \int\omega_1(E_1)e^{\frac{-E_1}{\kb T}}dE_1
+\end{eqnarray*}
+Die Abhängigkeit von der Gesamtenergie $E$ verschwindet (im Wärmebad)
+ebenso wie weitere Eigenschaften des Wärmebades außer seiner Temperatur $T$.
+Wer ersetzen $E_1$ durch $E$, ebenso $\omega(E)$  durch $Z(\beta)$ und $\omega_1$ durch $\omega$:
+\begin{eqnarray}
+\label{sigma_E_canonic}
+\sigma(E)&=& \frac{\omega(E)e^{\frac{-E}{\kb T}}}{Z\left(\frac{1}{\kb T}\right)}\\
+Z(\beta) &=& \int\omega(E)e^{-\beta E}dE
+\end{eqnarray}
+Die Funktion $Z(\beta)$ wird Zustandssumme genannt. Die Wahrscheinlichkeit das System in einem mikro-Zustand
+$(p,q)$ vorzufinden ist
+\begin{eqnarray*}
+p(p,q) &=& \frac{\sigma(E)}{\omega(E)}d\mu = \frac{e^{\frac{-E}{\kb T}}}{Z\left(\frac{1}{\kb T}\right)}d\mu
+=\rho(p,q)d\mu
+\end{eqnarray*}
+Die Zustandssumme kann auch so
+\begin{eqnarray*}
+Z(\beta) &=& \int e^{-\beta H(p,q)}d\mu
+\end{eqnarray*}
+geschrieben werden. Entsprechend wird
+\begin{eqnarray}
+\label{rho_beta_canonic}
+\rho(p,q,\beta) &=& \frac{e^{-\beta H(p,q)}}{Z(\beta)}
+\end{eqnarray}
+Eine Ensemble mit $N$ Zuständen und der Verteilung
+\begin{eqnarray*}
+n(p,q,\beta) &=& \rho(p,q,\beta)d\mu N
+\end{eqnarray*}
+heißt kanonisches Ensemble.
+\end{subsection}
+
+\begin{subsection}{Statistische Mittelwerte}
+Für die kanonische Wahrscheinlichkeits-Dichte $\sigma(\beta)$ (siehe \ref{sigma_E_canonic})
+\begin{eqnarray*}
+\sigma(\beta)&=& \frac{\omega(E)e^{-\beta E}}{Z(\beta)}\\
+Z(\beta) &=& \int\omega(E)e^{-\beta E}dE
+\end{eqnarray*}
+gilt
+\begin{eqnarray*}
+\sigma(E) &>& 0\\
+\int \sigma(E) dE &=& 1
+\end{eqnarray*}
+Es sei $A(E)$ eine beliebige Funktion der Energie. Dann definieren wir den Mittelwert oder Erwartungswert
+$\expect{A}$:
+\begin{eqnarray*}
+\expect{A} &=& \int A(E)\sigma(E) dE
+\end{eqnarray*}
+Für $\rho(p,q,\beta)$ (siehe \ref{rho_beta_canonic})
+\begin{eqnarray*}
+\rho(p,q,\beta) &=& \frac{e^{-\beta H(p,q)}}{Z(\beta)}
+\end{eqnarray*}
+gilt ebenso
+\begin{eqnarray*}
+\rho(p,q,\beta) &>& 0\\
+\int \rho(p,q,\beta) d\mu &=& 1
+\end{eqnarray*}
+Damit lassen sich Erwartungswerte von Funktionen, die von $(p,q)$ abhängen definieren:
+\begin{eqnarray*}
+\expect{A} &=& \int A(p,q)\rho(p,q,\beta) d\mu
+\end{eqnarray*}
+
+Ein wichtiger Fall ist der Erwartungswert der Energie $\expect{E}$:
+\begin{eqnarray}
+\label{E_expect}
+\expect{E} &=& \int E\rho(E) dE\cr
+&=&\frac{1}{Z(\beta)}\int E\omega(E)e^{-\beta E}dE\cr
+&=&\frac{-1}{Z(\beta)}\frac{d}{d \beta}\int \omega(E)e^{-\beta E}dE\cr
+&=&\frac{-1}{Z(\beta)}\frac{dZ}{d \beta}(\beta)\cr
+&=&-\frac{d}{d \beta}\ln(Z(\beta))
+\end{eqnarray}
+
+\end{subsection}
+
+\begin{subsection}{Entropie des kanonischen Ensembles}
+In \ref{entropy_def} haben wir die Entropie eines mikro-kanonischen Ensembles mit
+\begin{eqnarray*}
+S(E) &=& \kb \ln(\omega(E))+\kb \ln(\Delta E)
+\end{eqnarray*}
+definiert. Dieser Ausdruck kann auch anders interpretiert werde. Die \textbf{Phasenraum}-Wahrscheinlichkeitsdichte ist
+\begin{eqnarray*}
+\rho(E,\Delta E)&=&\frac{1}{\omega(E)\Delta E}
+\end{eqnarray*}
+und wir bilden den Erwartungswert für $-\kb \ln(\rho(E,\Delta E))$:
+\begin{eqnarray*}
+-\kb \expect{\ln(\rho(E,\Delta E))} &=& -\kb \int_E^{E+\Delta E} \ln(\rho(E,\Delta E)) \sigma(E,\Delta E)) dE\\
+&=& -\kb \ln(\rho(E,\Delta E)) \int_E^{E+\Delta E} \sigma(E,\Delta E)) dE\\
+&=& \kb \ln(\omega(E)\Delta E)\\
+&=& S(E,\Delta E)
+\end{eqnarray*}
+Für das kanonisch Ensemble definieren wir analog
+\begin{eqnarray*}
+S(\beta) &=& -\kb \expect*{\ln\left(\rho(p,q,\beta)\right)}
+\end{eqnarray*}
+als den Erwartungswert von $\expect{\ln(\rho(p,q,E))}$.
+Hier ist Vorsicht geboten. Es handelt sich hierbei um einen Erwartungswert über dem \textbf{Phasenraum} und es gilt:
+\begin{eqnarray*}
+\rho(p,q,E) &=& \frac{\sigma(E)}{\omega(E)}
+\end{eqnarray*}
+Es ergibt sich
+\begin{eqnarray}
+\label{S_canonic}
+S(\beta) &=& -\kb \expect*{\ln\left(\rho(p,q,\beta)\right)}\cr
+&=& -\kb \expect*{\ln(\sigma(E))-\ln(\omega(E))}\cr
+&=& \kb \expect*{\ln(\omega(E))}-\kb \expect*{\ln(\sigma(E))}
+\end{eqnarray}
+\end{subsection}
+
+\begin{subsection}{Ideales Gas im Wärmebad}
+Wir rekapitulieren \ref{ln_omega}:
+\begin{eqnarray*}
+S(N,V,E) &=& \ln(\omega(E))\cr
+&=& \kb\left( N \ln \left( \left(\frac VN\right) \left(\frac EN \right)^{\frac 32}\right)+ {\frac 32}N\left( {\frac 53}+ \ln\left(\frac{4\pi m}{3h^2}\right)\right)-\ln(E)\right)
+\end{eqnarray*}
+und setzen in \ref{sigma_E_canonic}
+\begin{eqnarray*}
+\sigma(E)&=& \frac{E^{\frac{3}{2}N-1}e^{-\beta E}\beta^{\frac{3}{2}N}}{\Gamma\left(\frac{3}{2}N\right)}
+\end{eqnarray*}
+Der Vorfaktor kürzt sich weg:
+\begin{eqnarray*}
+\sigma(E)&=& \frac{E^{\frac{3}{2}N-1}e^{-\beta E}}{Z\left(\beta\right)}\\
+Z(\beta) &=& \int_0^\infty E^{\frac{3}{2}N-1}e^{-\beta E}dE
+\end{eqnarray*}
+$Z(\beta)$ ist im Wesentlichen eine Gamma-Funktion. Wir substituieren $x=\beta E$:
+\begin{eqnarray}
+\label{ideal_canonic_sigma}
+Z(\beta) &=& \int_0^\infty E^{\frac{3}{2}N-1}e^{-\beta E}dE\cr
+&=& \int_0^\infty \frac{1}{\beta^{\frac{3}{2}N-1}}x^{\frac{3}{2}N-1}e^{-x}\frac{1}{\beta}dx
+=\frac{1}{\beta^{\frac{3}{2}N}}\int_0^\infty x^{\frac{3}{2}N-1}e^{-x}dx = \frac{1}{\beta^{\frac{3}{2}N}}\Gamma\left(\frac{3}{2}N\right)\cr
+\sigma(E)&=& \frac{E^{\frac{3}{2}N-1}e^{-\beta E}\beta^{\frac{3}{2}N}}{\Gamma\left(\frac{3}{2}N\right)}
+\end{eqnarray}
+Für die Entropie benutzen wir \ref{S_canonic}:
+\begin{eqnarray*}
+S(\beta) &=& \kb \expect*{\ln(\omega(E))}-\kb \expect*{\ln(\sigma(E))}\\
+\end{eqnarray*}
+$\ln(\omega(E))$ haben wir schon berechnet. Es bleibt $-\kb \expect*{\ln(\sigma(E))}$.
+$\sigma(E)$ ist eine $\Gamma$-Verteilung (siehe dazu Anhang \ref{gamma_distribution}):
+\begin{eqnarray*}
+\sigma(E) &=& \gamma_{\frac{3}{2}N,\beta}(E)
+\end{eqnarray*}
+Die informations-theoretische Entropie wurde wurde dort zu
+\begin{eqnarray*}
+S_{\gamma_{n,\beta}}&=& -\expect{\ln(\gamma_{n,\beta})}=-\ln(\beta)+\ln\left(\sqrt{2\pi n}\right)-\frac{1}{2}+\frac{1}{6n}...
+\end{eqnarray*}
+berechnet (siehe \ref{gamma_entropy_beta})
+also ist
+\begin{eqnarray*}
+-\expect*{\ln(\sigma(E))} &=& -\expect{\ln(\gamma_{\frac{3}{2}N,\beta})}=-\ln(\beta)+\ln\left(\sqrt{2\pi \frac{3}{2}N}\right)-\frac{1}{2}+\frac{1}{\frac{9}{2}N}...\\
+&=& \ln\left(\sqrt{2\pi \frac{3}{2}N}\kb T\right)-\frac{1}{2}+\frac{1}{\frac{9}{2}N}...
+\end{eqnarray*}
+Dies führt schließlich zur Entropie
+\begin{eqnarray}
+\label{canonic_ideal_entropy}
+S(N,V,T) &=&\kb\left( N \ln \left( \left(\frac VN\right) \left(\frac{E(T)}{N} \right)^{\frac 32}\right)+ {\frac 32}N\left( {\frac 53}+ \ln\left(\frac{4\pi m}{3h^2}\right)\right)-\ln(E(T))+\ln\left(\sqrt{2\pi \frac{3}{2}N}\kb T\right)-\frac{1}{2}\right)\cr
+\end{eqnarray}
+mit
+\begin{eqnarray*}
+E(T) &=& \frac{3}{2}\kb NT
+\end{eqnarray*}
+
+\end{subsection}
+
+\begin{subsection}{Ein Atom im Wärmebad}
+Wir setzen $N=1$:
+\begin{eqnarray*}
+\sigma(E)&=& \frac{(\beta E)^\frac{1}{2}e^{-\beta E}\beta}{\Gamma\left(\frac{3}{2}\right)}
+=\frac{\beta^\frac{3}{2}E^\frac{1}{2}e^{-\beta E}}{\frac{1}{2}\sqrt{\pi}}
+\end{eqnarray*}
+Die Wahrscheinlichkeit für $E\in]E_0,E_0+\Delta E]$ ist
+\begin{eqnarray*}
+p(E_0,\Delta E)&=& \frac{\beta^\frac{3}{2}E_0^\frac{1}{2}e^{-\beta E_0}}{\frac{1}{2}\sqrt{\pi}}\Delta E
+\end{eqnarray*}
+In dieser Energieschale gilt $E_0=\frac{1}{2}m|v_0|^2$. Ferner gilt $\Delta E=m|v_0|\Delta |v_0|$.
+Wir kürzen ab : $v_0=|v_0|$ und setzen ein:
+\begin{eqnarray*}
+p_v(p_0,\Delta v) &=& \frac{\beta^\frac{3}{2}\sqrt{\frac{1}{2}m}ve^{-\beta \frac{1}{2}mv_0^2}}{\frac{1}{2}\sqrt{\pi}}mv_0\Delta v\\
+&=& \sqrt{\frac{2}{\pi}}(\beta m)^\frac{3}{2}e^{-\beta \frac{1}{2}mv_0^2}v_0^2\Delta v
+\end{eqnarray*}
+Dies ist die Wahrscheinlichkeit das Atom mit einer Geschwindigkeit $v\in ]v_0,v_0+\Delta v]$ vorzufinden.
+Diese Geschwindigkeits-Verteilung heißt Maxwell-Boltzmann-Verteilung.
+\end{subsection}
+
+\begin{subsection}{Energie-Schwankung}
+Die Energie mit der höchsten Wahrscheinlichkeit wird bei
+\begin{eqnarray*}
+0 &=& \frac{d\sigma(E)}{dE}\\
+&=&\frac{1}{Z(\beta)}\frac{d}{dE}\left(\omega(E)e^{-\beta E}\right)\\
+&=&\frac{1}{Z(\beta)}\left(\frac{d\omega}{dE}(E)e^{-\beta E}-\omega(E)\beta e^{-\beta E}\right)
+\end{eqnarray*}
+erreicht. Also bei
+\begin{eqnarray*}
+\frac{d\omega}{dE}(E) &=& \beta\omega(E)\\
+\frac{d \ln(\omega(E))}{dE} &=& \beta = \frac{1}{\kb T}
+\end{eqnarray*}
+wie zu erwarten war. Wir interessieren uns aber für die zweite Ableitung an dieser Stelle:
+\begin{eqnarray*}
+\frac{d^2\sigma(E)}{dE^2}
+&=&\frac{d}{dE}\frac{1}{Z(\beta)}\left(\frac{d\omega}{dE}(E)e^{-\beta E}-\omega(E)\beta e^{-\beta E}\right)\\
+Z(\beta)\frac{d^2\sigma(E)}{dE^2} &=&\frac{d^2\omega}{dE^2}(E)e^{-\beta E}
+-2\frac{d\omega}{dE}(E)\beta e^{-\beta E}+\omega(E)\beta^2 e^{-\beta E}\\
+&=&\frac{d^2\omega}{dE^2}(E)e^{-\beta E}-\omega(E)\beta^2 e^{-\beta E}\\
+&=&\left(\frac{d^2\omega}{dE^2}(E)-\omega(E)\beta^2 \right)e^{-\beta E}
+\end{eqnarray*}
+Aus der Definition \ref{temperature_def} der Temperatur $T(E)$
+\begin{eqnarray*}
+T(E) &=& \frac{1}{\frac{dS}{dE}(E)}=\frac{1}{\kb }\frac{\omega(E)}{\frac{d\omega}{dE}(E)}
+\end{eqnarray*}
+erhalten wir:
+\begin{eqnarray*}
+\kb \frac{dT}{dE}(E) &=& \frac{d}{dE}\frac{\omega(E)}{\frac{d\omega}{dE}(E)}\\
+&=& \frac{\frac{d\omega}{dE}(E)}{\frac{d\omega}{dE}(E)}-\frac{\omega(E)\frac{d^2\omega}{dE^2}(E)}{\left(\frac{d\omega}{dE}(E)\right)^2}\\
+&=& 1 -\frac{\omega(E)\frac{d^2\omega}{dE^2}(E)}{\left(\beta\omega(E)\right)^2}\\
+&=& 1 -\frac{\frac{d^2\omega}{dE^2}(E)}{\beta^2\omega(E)}=\frac{\beta^2\omega(E)-\frac{d^2\omega}{dE^2}(E)}{\beta^2\omega(E)}
+\end{eqnarray*}
+$\frac{dT}{dE}(E)$ hat eine physikalische Interpretation:
+\begin{eqnarray*}
+\frac{dT}{dE}(E) &=& \frac{1}{\frac{dE}{dT}(T)}=\frac{1}{C_V(T)}
+\end{eqnarray*}
+Wobei $C_V(T)$ die Wärmekapazität (bei konstantem Volumen) ist. Wir erhalten damit:
+\begin{eqnarray*}
+\kb \frac{1}{C_V(T)} &=& \frac{\beta^2\omega(E)-\frac{d^2\omega}{dE^2}(E)}{\beta^2\omega(E)}
+\end{eqnarray*}
+oder
+\begin{eqnarray*}
+\kb \frac{\beta^2\omega(E)}{C_V(T)} &=& \beta^2\omega(E)-\frac{d^2\omega}{dE^2}(E)
+\end{eqnarray*}
+und deswegen weiter
+\begin{eqnarray*}
+Z(\beta)\frac{d^2\sigma(E)}{dE^2} &=&-\kb \frac{\beta^2\omega(E)}{C_V(T)}e^{-\beta E}
+\end{eqnarray*}
+und die zweite Ableitung wird
+\begin{eqnarray*}
+\frac{d^2\sigma(E)}{dE^2} &=&-\kb \frac{\beta^2\omega(E)}{Z(\beta)C_V(T)}e^{-\beta E}
+\end{eqnarray*}
+Weiter ist nach \ref{sigma_E_canonic}
+\begin{eqnarray*}
+\sigma(E)&=& \frac{\omega(E)e^{-\beta E}}{Z\left(\beta\right)}
+\end{eqnarray*}
+Setzt man dies ins Verhältnis
+\begin{eqnarray*}
+\frac{\frac{d^2\sigma(E)}{dE^2}}{\sigma(E)} &=&-\kb \frac{\beta^2\omega(E)}{Z(\beta)C_V(T)}e^{-\beta E}\frac{Z\left(\beta\right)}{\omega(E)e^{-\beta E}}
+=-\kb \frac{\beta^2}{C_V(T)}
+\end{eqnarray*}
+Womit wir die Taylor-Entwicklung um den Gleichgewichtspunkt $E(T)$:
+\begin{eqnarray*}
+\sigma(E(T)+\Delta E)&=& \frac{\omega(E(T))e^{-\beta E(T)}}{Z\left(\beta\right)}\left(1-\frac{\kb \beta^2\Delta E^2}{2C_V(T)}\right)
+\end{eqnarray*}
+erhalten. Der Ausdruck in der Klammer wird für
+\begin{eqnarray*}
+\Delta E^2&=& \frac{2C_V(T)}{\kb \beta^2}\\
+\Delta E&=& \sqrt{\frac{2C_V(T)}{\kb \beta^2}}
+\end{eqnarray*}
+gleich Null. Wir können den Ausdruck in der Klammern auch als Taylor-Entwicklung einer Gauß-Verteilung mit Varianz $\epsilon^2$ ansetzten:
+\begin{eqnarray*}
+\sigma(E+\Delta E)&=& \frac{\omega(E)e^{-\beta E(T)}}{Z\left(\beta\right)}e^{-\frac{\Delta E(T)^2}{2\epsilon^2}}\\
+\epsilon &=& \sqrt{\frac{C_V(T)}{\kb \beta^2}}=\sqrt{C_V(T)\kb T^2}=\sqrt{C_V(T)\kb }T
+\end{eqnarray*}
+Die Gauß-Verteilung lässt sich durch eine Taylor-Entwicklung von $\ln(\sigma(E))$ begründen:
+\begin{eqnarray*}
+\sigma(E)&=& \frac{\omega(E)e^{-\beta E}}{Z(\beta)}\\
+\ln(\sigma(E)) &=& \ln(\omega(E))-\beta E-\ln(Z(\beta))\\
+\ln(\sigma(E(T)+\Delta E)) &=& \ln(\omega(E(T)+\Delta E))-\beta (E(T)+\Delta E)-\ln(Z(\beta))\\
+&=& \frac{1}{\kb }S(E(T)+\Delta E)-\beta (E(T)+\Delta E)-\ln(Z(\beta))\\
+&=& \frac{1}{\kb }\left(S(E(T))+ S^\prime(E(T))\Delta E+\frac{1}{2}S^{\prime\prime}(E(T))\Delta E^2\right)-\beta (E(T)+\Delta E)-\ln(Z(\beta))\\
+&=& \frac{1}{\kb }\left(S(E(T))+ \frac{1}{T}\Delta E+\frac{1}{2}S^{\prime\prime}(E(T))\Delta E^2\right)-\beta (E(T)+\Delta E)-\ln(Z(\beta))\\
+&=& \frac{1}{\kb }\left(S(E(T))+\frac{1}{2}S^{\prime\prime}(E(T))\Delta E^2\right)-\beta E(T)-\ln(Z(\beta))\\
+&=& \ln(\omega(E(T)))+\frac{1}{\kb }\frac{1}{2}S^{\prime\prime}(E(T))\Delta E^2-\beta E(T)-\ln(Z(\beta))
+\end{eqnarray*}
+Wir werten noch $S^{\prime\prime}$ aus:
+\begin{eqnarray*}
+S^\prime(E) &=&\frac{1}{T(E)}\\
+S^{\prime\prime}(E) &=& -\frac{\frac{dT}{dE}(E)}{T(E)^2}=-\frac{1}{T(E)^2C_V(T)}\\
+S^{\prime\prime}(E(T)) &=& -\frac{1}{T^2C_V(T)}
+\end{eqnarray*}
+und setzen ein:
+\begin{eqnarray*}
+\ln(\sigma(E(T)+\Delta E)) &=& \ln(\omega(E(T)))-\frac{1}{\kb }\frac{1}{2}\frac{1}{T^2C_V(T)}\Delta E^2-\beta E(T)-\ln(Z(\beta))\\
+&=& \ln(\omega(E(T)))-\frac{\Delta E^2}{2\epsilon^2}-\beta E(T)-\ln(Z(\beta))\\
+\sigma(E(T)+\Delta E) &=& \frac{\omega(E(T))e^{-\beta E(T)}}{Z\left(\beta\right)}e^{-\frac{\Delta E^2}{2\epsilon^2}}\\
+&=& \frac{1}{\sqrt{2\pi}\epsilon}e^{-\frac{\Delta E^2}{2\epsilon^2}}
+\end{eqnarray*}
+Die Entropie wird dann
+\begin{eqnarray*}
+S(\beta) &=& -\kb \expect{\ln(\sigma(E)}=-\kb \expect*{-\ln(\sqrt{2\pi}\epsilon)-\frac{\Delta E^2}{2\epsilon^2}}\\
+&=&\kb \ln(\sqrt{2\pi}\epsilon)+\frac{\kb }{2\epsilon^2}\expect{\Delta E^2}\\
+&=&\kb \ln(\sqrt{2\pi}\epsilon)+\frac{\kb }{2}\\
+&=&\kb \ln\left(\sqrt{2\pi}\sqrt{C_V(T)\kb }T\right)+\frac{\kb }{2}
+\end{eqnarray*}
+\end{subsection}+
+\end{section}
+
+\begin{section}{Makroskopische, klassische Thermodynamik}
+\begin{subsection}{Makroskopische Systembeschreibung}
+Für ein makroskopisches System sei die Entropie $S(p_1,p_2,U)$ gegeben. Die Parameter $p_1$, $p_2$ beschreiben Systemparameter. Für ein Gas aus eine Teilchensorte
+sind dies die Anzahl $N$ der Teilchen ausgedrückt in Mol ($N_An=N$) und das Volumen $V$, also $S(n,V,U)$. Die \textbf{innere Energie} $U$ tritt \textbf{immer} als Parameter auf, und ist gleich dem statistischen Erwartungswert $U=\expect{H(p,q)}$.
+\begin{subsubsection}{Ideales Gas}
+Für ein ideales Gas bedeutet dies im speziellen (siehe \ref{canonic_ideal_entropy}):
+\begin{eqnarray*}
+S(N,V,U) &=&\kb\left( N \ln \left( \left(\frac VN\right) \left(\frac{U}{N} \right)^{\frac 32}\right)+ {\frac 32}N\left( {\frac 53}+ \ln\left(\frac{4\pi m}{3h^2}\right)\right)-\ln(U)+\ln\left(\sqrt{2\pi \frac{3}{2}N}\kb T(U)\right)-\frac{1}{2}\right)
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+T(U) &=& \frac{U}{ \frac{3}{2}N\kb}= \frac{U}{ \frac{3}{2}nR}
+\end{eqnarray*}
+Für praktische Zwecke werden wir im folgenden
+\begin{eqnarray*}
+S(N,V,U) &=&\kb\left( N \ln \left( \left(\frac VN\right) \left(\frac{U}{N} \right)^{\frac 32}\right)\right)
+\end{eqnarray*}
+verwenden.
+Ersetzen wir $N=N_An$ erhalten wir
+\begin{eqnarray*}
+S(n,V,U) &=&\kb N_A\left( n \ln \left( \left(\frac {V}{nN_A}\right) \left(\frac{U}{nN_A} \right)^{\frac 32}\right)\right)\\
+&=&nR \ln \left( \left(VU^\frac{3}{2}\left(nN_A\right)^{-\frac{5}{2}}\right)\right)\\
+&=&nR \left( \ln(V)+\frac{3}{2}\ln(U)-\frac{5}{2}\ln(nN_A)\right)\\
+\end{eqnarray*}
+Abgeleitet nach der inneren Energie $U$:
+\begin{eqnarray*}
+\frac{\partial S}{\partial U}(n,V,U) &=& \frac{3}{2}\frac{nR}{U}=\frac{3}{2}\frac{Rn}{T(U)\frac{3}{2}nR}=\frac{1}{T(U)}
+\end{eqnarray*}
+\end{subsubsection}
+\end{subsection}
+
+
+\begin{subsection}{Hauptsätze der Thermodynamik}
+\begin{subsubsection}{1. Hauptsatz: Energie-Erhaltung}
+In einem \textbf{abgeschlossenen} System verändert sich die Gesamt-Energie \textbf{nicht}.
+\end{subsubsection}
+\begin{subsubsection}{2. Hauptsatz: Zunahme der Entropie}
+In einem abgeschlossenen System kann die Gesamt-Entropie \textbf{nicht} abnehmen..
+\end{subsubsection}
+\end{subsection}
+
+
+\begin{subsection}{Systeme in thermischem Kontakt, Temperatur}
+Es seien zwei Systeme $S_1(U_1)$ und $S_2(U_2)$ gegeben. Die Gesamtenergie ist $E=U_1+U_2$. Diese werden in thermischen Kontakt gebracht, die einen Energie-Austausch $\Delta E$ ermöglicht. Dann ist die Gesamtentropie:
+\begin{eqnarray*}
+S(E,U_1) &=& S_1(U_1)+S_2(E-U_1)
+\end{eqnarray*}
+Die maximale Entropie wird bei
+\begin{eqnarray*}
+\frac{\partial S}{\partial U_1}(E,U_1) &=& \frac{\partial S_1}{\partial U_1}(U_1)-\frac{\partial S_2}{\partial U_2}(E-U_1)\\
+\frac{\partial S_1}{\partial U_1}(U_1) &=& \frac{\partial S_2}{\partial U_2}(E-U_1)
+\end{eqnarray*}
+angenommen.
+Wir \textbf{definieren} die Temperatur $(T(U))$
+\begin{eqnarray*}
+T(p_1,p_2,U) &=& \frac{1}{\frac{\partial S}{\partial U}(p_1,p_2,U)}
+\end{eqnarray*}
+Dadurch kann die Gleichgewichts-Bedingung auch so geschrieben werden:
+\begin{eqnarray*}
+\frac{1}{T_1(U_1)} &=& \frac{1}{T_2(E-U_1)}\\
+T_1(U_1) &=& T_2(E-U_1)
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Wärmebad}
+Ein Wärmebad $S_{ext}(U)$ zeichnest sich dadurch aus, dass seine Temperatur $T(U)$ nicht von der inneren Energie $U$ abhängt. In anderen Worten
+\begin{eqnarray*}
+\frac{\partial S_{ext}}{\partial U}(U) = \frac{1}{T_{ext}}
+\end{eqnarray*}
+ist konstant und es muss gelten:
+\begin{eqnarray*}
+S_{ext}(U_0+\Delta Q) = \frac{\Delta Q}{T_{ext}}+S_0
+\end{eqnarray*}
+Wobei $\Delta Q$ die dem Wärmebad zugeführte \textbf{Wärme}(-Energie) ist.
+\end{subsection}
+
+\begin{subsection}{Systeme im Wärmebad}
+Ein beliebiges System $S(U)$ befinde sich im Kontakt mit einem Wärmebad der Temperatur $T_{ext}$. Anfänglich sei die innere Energie des
+Wärmebades $U_{ext0}$ und $U=U_0$. Da es sich bei den Gesamtsystem (inklusive Wärmebad) um eine abgeschlossenes System handelt, bleibt die Energie erhalten.
+Das heißt
+\begin{eqnarray*}
+U_{ext} &=& U_{ext0}+\Delta Q\\
+U &=& U_0-\Delta Q
+\end{eqnarray*}
+Die Gesamt-Entropie ist
+\begin{eqnarray*}
+S(\Delta Q) &=& S(U_0-\Delta Q)+\frac{\Delta Q}{T_{ext}}+S_0
+\end{eqnarray*}
+Das Maximum wird bei
+\begin{eqnarray*}
+0=\frac {dS}{d\Delta Q}(\Delta Q) &=& -\frac{dS}{dU}(U_0-\Delta Q)+\frac{1}{T_{ext}}
+\end{eqnarray*}
+angenommen. Das heißt, das System $S(U)$ nimmt die Umgebungstemperatur $T_{ext}$ an, denn
+\begin{eqnarray*}
+\frac{dS}{dU}(U)=\frac{1}{T(U)}&=&\frac{1}{T_{ext}}
+\end{eqnarray*}
+Anstelle der maximalen Entropie, kann auch das Minimum der helmholtzschen freien Energie $F(U,T_{ext})$ gefordert werden:
+\begin{eqnarray*}
+F(U,T_{ext}) &=& U-T_{ext}S(U)\\
+\frac{\partial F}{\partial U}(U,T_{ext}) &=& 1-T_{ext}\frac{\partial S}{\partial U}(U)=1-\frac{T_{ext}}{T(U)}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Systeme unter Druck}
+Ein System $S(V_0,U_0)$ steht unter Druck $p_{ext}$. Die Gesamtenergie zum Ausgangszeitpunkt ist $E_{tot}= U_0+p_{ext}V_0$. Diese bleibt unverändert.
+somit gilt:
+\begin{eqnarray*}
+E_{tot} &=& U+p_{ext}(V-V_0)\\
+U &=& E_{tot}-p_{ext}(V-V_0)
+\end{eqnarray*}
+und die Entropie wird
+\begin{eqnarray*}
+S(V) &=& S(V,U_{tot}-p_{ext}(V-V_0))
+\end{eqnarray*}
+und das Maximum liegt bei
+\begin{eqnarray*}
+\frac{dS}{dV}(V) &=& \frac{\partial S}{\partial V}(V,E_{tot}-p_{ext}(V-V_0))-p\frac{\partial S}{\partial U}(V,E_{tot}-p_{ext}(V-V_0))\\
+\frac{\partial S}{\partial V}(V,E_{tot}-p_{ext}(V-V_0)) &=& \frac{p_{ext}}{T(V,E_{tot}-p_{ext}(V-V_0))}
+\end{eqnarray*}
+Am Gleichgewichtspunkt $V,U=E_{tot}-p_{ext}(V-V_0)$ ist der Innendruck gleich dem Außendruck $p$ und es gilt:
+\begin{eqnarray*}
+p(V,U) &=& T(V,U)\frac{\partial S}{\partial V}(V,U)
+\end{eqnarray*}
+Für das ideale Gas gilt:
+\begin{eqnarray*}
+\frac{\partial S}{\partial V}(V,U) &=& \frac{nR}{V}\\
+p(V,E) &=& T\frac{nR}{V}\\
+pV &=& nRT
+\end{eqnarray*}
+Das letzte ist die Zustandsgleichung \ref{ideal_gas_state_eqn} des Idealen Gases.
+\end{subsection}
+
+\begin{subsection}{Systeme unter gegebenen Umgebungs-Bedingungen}
+Die Umgebung sei durch eine Temperatur $T_{ext}$ und einen Druck $p_{ext}$ gegeben. Initial sei $V_0$ und $U_0$ eines Systems $S(V,U)$
+sowie die Umgebungs-Entropie $S_{ext0}$ des Wärmebades gegeben. Nun wird ein thermischer Kontakt mit dem umgebenden Wärmebad hergestellt
+und der Druckausgleich ermöglicht. Das Gesamtsystem ist abgeschlossen und es gilt die Energie-Erhaltung:
+\begin{eqnarray*}
+0 &=& (U-U_0)+p_{ext}(V-V_0)+\Delta Q\\
+\Delta Q &=& -(U-U_0)-p_{ext}(V-V_0)
+\end{eqnarray*}
+Die Gesamt-Entropie ergibt sich zu
+\begin{eqnarray*}
+S_{tot}(V,U) &=& S(V,U)+\frac{\Delta Q}{T_{ext}}+S_{ext0}\\
+&=& S(V,U)-\frac{(U-U_0)-p_{ext}(V-V_0)}{T_{ext}}+S_{ext0}\\
+&=& S(V,U)-\frac{U-p_{ext}V}{T_{ext}}+\frac{U_0-p_{ext}V_0}{T_{ext}}+S_{ext0}
+\end{eqnarray*}
+Um die maximale Entropie zu finden können die konstanten Beiträge ignoriert werden. Da auch die Temperatur $T_{ext}$ konstant ist,
+können wir auch das Maximum von
+\begin{eqnarray*}
+T_{ext}S_{tot}(V,U) &=& T_{ext}S(V,U)-U-p_{ext}V
+\end{eqnarray*}
+oder das Minimum von
+\begin{eqnarray*}
+G(V,U) = -T_{ext}S_{tot}(V,U) &=& U+p_{ext}V-T_{ext}S(V,U)
+\end{eqnarray*}
+bestimmen. $G(V,U,p_{ext},T_{ext})$ heißt die Gibbs-Energie oder freie Enthalpie.
+Es gilt:
+\begin{eqnarray*}
+\frac{\partial G}{\partial V}(V,U) &=& p_{ext}-T_{ext}\frac{\partial S}{\partial V}(V,U) =0\\
+T_{ext}\frac{\partial S}{\partial V}(V,U) &=& p_{ext}\\
+\frac{\partial G}{\partial U}(V,U) &=& 1-T_{ext}\frac{\partial S}{\partial U}(V,U)=0\\
+\frac{1}{\frac{\partial S}{\partial U}(V,U)} &=& T_{ext}
+\end{eqnarray*}
+\end{subsection}
+\end{section}
+
+\begin{section}{Carnot-Kreisprozess, Kühlschränke, Wärmepumpen und Kraftwerke}
+\begin{subsection}{Idealisierte Prozesse}
+\begin{subsubsection}{Adiabatische Expansion/Kompression}
+Wird ein Gas, beschrieben durch $S(V,U)$, komprimiert, ohne dass dabei ein Wärmeaustausch mit der Umgebung stattfindet, dann wird dadurch
+die Entropie des Gases nicht verändert, denn es handelt sich um einen reversiblen Prozess. Das heißt,
+\begin{eqnarray*}
+dS(V,U) &=& \frac{\partial S}{\partial V}dV+\frac{\partial S}{\partial U}dU = 0\\
+\frac{\partial S}{\partial U}dU &=& -\frac{\partial S}{\partial V}dV\\
+\frac{1}{T(V,U)}dU &=& -\frac{p(V,U)}{T(V,U)}dV\\
+dU &=& -p(V,U)dV
+\end{eqnarray*}
+Bei einer Kompression ist $dV<0$ und $dU>0$. Bei einem Idealen Gas ist die Temperatur $T(V,U)=\frac{2}{3}\frac{U}{nR}$ vom Volumen unabhängig und die Temperatur nimmt mit steigender innerer Energie zu. Das heißt, bei der adiabatischen Kompression nimmt die Temperatur zu.
+\end{subsubsection}
+
+\begin{subsubsection}{Isotherme Expansion/Kompression}
+Bei der isothermen Kompression bleibt das System mit einem Wärmebad der Temperatur $T_{ext}$ verbunden. Das heißt, die Temperatur bleibt unverändert.
+Eine isotherme Kompression kann als eine Folge von adiabatischen Kompressionen bei der sich die Temperatur des Gases erhöht, gefolgt von einer Phase bei der der Wärmekontakt dafür sorgt, dass dich das Gas wieder auf die Temperatur $T_{ext}$ abkühlt. Da die innere Energie eines idealen Gases nur von der Temperatur abhängt,
+nimmt diese nicht zu - die Kompressions-Arbeit wird vollständig als Wärme $\Delta Q$ an das Wärmebad abgegeben. Die Entropie des Wärmebades steigt dabei um $\frac{\Delta Q}{T_{ext}}$ zu. Auch die isotherme Expansion ist ein reversibler Prozess: bei der isothermen Expansion wird die Wärmemenge dem Wärmebad entzogen und in mechanische Arbeit umgewandelt.
+\end{subsubsection}
+\end{subsection}
+
+\begin{subsection}{Carnot-Prozess als Wärmepumpe}
+\begin{subsubsection}{Der Carnot-Prozess}
+Dieser besteht aus vier Phasen:
+\begin{enumerate}
+	\item Ausgehend von einem Zustand $(V_1,U_1)$ der kalten Temperatur $T_K=T(V_1,U_1)$ wird das Gas adiabatisch komprimiert bis eine heiße Temperatur $T_H=T(V_2,U_2)$ erreicht wird.
+	\item Ausgehend von $(V_2,U_2)$ wird isotherm komprimiert und ein Zustand $(V_3, U_3)$ erreicht. Dabei wird eine Wärmemenge $\Delta Q_{23}$ an ein Wärmebad der Temperatur $T_H$ abgegeben.
+	\item Ausgehend von $(V_3,U_3)$ wird adiabatisch expandiert bis wieder die kalte Temperatur $T(V_4,U_4)=T_K$ erreicht wird.
+	\item Schließlich wird  isotherm expandiert bis das Volumen $V_1$ und somit der Ausgangszustand $(V_1,U_1)$ erreicht wird. Dabei wird eine Wärmemenge $-\Delta Q_{41}$ dem Wärmebad der Temperatur $T_K$ entzogen.
+\end{enumerate}
+\end{subsubsection}
+
+\begin{subsubsection}{Energie-Erhaltung}
+Wir bezeichnen die dem System durch Kompressionen und Expansionen zugeführte Energie mit $\Delta W$. Die vom System an die Wärmebäder abgegebenen Wärmemengen
+bezeichnen wir mit $\Delta Q_H$ und $\Delta_K$. es gilt:
+\begin{eqnarray*}
+\Delta W &=& \Delta Q_H+\Delta Q_H
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Entropie-Erhaltung}
+Die vom System an die Wärmebäder abgegebene Entropien sind $\Delta S_H=\frac{\Delta Q_H}{T_H}$ und $\Delta S_K=\frac{\Delta Q_K}{T_K}$. Es gilt:
+\begin{eqnarray*}
+\Delta S &=& \Delta S_H+\Delta S_K = \frac{\Delta Q_H}{T_H}+\frac{\Delta Q_K}{T_K} = 0
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Wirkungsgrad}
+Für eine Wärmepumpe ist $\Delta Q_H>0$ und $\Delta S_H = \frac{\Delta Q_H}{T_H}>0$.
+Ferner gilt $\Delta S_K=-\Delta S_H$ und somit $\Delta Q_K=-\Delta S_HT_K<0$.
+Daher ist die Energie-Bilanz:
+\begin{eqnarray*}
+\Delta W &=& \Delta Q_H+\Delta Q_K\\
+&=& \Delta Q_H-\Delta S_HT_K\\
+&=& \Delta Q_H-\frac{\Delta Q_HT_K}{T_H}\\
+&=& \Delta Q_H\left(1-\frac{T_K}{T_H}\right)
+\end{eqnarray*}
+Da nun aber $T_K<T_H$ ist, ist $\Delta W>0$. Als Wirkungsgrad eine Wärmepumpe wird das Verhältnis $COP=\frac{\Delta Q_H}{\Delta W}$.
+$COP$ steht für 'coefficient of performance'.
+\begin{eqnarray*}
+COP_{carnot} &=& \frac{\Delta Q_H}{\Delta W} = \frac{1}{1-\frac{T_K}{T_H}}=\frac{T_H}{T_H-T_K}
+\end{eqnarray*}
+$COP_{carnot}$ ist immer größer wie 1. Reale Wärmepumpen erreichen einen Wirkungsgrad von ca. $COP=COP_{carnot}*0.5$.
+Wirkungsgrade $COP<1$ sind sinnlos, denn eine Elektro-Heizung hat einen Wirkungsgrad von 1. Für eine Temperatur von 60° Celsius $T_H=60+273.15=333.15$
+muss $COP_{carnot}>2$ sein damit $COP>1$ erreicht werden kann:
+\begin{eqnarray*}
+\frac{1}{1-\frac{T_K}{T_H}} &>& 2\\
+1-\frac{T_K}{T_H} &<& 0.5\\
+-\frac{T_K}{T_H} &<& -0.5\\
+\frac{T_K}{T_H} &>& 0.5\\
+T_K &>& \frac{T_H}{2}=\frac{333.15}{2}=166.575=-106.575+273.15\\
+\end{eqnarray*}
+Eine Mindest-Temperatur $T_K$ von -106.575° Celsius ist praktisch immer gegeben. Für eine Kalt-Temperatur von 10° Celsius ergibt sich in der Praxis
+ein Wirkungsgrad von:
+\begin{eqnarray*}
+COP &=& \frac{COP_{carnot}}{2} = \frac{\frac{1}{2}}{1-\frac{283.15}{333.15}}=6.663/2=3.3315
+\end{eqnarray*}
+Ist $T_H$ hingegen 30° Celsius, dann ergibt sich
+\begin{eqnarray*}
+COP &=& \frac{COP_{carnot}}{2} = \frac{\frac{1}{2}}{1-\frac{283.15}{303.15}}=-15.1575/2=15.1575
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Kühlschränke und Klima-Anlagen}
+Auch Kühlschränke und Klima-Anlagen sind Wärmepumpen. Der Unterschied besteht lediglich darin dass der Fokus auf den Entzug von Wärme am Kalten Ende der Wärmepumpe
+gelegt wird. Je tiefer die Umgebungstemperatur ist, an die Wärme abgegeben wird, desto effizienter der Prozess.
+\end{subsubsection}
+\end{subsection}
+
+\begin{subsection}{Thermische Kraftwerke}
+Um aus Wärme mechanische und schließlich elektrische Energie zu erzeugen, muss der oben beschriebene Carnot-Prozess rückwärts betrieben werden. Dies ist möglich,
+das alle beteiligten Prozesse reversibel sind. Dabei ist $\Delta Q_H < 0$. Auch ist die gewonnene mechanische Energie $-\Delta W$ der Wirkungsgrad $\eta$ einer Wärme-Kraft-Maschine ist durch
+\begin{eqnarray*}
+\eta_{carnot} = \frac{\Delta W}{\Delta Q_H} = 1-\frac{T_K}{T_H}
+\end{eqnarray*}
+Er ist das inverse zu $COP$ einer Wärmepumpe. Daher ist $\eta$ immer kleiner als 1.
+$\eta $ wird größer, wenn $T_K$ kleiner wird und wenn $T_H$ größer wird.
+In jedem Fall muss die Wärme $\Delta Q_K=\Delta Q_H\frac{T_H}{T_K}>\Delta Q_H$ bei der Umgebungs-Temperatur $T_K$ abgegeben werden.
+\end{subsection}
+\end{section}
+
+\ifx\makebook\undefined
+\begin{appendix}
+\fi
+\begin{section}{Phasenraumdichte gekoppelter Systeme}
+\label{omega_fold}
+Wir rekapitulieren \ref{omega_def}:
+\begin{eqnarray*}
+\Phi(E_0,\Delta E) &=& \{ (p,q) | E_0 \le H(p,q) < E_0+\Delta E\}\\
+V(E_0,\Delta E) &=& V(\Phi(E_0,\Delta E) = \omega(E_0)\Delta E
+\end{eqnarray*}
+$V(\Phi)$ bedeutet das Volumen eine Phasenraum-Gebietes $\Phi$.
+Wir definieren:
+\begin{eqnarray*}
+\Xi(E) &=& \{ (p,q) | H(p,q) < E\}\\
+\mathcal{V}(E) &=& V(\Xi(E))
+\end{eqnarray*}
+Dann ist
+\begin{eqnarray*}
+\Phi(E_0,\Delta E) &=& \Xi(E_0+\Delta E)\backslash \Xi(E_0+\Delta E)\\
+V(E_0,\Delta E) &=& V(\Phi(E_0,\Delta E)) = V(\Xi(E_0+\Delta E)\backslash \Xi(E_0+\Delta E))\\
+&=& V(\Xi(E_0+\Delta E)-V(\Xi(E_0)
+\end{eqnarray*}
+und für kleine $\Delta E$:
+\begin{eqnarray*}
+V(E_0,\Delta E) &=& V(\Xi(E_0+\Delta E)-V(\Xi(E_0) = \Delta E\frac{d}{dE}V(\Xi(E_0)) = \omega(E_0)\Delta E
+\end{eqnarray*}
+elso
+\begin{eqnarray*}
+\omega(E) &=& \frac{d}{dE}V(\Xi(E_0)) = \frac{d\mathcal{V}}{dE}(E)
+\end{eqnarray*}
+Nun betrachten wir zwei Systeme:
+\begin{eqnarray*}
+\Xi_1(E_1) &=& \{ (p_1,q_1) | H_1(p_1,q_1) < E_1\}\\
+\Xi_2(E_2) &=& \{ (p_2,q_2) | H_2(p_2,q_2) < E_2\}
+\end{eqnarray*}
+Für das gekoppelte System gilt:
+\begin{eqnarray*}
+\Xi(E) &=& \{ (p_1,q_1),(p_1,q_1) | H_1(p_1,q_1)+H_2(p_2,q_2) < E\}
+\end{eqnarray*}
+Wir definieren nun zwei Mengen $\Xi_+(E,\Delta E)$ und $\Xi_-(E,\Delta E)$ mit der Eigenschaft
+\begin{eqnarray*}
+\Xi(E) &\subset& \Xi_+(E,\Delta E)\\
+\Xi_-(E,\Delta E)&\subset& \Xi(E)
+\end{eqnarray*}
+und zwar so:
+\begin{eqnarray*}
+\Xi_+(E,\Delta E) &=& \bigcup_k \Xi_1(E-k\Delta E)\times \Phi(k\Delta E,\Delta E)\\
+\Xi_-(E,\Delta E) &=& \bigcup_k \Xi_1(E-(k+1)\Delta E)\times \Phi(k\Delta E,\Delta E)
+\end{eqnarray*}
+Es ergibt sich weiter:
+\begin{eqnarray*}
+V(\Xi_+(E,\Delta E)) &=& \sum_k V(\Xi_1(E-k\Delta E))V(\Phi(k\Delta E,\Delta E))\\
+&=& \sum_k \mathcal{V}_1(E-k\Delta E)\omega_2(k\Delta E)\Delta E\\
+V(\Xi_-(E,\Delta E)) &=& \sum_k V(\Xi_1(E-(k+1)\Delta E))V(\Phi(k\Delta E,\Delta E))\\
+&=& \sum_k \mathcal{V}_1(E-(k+1)\Delta E)\omega_2(k\Delta E)\Delta E
+\end{eqnarray*}
+Beim Übergang $\Delta E\rightarrow dE=0$ wird daraus:
+\begin{eqnarray*}
+V(\Xi_+(E,d E)) &=&\sum_k \mathcal{V}_1(E-k\Delta E)\omega_2(k\Delta E)\Delta E\\
+&=& \int \mathcal{V}_1(E-E_2)\omega_2(E_2)dE_2\\
+V(\Xi_-(E,d E)) &=&\sum_k \mathcal{V}_1(E-(k+1)\Delta E)\omega_2(k\Delta E)\Delta E\\
+&=& \int \mathcal{V}_1(E-E_2-dE_2)\omega_2(E_2)dE_2
+\end{eqnarray*}
+und es ergibt sich:
+\begin{eqnarray*}
+\mathcal{V}(E) = V(\Xi(E)) &=& \int \mathcal{V}_1(E-E_2)\omega_2(E_2)dE_2
+\end{eqnarray*}
+und schließlich
+\begin{eqnarray*}
+\omega(E) &=& \frac{d\mathcal{V}}{dE}(E) = \frac{d}{dE}\int \mathcal{V}_1(E-E_2)\omega_2(E_2)dE_2\\
+&=& \int \frac{d\mathcal{V}_1}{dE}(E-E_2)\omega_2(E_2)dE_2\\
+&=& \int \omega_1(E-E_2)\omega_2(E_2)dE_2
+\end{eqnarray*}
+
+\end{section}
+
+\begin{section}{\titlemath{$\Gamma$}-Verteilung}
+\label{gamma_distribution}
+\begin{subsection}{Definition}
+Die $\Gamma$-Funktion ist wie folgt definiert:
+\begin{eqnarray*}
+\Gamma(n) &=& \int_0^\infty x^{n-1}e^{-x}dx
+\end{eqnarray*}
+Daher ist
+\begin{eqnarray*}
+\gamma n(x) &=& \frac{x^{n-1}e^{-x}}{\Gamma(n)}
+\end{eqnarray*}
+eine Wahrscheinlichkeits-Verteilung, denn es gilt:
+\begin{eqnarray*}
+\gamma_n(x) &\ge& 0\\
+\int_0^\infty \rho(x) dx &=& 1
+\end{eqnarray*}
+Oft wird auch eine skalierte Version ($\beta y=x$) benutzt :
+\begin{eqnarray*}
+\Gamma(n) &=& \int_0^\infty \left(y\beta\right)^{n-1}e^{-\beta y}\beta dy
+=\beta^n\int_0^\infty y^{n-1}e^{-\beta y}dy
+\end{eqnarray*}
+Daher ist auch
+\begin{eqnarray*}
+\gamma_{n,\beta}(x) &=& \beta^n\frac{x^{n-1}e^{-\beta x}}{\Gamma(n)}
+\end{eqnarray*}
+eine Wahrscheinlichkeits-Verteilung.
+\end{subsection}
+
+\begin{subsection}{Maximum}
+Stationäre Punkte von $\gamma_n(x)$ liegen bei den Lösungen von
+\begin{eqnarray*}
+0 &=& \frac{d}{dx}\gamma_n(x)\\
+&=& \frac{(n-1)x^{n-2}e^{-x}-x^{n-1}e^{-x}}{\Gamma(n)}\\
+x_0 &=& n-1
+\end{eqnarray*}
+Es gibt also genau ein Maximum bei $x_n-1$.
+Für die skalierte Version ist ($x\rightarrow\beta x$) gilt
+\begin{eqnarray*}
+x_0 &=& \frac{n-1}{\beta}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Erwartungswerte}
+Für eine beliebige (anständige) Funktion $f(x)$ ist der Erwartungswert
+\begin{eqnarray*}
+\expect{f} &=& \int_0^\infty f(x)\gamma(x) dx
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Erwartungswerte von Polynomen und Reihen}
+Für im Intervall $[0,\infty[$ konvergente Reihen (inklusive Polynome)
+\begin{eqnarray*}
+p(x) &=& \sum_{k=0}^\infty c_kx^k
+\end{eqnarray*}
+gilt:
+\begin{eqnarray*}
+\expect{p} &=& \sum_{k=0}^\infty c_k\expect{x^k}
+\end{eqnarray*}
+Weiter ist
+\begin{eqnarray*}
+\expect{x^m} &=& \int_0^\infty x^m\gamma_n(x) dx\\
+&=& \int_0^\infty x^m\frac{x^{n-1}e^{-x}}{\Gamma(n)} dx
+=\frac{1}{\Gamma(n)}\int_0^\infty x^{n+m-1}e^{-x} dx\\
+&=&\frac{\Gamma(n+m)}{\Gamma(n)} = (n+m-1)(n+m-2)...(n+1)n
+\end{eqnarray*}
+Für $m=1$ haben wir
+\begin{eqnarray*}
+\expect{x} &=& \frac{\Gamma(n+1)}{\Gamma(n)}=n
+\end{eqnarray*}
+und für $m=2$ ergibt sich
+\begin{eqnarray*}
+\expect{x^2} &=& \frac{\Gamma(n+2)}{\Gamma(n)}=(n+1)n
+\end{eqnarray*}
+Die Standartabweichung ist demnach
+\begin{eqnarray*}
+\sigma^2 &=& \expect{x^2-\expect{x}^2} = (n+1)n-n^2 = n
+\end{eqnarray*}
+Für die skalierte Verteilung $\gamma_{n\beta}$ gilt analog
+\begin{eqnarray*}
+\sigma^2 &=& \frac{n}{\beta^2}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Entropie}
+Die allgemeine \textbf{informations-theoretische} Entropie einer Verteilung $\rho(x)$ ist gleich $\expect{\ln(\rho}$.
+Für die $\Gamma$-Verteilung ist dies
+\begin{eqnarray*}
+S_{\gamma_n} &=& \expect{-\ln(\gamma_n(.))}=-\int_0^\infty \ln(\gamma_n(x))\gamma(x)dx\\
+&=& \int_0^\infty \left(-(n-1)\ln(x)+x+\ln\left(\Gamma(n)\right)\right)\frac{x^{n-1}e^{-x}}{\Gamma(n)}dx\\
+&=& -(n-1)\expect{\ln(.)}+\expect{x}+\Gamma(n)\\
+&=& -(n-1)\expect{\ln(.)}+n+\Gamma(n)
+\end{eqnarray*}
+Ganz allgemein gilt für skalierte Verteilungen $\rho^\prime(x)= \beta \rho(\beta x)$
+\begin{eqnarray*}
+S_{\rho^\prime} &=& -\int \ln(\rho^\prime(x))dx\\
+&=& -\int \ln (\beta \rho(\beta x))\beta \rho(\beta x)dx\\
+&=& -\int \ln (\beta \rho(x))\rho(x)dx\\
+&=& \expect{-\ln(\beta \rho(x))}\\
+&=& -\ln(\beta) - \expect{\ln(\rho(x)}\\
+&=& -\ln(\beta) + S_{\rho}
+\end{eqnarray*}
+Das Problem reduziert also auf $\expect{\ln(\gamma_n(.))}$:
+\begin{eqnarray*}
+\expect{\ln(\gamma_n(.))} &=& \int_0^\infty \ln\left(\frac{x^{n-1}e^{-x}}{\Gamma(n)}\right)\frac{x^{n-1}e^{-x}}{\Gamma(n)}dx\\
+&=& -\ln(\Gamma(n))+\int_0^\infty \left((n-1)\ln(x) -x\right)\gamma_n(x)dx\\
+&=& -\ln(\Gamma(n))+(n-1)\int_0^\infty \ln(x)\gamma_n(x)dx-n\\
+&=& -\ln(\Gamma(n))+(n-1)\expect{\ln(x)}-n\\
+\expect{\ln(x)} &=& \int_0^\infty \ln(x)\frac{x^{n-1}e^{-x}}{\Gamma(n)}dx
+\end{eqnarray*}
+Wir entwickeln um den Erwartungswert $\expect{x} = n$ indem wir $x = n+y$ einsetzen:
+\begin{eqnarray*}
+\expect{\ln(x)} &=& \int_{-n}^\infty \ln\left(n+y\right)\frac{\left(n+y\right)^{n-1}e^{-\left(n+y\right)}}{\Gamma(n)}dy
+\end{eqnarray*}
+Wir benutzen nun die Taylorreihe für $\ln(1+x)$:
+\begin{eqnarray*}
+\ln(1+x) &=& x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}...=\sum_{k=1}^\infty -(-1)^k\frac{x^k}{k}\\
+\expect{\ln(x)} &=& \int_{-n}^\infty \left( \ln(n)+\ln\left(1+\frac{y}{n}\right)\right)\frac{\left(n+y\right)^{n-1}e^{-\left(n+y\right)}}{\Gamma(n)}dy\\
+&=& \int_{-n}^\infty \left( \ln(n)+\sum_{k=1}^\infty-(-1)^k\frac{1}{k}\left(\frac{y}{n}\right)^k\right)\frac{\left(n+y\right)^{n-1}e^{-\left(n+y\right)}}{\Gamma(n)}dy
+\end{eqnarray*}
+und transformieren zurück ($y=x-n$):
+\begin{eqnarray*}
+\expect{\ln(x)} &=& \int_{-n}^\infty \left( \ln(n)+\sum_{k=1}^\infty-(-1)^k\frac{1}{k}\left(\frac{x}{n}-1\right)^k\right)\frac{x^{n-1}e^{-x}}{\Gamma(n)}dy\\
+&=& \ln(n)+\sum_{k=1}^\infty-(-1)^k\frac{1}{k}\expect*{\left(\frac{x}{n}-1\right)^k}\\
+&=& \ln(n)-\sum_{k=1}^\infty\frac{1}{k}\expect*{\left(1-\frac{x}{n}\right)^k}
+\end{eqnarray*}
+Wir berechnen die ersten Terme:
+\begin{eqnarray*}
+\expect*{\left(1-\frac{x}{n}\right)} &=& 1-\frac{\expect{x}}{n} = 0\\
+\expect*{\left(1-\frac{x}{n}\right)^2} &=& 1-2\frac{\expect{x}}{n}+\frac{\expect{x^2}}{n^2}=1-2+\frac{(n+1)n}{n^2}= \frac{1}{n}\\
+\expect*{\left(1-\frac{x}{n}\right)^3} &=& 1-3\frac{\expect{x}}{n}+3\frac{\expect{x^2}}{n^2}-\frac{\expect{x^3}}{n^3}=1-3+3\frac{(n+1)n}{n^2}-\frac{(n+2)(n+1)n}{n^3}\\
+&=&1-3+3\left(1+\frac{1}{n}\right)-\left(\frac{n^3+3n^2+2n}{n^3}\right)\\
+&=&1-3+3\left(1+\frac{1}{n}\right)-\left(1+\frac{3}{n}+\frac{2}{n^2}\right)=-\frac{2}{n^2}\\
+\expect{\ln(x)} &=& \ln(n)-\left(\frac{1}{2n}-\frac{2}{3n^2}...\right)\\
+\expect{\ln(\gamma_n(.))} &=& -\ln(\Gamma(n))+(n-1)\expect{\ln(x)}-n\\
+&=& -\ln(\Gamma(n))+(n-1)\left(\ln(n)-\left(\frac{1}{2n}-\frac{2}{3n^2}...\right)\right)-n\\
+&=& -\ln(\Gamma(n))+(n-1)\ln(n)-n+(n-1)\left(\frac{1}{2n}-\frac{2}{3n^2}...\right)
+\end{eqnarray*}
+Mit der Stirling-Formel \ref{stirling_gamma}
+\begin{eqnarray*}
+\Gamma(x) &=& \sqrt{2\pi}x^{x-1/2}e^{-x+\frac{1}{12\cdot x}}\\
+\ln(\Gamma(n)) &=&\ln(\sqrt{2\pi})+\left(n-1/2\right)\ln(n)-n+\frac{1}{12\cdot n}
+\end{eqnarray*}
+erhalten wir
+\begin{eqnarray}
+\label{gamma_entropy}
+\expect{\ln(\gamma_n(.))} &=& -\ln(\sqrt{2\pi})-\frac{1}{2}\ln(n)-(n-1)\left(\frac{1}{2n}-\frac{2}{3n^2}...\right)\cr
+&=& -\ln(\sqrt{2\pi})-\frac{1}{2}\ln(n)-\left(\frac{1}{2}-\frac{2}{3n}...\right)+\left(\frac{1}{2n}-\frac{2}{3n^2}...\right)\cr
+&=& -\ln(\sqrt{2\pi})-\frac{1}{2}\ln(n)-\frac{1}{2}+\frac{1}{6n}...\cr
+S_{\gamma_n}&=& \ln\left(\sqrt{2\pi n}\right)+\frac{1}{2}-\frac{1}{6n}...
+\end{eqnarray}
+Entsprechend ist
+\begin{eqnarray}
+\label{gamma_entropy_beta}
+S_{\gamma_{n,\beta}}&=& -\ln(\beta)+\ln\left(\sqrt{2\pi n}\right)+\frac{1}{2}-\frac{1}{6n}...
+\end{eqnarray}
+\end{subsection}
+\end{section}
+
+
+\ifx\makebook\undefined
+	\end{appendix}
+	\end{document}
+	\end{document}
+\else
+	\end{chapter}
+\fi

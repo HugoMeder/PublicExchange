@@ -1,0 +1,2135 @@
+\def\titlestr{Spezielle Relativitätstheorie}
+\ifx\makebook\undefined
+	\input{../latexsrcs/preamble}
+\else
+	\begin{chapter}{\titlestr}
+\fi
+\begin{section}{Raum-Zeit-Geometrie und Inertialsysteme}
+Die spezielle Relativitätstheorie wurde 1905 von Einstein in seinem Beitrag \footnote{Einstein 1905, Zur Elektrodynamik bewegter Körper, Annalen der Physik.} formuliert. Dieser Beitrag besteht aus zweit Teilen
+\begin{itemize}
+	\item Kinematischer Teil
+	\item Elektrodynamischer Teil
+\end{itemize}
+Im kinematischen Teil wird im Wesentlichen die Lorentz-Transformation hergeleitet. Dies soll auch hier gemacht werden.
+Die Elektrodynamik hat zur Folge, dass die Lichtgeschwindigkeit $c$ eine Naturkonstante ist. Dies erzwingt, dass erneut über das Wesen von Raum und Zeit nachgedacht werden muss.
+
+\begin{subsection}{Relativitäts-Prinzip}
+Hierzu ein Text von Galileo Galilei. In seinem '\textit{Dialog über die zwei wichtigsten Weltsysteme, das ptolemäische und das kopernikanische}', erschienen 1630, schreibt er:
+
+„\textit{Schließt Euch in Gesellschaft eines Freundes in einen möglichst großen Raum unter dem Deck eines großen Schiffes ein. Verschafft Euch dort Mücken, Schmetterlinge und ähnliches fliegendes Getier; sorgt auch für ein Gefäß mit Wasser und kleinen Fischen darin; hängt ferner oben einen kleinen Eimer auf, welcher tropfenweise Wasser in ein zweites enghalsiges darunter gestelltes Gefäß träufeln läßt. Beobachtet nun sorgfältig, solange das Schiff stille steht, wie die fliegenden Tierchen mit der nämlichen Geschwindigkeit nach allen Seiten des Zimmers fliegen. Man wird sehen, wie die Fische ohne irgend welchen Unterschied nach allen Richtungen schwimmen; die fallenden Tropfen werden alle in das untergestellte Gefäß fließen. Wenn Ihr Euerem Gefährten einen Gegenstand zuwerft, so braucht Ihr nicht kräftiger nach der einen als nach der anderen Richtung zu werfen, vorausgesetzt, daß es sich um gleiche Entfernungen handelt. Wenn Ihr, wie man sagt, mit gleichen Füßen einen Sprung macht, werdet Ihr nach jeder Richtung hin gleichweit gelangen. Achtet darauf, Euch aller dieser Dinge sorgfältig zu vergewissern, wiewohl kein Zweifel obwaltet, daß bei ruhendem Schiffe alles sich so verhält. Nun laßt das Schiff mit jeder beliebigen Geschwindigkeit sich bewegen: Ihr werdet – wenn nur die Bewegung gleichförmig ist und nicht hier- und dorthin schwankend – bei allen genannten Erscheinungen nicht die geringste Veränderung eintreten sehen. Aus keiner derselben werdet Ihr entnehmen können, ob das Schiff fährt oder stille steht. […] Die Ursache dieser Übereinstimmung aller Erscheinungen liegt darin, daß die Bewegung des Schiffes allen darin enthaltenen Dingen, auch der Luft, gemeinsam zukommt. Darum sagte ich auch, man solle sich unter Deck begeben, denn oben in der freien Luft, die den Lauf des Schiffes nicht begleitet, würden sich mehr oder weniger deutliche Unterschiede bei einigen der genannten Erscheinungen zeigen.}“
+
+Dieses sogenannte Relativitäts-Prinzip ist namensgebend für die spezielle Relativitätstheorie Einsteins.
+\end{subsection}
+
+\begin{subsection}{Ereignis-Koordinaten}
+Ein Ereignis ist durch die Angabe von Zeit und Ort identifiziert. Dies bedeutet konkret die Angabe von vier Koordinaten
+$t,x,y,z$ die physikalische Einheit in der die Zeitkoordinate $t$ angegeben wird unterscheidet sich von der
+physikalische Einheit im denen die Raumkoordinate $x,y,z$ angegeben werden. Damit die folgenden Rechnungen einfacher werden führen
+wir vier Koordinaten wie folgt ein:
+\begin{eqnarray*}
+\begin{pmatrix}
+x^0\\x^1\\x^2\\x^3
+\end{pmatrix}
+&=&
+\begin{pmatrix}
+ct \\ x \\ y\\ z
+\end{pmatrix}
+\end{eqnarray*}
+Somit haben alle vier Koordinaten Raum-Dimension. Darin steckt keine Physik, es handelt sich lediglich um eine Konvention.
+\end{subsection}
+
+\begin{subsection}{Inertialsysteme und Koordinatentransformation}
+Wird ein physikalischen Geschehen in Koordinaten $x^\mu=x^0,x^1,x^2,x^3$ beschrieben, so bedeutet das Relativitäts-Prinzip
+, dass dasselbe Geschehen auch in Koordinaten $x^{\prime\mu}=x^{\prime 0},x^{\prime 1},x^{\prime 2},x^{\prime 3}$
+beschrieben werden kann und dass dabei dieselben physikalischen Gesetze gelten. Im Koordinatensystem $x^\mu$ ruhende Körper
+erscheinen im Koordinatensystem $x^{\prime\mu}$ als mit der Geschwindigkeit $\vec{v}$ bewegt.
+Es gilt eine Koordinaten-Abbildung
+\begin{eqnarray*}
+\Lambda: \mathbb{R}^4 &\rightarrow& \mathbb{R}^4\\
+x^\mu &\mapsto& x^{\prime\mu} = \Lambda(x^\mu)
+\end{eqnarray*}
+zu finden, die die eben genannten Eigenschaften hat. Wir fordern zunächst:
+\begin{enumerate}
+\label{lorentz_conditions}
+	\item gradlinig gleichförmig Bewegungen werden in gradlinig gleichförmig Bewegungen abgebildet.
+	\item Körper, die sich mit gleicher Geschwindigkeit $\vec{w}$ bewegen, sollen in Bewegungen wiederum alle mit gleicher Geschwindigkeit
+	$\vec{w}^\prime$ abgebildet werden.
+	\item Ruhende Körper werden alle in Körper mit der Geschwindigkeit $\vec{v}$ abgebildet.
+	\item Bewegungen mit Lichtgeschwindigkeit $|\vec{v}|=c$ werden in Bewegungen mit Lichtgeschwindigkeit abgebildet werden.
+	\item Das Raum-Zeit-Volumen-Element bleibt bis auf das Vorzeichen invariant.
+\end{enumerate}
+\end{subsection}
+
+\begin{subsection}{Verschiebung des Koordinaten-Ursprungs}
+Die Frage welcher Raum-Zeit-Punkt die Koordinaten $x^\mu=0,0,0,0$ erhält unterliegt der Willkür. Daher ist es keine Einschränkung der Allgemeinheit, wenn wir der Einfachheit halber fordern dass $\Lambda 0 = 0$.
+\end{subsection}
+
+\begin{subsection}{Linearität}
+Gradlinig gleichförmig Bewegungen werden durch Geraden dargestellt. Legt man die Zeitkoordinate $x^0$ als Kurvenparameter zu grunde heißt das
+\begin{eqnarray*}
+\begin{pmatrix}
+x^0\\x^1\\x^2\\x^3
+\end{pmatrix}
+&=&
+\begin{pmatrix}
+x^0\\ \frac{v^1}{c}x^0\\ \frac{v^2}{c}x^0\\ \frac{v^2}{c}x^0
+\end{pmatrix}
+=
+\begin{pmatrix}
+1\\ \frac{v^1}{c}\\ \frac{v^2}{c}\\ \frac{v^2}{c}
+\end{pmatrix}x^0
+=\begin{pmatrix}
+1\\ \frac{\vec{v}}{c}
+\end{pmatrix}x^0
+\end{eqnarray*}
+Die obigen Bedingungen 1 und 2 können in Bedingungen
+\begin{itemize}
+	\item Geraden werden in Geraden abgebildet.
+	\item Parallelen werden in Parallelen abgebildet.
+\end{itemize}
+übersetzt werden. Zusammen mit $\Lambda 0 = 0$ ergibt sich die Tatsache, dass $\Lambda$ eine lineare Abbildung sein muss und daher durch eine Matrix $\Lambda^\mu_\nu$ dargestellt werden kann:
+\begin{eqnarray*}
+x^{\prime\mu} &=& \Lambda^\mu_\nu x^\nu
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Räumliche Drehungen}
+Genauso wie der Koordinatenursprung, kann auch die Orientierung der Raumachsen willkürlich gewählt werden. Dies kann dazu genutzt werden,
+die Relativ-Geschwindigkeit $\vec{v}\ne 0$ zum Beispiel in die $x$-Richtung zeigen zu lassen. Dies kann sowohl für die Koordinaten $x^\mu$ wie
+auch für $x^{\prime\mu}=\Lambda^\mu_\nu x^\nu$ angewandt werden. Ist dies bewerkstelligt, sieht die Matrix $\Lambda$ so
+\begin{eqnarray*}
+\Lambda &=& \begin{pmatrix}
+\Lambda^0_0 & \Lambda^0_1 & 0 & 0\\
+\Lambda^1_0 & \Lambda^1_1 & 0& 0\\
+0 &0 &..&..\\
+0 &0 &.. & ..
+\end{pmatrix}
+\end{eqnarray*}
+aus.
+\begin{proof}
+Ruhende Bewegungen an festen Raumpositionen $\vec{y}$ können so dargestellt werden:
+\begin{eqnarray*}
+x^\mu(t) =
+\begin{pmatrix}
+x^0\\x^1\\x^2\\x^3
+\end{pmatrix}(t)
+&=&
+\begin{pmatrix}
+ct\\y^1\\y^2\\y^3
+\end{pmatrix}
+=
+\begin{pmatrix}
+ct\\0
+\end{pmatrix}
++
+\begin{pmatrix}
+0\\ \vec{y}
+\end{pmatrix}
+\end{eqnarray*}
+Die transformierte Bewegung ist dann
+\begin{eqnarray*}
+x^{\prime}(t) &=& \Lambda\left(\begin{pmatrix}
+ct\\0
+\end{pmatrix}
++
+\begin{pmatrix}
+0\\ \vec{y}
+\end{pmatrix}
+\right)
+= \Lambda\begin{pmatrix}
+ct\\0
+\end{pmatrix}
++
+\Lambda
+\begin{pmatrix}
+0\\ \vec{y}
+\end{pmatrix}\\
+&=& \Lambda\begin{pmatrix}
+1\\0
+\end{pmatrix}ct
++
+\Lambda
+\begin{pmatrix}
+0\\ \vec{y}
+\end{pmatrix}\\
+&=&\begin{pmatrix}
+\Lambda^0_0\\
+\Lambda^1_0\\
+\Lambda^2_0\\
+\Lambda^3_0\\
+\end{pmatrix}ct
++
+\Lambda
+\begin{pmatrix}
+0\\ \vec{y}
+\end{pmatrix}
+\end{eqnarray*}
+Zur Zeitkoordinate $\Lambda^0_0ct=ct^\prime$ gehören die Raum-Koordinaten
+\begin{eqnarray*}
+\vec{x}^\prime(t)=
+\begin{pmatrix}
+x^{\prime 1}\\
+x^{\prime 2}\\
+x^{\prime 3}\\
+\end{pmatrix}(t) 
+&=&\begin{pmatrix}
+\Lambda^1_0\\
+\Lambda^2_0\\
+\Lambda^3_0\\
+\end{pmatrix}ct
++
+\Lambda^k_\nu
+\begin{pmatrix}
+0\\ \vec{y}
+\end{pmatrix}
+\end{eqnarray*}
+Daraus ergibt sich die Geschwindigkeit
+\begin{eqnarray*}
+\vec{v} &=& \frac{1}{t^\prime}\left(\vec{x}^\prime(t)-\vec{x}^\prime(0)\right)\\
+\begin{pmatrix}
+v^1\\
+v^2\\
+v^3\\
+\end{pmatrix}&=& \frac{1}{\Lambda^0_0t}\begin{pmatrix}
+\Lambda^1_0\\
+\Lambda^2_0\\
+\Lambda^3_0\\
+\end{pmatrix}ct\\
+&=& \frac{c}{\Lambda^0_0}\begin{pmatrix}
+\Lambda^1_0\\
+\Lambda^2_0\\
+\Lambda^3_0\\
+\end{pmatrix}\\
+v^k &=& \frac{c\Lambda^k_0}{\Lambda^0_0}
+\end{eqnarray*}
+Da die Relativ-Geschwindigkeit $\vec{v}$ weder unendlich noch Null ist, muss $\Lambda^0_0\ne 0$ und nicht alle $\Lambda^k_0=0$.
+Nun lässt sich durch Drehung $R^\prime$ der transformierten Koordinaten bewirken dass $\Lambda^2_0$ und $\Lambda^3_0$ verschwinden
+($\Lambda^1_0$ wird dann ungleich Null):
+\begin{eqnarray*}
+\Lambda &\rightarrow&
+\begin{pmatrix}
+1 & 0\\
+0 & R^\prime
+\end{pmatrix}\Lambda
+\end{eqnarray*}
+Die inverse Abbildung ist
+\begin{eqnarray*}
+\Lambda^{-1}
+\begin{pmatrix}
+1 & 0\\
+0 & R^{\prime-1}
+\end{pmatrix}
+\end{eqnarray*}
+Ein im transformierten Koordinatensystem ruhender Körper hat ein Urbild
+\begin{eqnarray*}
+\Lambda^{-1}
+\begin{pmatrix}
+1 & 0\\
+0 & R^{\prime-1}
+\end{pmatrix}
+\begin{pmatrix}
+ct^\prime\\
+\vec{y}^{\prime}
+\end{pmatrix}
+=ct^\prime\Lambda^{-1}
+\begin{pmatrix}
+1\\
+0\\
+0\\
+0
+\end{pmatrix}
++\Lambda^{-1}
+\begin{pmatrix}
+1 & 0\\
+0 & R^{\prime-1}
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+\vec{y}^\prime
+\end{pmatrix}
+=
+ct^\prime\begin{pmatrix}
+{\Lambda^{-1}}^0_0\\
+{\Lambda^{-1}}^1_0\\
+{\Lambda^{-1}}^2_0\\
+{\Lambda^{-1}}^3_0
+\end{pmatrix}
++
+\Lambda^{-1}
+\begin{pmatrix}
+0\\
+R^{\prime-1}\vec{y}^\prime
+\end{pmatrix}
+\end{eqnarray*}
+und im Urbild die Geschwindigkeit $\vec{w}$:
+\begin{eqnarray*}
+\vec{w} &=& \frac{1}{{\Lambda^{-1}}^0_0}\begin{pmatrix}
+{\Lambda^{-1}}^1_0\\
+{\Lambda^{-1}}^2_0\\
+{\Lambda^{-1}}^3_0
+\end{pmatrix}
+\end{eqnarray*}
+Mit dem selben Argument muss ${\Lambda^{-1}}^0_0\ne 0$ und da $\vec{w}\ne 0$, denn sonst wäre die Relativgeschwindigkeit Null, was wir ausgeschlossen haben, also können nicht alle ${\Lambda^{-1}}^k_0=0$ sein. Durch Drehung $R$ des Urbilds lässt sich erreichen, dass ${\Lambda^{-1}}^2_0$ und ${\Lambda^{-1}}^3_0$ verschwinden und ${\Lambda^{-1}}^1_0\ne 0$.
+\begin{eqnarray*}
+\vec{w} &\rightarrow& \begin{pmatrix}
+1 & 0\\
+0 & R
+\end{pmatrix}
+\vec{w}
+\end{eqnarray*}
+Die so veränderte inverse Abbildung lautet nun
+\begin{eqnarray*}
+\begin{pmatrix}
+1 & 0\\
+0 & R
+\end{pmatrix}
+\Lambda^{-1}
+\begin{pmatrix}
+1 & 0\\
+0 & R^{\prime-1}
+\end{pmatrix}
+\end{eqnarray*}
+und wir erhalten ein
+\begin{eqnarray*}
+\Lambda^\prime &=&
+\begin{pmatrix}
+1 & 0\\
+0 & R^\prime
+\end{pmatrix}
+\Lambda
+\begin{pmatrix}
+1 & 0\\
+0 & R^{-1}
+\end{pmatrix}
+\end{eqnarray*}
+mit der Eigenschaft dass $\Lambda^{\prime 2}_0$, $\Lambda^{\prime 3}_0$, ${\Lambda^{\prime-1}}^2_0$, ${\Lambda^{\prime-1}}^3_0$ verschwinden. Im folgenden lassen wir die $\ ^\prime$ weg. Wir haben also eine Struktur
+\begin{eqnarray*}
+\begin{pmatrix}
+{\Lambda^{-1}}^0_0 &..&..&..\\
+{\Lambda^{-1}}^1_0 &..&..&..\\
+0&..&..&..\\
+0&..&..&..\\
+\end{pmatrix}
+\begin{pmatrix}
+\Lambda^0_0 &..&..&..\\
+\Lambda^1_0 &..&..&..\\
+0&..&..&..\\
+0&..&..&..\\
+\end{pmatrix}
+&=&
+\begin{pmatrix}
+1 &0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+\end{pmatrix}
+\end{eqnarray*}
+Alle ${\Lambda^{-1}}^0_0$, ${\Lambda^{-1}}^1_0$, $\Lambda^0_0$, $\Lambda^1_0$ sind von 0 verschieden.
+Daher muss
+\begin{eqnarray*}
+\begin{pmatrix}
+{\Lambda^{-1}}^0_0 &..&..&..\\
+{\Lambda^{-1}}^1_0 &..&..&..\\
+0&0&..&..\\
+0&0&..&..\\
+\end{pmatrix}
+\begin{pmatrix}
+\Lambda^0_0 &..&..&..\\
+\Lambda^1_0 &..&..&..\\
+0&..&..&..\\
+0&..&..&..\\
+\end{pmatrix}
+&=&
+\begin{pmatrix}
+1 &0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+\end{pmatrix}
+\end{eqnarray*}
+gelten. Weil $\Lambda^{-1}\Lambda=\Lambda\Lambda^{-1}=1$ gilt auch
+\begin{eqnarray*}
+\begin{pmatrix}
+{\Lambda^{-1}}^0_0 &..&..&..\\
+{\Lambda^{-1}}^1_0 &..&..&..\\
+0&0&..&..\\
+0&0&..&..\\
+\end{pmatrix}
+\begin{pmatrix}
+\Lambda^0_0 &..&..&..\\
+\Lambda^1_0 &..&..&..\\
+0&0&..&..\\
+0&0&..&..\\
+\end{pmatrix}
+&=&
+\begin{pmatrix}
+1 &0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+\end{pmatrix}
+\end{eqnarray*}
+Die Submatrizen links oben müssen invertierbar sein, denn sonst verschwinden die Determinante und die Abbildung wäre nicht invertierbar.
+\begin{eqnarray*}
+\begin{pmatrix}
+{\Lambda^{-1}}^0_0 &{\Lambda^{-1}}^0_1&..&..\\
+{\Lambda^{-1}}^1_0 &{\Lambda^{-1}}^1_1&..&..\\
+0&0&..&..\\
+0&0&..&..\\
+\end{pmatrix}
+\begin{pmatrix}
+\Lambda^0_0 &\Lambda^0_1&..&..\\
+\Lambda^1_0 &\Lambda^1_1&..&..\\
+0&0&..&..\\
+0&0&..&..\\
+\end{pmatrix}
+&=&
+\begin{pmatrix}
+1 &0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+\end{pmatrix}
+\end{eqnarray*}
+Daraus folgt schließlich
+\begin{eqnarray*}
+\begin{pmatrix}
+{\Lambda^{-1}}^0_0 &{\Lambda^{-1}}^0_1&0&0\\
+{\Lambda^{-1}}^1_0 &{\Lambda^{-1}}^1_1&0&0\\
+0&0&..&..\\
+0&0&..&..\\
+\end{pmatrix}
+\begin{pmatrix}
+\Lambda^0_0 &\Lambda^0_1&0&0\\
+\Lambda^1_0 &\Lambda^1_1&0&0\\
+0&0&..&..\\
+0&0&..&..\\
+\end{pmatrix}
+&=&
+\begin{pmatrix}
+1 &0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+\end{pmatrix}
+\end{eqnarray*}
+\end{proof}
+In anderen Worten: Bewegungen die nur auf der $x$-Achse stattfinden werden in ebensolche abgebildet.
+\end{subsection}
+
+\begin{subsection}{Invarianz der Lichtgeschwindigkeit}
+\begin{subsubsection}{In einer Raumdimension}
+Wir betrachten nun zunächst nur Bewegungen auf der $x$-Achse. Die Abbildung
+ist dann
+\begin{eqnarray*}
+\begin{pmatrix}
+ct\\
+x
+\end{pmatrix}
+&\mapsto&
+\begin{pmatrix}
+\Lambda^0_0 &\Lambda^0_1\\
+\Lambda^1_0 &\Lambda^1_1\\
+\end{pmatrix}
+\begin{pmatrix}
+ct\\
+x
+\end{pmatrix}
+\end{eqnarray*}
+Die entsprechende Abbildung von Geschwindigkeiten $\vec{w}$ ist
+\begin{eqnarray*}
+\begin{pmatrix}
+c\\
+w
+\end{pmatrix}
+&\mapsto&
+\begin{pmatrix}
+\Lambda^0_0 &\Lambda^0_1\\
+\Lambda^1_0 &\Lambda^1_1\\
+\end{pmatrix}
+\begin{pmatrix}
+c\\
+w
+\end{pmatrix}
+\end{eqnarray*}
+Im speziellen
+\begin{eqnarray*}
+\begin{pmatrix}
+c\\
+0
+\end{pmatrix}
+&\mapsto&
+\begin{pmatrix}
+\Lambda^0_0 &\Lambda^0_1\\
+\Lambda^1_0 &\Lambda^1_1\\
+\end{pmatrix}
+\begin{pmatrix}
+c\\
+0
+\end{pmatrix}
+=
+c
+\begin{pmatrix}
+\Lambda^0_0\\
+\Lambda^1_0\\
+\end{pmatrix}\\
+v &=& \frac{\Lambda^1_0}{\Lambda^0_0}c\\
+\Lambda^1_0 &=& \Lambda^0_0\frac{v}{c}
+\end{eqnarray*}
+also
+\begin{eqnarray*}
+\begin{pmatrix}
+c\\
+w
+\end{pmatrix}
+&\mapsto&
+\begin{pmatrix}
+\Lambda^0_0 &\Lambda^0_1\\
+\Lambda^0_0\frac{v}{c} &\Lambda^1_1\\
+\end{pmatrix}
+\begin{pmatrix}
+c\\
+w
+\end{pmatrix}\\
+w &\mapsto& \frac{\Lambda^0_0v +\Lambda^1_1w}{\Lambda^0_0c+\Lambda^0_1w}c
+\end{eqnarray*}
+Für $w=\pm c$:
+\begin{eqnarray*}
+c &\mapsto& \frac{\Lambda^0_0v +\Lambda^1_1c}{\Lambda^0_0+\Lambda^0_1}=c\\
+-c &\mapsto& \frac{\Lambda^0_0v -\Lambda^1_1c}{\Lambda^0_0-\Lambda^0_1}=-c\\
+\Lambda^0_0v +\Lambda^1_1c &=& \left(\Lambda^0_0+\Lambda^0_1\right)c\\
+\Lambda^0_0v -\Lambda^1_1c &=& \left(-\Lambda^0_0+\Lambda^0_1\right)c\\
+\Lambda^0_0v &=&  \Lambda^0_1c\\
+\Lambda^1_1 &=& \Lambda^0_0
+\end{eqnarray*}
+Somit wird die Geschwindigkeits-Abbildung
+\begin{eqnarray*}
+\begin{pmatrix}
+c\\
+w
+\end{pmatrix}
+&\mapsto&
+\Lambda^0_0
+\begin{pmatrix}
+1 &\frac{v}{c}\\
+\frac{v}{c} &1\\
+\end{pmatrix}
+\begin{pmatrix}
+c\\
+w
+\end{pmatrix}\\
+w &\mapsto& \frac{v +w}{1+\frac{vw}{c^2}}
+\end{eqnarray*}
+Das ist das sogenannte Additionstheorem für Geschwindigkeiten.
+Grundsätzlich ist aber auch
+\begin{eqnarray*}
+c &\rightarrow& -c\\
+-c &\rightarrow& c
+\end{eqnarray*}
+möglich. Dann lautet die obige Rechnung
+\begin{eqnarray*}
+c &\mapsto& \frac{\Lambda^0_0v +\Lambda^1_1c}{\Lambda^0_0+\Lambda^0_1}=-c\\
+-c &\mapsto& \frac{\Lambda^0_0v -\Lambda^1_1c}{\Lambda^0_0-\Lambda^0_1}=c\\
+\Lambda^0_0v +\Lambda^1_1c &=& -\left(\Lambda^0_0+\Lambda^0_1\right)c\\
+\Lambda^0_0v -\Lambda^1_1c &=& \left(\Lambda^0_0-\Lambda^0_1\right)c\\
+\Lambda^0_0v &=&  -\Lambda^0_1c\\
+\Lambda^1_1 &=& -\Lambda^0_0
+\end{eqnarray*}
+Dies führt schließlich zur allgemeinen Form
+\begin{eqnarray*}
+\Lambda =
+\gamma
+\begin{pmatrix}
+\begin{pmatrix}
+1 & \sigma\frac{v}{c}\\
+\frac{v}{c} & \sigma
+\end{pmatrix} & 0\\
+0 & A
+\end{pmatrix}
+\end{eqnarray*}
+mit $\sigma=\pm 1$.
+Mit $\gamma=\Lambda^0_0$ und $A$ eine $2\times 2$-Matrix.
+\end{subsubsection}
+
+\begin{subsubsection}{In allen Raumdimensionen}
+Ein beliebiger vom Koordinatenursprung ausgehender Lichtstrahl hat die Form
+\begin{eqnarray*}
+x(\tau) &=&
+\tau
+\begin{pmatrix}
+1\\
+a\\
+by\\
+bz
+\end{pmatrix}
+\end{eqnarray*}
+Wobei
+\begin{eqnarray}
+\label{lorentz_light_norm_condition}
+a^2+b^2 &=& 1\cr
+x^2+y^2 &=& 1
+\end{eqnarray}
+Der abgebildete Strahl muss wiederum ein Lichtstrahl sein:
+\begin{eqnarray*}
+\Lambda x &=& \gamma
+\begin{pmatrix}
+\begin{pmatrix}
+1 & \sigma\frac{v}{c}\\
+\frac{v}{c} & \sigma
+\end{pmatrix} & 0\\
+0 & A
+\end{pmatrix}
+\tau
+\begin{pmatrix}
+1\\
+a\\
+by\\
+bz
+\end{pmatrix}\\
+&=&
+\gamma\tau
+\begin{pmatrix}
+1+\sigma\frac{v}{c}a\\
+\frac{v}{c}+\sigma a\\
+bA\begin{pmatrix}
+x\\y
+\end{pmatrix}
+\end{pmatrix}
+\end{eqnarray*}
+Damit dies ein Lichtstrahl ist, muss
+\begin{eqnarray*}
+\left(\frac{v}{c}+\sigma a\right)^2+b^2
+\begin{pmatrix}
+x&y
+\end{pmatrix}
+A^TA\begin{pmatrix}
+x\\y
+\end{pmatrix}
+&=&
+\left(1+\sigma\frac{v}{c}a\right)^2
+\end{eqnarray*}
+unabhängig von der Wahl von $a$, $b$, $y$ und $z$ gelten, vorausgesetzt diese erfüllen die Bedingungen \ref{lorentz_light_norm_condition}. Im speziellen muss der Ausdruck
+\begin{eqnarray*}
+Z^2 &=& \begin{pmatrix}
+x&y
+\end{pmatrix}
+A^TA\begin{pmatrix}
+x\\y
+\end{pmatrix}
+\end{eqnarray*}
+einen Wert annehmen, der unabhängig von $y$ und $z$ ist, vorausgesetzt $y^2+z^2=1$.
+Dies bedeutet, dass $A^TA$ gleich einer Einheitsmatrix multipliziert mit $Z^2$ ist. Also gilt
+\begin{eqnarray*}
+\left(\frac{v}{c}+\sigma a\right)^2+b^2
+Z^2&=&
+\left(1+\sigma\frac{v}{c}a\right)^2\\
+\left(\frac{v}{c}\right)^2+\sigma2\frac{v}{c}a+a^2+b^2
+Z^2&=&
+1+\sigma2\frac{v}{c}a+\left(\frac{v}{c}a\right)^2\\
+\left(\frac{v}{c}\right)^2+a^2+b^2
+Z^2&=&
+1+\left(\frac{v}{c}a\right)^2\\
+b^2
+Z^2&=&
+1+\left(\frac{v}{c}a\right)^2-\left(\frac{v}{c}\right)^2-a^2\\
+&=& \left(1-\left(\frac{v}{c}\right)^2\right)\left(1-a^2\right)\\
+&=& \left(1-\left(\frac{v}{c}\right)^2\right)b^2\\
+Z^2 &=& 1-\left(\frac{v}{c}\right)^2
+\end{eqnarray*}
+$\Lambda$ sieht nun so aus:
+\begin{eqnarray*}
+\Lambda &=&
+\gamma
+\begin{pmatrix}
+\begin{pmatrix}
+1 & \sigma\frac{v}{c}\\
+\frac{v}{c} & \sigma
+\end{pmatrix} & 0\\
+0 & ZR
+\end{pmatrix}\\
+&=&\gamma
+\begin{pmatrix}
+\begin{pmatrix}
+1 & \sigma\frac{v}{c}\\
+\frac{v}{c} & \sigma
+\end{pmatrix} & 0\\
+0 & \begin{pmatrix}
+Z & 0\\
+0 & Z
+\end{pmatrix}
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0\\
+0 & R
+\end{pmatrix}
+\end{eqnarray*}
+wobei $R$ eine $2\times 2$-Rotationsmatrix ist:
+\begin{eqnarray*}
+R &=&
+\begin{pmatrix}
+\cos(\varphi) & -\sin(\varphi)\\
+\sin(\varphi) &\cos(\varphi)
+\end{pmatrix}
+\end{eqnarray*}
+Das Vorzeichen von $Z$ wählen wir positiv, denn das negative Vorzeichen kann durch eine zusätzliche Rotation um 180° absorbiert werden.
+\begin{eqnarray*}
+Z &=& \sqrt{1-\left(\frac{v}{c}\right)^2}
+\end{eqnarray*}
+Nach Anwendung einer Rotation
+\begin{eqnarray*}
+\Lambda &\rightarrow& \Lambda \begin{pmatrix}
+1 & 0\\
+0 & R^{-1}
+\end{pmatrix}
+\end{eqnarray*}
+haben wir
+\begin{eqnarray*}
+\Lambda &=&
+\gamma
+\begin{pmatrix}
+\begin{pmatrix}
+1 & \sigma\frac{v}{c}\\
+\frac{v}{c} & \sigma
+\end{pmatrix} & 0\\
+0 & \begin{pmatrix}
+Z & 0\\
+0 & Z
+\end{pmatrix}
+\end{pmatrix}
+\end{eqnarray*}
+Der Abstand $\Delta x$ zwischen zwei Punkten in der $yz$-Ebene wird in das $\gamma Z$-fache abgebildet.
+Damit diese Skalierung von räumlichen Abständen verschwindet setzen wir $\gamma Z=\sigma_2=\pm 1$. Oder
+\begin{eqnarray*}
+\gamma &=& \sigma_2 \frac{1}{Z} = \sigma_2 \frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}
+\end{eqnarray*}
+Der Absolutwert von $\gamma$ heißt Lorentz-Faktor. Wählen wir $\gamma = \frac{1}{Z}$, erhalten wir
+\begin{eqnarray*}
+\Lambda &=&
+\sigma_2\gamma
+\begin{pmatrix}
+\begin{pmatrix}
+1 & \sigma\frac{v}{c}\\
+\frac{v}{c} & \sigma
+\end{pmatrix} & 0\\
+0 & \begin{pmatrix}
+Z & 0\\
+0 & Z
+\end{pmatrix}
+\end{pmatrix}\\
+&=&
+\sigma_2
+\begin{pmatrix}
+\gamma
+\begin{pmatrix}
+1 & \sigma\frac{v}{c}\\
+\frac{v}{c} & \sigma
+\end{pmatrix} & 0\\
+0 & \begin{pmatrix}
+1& 0\\
+0 & 1
+\end{pmatrix}
+\end{pmatrix}\\
+&=&
+\sigma_2
+\begin{pmatrix}
+\gamma
+\begin{pmatrix}
+1 & \frac{v}{c}\\
+\frac{v}{c} & 1
+\end{pmatrix} & 0\\
+0 & \begin{pmatrix}
+1& 0\\
+0 & 1
+\end{pmatrix}
+\end{pmatrix}
+\begin{pmatrix}
+1 & & & \\
+ & \sigma& &\\
+& & 1 &\\
+& & & 1
+\end{pmatrix}
+\end{eqnarray*}
+$\sigma_2=-1$ führt zu einer Zeitumkehr, $\sigma=-1$ ist eine räumliche Spiegelung.
+Wählen wir beide Vorzeichen positiv, dann erhalten wir einen sogenannten Lorentz-Boost in $x$-Richtung:
+\begin{eqnarray*}
+\Lambda(v) &=&
+\begin{pmatrix}
+\gamma
+\begin{pmatrix}
+1 & \frac{v}{c}\\
+\frac{v}{c} & 1
+\end{pmatrix} & 0\\
+0 & \begin{pmatrix}
+1& 0\\
+0 & 1
+\end{pmatrix}
+\end{pmatrix}
+\end{eqnarray*}
+Die Bedingung $\gamma Z=\pm 1$ kann auch mit der Bedingung 5 begründet werden:
+\begin{eqnarray*}
+\det(\Lambda) &=&
+\gamma^4
+\det
+\begin{pmatrix}
+\begin{pmatrix}
+1 & \sigma\frac{v}{c}\\
+\frac{v}{c} & \sigma
+\end{pmatrix} & 0\\
+0 & \begin{pmatrix}
+Z & 0\\
+0 & Z
+\end{pmatrix}
+\end{pmatrix}\\
+&=&\sigma\gamma^4\left(1-\left(\frac{v}{c}\right)^2\right)Z^2\\
+&=&\sigma\left(\gamma Z\right)^4=\pm 1
+\end{eqnarray*}
+\end{subsubsection}
+\end{subsection}
+
+
+\begin{subsection}{Allgemeine Transformationen, Minkowski-Metrik}
+\label{allg_transf_minkowsky}
+Die Abbildungen, die die Bedingungen \ref{lorentz_conditions} erfüllen bilden eine Gruppe, die Poincaré-Gruppe.
+Der Parameter $\vec{v}$ in Bedingung 3 kann sich für verschiedene Elemente unterscheiden.
+Sie besteht aus Abbildungen 
+\begin{eqnarray*}
+(\Lambda,a): \mathbb{R}^4 &\rightarrow& \mathbb{R}^4\\
+x &\mapsto& \Lambda x + a
+\end{eqnarray*}
+Wobei $a$ eine Verschiebung des Koordinaten-Ursprungs bewirkt. $\Lambda$ ist ein Element der sogenannten Lorentz-Gruppe
+die durch folgende Elemente generiert werden kann:
+\begin{itemize}
+	\item Räumliche Drehungen $\Lambda_R=\begin{pmatrix}
+	1 & 0 \\
+	0 & R
+	\end{pmatrix}$.
+	\item Lorentz-Boost in $x$-Richtung. $\Lambda_v=\begin{pmatrix}
+\gamma
+\begin{pmatrix}
+1 & \frac{v}{c}\\
+\frac{v}{c} & 1
+\end{pmatrix} & 0\\
+0 & \begin{pmatrix}
+1& 0\\
+0 & 1
+\end{pmatrix}
+\end{pmatrix}
+$.
+\item Zeitumkehr $T=\begin{pmatrix}
+	-1 & 0 & 0 & 0\\
+	0 & 1 & 0 & 0\\
+	0 & 0 & 1 & 0\\
+	0 & 0 & 0 & 1\\
+	\end{pmatrix}$.
+\item Raumspiegelung $P=\begin{pmatrix}
+	1 & 0 & 0 & 0\\
+	0 & -1 & 0 & 0\\
+	0 & 0 & -1 & 0\\
+	0 & 0 & 0 & -1\\
+	\end{pmatrix}$
+\end{itemize}
+\end{subsection}
+Die Poincaré-Gruppe kann auch dadurch charakterisiert werden, dass die Pseudo-Metrik
+\begin{eqnarray*}
+(x,y) &=& x^T\eta y
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+\eta &=& \begin{pmatrix}
+-1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+\end{pmatrix}
+\end{eqnarray*}
+oder\begin{eqnarray*}
+\eta &=& \begin{pmatrix}
+1 & 0 & 0 & 0\\
+0 & -1 & 0 & 0\\
+0 & 0 & -1 & 0\\
+0 & 0 & 0 & -1\\
+\end{pmatrix}
+\end{eqnarray*}
+invariant lässt. Genauer sind 'Abstände' $(\Delta x,\Delta x)$ zwischen zwei Ereignispunkten $\Delta x = x_1-x_2$ invariant.
+Welches $\eta$ benutzt wird, ist eine Frage der Konvention. Beide werden benutzt. Wir werden die erste Variante benutzen.
+Der Raum auf dem die Poincaré-Gruppe operiert heißt Ereignis-Raum. Vektorräume auf denen die Lorentz-Gruppe operiert heißen Minkowski-Räume. Die Metrik $\eta$ heißt Minkowski-Metrik.
+\end{section}
+
+\begin{section}{Notationen und Tensor-Algebra}
+\begin{subsection}{Anwendung in der Physik}
+Ereignis-Koordinaten, ebenso wie andere physikalische Objekte, sind dimensionsbehaftet. Dabei ist es wesentlich, dass die physikalische
+Dimension jedes beteiligten Raumes wohldefiniert ist, d.h. alle zur Darstellung der Elemente des Raumes benutzten Komponenten haben dieselbe physikalische Dimension.
+\end{subsection}
+
+\begin{subsection}{Inertialsysteme und Vektorräume}
+Vektoren sind Objekte, die sich wie Vektoren transformieren, aber wie transformieren sich Vektoren? Wenn in diesem Zusammenhang von Transformationen gesprochen wird, ist der Übergang von einem Inertialsystem zu einem anderen gemeint. Dieser Übergang ist für Ereigniskoordinaten durch ein Element der oben beschriebenen Poincaré-Gruppe definiert:
+\begin{eqnarray*}
+(\Lambda,a): \mathbb{R}^4 &\rightarrow& \mathbb{R}^4\\
+x^\mu &\mapsto& x^{\prime\mu}=\Lambda^\mu_\nu x^\nu+a^\mu
+\end{eqnarray*}
+$x^\mu$ und $x^{\prime\mu}$ sind hier keine Vektoren, sondern Koordinaten für ein und denselben Ereignispunkt in verschiedenen Koordinatensystemen. Oben wird die (Einsteinsche) Summenkonvention benutzt:
+
+\textit{Erscheint in einem Term (Produkt aus einem oder mehreren Faktoren) derselbe Index zweimal, und zwar einmal oben und einmal unten,
+dann ist implizit (ohne Benutzung eines Summen-Zeichens $\sum$) die Summation über diesen Index gemeint.
+}
+
+In der obigen Transformations-Formel bedeutet dies schlicht die Multiplikation einer Matrix mit einem 'Spaltenvektor', der in Wirklichkeit kein Vektor, sondern ein Koordinaten $4$-Tupel ist. Vektoren, hingegen transformieren sich so:
+\begin{eqnarray*}
+\Lambda: \mathbb{R}^4 &\rightarrow& \mathbb{R}^4\\
+x^\mu &\mapsto& x^{\prime\mu}=\Lambda^\mu_\nu x^\nu
+\end{eqnarray*}
+$\Lambda$ ist, wie oben schon dargestellt ein Element der Lorentz-Gruppe und deswegen auch eine lineare Abbildung. Die Elemente der Lorentz-Gruppe operieren auf Vektorräumen.
+\end{subsection}
+
+\begin{subsection}{Duale Vektorräume}
+Duale Vektoren sind lineare Abbildungen, die Vektoren in Skalare überführen.
+Formal geschrieben:
+\begin{eqnarray*}
+y: \mathbb{R}^4 &\rightarrow& \mathbb{R}\\
+x^\mu &\mapsto& y_\mu x^\mu
+\end{eqnarray*}
+Duale Vektoren sind selbst Elemente von Vektorräumen und können eine physikalische Dimension haben. Die physikalische Dimension
+von $y_\mu x^\mu$ ist gleich dem Produkt der Dimensionen von $y_\mu$ und $x^\mu$. Duale Vektoren transformieren sich mit Hilfe der Inversen $\Lambda^{-1}$:
+\begin{eqnarray*}
+y^\prime_\mu &=& {\Lambda^{-1}}_\mu^\nu y_\nu
+\end{eqnarray*}
+wobei
+\begin{eqnarray*}
+{\Lambda^{-1}}^\mu_\sigma \Lambda^\sigma_\nu &=& \delta^\mu_\nu
+\end{eqnarray*}
+sodass
+\begin{eqnarray*}
+y^\prime_\sigma x^{\prime\sigma} &=& \left({\Lambda^{-1}}_\sigma^\nu y_\nu\right)
+\left(\Lambda^\sigma_\mu x^\mu\right)\\
+&=& \left({\Lambda^{-1}}_\sigma^\nu \Lambda^\sigma_\mu\right)y_\nu x^\mu\\
+&=& \delta^\nu_\mu y_\nu x^\mu\\
+&=& y_\mu x^\mu
+\end{eqnarray*}
+Das heißt, der durch duale Vektoren nach Anwendung auf einen Vektor entstehende Skalar hat in allen Inertialsystemen denselben Wert.
+\end{subsection}
+
+\begin{subsection}{Tensoren}
+Tensoren sind Multilinearformen, die Vektoren und duale Vektoren als Argumente haben und die in allen Inertialsystemen denselben Wert haben. Zum Beispiel ist $T^{\mu\nu}_{\lambda\sigma}$ ein Tensor, falls der Skalar $s$
+\begin{eqnarray*}
+s &=& T(x,y, z,v)=T^{\mu\nu}_{\lambda\sigma}x_\mu y_\nu z^\lambda u^\sigma
+\end{eqnarray*}
+für beliebige Vektoren $z$, $u$ und beliebige duale Vektoren $x$ und $y$ nach Transformation in ein anderes Inertialsystem denselben Wert behält. Dies ist genau dann der Fall, falls die Komponenten $T^{\mu\nu}_{\lambda\sigma}$ von $T$ sich wie folgt transformiert:
+\begin{eqnarray*}
+T^{\prime\mu\nu}_{\lambda\sigma}
+&=& \Lambda^\mu_\alpha\Lambda^\nu_\beta {\Lambda^{-1}}_\lambda^\gamma{\Lambda^{-1}}_\sigma^\delta T^{\alpha\beta}_{\gamma\delta}
+\end{eqnarray*}
+Ob eine Multilinearform ein Tensor ist oder nicht, lässt sich an seinem Transformations-Verhalten erkennen.
+Tensoren haben eine Signatur. Diese beschreibt wie viele Argumente die Multilinearform hat und von welchem Typ sie sind
+(Vektoren oder duale Vektoren). Die Anzahl der Argumente wird als Rang bezeichnet. Tensoren haben auch eine physikalische Dimension
+\footnote{Die physikalische Dimension eines Tensors hängt nicht von den physikalischen Dimensionen der Parameter ab, denn diese brauchen nicht festgelegt zu werden. Vielmehr ist die physikalische Dimension eines Ausdrucks $T(x,y,z,u)$ bei gegebenen Parametern
+gleich dem Produkt der physikalischen Dimensionen der Parameter multipliziert mit der physikalischen Dimension des Tensors $T$ selbst.}.
+Wir fassen die physikalische Dimension als Teil der Signatur auf.
+\end{subsection}
+
+\begin{subsection}{Tensor-Algebra}
+Eine Tensor-Algebra umfasst Tensoren aller möglichen Signaturen. Dabei wird ein invarianter Skalar also ein Tensor ohne Argumente, als Tensor mit Rang 0, aufgefasst. Vektoren und duale Vektoren sind Tensoren vom Rang 1.
+
+Tensoren gleicher Signatur (inklusive der physikalischen Dimension) können addiert werden. Tensoren können auch multipliziert werden. Dabei entstehen Tensoren
+deren Rang die Summe der Ränge der beiden Faktoren ist. Dies heißt auch Tensor-Produkt. Zum Beispiel:
+\begin{eqnarray*}
+T^{\mu\nu}_{\lambda\sigma}
+&=& A^\mu_\lambda B^\nu_\sigma
+\end{eqnarray*}
+Als Verjüngung oder Kontraktion eines Tensors versteht man das was sich ergibt, falls ein oberer und ein unterer Index gleich sind. Dann kommt die Summenkonvention zum Zuge. Der Rang erniedrigt sich dabei um 2. Verjüngte Tensoren sind wiederum Tensoren. Zum Beispiel:
+\begin{eqnarray*}
+W^\mu_\sigma &=& T^{\mu\lambda}_{\lambda\sigma}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Minkowski-Metrik}
+Die in \ref{allg_transf_minkowsky} beschriebene Metrik ist auch ein Tensor $\eta_{\mu\nu}$.
+\begin{proof}
+Die Invarianz der Pseudometrik
+\begin{eqnarray*}
+(x,y) &=& x^\mu \eta_{\mu\nu} y^\nu
+\end{eqnarray*}
+bedeutet dass $(x,y)=(x^\prime,y^\prime)$. Das heißt:
+\begin{eqnarray*}
+x^\mu \eta_{\mu\nu} y^\nu &=& x^{\prime\mu} \eta_{\mu\nu} y^{\prime\nu}\\
+&=& \left(\Lambda^\mu_\alpha x^{\alpha}\right) \eta_{\mu\nu} \left(\Lambda^\nu_\beta y^{\beta}\right)\\
+&=& \left(\Lambda^\mu_\alpha \eta_{\mu\nu}\Lambda^\nu_\beta\right)x^{\alpha}y^{\beta}
+\end{eqnarray*}
+für alle $x$ und $y$. Und daher:
+\begin{eqnarray*}
+\eta_{\alpha\beta} &=& \Lambda^\mu_\alpha \eta_{\mu\nu}\Lambda^\nu_\beta
+\end{eqnarray*}
+oder
+\begin{eqnarray*}
+{\Lambda^{-1}}^\alpha_\mu\eta_{\alpha\beta}{\Lambda^{-1}}^\beta_\nu &=& \eta_{\mu\nu}=\eta^\prime_{\mu\nu}
+\end{eqnarray*}
+Die linke Seite hat genau die Form wie ein doppelt dualer Tensor mit Rang 2 transformiert wird.
+$\eta$ hat also zwei Eigenschaften:
+\begin{itemize}
+	\item $\eta(x,y)=\eta(x^\prime,y^\prime)$: also ist $\eta$ ein Tensor.
+	\item Die Komponenten $\eta_{\mu\nu}$ sind in allen Inertialsystemen dieselben.
+\end{itemize}
+\end{proof}
+Da $\eta$ ein Tensor ist, kann jeder Tensor damit multipliziert und verjüngt werden. Zum Beispiel:
+\begin{eqnarray*}
+T^{\mu\nu}_{\lambda\sigma}\eta_{\nu\alpha} &=& T^\mu_{\lambda\sigma\alpha}
+\end{eqnarray*}
+Dieser Vorgang wir als Herunterziehen eines oberen Index $\nu$ zu einem unteren Index $\alpha$ bezeichnet.
+Natürlich gibt es den inversen Vorgang:
+\begin{eqnarray*}
+T^\mu_{\lambda\sigma\alpha}\eta^{\alpha\beta} &=& T^{\mu\nu}_{\lambda\sigma}\eta_{\nu\alpha}\eta^{\alpha\beta}
+=T^{\mu\nu}_{\lambda\sigma}\delta^\beta_\nu=T^{\mu\beta}_{\lambda\sigma}
+\end{eqnarray*}
+$\eta^{\alpha\beta}$ ist durch die Identität
+\begin{eqnarray*}
+\eta_{\nu\alpha}\eta^{\alpha\beta}&=&\delta^\beta_\nu
+\end{eqnarray*}
+bestimmt. Die Komponenten sind dieselben.
+
+Warnung: \textit{Das Herauf- und Herunterziehen ist von der Vorzeichenkonvention (siehe Abschnitt \ref{allg_transf_minkowsky})
+abhängig. Dadurch können sich Formeln in der Literatur durch das Vorzeichen unterscheiden.}
+\end{subsection}
+
+\begin{subsection}{Tensorfelder, Gradient und Divergenz}
+Ein Tensorfeld ist eine Funktion die den Ereignis-Raum auf Tensoren gegebener Signatur (und physikalischer Dimension) abbilden.
+Daher schreiben wir z.B $T^{\mu\nu}_{\lambda\sigma}(x)$, wobei $x$ die Ereignis-Koordinate ist. Das Transformations-Verhalten
+eines Tensorfeldes lautet z.B:
+\begin{eqnarray}
+\label{tensor_field_transf}
+T^{\prime\mu\nu}_{\lambda\sigma}(x^\prime(x))
+&=& \Lambda^\mu_\alpha\Lambda^\nu_\beta {\Lambda^{-1}}_\lambda^\gamma{\Lambda^{-1}}_\sigma^\delta T^{\alpha\beta}_{\gamma\delta}(x)
+\end{eqnarray}
+mit
+\begin{eqnarray*}
+x^{\prime\mu}(x) &=& \Lambda^\mu_\nu x^\nu+a^\mu\\
+\end{eqnarray*}
+
+Die partiellen Ableitungen transformieren sich wie die Komponenten eines dualen Vektors.
+\begin{proof}
+anhand der Beispiel-Signatur:
+\ref{tensor_field_transf} ist äquivalent zu
+\begin{eqnarray*}
+T^{\prime\mu\nu}_{\lambda\sigma}(x^\prime)
+&=& \Lambda^\mu_\alpha\Lambda^\nu_\beta {\Lambda^{-1}}_\lambda^\gamma{\Lambda^{-1}}_\sigma^\delta T^{\alpha\beta}_{\gamma\delta}(x(x^\prime))
+\end{eqnarray*}
+$x(x^\prime)$ ist die inverse Abbildung von $x^\prime(x)$:
+\begin{eqnarray*}
+x^{\prime\mu}(x) &=& \Lambda^\mu_\nu x^\nu+a^\mu\\
+x^{\prime\mu}(x)-a^\mu &=& \Lambda^\mu_\nu x^\nu\\
+{\Lambda^{-1}}^\nu_\mu\left(x^{\prime\mu}(x)-a^\mu\right) &=& x^\nu\\
+x^\nu(x^\prime) &=& {\Lambda^{-1}}^\nu_\mu\left(x^{\prime\mu}-a^\mu\right) 
+\end{eqnarray*}
+Damit:
+\begin{eqnarray*}
+\frac{\partial}{\partial x^{\prime \alpha}}T^{\prime\mu\nu}_{\lambda\sigma}(x^\prime)
+&=& \frac{\partial}{\partial x^{\prime \alpha}}\left(\Lambda^\mu_\alpha\Lambda^\nu_\beta {\Lambda^{-1}}_\lambda^\gamma{\Lambda^{-1}}_\sigma^\delta T^{\alpha\beta}_{\gamma\delta}(x(x^\prime))\right)\\
+&=& \Lambda^\mu_\alpha\Lambda^\nu_\beta {\Lambda^{-1}}_\lambda^\gamma{\Lambda^{-1}}_\sigma^\delta \frac{\partial}{\partial x^{\prime \alpha}}T^{\alpha\beta}_{\gamma\delta}(x(x^\prime))\\
+&=& \Lambda^\mu_\alpha\Lambda^\nu_\beta {\Lambda^{-1}}_\lambda^\gamma{\Lambda^{-1}}_\sigma^\delta \frac{\partial x^\gamma}{\partial x^{\prime \alpha}}\frac{\partial}{\partial x^\gamma}T^{\alpha\beta}_{\gamma\delta}(x(x^\prime))\\
+&=& \Lambda^\mu_\alpha\Lambda^\nu_\beta {\Lambda^{-1}}_\lambda^\gamma{\Lambda^{-1}}_\sigma^\delta {\Lambda^{-1}}^\gamma_\alpha\frac{\partial}{\partial x^\gamma}T^{\alpha\beta}_{\gamma\delta}(x(x^\prime))
+\end{eqnarray*}
+\end{proof}Daher führen wir die Notation
+\begin{eqnarray*}
+\frac{\partial}{\partial x^\mu} T^{\alpha\beta}_{\gamma\delta}(x) &=& T^{\alpha\beta}_{\gamma\delta,\mu}(x)
+\end{eqnarray*}
+ein. Durch Verjüngung können Divergenzen $T^{\alpha\mu}_{\gamma\delta,\mu}(x)$ gebildet werden.
+Es gilt der Gaußsche Integralsatz:
+\begin{eqnarray*}
+\int_\Omega T^{\alpha\mu}_{\gamma\delta,\mu}(x) dx^4 &=& \oint_{\partial\Omega} T^{\alpha\mu}_{\gamma\delta}(x) d\omega_\mu
+\end{eqnarray*}
+für ein Gebiet $\Omega$ und dessen Rand $\partial\Omega$. Verschwindet $T^{\alpha\mu}_{\gamma\delta}(x)$ im Unendlichen hinreichend schnell, so gilt auch
+\begin{eqnarray*}
+\int T^{\alpha\mu}_{\gamma\delta,\mu}(x) dx^4 &=& 0
+\end{eqnarray*}
+Verschwindet $T^{\alpha\mu}_{\gamma\delta}(x)$ hingegen nur in räumlichen Richtungen, dann gilt:
+\begin{eqnarray*}
+\int_{x^0=\tau_1}^{x^0=\tau_2} T^{\alpha\mu}_{\gamma\delta,\mu}(x) dx^4 &=& \int_{x^0=\tau_2} T^{\alpha 0}_{\gamma\delta}(x) dx^3
+-\int_{x^0=\tau_1} T^{\alpha 0}_{\gamma\delta}(x) dx^3
+\end{eqnarray*}
+
+\end{subsection}
+\end{section}
+
+
+\begin{section}{Elektrodynamik}
+
+\begin{subsection}{Maxwells-Beschreibung}
+Zunächst \textbf{definiert} die sogenannte Lorentz-Kraft, die das elektrische Feld $\vec{E}$ und das magnetische Feld $\vec{B}$ auf eine Punktladung ausübt, indirekt die beiden Felder durch ihre Wirkung auf elektrische Ladungen $q$.
+\begin{eqnarray}
+\label{relt_lorentz_force}
+\vec{F} &=& q\left(\vec{E}(x)+\vec{v}\times\vec{B}(x)\right)
+\end{eqnarray}
+Und hier die Maxwell-Gleichungen:
+\begin{eqnarray}
+\label{relt_coulomb_eqn}
+\vec{\nabla}\cdot\vec{E} &=& \frac{1}{\epsilon_0}\rho\\
+\label{relt_no_magnetic_source_eqn}
+\vec{\nabla}\cdot\vec{B} &=& 0\\
+\label{relt_faraday_induction_eqn}
+\vec{\nabla}\times\vec{E} &=& -\dot{\vec{B}}\\
+\label{relt_ampere_current_makes_magnetic_field}
+\vec{\nabla}\times\vec{B} &=& \mu_0\left(\vec{j}+\epsilon_0\dot{\vec{E}}\right)
+\end{eqnarray}
+Darin ist auch die Kontinuitäts-Gleichung enthalten:
+\begin{eqnarray}
+\label{relt_continuity_eqn}
+\rho &=&\epsilon_0\vec{\nabla}\cdot\vec{E}\cr
+\vec{j} &=& \frac{1}{\mu_0}\vec{\nabla}\times\vec{B}-\epsilon_0\dot{\vec{E}}\cr
+\dot{\rho} &=&\epsilon_0\vec{\nabla}\cdot\dot{\vec{E}}\cr
+\vec{\nabla}\cdot\vec{j} &=& -\epsilon_0\vec{\nabla}\cdot\dot{\vec{E}}\cr
+\dot{\rho}+\vec{\nabla}\cdot\vec{j} &=& 0
+\end{eqnarray}
+Ferner gilt
+\begin{eqnarray}
+c^2 &=& \frac{1}{\epsilon_0\mu_0}
+\end{eqnarray}
+\end{subsection}
+
+\begin{subsection}{Potentiale und Eichsymmetrie}
+Die Gleichung \ref{relt_no_magnetic_source_eqn}
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{B} &=& 0
+\end{eqnarray*}
+erlaubt es, das magnetische Feld als Rotation aufzufassen
+\begin{eqnarray*}
+\vec{B} &=& \vec{\nabla}\times \vec{A}
+\end{eqnarray*}
+$\vec{A}$ wird Vektor-Potential genannt und ist nur bis auf einen Gradienten bestimmt:
+\begin{eqnarray*}
+\vec{B} &=& \vec{\nabla}\times \left(\vec{A}+\vec{\nabla}\Phi\right)=\vec{\nabla}\times\vec{A}
+\end{eqnarray*}
+In \ref{relt_faraday_induction_eqn} eingesetzt ergibt dies
+\begin{eqnarray*}
+\vec{\nabla}\times\vec{E} &=&-\dot{\vec{B}}\\
+&=& -\vec{\nabla}\times\dot{\vec{A}}\\
+\vec{\nabla}\times\left(\vec{E}+\dot{\vec{A}}\right) &=& 0
+\end{eqnarray*}
+Das rotationsfreie Feld $\vec{E}+\dot{\vec{A}}$ lässt sich wiederum als Gradient darstellen:
+\begin{eqnarray*}
+\vec{E}+\dot{\vec{A}} &=& \vec{\nabla}\varphi\\
+\vec{E} &=& \vec{\nabla}\varphi-\dot{\vec{A}}
+\end{eqnarray*}
+Die Unbestimmtheit von $\vec{A}$ koppelt mit $\varphi$:
+\begin{eqnarray*}
+\vec{E} &=& \vec{\nabla}\varphi^\prime-\dot{\vec{A^\prime}}\\
+&=& \vec{\nabla}\varphi^\prime-\dot{\vec{A}}-\vec{\nabla}\dot{\Phi}\\
+&=& \vec{\nabla}\left(\varphi^\prime-\dot{\Phi}\right)-\dot{\vec{A}}\\
+\vec{\nabla}\varphi &=& \vec{\nabla}\left(\varphi^\prime-\dot{\Phi}\right)\\
+\varphi^\prime &=& \varphi+\dot{\Phi}+\kappa
+\end{eqnarray*}
+wobei $\kappa$ eine Konstante ist. Diese Konstante kann durch $\Phi(x,t)\mapsto \Phi(x,t)+\kappa t$ absorbiert werden. Wir können also $\vec{A}$ und $\varphi$ durch
+\begin{eqnarray*}
+\vec{A} &\mapsto& \vec{A}^\prime=\vec{A}+\vec{\nabla}\Phi\\
+\varphi &\mapsto& \varphi^\prime= \varphi+\dot{\Phi}
+\end{eqnarray*}
+ersetzen, ohne dass die Felder
+\begin{eqnarray*}
+\vec{B} &=& \vec{\nabla}\times \vec{A}\\
+\vec{E} &=& \vec{\nabla}\varphi-\dot{\vec{A}}
+\end{eqnarray*}
+dadurch verändert werden. Die Freiheit $\vec{A}$ und $\varphi$ zu wählen wird Eichsymmetrie genannt.
+Werden $\vec{E}$ und $\vec{B}$ wie oben definiert, dann sind die Maxwellgleichungen
+\ref{relt_no_magnetic_source_eqn} und \ref{relt_faraday_induction_eqn}
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{B} &=& \vec{\nabla}\cdot\left(\vec{\nabla}\times \vec{A}\right)=0\\
+\vec{\nabla}\times\vec{E} &=& -\dot{\vec{B}}\\
+\vec{\nabla}\times\left(\vec{\nabla}\varphi-\dot{\vec{A}}\right) &=& -\vec{\nabla}\times \dot{\vec{A}}
+\end{eqnarray*}
+ automatisch erfüllt. Es bleiben \ref{relt_coulomb_eqn} und \ref{relt_ampere_current_makes_magnetic_field}
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{E} &=& \frac{1}{\epsilon_0}\rho\cr
+\vec{\nabla}\times\vec{B} &=& \mu_0\left(\vec{j}+\epsilon_0\dot{\vec{E}}\right)
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Vierer-Strom und Lorentz-Kraft}
+Die Ladungsdichte $\rho$ und die Stromdichte $\vec{j}$ genügen der Kontinuitäts-Gleichung \ref{relt_continuity_eqn}
+\begin{eqnarray*}
+\dot{\rho}+\vec{\nabla}\cdot \vec{j} &=& 0
+\end{eqnarray*}
+Wir definieren ein Vektorfeld
+\begin{eqnarray*}
+j^\mu(x) &=& \begin{pmatrix}
+c\rho(x) \\\vec{j} (x)
+\end{pmatrix}
+\end{eqnarray*}
+Ob dies legitim ist oder nicht bleibt zunächst offen. Was aber mit Sicherheit gesagt werden kann, ist dass die 
+Kontinuitäts-Gleichung die Form
+\begin{eqnarray*}
+j^\mu_{,\mu} &=& \frac{\partial}{\partial x^0} c\rho+\vec{\nabla}\cdot\vec{j}\\
+&=& \frac{\partial}{\partial t} \rho+\vec{\nabla}\cdot\vec{j}=0
+\end{eqnarray*}
+annimmt.
+\begin{subsubsection}{\titlemath{$j^\mu$}{j} ist ein Vektorfeld}
+Wir betrachten eine Teilchenschar mit einer Teilchendichte $\sigma$. Die einzelnen Teilchen haben ein Ladung $q$
+und eine Geschwindigkeit $\vec{w}$. Dann ist die Ladungsdichte $\rho=\sigma q$ und die Stromdichte $\vec{j}=\sigma q \vec{w}$.
+Wir wollen zeigen, dass
+\begin{eqnarray*}
+\begin{comment}
+j^\mu &=& \begin{pmatrix}
+c\rho\\ \vec{j}
+\end{pmatrix}
+\end{comment}
+j^\mu &=& \pmat{
+c\rho\\ \vec{j}
+}
+=\sigma q\pmat{
+c\\ \vec{w}
+}
+\end{eqnarray*}
+ein Vierervektor ist, das heißt, dass $j^{\prime\mu}=\Lambda^\mu_\nu j^\nu$.
+Ein einzelnes Teilchen habe zum Zeitpunkt Null die Raumkoordinate $\vec{b}$. Die Trajektorie ist dann
+\begin{eqnarray*}
+x^\mu(t) &=& \begin{pmatrix}
+ct\\ \vec{w}t+\vec{b}
+\end{pmatrix}
+\end{eqnarray*}
+Wir wenden einen Lorentz-Boost $\Lambda_v$ in $x$-Richtung an:
+\begin{eqnarray*}
+x^{\prime\mu}(t) &=& 
+\begin{pmatrix}
+\gamma\begin{pmatrix}
+1 & \frac{v}{c}\\
+\frac{v}{c} & 1
+\end{pmatrix} &   \\
+& 1 & 0\\
+& 0 & 1
+\end{pmatrix}\begin{pmatrix}
+ct\\ \vec{w}t+\vec{b}
+\end{pmatrix}\\
+&=&\begin{pmatrix}
+\gamma \left(ct+\frac{v}{c}\left(w_1t+b_1\right)\right)\\
+\gamma \left(vt+w_1t+b_1\right)\\
+w_2t+b_2\\
+w_3t+b_3
+\end{pmatrix}\\
+&=&
+\begin{pmatrix}
+\gamma \left(c+\frac{vw_1}{c}\right)\\
+\gamma \left(v+w_1\right)\\
+w_2\\
+w_3
+\end{pmatrix}t+
+\begin{pmatrix}
+\gamma \frac{v}{c}b_1\\
+\gamma b_1\\
+b_2\\
+b_3
+\end{pmatrix}
+\end{eqnarray*}
+Die transformierte Geschwindigkeit ist
+\begin{eqnarray*}
+\vec{w}^\prime &=& \frac{1}{\gamma \left(1+\frac{vw_1}{c^2}\right)}\begin{pmatrix}
+\gamma \left(v+w_1\right)\\
+w_2\\
+w_3
+\end{pmatrix}
+\end{eqnarray*}
+Damit die transformierte Zeitkoordinate $x^{\prime 0}=\gamma \left(c+\frac{vw_1}{c}\right)t+\gamma \frac{v}{c}b_1$ Null wird, muss
+\begin{eqnarray*}
+t_0 &=&-\frac{\frac{v}{c}b_1}{c+\frac{vw_1}{c}}
+\end{eqnarray*}
+sein. Die entsprechende Raumkoordinate $\vec{b}^\prime$ ist somit:
+\begin{eqnarray*}
+\vec{b}^\prime &=&t_0
+\begin{pmatrix}
+\gamma \left(v+w_1\right)\\
+w_2\\
+w_3
+\end{pmatrix}+
+\begin{pmatrix}
+\gamma b_1\\
+b_2\\
+b_3
+\end{pmatrix}\\
+&=&t_0\gamma \left(1+\frac{vw_1}{c^2}\right)\vec{w}^\prime
++\begin{pmatrix}
+\gamma b_1\\
+b_2\\
+b_3
+\end{pmatrix}\\
+&=&-\frac{v}{c}b_1\gamma\vec{w}^\prime
++\begin{pmatrix}
+\gamma b_1\\
+b_2\\
+b_3
+\end{pmatrix}\\
+&=&\begin{pmatrix}
+\gamma\left(1-\frac{v}{c^2}w_1^\prime\right)&0&0\\
+-\gamma\frac{v}{c}w_2^\prime&1&0\\
+-\gamma\frac{v}{c}w_3^\prime&0&1
+\end{pmatrix}\begin{pmatrix}
+b_1\\
+b_2\\
+b_3
+\end{pmatrix}
+\end{eqnarray*}
+Wir formen den Term $\gamma\left(1-\frac{v}{c^2}w_1^\prime\right)$ um:
+\begin{eqnarray*}
+\gamma\left(1-\frac{v}{c^2}w_1^\prime\right) &=& \gamma\left(1-\frac{v}{c^2}\frac{v+w_1}{1+\frac{vw_1}{c^2}}\right)\\
+&=& \gamma\left(1-\frac{\frac{v}{c^2}\left(v+w_1\right)}{1+\frac{vw_1}{c^2}}\right)\\
+&=& \gamma\frac{1+\frac{vw_1}{c^2}-\frac{v}{c^2}\left(v+w_1\right)}{1+\frac{vw_1}{c^2}}\\
+&=& \gamma\frac{1-\frac{v^2}{c^2}}{1+\frac{vw_1}{c^2}}\\
+&=& \frac{1}{\gamma}\frac{1}{1+\frac{vw_1}{c^2}}
+\end{eqnarray*}
+Die Abbildung $\vec{b}\mapsto\vec{b}^\prime$ führt zu einer Volumenänderung:
+\begin{eqnarray*}
+V^\prime&=&\det\begin{pmatrix}
+\frac{1}{\gamma}\frac{1}{1+\frac{vw_1}{c^2}}&0&0\\
+-\gamma\frac{v}{c}w_2^\prime&1&0\\
+-\gamma\frac{v}{c}w_3^\prime&0&1
+\end{pmatrix}V\\
+&=& \frac{1}{\gamma}\frac{1}{1+\frac{vw_1}{c^2}}V
+\end{eqnarray*}
+Dies hat wiederum eine Änderung der Teilchendichte $\sigma^\prime$ zur Folge:
+\begin{eqnarray*}
+\sigma^\prime V^\prime &=& \sigma V\\
+\sigma^\prime &=& \frac{V}{V^\prime}\sigma\\
+&=& \gamma\left(1+\frac{vw_1}{c^2}\right)\sigma
+\end{eqnarray*}
+Daraus ergibt sich weiter die Stromdichte $\vec{j}^\prime$:
+\begin{eqnarray*}
+\vec{j}^\prime &=& \sigma^\prime q\vec{w}^\prime\\
+&=& \gamma\left(1+\frac{vw_1}{c^2}\right)\sigma q\frac{1}{\gamma \left(1+\frac{vw_1}{c^2}\right)}\begin{pmatrix}
+\gamma \left(v+w_1\right)\\
+w_2\\
+w_3
+\end{pmatrix}\\
+&=& \sigma q\begin{pmatrix}
+\gamma \left(v+w_1\right)\\
+w_2\\
+w_3
+\end{pmatrix}
+\end{eqnarray*}
+Daraus lässt sich $j^{\prime \mu}$ bilden:
+\begin{eqnarray*}
+j^{\prime \mu} &=& \begin{pmatrix}
+\rho^\prime c\\
+\vec{j}^\prime
+\end{pmatrix}=
+\begin{pmatrix}
+\gamma\left(1+\frac{vw_1}{c^2}\right) c\\
+\gamma \left(v+w_1\right)\\
+w_2\\
+w_3
+\end{pmatrix}\sigma q
+\end{eqnarray*}
+Dies ist aber
+\begin{eqnarray*}
+j^{\prime \mu} &=& \Lambda^\mu_\nu j^\nu\\
+&=&\begin{pmatrix}
+\gamma\begin{pmatrix}
+1 & \frac{v}{c}\\
+\frac{v}{c} & 1
+\end{pmatrix} &   \\
+& 1 & 0\\
+& 0 & 1
+\end{pmatrix}
+\sigma q 
+\begin{pmatrix}
+c\\
+\vec{w}
+\end{pmatrix}\\
+&=&\sigma q 
+\begin{pmatrix}
+\gamma\left(c+\frac{v}{c}w_1\right)\\
+\gamma\left(v+w_1\right)\\
+w_2\\
+w_3
+\end{pmatrix}
+\end{eqnarray*}
+Das Transformations-Verhalten von $j^\mu$ hängt nicht von den verwendeten Parametern $\sigma$, $q$ und $\vec{w}$ ab.
+Daher kann das Transformations-Verhalten als allgemeingültig gelten.
+Das heißt, $j^\mu(x)$ kann \textbf{zurecht} als Vektorfeld betrachtet werden.
+\end{subsubsection}
+
+\begin{subsubsection}{Kraft- und Leistungs-Dichte}
+Die Lorentz-Kraft \ref{relt_lorentz_force} ist als Kraft, die auf ein einzelnes geladenes Teichen wirkt, definiert:
+\begin{eqnarray*}
+\vec{F} &=& q\left(\vec{E}(x)+\vec{v}\times\vec{B}(x)\right)
+\end{eqnarray*}
+Verwenden wir die Darstellung von $\rho$ und $\vec{j}$ mittels $\sigma$, $q$ und $\vec{v}$, wie oben beschrieben, kann eine Kraft-Dichte als Summe über einzelne Teilchen definiert werden:
+\begin{eqnarray*}
+\frac{d\vec{P}}{dt} &=& \sigma q\left(\vec{E}+\vec{v}\times\vec{B}\right)
+=\rho\vec{E}+\vec{j}\times \vec{B}
+\end{eqnarray*}
+$\frac{d\vec{P}}{dt}$ ist die Kraft-Dichte als zeitliche Zunahme des Impulses $\vec{p}$ pro Zeiteinheit und Volumen formuliert.
+Diese Zunahme bezieht sich auf die geladenen Teilchen, das heißt nicht auf das elektromagnetische Feld, sondern auf Materie.
+Die kinetische Energiezunahme eines einzelnen Teilchens ist als Kraft mal Geschwindigkeit definiert:
+\begin{eqnarray*}
+\frac{dW}{dt} &=& q\vec{E}\cdot\vec{v}
+\end{eqnarray*}
+Somit ist die Leistungs-Dichte:
+\begin{eqnarray*}
+\frac{d\rho_{energie}}{dt} &=& \sigma q\vec{E}\cdot\vec{v} = \vec{E}\cdot\vec{j}
+\end{eqnarray*}
+\end{subsubsection}
+\end{subsection}
+
+\begin{subsection}{Feldstärke-Tensor}
+\label{field_tensor}
+Es ist möglich, die Leistungs-Dichte und Kraft-Dichte durch einen Feldstärke-Tensor $F^\mu_{\ \nu}$ zu beschreiben, sodass
+\begin{eqnarray}
+\label{covariant_lorentz_force}
+\frac{dP^\mu}{dt} &=& F^\mu_{\ \nu}j^\nu
+\end{eqnarray}
+gilt. Wir erhalten
+\begin{eqnarray*}
+\frac{dP^\mu}{dt} = 
+\begin{pmatrix}
+\frac{1}{c}\frac{d\rho_{energie}}{dt}\\
+\frac{d\vec{P}}{dt}
+\end{pmatrix}
+&=&
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+\begin{pmatrix}
+c\rho\\
+\vec{j}
+\end{pmatrix}
+\end{eqnarray*}
+Inwiefern die obige Definition von $\frac{dP^\mu}{dt}$ auch wirklich ein Vektorfeld beschreibt, bleibt vorderhand offen.
+Auch die inhomogenen Feldgleichungen lassen sich durch den Feldstärke-Tensor ausdrücken. Zuerst \ref{relt_coulomb_eqn}
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{E} &=& \frac{1}{\epsilon_0}\rho = \frac{1}{c\epsilon_0}j^0= \frac{\mu_0}{c\epsilon_0\mu_0}j^0 = c\mu_0j^0\\
+j^0 &=& \frac{1}{c\mu_0}\vec{\nabla}\cdot\vec{E}
+\end{eqnarray*}
+Und dann \ref{relt_ampere_current_makes_magnetic_field}:
+\begin{eqnarray*}
+\vec{\nabla}\times\vec{B} &=& \mu_0\left(\vec{j}+\epsilon_0\dot{\vec{E}}\right)\\
+\vec{j} &=& \frac{1}{\mu_0}\vec{\nabla}\times\vec{B}-\epsilon_0\dot{\vec{E}}
+=\frac{1}{\mu_0}\vec{\nabla}\times\vec{B}-\frac{\epsilon_0\mu_0}{\mu_0}\dot{\vec{E}}\\
+&=&\frac{1}{\mu_0}\vec{\nabla}\times\vec{B}-\frac{1}{\mu_0c^2}\dot{\vec{E}}
+=\frac{1}{\mu_0}\vec{\nabla}\times\vec{B}-\frac{1}{\mu_0c}\vec{E}_{,0}\\
+&=&\frac{1}{\mu_0}\left(\vec{\nabla}\times\vec{B}-\frac{1}{c}\vec{E}_{,0}\right)\\
+\left(\vec{B}\times\right)^a_{b,a} &=& \epsilon_{acb}B_{c,a}=\epsilon_{bac}B_{c,a}=\left(\vec{\nabla}\times \vec{B}\right)_b\\
+j^k &=& \frac{1}{\mu_0}\left(\left(\vec{B}\times\right)^b_{k,b}-\frac{1}{c}E^k_{,0}\right)\\
+&=&\frac{1}{\mu_0}\begin{pmatrix}
+-\frac{1}{c}\vec{E} & \left(\vec{B}\times\right)
+\end{pmatrix}^\mu_{k,\mu}
+\end{eqnarray*}
+Zusammengefasst:
+\begin{eqnarray}
+\label{cov_inh_maxwell_eqns}
+j^\mu=
+\begin{pmatrix}
+c\rho\\
+\vec{j}
+\end{pmatrix}^\mu
+= \frac{1}{\mu_0}\begin{pmatrix}
+0 & -\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &\left(\vec{B}\times\right)
+\end{pmatrix}^{\nu\mu}_{,\nu}=\frac{1}{\mu_0}F^{\mu\nu}_{,\nu}
+\end{eqnarray}
+mit
+\begin{eqnarray*}
+F^{\mu\nu} &=& F^\mu_\sigma\eta^{\nu\sigma} =\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times
+\end{pmatrix}
+\begin{pmatrix}
+-1 & 0\\
+0 & 1
+\end{pmatrix}=\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+-\frac{1}{c}\vec{E} &-\vec{B}\times
+\end{pmatrix}
+\end{eqnarray*}
+
+\end{subsection}
+
+\begin{subsection}{Feldstärke-Tensor durch Vierer-Potential ausgedrückt}
+\label{field_strength_by_A}
+Wir beginnen mit
+\begin{eqnarray*}
+\vec{B} &=& \vec{\nabla}\times \vec{A}\\
+B_k &=& \epsilon_{klm}A^l_{,m}\\
+\left(\vec{B}\times\right)_b^a &=& \epsilon_{akb}B_k=\epsilon_{akb}\left(\vec{\nabla}\times\vec{A}\right)_k=\epsilon_{akb}\epsilon_{kml}A^l_{,m}\\
+&=& \epsilon_{kba}\epsilon_{kml}A^l_{,m}\\
+&=&\left(\delta_{bm}\delta_{al}-\delta_{bl}\delta_{am}\right)A^l_{,m}\\
+&=&A^a_{,b}-A^b_{,a}
+\end{eqnarray*}
+und fahren fort mit
+\begin{eqnarray*}
+\vec{E} &=& \vec{\nabla}\Phi-\dot{\vec{A}}\\
+&=&-c\vec{\nabla}A^0-c\vec{A}_{,0}\\
+E^k &=& -cA^0_{,k}-cA^k_{,0}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Antisymmetrischer Feld-Tensor}
+Wir rekapitulieren aus \ref{field_tensor}
+\begin{eqnarray*}
+F^\mu_{\ \nu} &=&
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+\end{eqnarray*}
+und ferner aus \ref{field_strength_by_A}
+\begin{eqnarray*}
+\left(\vec{B}\times\right)_b^a &=&A^b_{,a}-A^a_{,b}\\
+E^k &=& -cA^0_{,k}-cA^k_{,0}
+\end{eqnarray*}
+Durch herunterziehen des Index $\mu$ erhalten wir:
+\begin{eqnarray*}
+F_{\lambda \nu} &=&
+\begin{pmatrix}
+-1 & 0\\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+=\begin{pmatrix}
+0 &-\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+=\begin{pmatrix}
+0& -\frac{1}{c}E_1& -\frac{1}{c}E_2& -\frac{1}{c}E_3\\
+\frac{1}{c}E_1& 0 & B_3 & -B_2 \\
+\frac{1}{c}E_2& -B_3 & 0 & B_1 \\
+\frac{1}{c}E_3& B_2 & -B_1 & 0
+\end{pmatrix}
+\end{eqnarray*}
+und weiter
+\begin{eqnarray*}
+-\left(\vec{B}\times\right)_{ab} &=&A_{a,b}-A_{b,a}\\
+-\frac{1}{c}E^k &=& A_{k,0}-A_{0,k}
+\end{eqnarray*}
+und schließlich
+\begin{eqnarray*}
+F_{\lambda \nu} &=&
+\begin{pmatrix}
+0 &-\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 &\left(A_{\nu,0}-A_{0,\nu}\right)\\
+\left(A_{0,\lambda}-A_{\lambda,0}\right) &A_{a,b}-A_{b,a}\\
+\end{pmatrix}
+=A_{\lambda,\nu}-A_{\nu,\lambda}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Energie-Impuls-Tensor des elektromagnetischen Feldes}
+\begin{subsubsection}{Energie-Impuls-Abgabe an Materie}
+Wir haben die Kraft \ref{covariant_lorentz_force}
+, die auf Materie wirkt 
+\begin{eqnarray*}
+\frac{dP^\mu}{dt} &=& F^\mu_{\ \nu}j^\nu
+\end{eqnarray*}
+und die inhomogenen Maxwell-Gleichungen \ref{cov_inh_maxwell_eqns} %\ref{inh_covariant_maxwell_eqns}:
+\begin{eqnarray}
+\label{cov_maxwell_eqns}
+j^\mu &=& \frac{1}{\mu_0}F^{\mu\nu}_{,\nu}
+\end{eqnarray}
+also
+\begin{eqnarray*}
+\frac{dP^\mu}{dt} &=& \frac{1}{\mu_0}F^\mu_{\ \nu}F^{\nu\sigma}_{,\sigma}
+\end{eqnarray*}
+Dies kann auch so geschrieben werden:
+\begin{eqnarray}
+\label{energy_absorbtion}
+F^\mu_{\ \nu}j^\nu = \frac{dP^\mu}{dt} &=& -T^{\mu\nu}_{,\nu}
+\end{eqnarray}
+denn
+\begin{eqnarray*}
+F^\mu_{\ \nu}F^{\nu\sigma}_{,\sigma} &=&\left(F^\mu_{\ \nu}F^{\nu\sigma}\right)_{,\sigma}-F^\mu_{\ \nu,\sigma}F^{\nu\sigma}\\
+F^\mu_{\ \nu,\sigma}F^{\nu\sigma} &=& \eta^{\mu\lambda}F_{\lambda\nu,\sigma}F^{\nu\sigma}\\
+F_{\lambda\nu,\sigma}F^{\nu\sigma} &=& \left(A_{\lambda,\nu\sigma}-A_{\nu,\lambda\sigma}\right)F^{\nu\sigma}\\
+&=& -A_{\nu,\sigma\lambda}F^{\nu\sigma}\\
+&=& \frac{1}{2}\left(A_{\sigma,\nu\lambda}-A_{\nu,\sigma\lambda}\right)F^{\nu\sigma}\\
+&=& \frac{1}{2}F_{\sigma\nu,\lambda}F^{\nu\sigma}\\
+&=& -\frac{1}{4}\left(F_{\nu\sigma}F^{\nu\sigma}\right)_{,\lambda}\\
+F^\mu_{\ \nu}F^{\nu\sigma}_{,\sigma} &=&\left(F^\mu_{\ \nu}F^{\nu\sigma}\right)_{,\sigma}+\frac{1}{4}\eta^{\mu\lambda}\left(F_{\nu\sigma}F^{\nu\sigma}\right)_{,\lambda}\\
+&=&\left(F^\mu_{\ \nu}F^{\nu\sigma}\right)_{,\sigma}+\frac{1}{4}\eta^{\mu\sigma}\left(F_{\nu\lambda}F^{\nu\lambda}\right)_{,\sigma}\\
+&=&\left(F^\mu_{\ \nu}F^{\nu\sigma}+\frac{1}{4}\eta^{\mu\sigma}F_{\nu\lambda}F^{\nu\lambda}\right)_{,\sigma}
+\end{eqnarray*}
+also
+\begin{eqnarray*}
+T^{\mu\nu} &=& \frac{-1}{\mu_0}\left(F^{\mu\sigma}F^{\lambda\nu}\eta_{\sigma\lambda}+\frac{1}{4}\eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\right)
+\end{eqnarray*}
+Wir wollen das durch $\vec{E}$ und $\vec{B}$ ausdrücken:
+\begin{eqnarray*}
+F^{\mu\sigma}\eta_{\sigma\lambda}F^{\lambda\nu}&=&
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+-\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+\begin{pmatrix}
+-1 & 0\\
+0 &1\\
+\end{pmatrix}
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+-\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}\\
+&=&
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+-\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}\\
+&=&
+\begin{pmatrix}
+-\frac{\vec{E}^2}{c^2} &\frac{1}{c}\left(\vec{B}\times\vec{E}\right)^T\\
+\frac{1}{c}\vec{B}\times\vec{E} &\frac{1}{c^2}\vec{E}\vec{E}^T+\left(\vec{B}\times\right)^2
+\end{pmatrix}\\
+F_{\alpha\beta}F^{\alpha\beta} &=& -\frac{2}{c^2}\vec{E}^2+2\vec{B}^2\\
+\mu_0T^{\mu\nu} &=&\begin{pmatrix}
+\frac{\vec{E}^2}{c^2} &\frac{1}{c}\left(\vec{E}\times\vec{B}\right)^T\\
+\frac{1}{c}\vec{E}\times\vec{B} &-\frac{1}{c^2}\vec{E}\vec{E}^T-\left(\vec{B}\times\right)^2
+\end{pmatrix}
++\left(\frac{1}{2c^2}\vec{E}^2-\frac{\vec{B}^2}{2}\right)\begin{pmatrix}
+-1 & 0\\
+0 &1\\
+\end{pmatrix}
+\end{eqnarray*}
+Der Term $\left(\vec{B}\times\right)^2$ ist
+\begin{eqnarray*}
+\left(\vec{B}\times\right)^2 &=& BB^T-(B\cdot B)1
+\end{eqnarray*}
+\begin{eqnarray*}
+\mu_0T^{\mu\nu} &=&
+\begin{pmatrix}
+\frac{\vec{E}^2}{c^2} &\frac{1}{c}\left(\vec{E}\times\vec{B}\right)^T\\
+\frac{1}{c}\vec{E}\times\vec{B} &-\frac{1}{c^2}\vec{E}\vec{E}^T-BB^T+(B\cdot B)1
+\end{pmatrix}
++\left(\frac{1}{2c^2}\vec{E}^2-\frac{\vec{B}^2}{2}\right)\begin{pmatrix}
+-1 & 0\\
+0 &1\\
+\end{pmatrix}\\
+&=&\begin{pmatrix}
+\frac{1}{2}\left(\frac{\vec{E}^2}{c^2}+\vec{B}^2\right) &\frac{1}{c}\left(\vec{E}\times\vec{B}\right)^T\\
+\frac{1}{c}\vec{E}\times\vec{B} &-\frac{1}{c^2}\vec{E}\vec{E}^T-BB^T+\frac{1}{2}\left(\frac{\vec{E}^2}{c^2}+\vec{B}^2\right)1
+\end{pmatrix}\\
+T^{\mu\nu} &=&\frac{1}{\mu_0}\begin{pmatrix}
+\frac{1}{2}\left(\frac{\vec{E}^2}{c^2}+\vec{B}^2\right) &\frac{1}{c}\left(\vec{E}\times\vec{B}\right)^T\\
+\frac{1}{c}\vec{E}\times\vec{B} &-\frac{1}{c^2}\vec{E}\vec{E}^T-BB^T+\frac{1}{2}\left(\frac{\vec{E}^2}{c^2}+\vec{B}^2\right)1
+\end{pmatrix}
+\end{eqnarray*}
+\begin{eqnarray*}
+\label{relt_EM_energyDensity}
+\rho_{E_{EM}} &=& \frac{1}{2}\left(\frac{1}{\mu_0}\vec{B}^2+\epsilon_0\vec{E}^2\right)
+=\frac{1}{2\mu_0}\left(\vec{B}^2+\frac{1}{c^2}\vec{E}^2\right)
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\label{relt_S_def}
+\vec{S} &=& -\frac{1}{\mu_0}\vec{B}\times \vec{E}=\frac{1}{\mu_0}\vec{E}\times \vec{B}
+\end{eqnarray*}
+ergibt sich
+\begin{eqnarray*}
+T^{\mu\nu} &=&\begin{pmatrix}
+\rho_{E_{EM}} &\frac{1}{c}\vec{S}^T\\
+\frac{1}{c}\vec{S} &\frac{1}{\mu_0}\left(-\frac{1}{c^2}\vec{E}\vec{E}^T-BB^T+\frac{1}{2}\left(\frac{\vec{E}^2}{c^2}+\vec{B}^2\right)1\right)
+\end{pmatrix}
+\end{eqnarray*}
+Die Gleichung \ref{energy_absorbtion}
+\begin{eqnarray*}
+\frac{dP^\mu}{dt} &=& -T^{\mu\nu}_{,\nu}
+\end{eqnarray*}
+Beschreibt die \textbf{Abgabe} von Energie und Impuls an Materie (geladene Teilchen). Entsprechend beschreibt $T^{\mu\nu}_{,\nu}$
+die von Materie \textbf{abgestrahlte} elektromagnetische Energie.
+\end{subsubsection}
+
+\begin{subsubsection}{Energie und Masse}
+Wir führen ein Gedankenexperiment durch. Ein Objekt der Masse $m$ sei bezüglich einem gegebenen Koordinatensystem in Ruhe.
+Während einer begrenzten Zeitspanne strahlt der Körper in alle Richtungen elektromagnetische Strahlung ab, so dass der Körper in Ruhe bleibt. Der Gesamtimpuls der emittierten Strahlung ist also gleich Null. Die Gesamtheit der Energie $\Delta E$ die vom Körper an das elektromagnetische Feld abgegeben wurde, kann durch das Integral
+\begin{eqnarray*}
+\Delta E =-\int_{t_1}^{t2} dt\int dx^3 \frac{dP^0}{dt} &=& \int_{t_1}^{t2} dt\int dx^3 T^{0\nu}_{,\nu}
+\end{eqnarray*}
+ausgedrückt werden. Dasselbe gilt für die Gesamtheit des abgestrahlten Impulses $\Delta\vec{p}$:
+\begin{eqnarray*}
+c\Delta p^k =-\int_{t_1}^{t2} dt\int dx^3 \frac{dP^k}{dt} &=& \int_{t_1}^{t2} dt\int dx^3 T^{k\nu}_{,\nu}=0
+\end{eqnarray*}
+oder als Vierervektor zusammengefasst:
+\begin{eqnarray*}
+\Delta p^\mu =-\int_{t_1}^{t2} dt\int dx^3 \frac{dP^\mu}{dt} &=& \int_{t_1}^{t2} dt\int dx^3 T^{\mu\nu}_{,\nu}
+=\begin{pmatrix}
+\Delta E\\
+0
+\end{pmatrix}
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+\Delta E &=& \Delta p^0
+\end{eqnarray*}
+wobei wir oben weiter gefordert haben dass $\Delta p^k=0$ sei. Das zweite Integral kann auch so geschrieben werden:
+\begin{eqnarray*}
+\Delta p^\mu = \int_\Omega d\mu T^{\mu\nu}_{,\nu}(x)
+\end{eqnarray*}
+Wobei $\Omega$ ein geschlossenes Raum-Zeit-Gebiet in dem die Abstrahlung stattfindet bedeutet und $d\mu$ das vierdimensionale Volumenelement
+\begin{eqnarray*}
+d\mu &=& dx^0dx^1dx^2dx^3 = c dtdx^1dx^2dx^3
+\end{eqnarray*}
+ist. Dies ist ein sogenannter kovarianter Ausdruck. Dies bedeutet, dass $\Delta p^\mu$ sich beim Übergang zu einem anderen Inertialsystem wie ein Vierervektor transformiert. Für ein Bezugssystem, das sich mit der Geschwindigkeit $v$ in $x$-Richtung bewegt, ist die entsprechende Lorentz-Transformation (in zwei Dimensionen)
+\begin{eqnarray*}
+\Lambda^\mu_\nu &=& \frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\begin{pmatrix}
+1 & \frac{v}{c}\\
+\frac{v}{c} & 1
+\end{pmatrix}
+\end{eqnarray*}
+Und damit
+\begin{eqnarray*}
+\Delta p^{\prime\mu} &=& \Lambda^\mu_\nu\Delta p^\nu = \frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\begin{pmatrix}
+1 & \frac{v}{c}\\
+\frac{v}{c} & 1
+\end{pmatrix}
+\begin{pmatrix}
+\Delta E\\
+0
+\end{pmatrix}\\
+&=& \frac{\Delta E}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\begin{pmatrix}
+1 \\
+\frac{v}{c}
+\end{pmatrix}
+\end{eqnarray*}
+Für den eigentlichen Impulsanteil $\Delta \vec{p}^\prime$ gilt
+\begin{eqnarray*}
+c\Delta \vec{p}^\prime &=& 
+\frac{\Delta E}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\frac{\vec{v}}{c}
+\end{eqnarray*}
+Für Geschwindigkeiten $v\ll c$ gilt
+\begin{eqnarray*}
+\Delta \vec{p}^\prime &=& \Delta E\frac{\vec{v}}{c^2}
+\end{eqnarray*}
+Der Gesamtprozess sieht im bewegten System folgendermaßen aus. Ein Körper der Masse $m$ bewegt sich mit der Geschwindigkeit $\vec{v}$
+und habe einen Impuls $\vec{p}_0$. Dann emittiert er elektromagnetische Strahlung mit dem Impuls $\Delta \vec{p}^\prime$ ab.
+Nach der Impulserhaltung ist der Impuls des Körpers nach Emission $\vec{p}_0-\Delta \vec{p}^\prime$.
+Die \textbf{Geschwindigkeit} des Körpers ändert sich dabei aber \textbf{nicht}. Also muss die Impulsänderung des Körpers von einer Massenänderung herrühren\footnote{\label{einstein_emcsqr}Albert Einstein: Ist die Trägheit eines Körpers von seinem Energieinhalt abhängig?}. Für kleine Geschwindigkeiten gilt allgemein
+\begin{eqnarray*}
+\vec{p} &=& m\vec{v}
+\end{eqnarray*}
+Daher erhalten wir 
+\begin{eqnarray*}
+\tilde{m}\vec{v} &=& m\vec{v}-\Delta \vec{p}^\prime = m\vec{v}-\Delta E\frac{\vec{v}}{c^2}\\
+&=&\left(m-\frac{\Delta E}{c^2}\right)\vec{v}\\
+\tilde{m}&=&m-\frac{\Delta E}{c^2}\\
+m-\Delta m&=&m-\frac{\Delta E}{c^2}\\
+\Delta m&=&\frac{\Delta E}{c^2}\\
+\Delta E &=& \Delta mc^2
+\end{eqnarray*}
+In \footref{einstein_emcsqr} schreibt Einstein:\\\textit{Gibt ein Körper die Energie $\Delta E$ in Form von Strahlung ab, so verkleinert sich seine Masse um $\Delta m = \Delta E/c^2$. […] Die Masse eines Körpers ist ein Maß für dessen Energieinhalt […]. Es ist nicht ausgeschlossen, daß bei Körpern, deren Energie in hohem Maße veränderlich ist (z.B. bei den Radiumsalzen), eine Prüfung der Theorie gelingen wird.}
+\end{subsubsection}
+\end{subsection}
+
+\begin{subsection}{Bewegung elektrisch geladener Teilchen im elektromagnetischen Feld}
+\begin{subsubsection}{Ausgangslage}
+Die Gleichung \ref{covariant_lorentz_force}
+\begin{eqnarray*}
+\frac{dP^\mu}{dt} &=& F^\mu_{\ \nu}j^\nu
+\end{eqnarray*}
+ist, wie gezeigt wurde, eine kovariante Gleichung. Die ursprüngliche Form \ref{relt_lorentz_force} der Lorentz-Kraft auf ein Teilchen mit Ladung $q$
+\begin{eqnarray*}
+\vec{F} &=& q\left(\vec{E}(x)+\vec{v}\times\vec{B}(x)\right)
+\end{eqnarray*}
+ist nicht offensichtlich kovariant. Sie kann aber als
+\begin{eqnarray*}
+\begin{pmatrix}
+\frac{W}{c}\\
+\vec{F}
+\end{pmatrix} &=& qF^\mu_{\ \nu}\begin{pmatrix}
+c\\
+\vec{v}
+\end{pmatrix}
+\end{eqnarray*}
+geschrieben werden, wobei $W=q\vec{E}\cdot\vec{v}$ die an das Teilchen abgegebene Leistung bedeutet.
+$\begin{pmatrix}
+c\\
+\vec{v}
+\end{pmatrix}$ ist kein Vierervektor. Setzen wir $\vec{v}=0$, dann haben wir
+\begin{eqnarray}
+\label{particlemotion_at_rest}
+\begin{pmatrix}
+0\\
+\vec{F}
+\end{pmatrix} &=& qF^\mu_{\ \nu}\begin{pmatrix}
+c\\
+\vec{0}
+\end{pmatrix}\cr
+\vec{F} &=& q\vec{E}
+\end{eqnarray}
+Ordnen wir dem Teilchen eine Masse $m$ zu, dann heißt das nach Newton
+\begin{eqnarray*}
+\dot{\vec{v}}m &=& q\vec{E}
+\end{eqnarray*}
+Diese Gleichung hat eine kovariante Interpretation.
+\end{subsubsection}
+
+\begin{subsubsection}{Kraft auf ein relativistisches Teilchen und Krümmung von Weltlinien}
+Das Konzept eines punktförmigen Teilchens zieht das Konzept der Weltlinie nach sich. Ein Teilchen habe
+zu einem Zeitpunkt $t$ eine Position $\vec{x}(t)$. Dies einspricht den Ereignis-Koordinaten
+\begin{eqnarray*}
+x^\mu(t) &=&
+\begin{pmatrix}
+ct\\
+\vec{x}(t)
+\end{pmatrix}
+\end{eqnarray*}
+Der Parameter $t=x^0/c$ bezieht sich auf das Koordinatensystem des benutzten Inertialsystems. Die Länge der Kurve ($x^\mu(t)$
+hat hingegen eine invariante Bedeutung:
+\begin{eqnarray*}
+l(t_2, t_1) &=& \int_{t_1}^{t_2} \sqrt{-\frac{dx^\mu(t)}{dt}\frac{dx^\nu(t)}{dt}\eta_{\mu\nu}}
+=\int_{t_1}^{t_2} \sqrt{c^2-\vec{v}^2(t)}dt
+\end{eqnarray*}
+Wählen wir
+\begin{eqnarray*}
+\tau(t) &=& l(t, t_1) 
+\end{eqnarray*}
+als Kurvenparameter, erhalten wir eine invariante Kurve
+\begin{eqnarray*}
+\chi^\mu(\tau(t)) &=& x^\mu(t)
+\end{eqnarray*}
+$\chi(\tau)$ nennen wie die Weltlinie des Teilchens. Der Kurvenparameter $\tau$ ist durch die willkürliche Wahl von $t_1$ bestimmt. 
+Eine andere Wahl ändert $\tau$ aber lediglich um einen konstanten Wert. Ableitungen nach $\tau$ sind davon nicht betroffen.
+Im speziellen ist
+\begin{eqnarray*}
+\dot{\chi}^\mu(\tau) &=& \frac{d\chi^\mu}{d\tau}(\tau(t))
+\end{eqnarray*}
+Der Punkt ist hier als $\frac{d}{d\tau}$ zu verstehen. Die Größe $\tau/c$ wird als Eigenzeit bezeichnet. Wir haben
+\begin{eqnarray*}
+\dot{\chi}^\mu(\tau)\dot{\chi}^\nu(\tau)\eta_{\mu\nu} &=& -1
+\end{eqnarray*}
+denn
+\begin{eqnarray*}
+\dot{\chi}^\mu(\tau) &=& \frac{dt}{d\tau}\frac{dx^\mu}{dt}(t(\tau))\\
+&=& \frac{dt}{d\tau}\begin{pmatrix}
+c\\
+\vec{v}(t)
+\end{pmatrix}\\
+\dot{\chi}^\mu(\tau)\dot{\chi}^\nu(\tau)\eta_{\mu\nu} &=& \left(\frac{dt}{d\tau}\right)^2\left(-c^2+\vec{v}^2(t)\right)\\
+1 &=& \frac{dt}{d\tau}\frac{d\tau}{dt}\\
+&=& \frac{dt}{d\tau}\frac{d}{dt}l(t,t_1)\\
+&=& \frac{dt}{d\tau}\sqrt{c^2-\vec{v}^2(t)}\\
+\frac{dt}{d\tau} &=& \frac{1}{\sqrt{c^2-\vec{v}^2(t)}}\\
+\dot{\chi}^\mu(\tau)\dot{\chi}^\nu(\tau)\eta_{\mu\nu} &=& -1
+\end{eqnarray*}
+Dies hat zur Folge, dass
+\begin{eqnarray}
+\label{cuvatuure_orthogonality}
+\frac{d}{d\tau}\left(\dot{\chi}^\mu(\tau)\dot{\chi}^\nu(\tau)\eta_{\mu\nu}\right) &=& 2\ddot{\chi}^\mu(\tau)\dot{\chi}^\nu(\tau)\eta_{\mu\nu}  = 0
+\end{eqnarray}
+ist. $\ddot{\chi}^\mu(\tau)$ kann als 'Krümmung' der Weltlinie betrachtet werden und ist ebenso ein Vierervektor.
+Expliziter:
+\begin{eqnarray*}
+\ddot{\chi}^\mu(\tau) &=& \frac{d\dot{\chi}^\mu}{d\tau}(\tau)=\frac{d}{d\tau}\left(\frac{dt}{d\tau}\begin{pmatrix}
+c\\
+\vec{v}(t(\tau))
+\end{pmatrix}\right)\\
+&=&\frac{d^2t}{d\tau^2}\begin{pmatrix}
+c\\
+\vec{v}(t(\tau))
+\end{pmatrix}
++\left(\frac{dt}{d\tau}\right)^2\begin{pmatrix}
+0\\
+\frac{d\vec{v}}{dt}(t(\tau))
+\end{pmatrix}
+\end{eqnarray*}
+Für den Fall $\vec{v}(t(0))=0$ wird daraus:
+\begin{eqnarray}
+\label{particle_curvature_at_rest}
+\dot{\chi}^\mu(0) &=& \begin{pmatrix}
+1\\
+0
+\end{pmatrix}\cr
+\ddot{\chi}^\mu(0) &=& 
+\frac{1}{c^2}\begin{pmatrix}
+0\\
+\frac{d\vec{v}}{dt}(t(0))
+\end{pmatrix}
+\end{eqnarray}
+$\frac{d\vec{v}}{dt}$ kann nach Newton auch als $\frac{d\vec{v}}{dt}=\frac{\vec{F}}{m}$ gesehen werden, mit $\vec{F}$ einer Kraft und $m$ die Masse des Teilchens.
+\end{subsubsection}
+
+\begin{subsubsection}{Relativistische Bewegungs-Gleichung}
+Gleichung \ref{particlemotion_at_rest}
+\begin{eqnarray*}
+\begin{pmatrix}
+0\\
+m\frac{d\vec{v}}{dt}
+\end{pmatrix} &=& qF^\mu_{\ \nu}\begin{pmatrix}
+c\\
+\vec{0}
+\end{pmatrix}
+\end{eqnarray*}
+kann zusammen mit \ref{particle_curvature_at_rest}
+\begin{eqnarray*}
+\dot{\chi}^\mu(0) &=& \begin{pmatrix}
+1\\
+0
+\end{pmatrix}\cr
+\ddot{\chi}^\mu(0) &=& 
+\frac{1}{c^2}\begin{pmatrix}
+0\\
+\frac{d\vec{v}}{dt}(t(0))
+\end{pmatrix}
+\end{eqnarray*}
+zu
+\begin{eqnarray}
+\label{cov_particle_motion}
+mc^2\ddot{\chi}^\mu(\tau) &=& qF^\mu_{\ \nu}(\chi(\tau))c\dot{\chi}^\nu(\tau)\cr
+mc\ddot{\chi}^\mu(\tau) &=& qF^\mu_{\ \nu}(\chi(\tau))\dot{\chi}^\nu(\tau)
+\end{eqnarray}
+kombiniert werden. Der Punkt ist nach wie vor als $\frac{d}{d\tau}$ zu verstehen. Dies ist eine kovariante Formulierung und gilt daher für beliebige Geschwindigkeiten.
+\end{subsubsection}
+\end{subsection}
+
+
+\begin{subsection}{Lagrange-Formulierung der Elektrodynamik}
+Die Lagrange-Formulierung geht erstaunlicherweise aus einfachsten Integralen für das elektromagnetisch Feld, Teilchenbewegungen
+und einer Wechselwirkung hervor. Damit die resultierenden Bewegungsgleichungen kovariant werden, ist es hinreichend, wenn auch die Integrale diese Eigenschaft haben. Die Bewegungsgleichungen für Feld und Teilchen gehen aus der Forderung hervor, dass die
+Variation der Wirkung $S$ bezüglich Variationen von Feld und Teilchenbahnen stationär wird. $S$ entsteht aus den drei Integralen indem
+diese mit geeigneten konstanten Koeffizienten addiert werden.
+
+\begin{subsubsection}{Elektromagnetisches Feld}
+Indem der Feldstärke-Tensor $F$ in kovarianter Weise mit sich selber multipliziert, wird erhalten wir eine skalare Dichte
+\begin{eqnarray*}
+\frac{1}{4}F^{\mu\nu}F_{\mu\nu} &=& \vec{B}^2-\frac{\vec{E}^2}{c^2}
+\end{eqnarray*}
+Integriert über Raum und Zeit und variiert ergibt:
+\begin{eqnarray*}
+I_{EM} &=& \int_{t_1}^{t_2} dt \int dx^3 \frac{1}{4}F^{\mu\nu}F_{\mu\nu}\\
+\delta I_{EM} &=& \int_{t_1}^{t_2} dt \int dx^3  \frac{1}{2}F^{\mu\nu}\delta F_{\mu\nu}\\
+&=& \int_{t_1}^{t_2} dt \int dx^3  \frac{1}{2}F^{\mu\nu}\left(\delta A_{\mu,\nu}-\delta A_{\nu,\mu}\right)\\
+&=& \int_{t_1}^{t_2} dt \int dx^3  F^{\mu\nu}\delta A_{\mu,\nu}\\
+&=& \int_{t_1}^{t_2} dt \int dx^3  \left(F^{\mu\nu}\delta A_\mu\right)_{,\nu}-F^{\mu\nu}_{,\nu}\delta A_\mu
+\end{eqnarray*}
+Der erste Term führt zu Randtermen. Das Hamilonsche Prinzip fordert, dass $\delta A_\mu$ zu den Zeiten $t_1$ und $t_2$ verschwindet. Wenn $\delta A_\mu$ im räumlichen Unendlichen auch verschwinden, verschwinden auch alle Randterme und die Variation wird
+\begin{eqnarray*}
+\delta I_{EM} &=& -\int_{t_1}^{t_2} dt \int dx^3 \ F^{\mu\nu}_{,\nu}\delta A_\mu
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Teilchen}
+Die einfachste Möglichkeit, aus einer Teilchenbahn eine skalare, invariante Grösse zu bilden, ist einfach die Länge oder Eigenzeit
+der Trajektorie zu nehmen. Die Trajektorie des $k$-ten Teilchen sei mit $\chi_k$ bezeichnet.
+\begin{eqnarray*}
+I_k &=& \int_{\tau_k(t_1)}^{\tau_k(t_2)} d\tau_k\\
+&=& \int_{t_1}^{t_2} \frac{d\tau_k}{dt}dt\\
+&=& \int_{t_1}^{t_2} \sqrt{c^2-\vec{v}_k^2(t)}dt\\
+\delta I_k &=&\int_{t_1}^{t_2} \frac{-\vec{v}_k\cdot\delta\vec{v}_k}{\sqrt{c^2-\vec{v}_k^2(t)}}dt\\
+&=&\int_{t_1}^{t_2} \frac{-\vec{v}_k\cdot\delta\frac{d\vec{x}_k}{dt}}{\sqrt{c^2-\vec{v}_k^2(t)}}dt\\
+&=&\int_{t_1}^{t_2} \frac{d}{dt}\left(\frac{-\vec{v}_k\cdot\delta \vec{x}_k}{\sqrt{c^2-\vec{v}_k^2(t)}}\right)dt
++\int_{t_1}^{t_2} \frac{d}{dt}\left(\frac{\vec{v}_k}{\sqrt{c^2-\vec{v}_k^2(t)}}\right)\cdot\delta \vec{x}_kdt
+\end{eqnarray*}
+Da $\delta \vec{x}_k$ an den Integrationsgrenzen verschwindet, bleibt
+\begin{eqnarray*}
+\delta I_k &=& \int_{t_1}^{t_2} \frac{d}{dt}\left(\frac{\vec{v}_k}{\sqrt{c^2-\vec{v}_k^2(t)}}\right)\cdot\delta \vec{x}_kdt
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Interaktion}
+Folgendes Linien-Integral ist invariant und koppelt offensichtlich das elektromagnetische Feld an die Weltlinie $\chi$ eines Teilchens.
+\begin{eqnarray*}
+I_{int} &=& \int_{t_1}^{t2} A_\mu(\chi(\tau))\dot{\chi}^\mu(\tau)d\tau
+\end{eqnarray*}
+Wir lassen hier den Teilchen-Index $k$ weg.
+\begin{eqnarray*}
+I_{int} &=& \int_{t_1}^{t2} A_\mu(\chi(\tau(t)))\dot{\chi}^\mu(\tau(t))\frac{d\tau}{dt}dt\\
+&=& \int_{t_1}^{t2} A_\mu(\chi(\tau(t)))\frac{d\chi^\mu}{dt}(\tau(t))dt\\
+\delta S_{int} &=& \int_{t_1}^{t2} \delta A_\mu(\chi(\tau(t)))\frac{d\chi^\mu}{dt}(\tau(t))dt\\
+&&+\int_{t_1}^{t2} A_{\mu,\nu}(\chi(\tau(t)))\delta\chi^\nu(\tau(t))\frac{d\chi^\mu}{dt}(\tau(t))dt\\
+&&+\int_{t_1}^{t2} A_\mu(\chi(\tau(t)))\delta\frac{d\chi^\mu}{dt}(\tau(t))dt\\
+&=& \int_{t_1}^{t2} \delta A_\mu(\chi(\tau(t)))\frac{d\chi^\mu}{dt}(\tau(t))dt\\
+&&+\int_{t_1}^{t2} A_{\mu,\nu}(\chi(\tau(t)))\delta\chi^\nu(\tau(t))\frac{d\chi^\mu}{dt}(\tau(t))dt\\
+&&-\int_{t_1}^{t2} \delta \chi^\mu (\tau(t))\frac{d}{dt}A_\mu(\chi(\tau(t)))dt\\
+&&+\int_{t_1}^{t2} \frac{d}{dt}\left(\delta \chi^\mu (\tau(t))A_\mu(\chi(\tau(t)))\right)dt
+\end{eqnarray*}
+wir ignorieren das letzte Integral
+\begin{eqnarray*}
+\delta I_{int} &=& \int_{t_1}^{t2} \delta A_\mu(\chi(\tau(t)))\frac{d\chi^\mu}{dt}(\tau(t))dt\\
+&&+\int_{t_1}^{t2} A_{\mu,\nu}(\chi(\tau(t)))\delta\chi^\nu(\tau(t))\frac{d\chi^\mu}{dt}(\tau(t))dt\\
+&&-\int_{t_1}^{t2} \delta \chi^\mu (\tau(t))\frac{d}{dt}A_\mu(\chi(\tau(t)))dt\\
+&=& \int_{t_1}^{t2} \delta A_\mu(\chi(\tau(t)))\frac{d\chi^\mu}{dt}(\tau(t))dt\\
+&&+\int_{t_1}^{t2} A_{\mu,\nu}(\chi(\tau(t)))\delta\chi^\nu(\tau(t))\frac{d\chi^\mu}{dt}(\tau(t))dt\\
+&&-\int_{t_1}^{t2} \delta \chi^\mu (\tau(t))A_{\mu,\nu}(\chi(\tau(t)))\frac{d\chi^\nu}{dt}(\tau(t))dt\\
+&=& \int_{t_1}^{t2} \delta A_\mu(\chi(\tau(t)))\frac{d\chi^\mu}{dt}(\tau(t))dt\\
+&&+\int_{t_1}^{t2} F_{\mu\nu}(\chi(\tau(t)))\delta\chi^\nu(\tau(t))\frac{d\chi^\mu}{dt}(\tau(t))dt
+\end{eqnarray*}
+Nun ist aber
+\begin{eqnarray*}
+\chi^\mu(t) &=& \begin{pmatrix}
+ct\\
+\vec{x}(t)
+\end{pmatrix}\\
+\delta \chi^\mu(t) &=& \begin{pmatrix}
+0\\
+\delta \vec{x}(t)
+\end{pmatrix}
+\end{eqnarray*}
+Deshalb benutzen wir einen Index $l$, der nur über die Raumkoordinaten $1,2,3$ läuft, und schreiben
+\begin{eqnarray*}
+\delta I_{int} &=& \int_{t_1}^{t2} \delta A_\mu(\chi(\tau(t)))\frac{d\chi^\mu}{dt}(\tau(t))dt\\
+&&+\int_{t_1}^{t2} F_{\mu l}(\chi(\tau(t)))\delta x^l(t)\frac{d\chi^\mu}{dt}(\tau(t))dt
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Gesamtwirkung und Bewegungsgleichungen}
+Damit die Wirkung auch die Dimension einer Wirkung hat, setzen wir für $I_{EM}$ einen Vorfaktor $\frac{1}{\mu_0}$.
+Wir setzen an:
+\begin{eqnarray*}
+S &=& \frac{1}{\mu_0}I_{EM}+\sum_k \alpha_k I_k+\beta\sum_k I_{int\ k}
+\end{eqnarray*}
+Die Variation ist dann
+\begin{eqnarray*}
+\delta S &=& \frac{1}{\mu_0}\delta I_{EM}+\sum_k \alpha_k \delta I_k+\sum_k\beta_k \delta I_{int\ k}\\
+&=& -\frac{1}{\mu_0}\int_{t_1}^{t_2} dt \int dx^3 \ F^{\mu\nu}_{,\nu}\delta A_\mu\\
+&&\sum_k \alpha_k I_k\int_{t_1}^{t_2} \frac{d}{dt}\left(\frac{\vec{v}_k}{\sqrt{c^2-\vec{v}_k^2(t)}}\right)\cdot\delta \vec{x}_kdt\\
+&&+\sum_k\beta_k \int_{t_1}^{t2} \delta A_\mu(\chi_k(\tau_k(t)))\frac{d\chi_k^\mu}{dt}(\tau_k(t))dt\\
+&&+\sum_k\beta_k \int_{t_1}^{t2} F_{\mu l}(\chi_k(\tau_k(t)))\delta x_k^l(t)\frac{d\chi_k^\mu}{dt}(\tau_k(t))dt\\
+&=& \int_{t_1}^{t_2} dt \int dx^3 \ \left(-\frac{1}{\mu_0}F^{\mu\nu}_{,\nu}+\sum_k\beta_k \frac{d\chi_k^\mu}{dt}(\tau_k(t))\delta_{\vec{x}_k(t),\vec{x}}\right)\delta A_\mu\\
+&&\sum_k \alpha_k \int_{t_1}^{t_2} \frac{d}{dt}\left(\frac{\vec{v}_k}{\sqrt{c^2-\vec{v}_k^2(t)}}\right)\cdot\delta \vec{x}_kdt\\
+&&+\sum_k\beta_k \int_{t_1}^{t2} F_{\mu l}(\chi_k(\tau_k(t)))\delta x_k^l(t)\frac{d\chi_k^\mu}{dt}(\tau_k(t))dt
+\end{eqnarray*}
+Dies ergibt die Bewegungsgleichungen
+\begin{eqnarray*}
+-\frac{1}{\mu_0}F^{\mu\nu}_{,\nu}+\sum_k\beta_k \frac{d\chi_k^\mu}{dt}(\tau_k(t))\delta_{\vec{x}_k(t),\vec{x}} &=& 0\\
+\alpha_k \frac{d}{dt}\left(\frac{v^l_k(t)}{\sqrt{c^2-\vec{v}_k^2(t)}}\right)
++\beta F_{\mu l}(\chi_k(\tau_k(t)))\frac{d\chi_k^\mu}{dt}(\tau_k(t)) &=&0
+\end{eqnarray*}
+Diese müssen, so die Hoffnung, mit den Maxwellgleichungen \ref{cov_maxwell_eqns}
+\begin{eqnarray*}
+\frac{1}{\mu_0}F^{\mu\nu}_{,\nu} &=& j^\mu
+\end{eqnarray*}
+und den Teilchenbewegungen \ref{cov_particle_motion}
+\begin{eqnarray*}
+m_kc\ddot{\chi}_k^\mu(\tau_k) &=& q_kF^\mu_{\ \nu}(\chi_k(\tau_k))\dot{\chi}_k^\nu(\tau_k)
+\end{eqnarray*}
+äquivalent sein. Wir formen um:
+\begin{eqnarray*}
+\frac{1}{\mu_0}F^{\mu\nu}_{,\nu} &=& \sum_k\beta_k \frac{d\chi_k^\mu}{dt}(\tau_k(t))\delta_{\vec{x}_k(t),\vec{x}}\\
+\alpha_k \frac{d}{dt}\left(\frac{v^l_k(t)}{\sqrt{c^2-\vec{v}_k^2(t)}}\right)
+&=& -\beta_k F_{\mu l}(\chi_k(\tau_k(t)))\frac{d\chi_k^\mu}{dt}(\tau_k(t)) 
+\end{eqnarray*}
+Da
+\begin{eqnarray*}
+\frac{d\chi_k^\mu}{dt}(\tau_k(t)) &=& \begin{pmatrix}
+c\\
+\vec{v}_k(t)
+\end{pmatrix}
+\end{eqnarray*}
+ist, setzen wir $\beta_k=q_k$ mit der Teilchenladung $q_k$ gleich, und identifizieren:
+\begin{eqnarray}
+\label{particle_current}
+j ^\mu &=& \sum_k q_k \frac{d\chi_k^\mu}{dt}(\tau_k(t))\delta_{\vec{x}_k(t),\vec{x}}
+\end{eqnarray}
+Um auch die Teilchenbewegungen richtig zu erhalten, setzen wir $\alpha_k=m_kc$ mit der Teilchenmasse gleich:
+\begin{eqnarray*}
+m_kc \frac{d}{dt}\left(\frac{v^l_k(t)}{\sqrt{c^2-\vec{v}_k^2(t)}}\right)
+&=& -q_k F_{\mu l}(\chi_k(\tau_k(t)))\frac{d\chi_k^\mu}{dt}(\tau_k(t)) 
+\end{eqnarray*}
+Durch Multiplikation mit $\frac{dt}{d\tau}$ herhalten wir
+\begin{eqnarray*}
+m_kc \ddot{\chi}_k^l
+&=& -q_kc F_{\mu l}(\chi_k(\tau_k(t)))\dot{\chi}_k^\mu\\
+&=&q_kc F_{l\mu}(\chi_k(\tau_k(t)))\dot{\chi}_k^\mu\\
+&=&q_kc F^l_{\ \mu}(\chi_k(\tau_k(t)))\dot{\chi}_k^\mu
+\end{eqnarray*}
+Dies ist die korrekte Teilchenbewegung, allerdings nur in Raumkoordinaten ausgedrückt.
+Die $0$-Komponente ist implizit durch \ref{cuvatuure_orthogonality}
+\begin{eqnarray*}
+\ddot{\chi}^\mu(\tau)\dot{\chi}^\nu(\tau)\eta_{\mu\nu}  &=& 0
+\end{eqnarray*}
+definiert und mit der Antisymmetrie $F_{\sigma\mu}=-F_{\mu\sigma}$ verträglich:
+\begin{eqnarray*}
+m_kc \ddot{\chi}_k^\nu\eta_{\nu\sigma}\dot{\chi}_k^\sigma
+&=&q_k F^\nu_{\ \mu}(\chi_k(\tau_k(t)))\dot{\chi}_k^\mu\eta_{\nu\sigma}\dot{\chi}_k^\sigma\\
+&=&q_k F_{\sigma\mu}(\chi_k(\tau_k(t)))\dot{\chi}_k^\mu\dot{\chi}_k^\sigma
+\end{eqnarray*}
+Heureka! Der einfachste Ansatz trifft ins Schwarze. Die Lagrange-Funktion lautet also:
+\begin{eqnarray*}
+L(A_\mu, A_{\mu,\nu},\vec{x}_k) &=&\int dx^3\ \frac{1}{4\mu_0}F^{\mu\nu}F_{\mu\nu}+\sum_k\left(q_kA_\mu(\chi_k(\tau_k(t)))\dot{\chi}^\mu_k(\tau(t))
++m_kc \sqrt{c^2-\vec{v}_k^2(t)}\right)
+\end{eqnarray*}Die Tatsache das eine Lagrange Formulierung gibt, die auch noch die Bedingungen des Noetherschen Theorems erfüllen,
+garantiert Energie und Impulserhaltung.
+\end{subsubsection}
+
+\begin{subsubsection}{Energie und Impuls von Teilchen}
+Wir rekapitulieren \ref{energy_absorbtion}
+\begin{eqnarray*}
+F^\mu_{\ \nu}j^\nu &=& -T^{\mu\nu}_{,\nu}
+\end{eqnarray*}
+nun ist aber in unserem Falle laut \ref{particle_current}
+\begin{eqnarray*}
+j ^\mu &=& \sum_k q_k \frac{d\chi_k^\mu}{dt}(\tau_k(t))\delta_{\vec{x}_k(t),\vec{x}}
+\end{eqnarray*}
+und wir erhalten
+\begin{eqnarray*}
+\sum_k q_k F^\mu_{\ \nu}\frac{d\chi_k^\nu}{dt}(\tau_k(t))\delta_{\vec{x}_k(t),\vec{x}} &=& -T^{\mu\nu}_{,\nu}
+\end{eqnarray*}
+Wir wollen zeigen, dass
+\begin{eqnarray*}
+p^\mu(t) &=& \sum_k m_kc^2 \dot{\chi}^\mu_k(\tau(t))+\int dx^3 T^{\mu 0}\begin{pmatrix}ct\\ \vec{x}\end{pmatrix}
+\end{eqnarray*}
+unabhängig von der Zeit $t$ ist.
+
+\begin{proof}
+Wir leiten nach der Zeit ab:
+\begin{eqnarray*}
+\frac{dp^\mu}{dt}(t) &=& \sum_k m_kc^2 \frac{d\dot{\chi}^\mu_k}{dt}(\tau(t))+c\int dx^3 T^{\mu 0}_{,0}
+\end{eqnarray*}
+Wir berechnen
+\begin{eqnarray*}
+\int dx^3 T^{\mu 0}_{,0} &=&\int dx^3 T^{\mu\nu}_{,\nu}-T^{\mu l}_{,l}
+\end{eqnarray*}
+Der zweite Term ist eine Divergenz und kann fallen gelassen werden. Also
+\begin{eqnarray*}
+\int dx^3 T^{\mu 0}_{,0} &=&-\int dx^3 \sum_k q_k F^\mu_{\ \nu}\frac{d\chi_k^\nu}{dt}(\tau_k(t))\delta_{\vec{x}_k(t),\vec{x}}\\
+&=&-\sum_k q_k F^\mu_{\ \nu}\frac{d\chi_k^\nu}{dt}(\tau_k(t))
+\end{eqnarray*}
+Nun haben wir aber auch \ref{cov_particle_motion}
+\begin{eqnarray*}
+m_kc\ddot{\chi}_k^\mu(\tau_k) &=& q_kF^\mu_{\ \nu}(\chi_k(\tau_k))\dot{\chi}_k^\nu(\tau_k)\\
+m_kc\frac{\dot{\chi}_k^\mu}{dt}(\tau_k(t)) &=& q_kF^\mu_{\ \nu}(\chi_k(\tau_k))\frac{d\chi_k^\nu}{dt}(\tau_k(t))
+\end{eqnarray*}
+und daher
+\begin{eqnarray*}
+\int dx^3 T^{\mu 0}_{,0} &=&-\sum_km_kc\frac{\dot{\chi}_k^\mu}{dt}(\tau_k(t))\\
+\frac{dp^\mu}{dt}(t) &=& \sum_k m_kc^2 \frac{d\dot{\chi}^\mu_k}{dt}(\tau(t))-\sum_km_kc^2\frac{\dot{\chi}_k^\mu}{dt}(\tau_k(t))=0
+\end{eqnarray*}
+\end{proof}
+Also muss der Energie-Impuls-Vierervektor eines Teilchens mit Masse $m$ und Geschwindigkeit $\vec{v}$
+\begin{eqnarray*}
+\begin{pmatrix}
+E\\
+c\vec{p}
+\end{pmatrix}
+&=& mc^2 \dot{\chi}^\mu=\frac{mc^2}{\sqrt{1-\left(\frac{\vec{v}}{c}\right)^2}}\begin{pmatrix}
+1\\
+\frac{\vec{v}}{c}
+\end{pmatrix}
+\end{eqnarray*}
+sein. Oder
+\begin{eqnarray*}
+E(m,\vec{v}) &=& \frac{mc^2}{\sqrt{1-\left(\frac{\vec{v}}{c}\right)^2}}\\
+\vec{p}(m,\vec{v})&=& \frac{m\vec{v}}{\sqrt{1-\left(\frac{\vec{v}}{c}\right)^2}}
+\end{eqnarray*}
+Im speziellen ist
+\begin{eqnarray*}
+E(m,0) &=& mc^2
+\end{eqnarray*}
+Deswegen heißt auch $m$ Ruhemasse und $mc^2$ Ruheenergie. Zieht man letztere von der Energie $E(m,\vec{v})$ ab, so könnte man diese Differenz auch kinetische Energie nennen:
+\begin{eqnarray*}
+E(m,0)-mc^2 &=& \left(\frac{1}{\sqrt{1-\left(\frac{\vec{v}}{c}\right)^2}}-1\right)mc^2\\
+&\approx& \frac{1}{2}m\vec{v}^2
+\end{eqnarray*}
+Dies alles gilt nicht nur für geladene Teilchen, sondern grundsätzlich.
+\end{subsubsection}
+
+\begin{subsubsection}{Unendlichkeiten}
+Soweit, so wunderbar. Allerdings haben wir ein Problem. Wie groß ist denn die elektromagnetische Energie, wenn wir ein einsames Elektron in Ruhe und auf weiter Flur betrachten? Sie ist unendlich groß. Das ist ein Problem. Dieses Problem verschwindet, wenn das Elektron quantenmechanisch behandelt wird. Dann verbietet die Unschärferelation die Vorstellung eines Teilchens, dass sich gleichzeitig in Ruhe und an einem exakten Ort befindet. In diesem Kontext zeigt sich, dass die hier entwickelte Lagrange-Formulierung genau die richtigen Ergebnisse liefert, und zwar mit absurder Präzision.
+\end{subsubsection}
+\end{subsection}
+\end{section}
+\ifx\makebook\undefined
+	\end{document}
+\else
+	\end{chapter}
+\fi

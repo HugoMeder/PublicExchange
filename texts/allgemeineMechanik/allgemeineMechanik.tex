@@ -1,0 +1,627 @@
+\def\titlestr{Allgemeine Struktur der Physik}
+\ifx\makebook\undefined
+	\input{../latexsrcs/preamble}
+\else
+	\begin{chapter}{\titlestr}
+\fi
+\begin{section}{Energie}
+\begin{subsection}{Potentielle Energie eines Systems von Punktmassen mit Gravitation}
+Bisher kam der Begriff der Energie nicht vor. Wir betrachten die Bewegungs-Gleichungen
+der Newtonschen Gravitation:
+\begin{eqnarray*}
+F_k &=& \sum_{l\ne k} -n_{kl}\frac{Gm_km_l}{|x_k-x_l|^2}=Gm_k\sum_{l\ne k} -n_{kl}\frac{m_l}{|x_k-x_l|^2}\\
+m_k\ddot{x}_k &=& F_k
+\end{eqnarray*}
+$F_k$ ist die Kraft, die die Gravitation auf die Punktmasse mit der Masse $m_k$ und der Position $x_k$ ausübt.
+Der Faktor $n_{kl}$ ist ein Richtungsvektor, der vom Punkt $x_l$ in Richtung $x_k$ zeigt:
+\begin{eqnarray*}
+n_{kl} &=& \frac{x_k-x_l}{|x_k-x_l|}
+\end{eqnarray*}
+Da die Gravitation eine anziehende Kraft ist, muss diese Richtung umgedreht werden.
+
+Nun betrachten wir feste Positionen $x_l$ für alle Punkte außer $x_k$. Dann betrachten wir die Arbeit die an der Punktmasse $k$ geleistet werden muss um diese von einem  Punkt $y_1$ an einen Punkt $y_2$ zu bewegen. Genauer, soll dies entlang eine Kurve
+$\gamma(\tau)$ geschehen. Es sei also $\gamma(0)=y_1$ und $\gamma(1)=y_2$. Dann ist die Arbeit $U$ durch ein Integral
+\begin{eqnarray*}
+U_k(y_1,y_2) &=& \int_0^1-F_k(\gamma(\tau)\cdot d \gamma(\tau)=Gm_k\sum_{l\ne k} m_l\int_0^1\frac{n_{kl}\cdot d \gamma(\tau)}{|\gamma(\tau)-x_l|^2}
+\end{eqnarray*}
+gegeben. Es zeigt sich, dass diese Arbeit unabhängig vom Weg $\gamma(\tau)$ ist solange nur $\gamma(0)=y_1$ und $\gamma(1)=y_2$
+gilt. Mehr noch: das Integral
+\begin{eqnarray*}
+I_l(y_1,y_2) &=& \int_0^1\frac{n_{kl}\cdot d \gamma(\tau)}{|\gamma(\tau)-x_l|^2}
+\end{eqnarray*}
+hängt nur von den beiden Abständen $|y_1-x_l|$ und $|y_2-x_l|$ ab. Es gilt:
+\begin{eqnarray*}
+I_l(y_1,y_2) &=& \frac{1}{|y_1-x_l|}-\frac{1}{|y_2-x_l|}
+\end{eqnarray*}
+Setzen wir für $y_1$ seinen ursprüngliche Position $x_k$ ein erhalten wir
+\begin{eqnarray*}
+I_l(x_k,y) &=& \frac{1}{|x_k-x_l|}-\frac{1}{|y-x_l|}
+\end{eqnarray*}
+und somit auch
+\begin{eqnarray*}
+U_k(x_k,y) &=& Gm_k\sum_{l\ne k} m_l\left(\frac{1}{|x_k-x_l|}-\frac{1}{|y-x_l|}\right)
+\end{eqnarray*}
+Dies ist die Arbeit, die notwendig ist den Punktmasse $k$ von seiner ursprünglichen Position $x_k$ nach $y$ zu bewegen.
+liegt der Punkt $y$ \textbf{sehr} nahe bei $x_k$, sagen wir $y=x_k+\delta x_k$ mit eine sehr kleinen $\delta x_k$, dann ist
+\begin{eqnarray*}
+U_k(x_k,x_k+\delta x_k) &=& Gm_k\sum_{l\ne k} m_l\left(\frac{1}{|x_k-x_l|}-\frac{1}{|x_k+\delta x_k-x_l|}\right)\\
+&=& U_k(x_k,x_k)+\left(\frac{d U_k(x_k,y)}{dy}\right|_{y=x_k}\cdot \delta x_k\\
+&=& Gm_k\sum_{l\ne k} m_l\left(\frac{x_k-x_l}{|x_k-x_l|}\frac{1}{|x_k-x_l|^2}\right)\cdot \delta x_k\\
+&=& Gm_k\sum_{l\ne k} \left(n_{kl}\frac{m_l}{|x_k-x_l|^2}\right)\cdot \delta x_k\\
+&=& -F_k\cdot \delta x_k
+\end{eqnarray*}
+$U_k(x_k,y)$ nennen wir die \textbf{potentielle Energie} des Punktmassees $k$ wenn dieser sich an der Position $y$ aufhält.
+Dieser enthält einen konstanten Term
+\begin{eqnarray*}
+&&Gm_k\sum_{l\ne k} m_l\frac{1}{|x_k-x_l|}
+\end{eqnarray*}
+da wir einen beliebige aber konstante Ausgangskonfiguration $x_l$ gewählt haben. Diese Term hängt im besonderen von der
+Position $x_k$ ab. Legen wir die Position $x_k$ in die entfernte Unendlichkeit so wird dieser Term Null und es bleibt
+\begin{eqnarray*}
+U_k(x_k,y) &=& -Gm_k\sum_{l\ne k} m_l\frac{1}{|y-x_l|}
+\end{eqnarray*}
+$x_k$ kommt nun auf der rechten Seite gar nicht mehr vor deswegen schreiben wir einfach
+\begin{eqnarray*}
+U_k(y) &=& -Gm_k\sum_{l\ne k} m_l\frac{1}{|y-x_l|}
+\end{eqnarray*}
+oder
+\begin{eqnarray*}
+U_k(x_k) &=& -Gm_k\sum_{l\ne k} m_l\frac{1}{|x_k-x_l|}
+\end{eqnarray*}
+Dies bedeutet nun die Arbeit, die aufgewendet werden muss um den Punkt $k$ aus den Unendlichen an die Position $y$ zu bewegen.
+Diese Arbeit ist negativ. $U_k(x_k)$ kann als Summe von Paar-Potenzialen $V_{kl}(x_k,x_l)$:
+\begin{eqnarray*}
+V_k(x_k) &=& \sum_{l\ne k} V_{kl}(x_k,y_k)\\
+V_{kl}(x_k,x_y) &=& -\frac{Gm_1m_2}{|x_k-x_l|}
+\end{eqnarray*}
+aufgefasst werden.
+
+Die potentielle Energie $V(x_k)$ des gesamten Systems, wenn die Punkte $k$ sich an Positionen $x_k$ aufhalten ist einfach die Summe
+über alle Paar-Potentiale $V_{kl}$.
+Es gilt entsprechend 
+\begin{eqnarray*}
+\frac{\partial V(x_k)}{\partial x_n} &=& \sum_{k<l}\frac{\partial V_{kl}(x_k,x_l)}{\partial x_n}\\
+&=& \sum_{k<n}\frac{\partial V_{kn}(x_k,x_n)}{\partial x_n}+\sum_{n<l}\frac{\partial V_{nl}(x_n,x_l)}{\partial x_n}\\
+&=& \sum_{k\ne n}\frac{\partial V_{kn}(x_k,x_n)}{\partial x_n}\\
+&=& -Gm_n\sum_{k\ne n}m_k\frac{\partial }{\partial x_n}\frac{1}{|x_n-x_k|}
+= -Gm_n\sum_{k\ne n}m_k-\frac{x_n-x_k}{|x_n-x_k|}\frac{1}{|x_n-x_k|^2}\\
+&=& Gm_n\sum_{k\ne n}m_kn_{nk}\frac{1}{|x_n-x_k|^2}\\
+&=& -F_n
+\end{eqnarray*}
+und auch
+\begin{eqnarray*}
+V(x_k+\delta x_k)-V(x_k) &=& \frac{\partial V(x_k)}{\partial x_n}\cdot \delta x_k\\
+&=& -F_k\cdot \delta x_k
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Potentielle Energie allgemeiner Systeme mit Paar-Potentialen}
+Wir verallgemeinern und betrachten Systeme mit Punktmassen der Massen $m_k$ und Paar-Potenzialen
+$V_{kl}(x_k,x_l)$. Denkbare Systeme bestehen zum Beispiel aus elektrisch geladenen Teilchen mit Ladungen $q_k$.
+Das entsprechende Paar-Potential lautet dann
+\begin{eqnarray*}
+V_{kl}(x_k,x_l) &=& \frac{1}{4\pi\epsilon_0}\frac{q_kq_l}{|x_k-y_k|}
+\end{eqnarray*}
+Die Dynamik dieses Systems entspricht zwar nicht dem wirklichen Verhalten geladener Teilchen. Sind die Massen aber groß und daher auch die Geschwindigkeiten klein, dann ist dieses Model durchaus brauchbar. Dies ist aber dennoch ein praxisfernes Szenario. Eine bessere
+Beschreibung liefert die Elektrodynamik. Ein weiteres Beispiel sind elektrisch neutrale Moleküle im Gaszustand. Kommen zwei Moleküle
+einender sehr nahe, dann wird dies zur Kollision führen. Speziell Edelgase werden durch eine zentrale Kraft sehr kurzer Reichweite
+sehr gut beschrieben. Diese können durch ein Paar-Potential beschrieben werden. Dieses Modell leistet im Rahmen der Thermodynamik sehr gute Dienste. In jedem Falle lautet der Ausdruck für die potenzielle Gesamt-Energie analog zum obigen Beispiel
+\begin{eqnarray*}
+V_k(x_k) &=& \sum_{l\ne k} V_{kl}(x_k,y_k)
+\end{eqnarray*}
+Die entsprechenden Kräfte sind:
+\begin{eqnarray*}
+F_k &=& -\frac{\partial V_k(x_k)}{\partial x_k}
+\end{eqnarray*}
+Und die Dynamik ist durch
+\begin{eqnarray*}
+m_k\ddot{x}_k &=& F_k
+\end{eqnarray*}
+gegeben.
+\end{subsection}
+
+\begin{subsection}{Energieerhaltung von Systemen aus Punktmassen}
+Wir betrachten nun Systeme die durch Punktmassen und einer beliebigen potentiellen Energie $V(x_k)$ gegeben sind. Es gelte das
+Bewegungsgesetz analog zum vorigen Abschnitt:
+\begin{eqnarray*}
+m_k\ddot{x}_k &=& -\frac{\partial V_k(x_k)}{\partial x_k} = F_k(x_k)
+\end{eqnarray*}
+Wir postulieren die Existenz einer kinetischen Energie $T(\dot{x}_k)$ die nur von den Geschwindigkeiten $\dot{x}_k$ abhängt.
+Wir definieren die Gesamt-Energie als
+\begin{eqnarray*}
+E(\dot{x}_k, x_k) &=& T(\dot{x}_k)+V_k(x_k)
+\end{eqnarray*}
+Und fordern, dass diese nicht von der Zeit abhängt, anders ausgerückt dass diese konstant ist:
+\begin{eqnarray*}
+\dot{E}(x_k,\dot{x}_k) &=& \dot{T}(\dot{x}_k)+\dot{V}(x_k)\\
+&=& \sum_k\left(\frac{\partial T(\dot{x}_k)}{\partial \dot{x}_k}\cdot \ddot{x}_k+\frac{\partial V_k(x_k)}{\partial x_k}\cdot \dot{x}_k\right)\\
+&=& \sum_k\left(\frac{\partial T(\dot{x}_k)}{\partial \dot{x}_k}\cdot \frac{F_k}{m_k}-F_k\cdot \dot{x}_k\right)\\
+&=& \sum_k\left(\frac{1}{m_k}\frac{\partial T(\dot{x}_k)}{\partial \dot{x}_k}-\dot{x}_k\right)\cdot F_k=0
+\end{eqnarray*}
+Damit diese Gleichung erfüllt wird, können wir versuchen $T(\dot{x}_k)$ so zu wählen, dass der Ausdruck in der Klammer verschwindet.
+Dazu müssen wir
+\begin{eqnarray*}
+\frac{\partial T(\dot{x}_k)}{\partial \dot{x}_k} &=& m_k\dot{x}_k
+\end{eqnarray*}
+haben. Dies wird durch
+\begin{eqnarray*}
+T(\dot{x}_k) &=& \frac{1}{2}\sum_km_k\dot{x}_k\cdot \dot{x}_k
+\end{eqnarray*}
+erfüllt. Dieses Ergebnis ist bis auf eine additive Konstante eindeutig!
+Daher definieren wir die Energie:
+\begin{eqnarray}
+\label{point_mass_energy}
+E(\dot{x}_k,x_k) &=& \frac{1}{2}\sum_km_k\dot{x}_k\cdot \dot{x}_k+V(x_k)
+\end{eqnarray}
+
+\end{subsection}
+\end{section}
+
+
+\begin{section}{Lagrange-Mechanik}
+\begin{subsection}{Lagrange-Funktion und Hamiltonsches Prinzip für Punktmassen}
+Wir definieren eine Lagrange-Funktion $L(\dot{x}_k, x_k)$
+\begin{eqnarray*}
+L(\dot{x}_k, x_k) &=& T(\dot{x}_k)-V_k(x_k)
+\end{eqnarray*}
+und definieren das Hamiltonsche Prinzip:
+\begin{theorem}
+Es sei $L(\dot{x}_k, x_k)$ wie oben für ein System von Punktmassen definiert. Dann betrachte man \textbf{alle} (zweimal nach der Zeit differenzierbaren), von der Zeit $t$ abhängigen
+Pfade $\gamma_k(t)$ mit $\gamma_k(t_1)= y_k$ und $\gamma_k(t_2)= z_k$. Dann gilt für jeden Pfad $\gamma(t)$ der der oben beschriebenen Dynamik
+\begin{eqnarray}
+\label{points_dynamic}
+m_k\ddot{x}_k &=& -\frac{\partial V_k(x_k)}{\partial x_k}
+\end{eqnarray}
+gehorcht und die Anfangsbedingungen $x(t_1)=y_k$ und die Endbedingungen $x(t_2)=z_k$ erfüllt, dass das so genannte Wirkungs-Integral
+\begin{eqnarray*}
+S(\gamma) &=& \int_{t_1}^{t_2}L(\dot{\gamma}(t)_k, \gamma_k(t)) dt
+\end{eqnarray*}
+stationär ist. Das heißt, dass für jede \textbf{kleine} Variation $\delta\gamma(t)$ mit $\delta\gamma(t_1)=0$ und $\delta\gamma(t_2)=0$
+$S(\gamma)=S(\gamma+\delta \gamma)$ ist. Anders ausgedrückt ist $\delta S(\gamma,\delta\gamma)= S(\gamma+\delta \gamma)-S(\gamma)=0$.
+\end{theorem}
+Es lässt sich zeigen, dass
+\begin{eqnarray*}
+\delta S(\gamma,\delta \gamma) &=& \int_{t_1}^{t_2}\left(-\frac{d}{dt}\left(\frac{\partial L(\dot{x}_k,x_k)}{\partial \dot{x}_k}\right|_{x_k=\gamma_k(t),\dot{x}_k=\dot{\gamma}_k(t)}+\left(\frac{\partial L(\dot{x}_k, x_k)}{\partial x_k}\right|_{x_k=\gamma_k(t),\dot{x}_k=\dot{\gamma}_k(t)}\right)\cdot \delta\gamma_k(t) dt
+\end{eqnarray*}
+gilt. Damit lässt sich die Gültigkeit des Hamilonschen Prinzips beweisen:
+\begin{proof}
+Falls $\delta S(\gamma,\delta\gamma)$ für alle erlaubten $\delta\gamma$ Null sein soll, dann muss der Ausdruck in der äußeren Klammer Null sein. Das heißt, für einen stationären Pfad $\gamma_k(t)$ muss gelten:
+\begin{eqnarray*}
+-\frac{d}{dt}\left(\frac{\partial L(\dot{x}_k,x_k)}{\partial \dot{x}_k}\right)+\frac{\partial L(\dot{x}_k, x_k)}{\partial x_k}&=&0
+\end{eqnarray*}
+oder:
+\begin{eqnarray}
+\label{euler_lagrange_points}
+\frac{d}{dt}\left(\frac{\partial L(\dot{x}_k,x_k)}{\partial \dot{x}_k}\right) &=& \frac{\partial L(\dot{x}_k, x_k)}{\partial x_k}
+\end{eqnarray}
+Diese Gleichung heißt Euler-Lagrange-Gleichung. Nun ist aber
+\begin{eqnarray*}
+\frac{\partial L(\dot{x}_k,x_k)}{\partial \dot{x}_k} &=& \frac{\partial T(\dot{x}_k)}{\partial \dot{x}_k} = m_k\dot{x}_k\\
+\frac{d}{dt}\left(\frac{\partial L(\dot{x}_k,x_k)}{\partial \dot{x}_k}\right) &=& m_k\ddot{x}_k\\
+\frac{\partial L(\dot{x}_k, x_k)}{\partial x_k} &=& -\frac{\partial V(x_k)}{\partial x_k}
+\end{eqnarray*}
+und wir erhalten:
+\begin{eqnarray*}
+m_k\ddot{x}_k &=& -\frac{\partial V(x_k)}{\partial x_k}
+\end{eqnarray*}
+und dies ist nichts anderes als die Bewegungsgleichung \ref{points_dynamic}. Im Umkehrschluss erfülle $\gamma(t)$ die Start- und End-Bedingungen und die Dynamik \ref{points_dynamic}, dann ist dies auch ein stationärer Pfad.
+\end{proof}
+\end{subsection}
+
+
+\begin{subsection}{Verallgemeinerte Koordinaten und konjugierte Impulse}
+Während die $x_k$ bisher Koordinaten bezüglich einem euklidischen (Inertial-) Koordinatensystem bedeuteten, diese können von den Dimensionen 1, 2 oder typischerweise 3 sein, betrachten wir nun allgemeine Koordinaten $q_k$. Ist es möglich sowohl
+die potentielle Energie als auch die kinetische Energie in diesen Koordinaten auszudrücken, dann ist dies auch für die Lagrange-Funktion der Fall:
+\begin{eqnarray*}
+L(\dot{q}_k,q_k) &=& T(\dot{q}_k,q_k)-V(q_k)
+\end{eqnarray*}
+Man beachte, dass die kinetische Energie $T(\dot{q}_k,q_k)$ nun nicht mehr nur von den Geschwindigkeiten $\dot{q}_k$ sondern auch von den $q_k$ abhängt.
+An der Euler-Lagrange-Gleichung \ref{euler_lagrange_points} ändert sich nichts:
+\begin{eqnarray}
+\label{euler_lagrange_gencoords}
+\frac{d}{dt}\left(\frac{\partial L(\dot{q}_k,q_k)}{\partial \dot{q}_k}\right) &=& \frac{\partial L(\dot{q}_k, q_k)}{\partial q_k}
+\end{eqnarray}
+In diesem Zusammenhang ist es hilfreich die so genannten \textbf{konjugierten Impulse} einzuführen:
+\begin{eqnarray*}
+p_k (\dot{q}_k,q_k) &=& \frac{\partial L(\dot{q}_k,q_k)}{\partial \dot{q}_k}
+\end{eqnarray*}
+Die Euler-Lagrange-Gleichung erscheint dann einfacher:
+\begin{eqnarray*}
+\frac{d}{dt}p_k (\dot{q}_k,q_k) &=& \frac{\partial L(\dot{q}_k, q_k)}{\partial q_k}
+\end{eqnarray*}
+Der Name 'konjugierte Impulse' rührt einfach daher, dass für Punktmassen-Systeme gilt:
+\begin{eqnarray*}
+p_k (\dot{x}_k,x_k) &=& \frac{\partial L(\dot{x}_k,x_k)}{\partial \dot{x}_k}
+=\frac{\partial T(\dot{x}_k)}{\partial \dot{x}_k}=m_k\dot{x}_k
+\end{eqnarray*}
+was gleich dem klassischen Impuls einer Punktmasse ist.
+\end{subsection}
+\end{section}
+
+\begin{section}{Hamiltonsche-Mechanik}
+\begin{subsection}{Abstrakte Definition}
+Ein Systemzustand sei durch durch einen Satz von Größen $p_k$ und $q_k$ beschrieben, wobei die Anzahl der $p_k$ gleich der Anzahl der $q_k$ ist. Ferner sei eine Hamilton-Funktion $H(p_k,q_k)$ gegeben. Die Dynamik des Systems ist dann durch die Hamiltonschen Bewegungsgleichungen gegeben:
+\begin{eqnarray*}
+\dot{q}_k &=& \frac{dH(p_k,q_k)}{dp_k}\\
+\dot{p}_k &=& -\frac{dH(p_k,q_k)}{dq_k}
+\end{eqnarray*}
+Dabei wir sofort klar, dass die Größe $H(p_k(t),q_k(t))$ zeitlich unverändert bleibt:
+\begin{eqnarray*}
+\frac{dH(p_k,q_k)}{dt} &=& \sum_k\frac{dH(p_k,q_k)}{dp_k}\dot{p}_k+\sum_k\frac{dH(p_k,q_k)}{dq_k}\dot{q}_k\\
+&=& \sum_k\dot{q}_k\dot{p}_k-\sum_k\dot{p}_k\dot{q}_k=0
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Erhaltung des Phasenraum-Elements}
+\begin{subsubsection}{Divergenz-Freiheit von Vektorfeldern}
+An jedem Punkte $x$ in einem $n$-dimensionalen Raum sei ein Vektor $F(x)$ definiert. $F$ wird ein glattes Vektorfeld genannt, falls die Koordinaten-Funktionen $F_k(x)$ glatte (beliebig oft ableitbare) Funktionen sind.
+Unter dem Fluss $\Phi$ eines Vektorfeldes $F$ nennt man die Funktion, die jedem beliebigen Anfangs-Punkt $x_0$ und einem positiven Parameter $\tau$ einen Punkt $\Phi(x_0,\tau)$ zuordnet, wobei folgendes gilt:
+\begin{eqnarray*}
+\Phi(x_0,0) &=& x_0\\
+\frac{\partial \Phi}{\partial \tau}(x_0,\tau) &=& F\left(\Phi(x_0,\tau)\right)
+\end{eqnarray*}
+Ferner sei $\Omega$ eine beliebige Teilmenge von $\mathbb{R}^n$ mit dem Volumen
+\begin{eqnarray*}
+V(\Omega) &=& \int_\Omega dx^n
+\end{eqnarray*}
+Wir definieren weiter
+\begin{eqnarray*}
+\Omega(\tau) &=& \{ \Phi(x_0,\tau)|x_0 \in \Omega\}
+\end{eqnarray*}
+mit dem Volumen
+\begin{eqnarray*}
+V(\Omega(\tau)) &=& \int_{\Omega(\tau)} dx^n
+\end{eqnarray*}
+Nun gilt nach einem Satz der Analysis
+\begin{eqnarray*}
+V(\Omega(\tau)) &=& \int_{\Omega}\left|\det\left(\frac{\partial \Omega_k}{\partial x_{0l}}(x_0,\tau)\right)\right| dx_0^n
+\end{eqnarray*}
+Ist $V(\Omega(\tau)) = V(\Omega)$, dann heißt $\Phi(x_0,\tau)$ eine divergenzfreie Strömung oder eine inkompressible Strömung und $F(x)$ ein divergenzfreies Vektorfeld.
+Falls $V(\Omega(\tau)) = V(\Omega)$ gilt, dann muss auch
+\begin{eqnarray*}
+\frac{d V}{d\tau}(\Omega(\tau)) &=& 0
+\end{eqnarray*}
+gelten. Es sei nun $\tau=\epsilon$ sehr klein, dann gilt
+\begin{eqnarray*}
+V(\Omega(\epsilon)) &=& \int_{\Omega}\left|\det\left(\frac{\partial \Omega_k}{\partial x_{0l}}(x_0,\tau)\right)\right| dx_0^n\\
+&=& \int_{\Omega}\det\left(\delta_{kl}+\epsilon\frac{\partial F_k}{\partial x_l}(x)\right) dx^n\\
+&=& \int_{\Omega}dx^n+ \epsilon\int_{\Omega}\sum_k\frac{\partial F_k}{\partial x_k}(x) dx^n\\
+&=& V(\Omega)+ \epsilon\int_{\Omega}\sum_k\frac{\partial F_k}{\partial x_k}(x) dx^n\\
+\left(\frac{d V}{d\tau}(\Omega(\tau))\right|_{\tau=0} &=& \int_{\Omega}\sum_k\frac{\partial F_k}{\partial x_k}(x) dx^n = 0
+\end{eqnarray*}
+Da dies aber für beliebige $\Omega$ gelten muss folgt daraus
+\begin{eqnarray*}
+\sum_k\frac{\partial F_k}{\partial x_k}(x) &=& \nabla\cdot F(x) = 0
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Anwendung auf die Hamilton-Gleichung}
+Die Größe
+\begin{eqnarray*}
+\begin{pmatrix}
+\dot{p}\\
+\dot{q}
+\end{pmatrix}
+&=&
+\begin{pmatrix}
+-\frac{\partial H}{\partial q}(p,q)\\
+\frac{\partial H}{\partial p}(p,q)
+\end{pmatrix} = F(p,q)
+\end{eqnarray*}
+kann als Vektorfeld $F$ aufgefasst werden. Dann gilt:
+\begin{eqnarray*}
+\nabla\cdot F(x) &=& -\sum_k\frac{\partial^2 H}{\partial p_k\partial q_k}(p,q)+\sum_k\frac{\partial^2 H}{\partial q_k\partial p_k}(p,q)=0
+\end{eqnarray*}
+Dies hat die Erhaltung des Phasenraum-Elementes $dp^ndq^n$ zur Folge.
+\end{subsubsection}
+\end{subsection}
+
+\begin{subsection}{Systeme von Punktmassen in Hamilton-Mechanik}
+Wir drücken die Energie \ref{point_mass_energy}
+\begin{eqnarray*}
+E(\dot{x}_k,x_k)T(\dot{x}_k) &=& \frac{1}{2}\sum_km_k\dot{x}_k\cdot \dot{x}_k+V(x_k)
+\end{eqnarray*}
+durch die Impulse $p_k=m_k\dot{x}$ und $x_k$ aus und nennen diese Funktion $H(p_k,x_k)$:
+\begin{eqnarray*}
+H(p_k,x_k) &=& \frac{1}{2}\sum_k\frac{p_k\cdot p_k}{m_k}+V(x_k)
+\end{eqnarray*}
+und stellen fest, dass die Hamiltonschen Bewegungsgleichungen erfüllt sind:
+\begin{eqnarray*}
+\frac{dH(p_k,x_k)}{dp_k} &=& \frac{p_k}{m_k} =  \dot{x}_k\\
+\frac{dH(p_k,x_k)}{dx_k} &=& \frac{dV(x_k)}{dx_k} = -F_k(x_k) = -m_k\ddot{x}_k = -\dot{p}_k
+\end{eqnarray*}
+\end{subsection}
+\end{section}
+\ifx\makebook\undefined
+\begin{appendix}
+\fi
+
+\begin{section}{Zusammenhang zwischen Lagrange-Mechanik und Hamilton-Mechanik}
+\begin{subsection}{Hamiltonsche Mechanik aus einer Lagrange-Funktion}
+\label{lagrange_to_hamiltion}
+Es sei $L(\dot{q},q)$ eine beliebige Lagrange-Funktion mit endlich vielen verallgemeinerten Variablen $q$. Dann sind
+\begin{eqnarray*}
+p_k ( \dot{q}, q ) &=& \frac{\partial L}{\partial \dot{q}_k}(\dot{q}, q )
+\end{eqnarray*}
+die entsprechenden kanonisch konjugierten Impulse. Sind $p$ und $q$ gegeben, dann nehmen wir an, dass es nur eine
+Geschwindigkeit $\dot{q}$ des Systems gibt, so dass $p_k = \frac{\partial L}{\partial \dot{q}_k}(\dot{q}, q )$ gilt.
+Diese nennen wir $X(p,q)$. Wir definieren nun die zu $L(\dot{q},q)$ gehörige, nur von $p$ und $q$ abhängige Hamilton-Funktion
+\begin{eqnarray}
+\label{H_from_L}
+H(p,q) &=& \sum_lX_l(p,q)p_l-L(X(p,q),q)
+\end{eqnarray}
+\begin{theorem}
+Trajektorien $(p(t),q(t))$ erfüllen die Hamiltonschen Bewegungs-Gleichungen mit der oben definierten Hamilton-Funktion
+genau dann, wenn $q(t)$ die Euler-Lagrange-Gleichungen erfüllt.
+\end{theorem}
+\begin{proof}
+Die Hamiltonschen Bewegungs-Gleichungen lauten
+\begin{eqnarray*}
+\dot{q}_k &=& \frac{\partial H}{\partial p_k}(p,q)\\
+\dot{p}_k &=&-\frac{\partial H}{\partial q_k}(p,q)
+\end{eqnarray*}
+und wir werten die rechten Seiten aus:
+\begin{eqnarray*}
+\frac{\partial H}{\partial p_k}(p,q) &=& \frac{\partial}{\partial p_k}\left(\sum_lX_l(p,q)p_l-L(X(p,q),q)\right)\\
+&=& \sum_l\left(\frac{\partial X_l}{\partial p_k}(p,q)p_l+X_l(p,q)\delta_{lk}\right)
+-\left(\sum_l\frac{\partial L}{\partial \dot{q}_l}(X(p,q),q)\frac{\partial X_l}{\partial p_k}(p,q)\right)\\
+&=& \sum_l\frac{\partial X_l}{\partial p_k}(p,q)\left(p_l-\frac{\partial L}{\partial \dot{q}_l}(X(p,q),q)\right)+X_k(p,q)\\
+\frac{\partial H}{\partial q_k}(p,q) &=& \frac{\partial}{\partial q_k}\left(\sum_lX_l(p,q)p_l-L(X(p,q),q)\right)\\
+&=& \sum_l\left(\frac{\partial X_l}{\partial q_k}(p,q)p_l
+-\frac{\partial L}{\partial \dot{q}_l}(X(p,q),q)\frac{\partial X_l}{\partial q_k}(p,q)\right)-\frac{\partial L}{\partial q_k}(X(p,q),q)\\
+&=& \sum_l\frac{\partial X_l}{\partial q_k}(p,q)\left(p_l-\frac{\partial L}{\partial \dot{q}_l}(X(p,q),q)\right)-\frac{\partial L}{\partial q_k}(X(p,q),q)
+\end{eqnarray*}
+Nun ist aber $\frac{\partial L}{\partial \dot{q}_l}(X(p,q),q)=p_l$ laut Definition von $X$. Daher bleibt
+\begin{eqnarray}
+\label{H_L_dual}
+\frac{\partial H}{\partial p_k}(p,q) &=& X_k(p,q)\cr
+\frac{\partial H}{\partial q_k}(p,q) &=& -\frac{\partial L}{\partial q_k}(X(p,q),q)
+\end{eqnarray}
+Nun nehmen wir an, $(p(t),q(t))$ erfülle die Hamiltonschen Bewegungs-Gleichungen, dann erhalten wir:
+\begin{eqnarray*}
+\frac{\partial H}{\partial p_k}(p(t),q(t)) &=& X_k(p(t),q(t)) = \dot{q}_k(t)\\
+\frac{\partial H}{\partial q_k}(p(t),q(t)) &=& -\frac{\partial L}{\partial q_k}(X(p(t),q(t)),q(t)) = -\dot{p}_k(t)
+\end{eqnarray*}
+Setzen wir die erste Gleichung in die zweite ein, ergibt sich
+\begin{eqnarray*}
+\frac{\partial L}{\partial q_k}(\dot{q}(t),q(t)) = \dot{p}_k(t)
+\end{eqnarray*}
+Wir verwenden erneut die Definition von $X$, diesmal aber für die Trajektorie $(p(t),q(t))$:
+\begin{eqnarray*}
+\frac{\partial L}{\partial \dot{q}_k}(X(p(t),q(t)),q(t))=p_k(t)
+\end{eqnarray*}
+und setzen erneut ein:
+\begin{eqnarray*}
+\frac{\partial L}{\partial \dot{q}_k}(\dot{q}(t),q(t))=p_k(t)
+\end{eqnarray*}
+und erhalten die Euler-Lagrange-Gleichungen:
+\begin{eqnarray*}
+\frac{\partial L}{\partial q_k}(\dot{q}(t),q(t)) = \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_k}(\dot{q}(t),q(t))
+\end{eqnarray*}
+Nun nehmen wir umgekehrt an die obigen Gleichungen seien für eine Trajektorie $q(t)$ gültig. Mithilfe der Funktion
+\begin{eqnarray*}
+P(\dot{q},q) &=& \frac{\partial L}{\partial \dot{q}_k}(\dot{q},q)
+\end{eqnarray*}
+kann aus $q(t)$ eine Trajektorie $(p(t),q(t))$ konstruiert werden:
+\begin{eqnarray*}
+(p(t),q(t)) &=& (P(\dot{q}(t),q(t)),q(t))
+\end{eqnarray*}
+Wir zeigen nun mittels \ref{H_L_dual}, dass die eben konstruierte Trajektorie die Hamilonschen Bewegungs-Gleichungen erfüllt.
+Zuerst die erste:
+\begin{eqnarray*}
+\frac{\partial H}{\partial p_k}(P(\dot{q}(t),q(t)),q(t)) &=& X_k(P(\dot{q}(t),q(t)),q(t))=\dot{q}_k(t)\cr
+\end{eqnarray*}
+und nun die zweite:
+\begin{eqnarray*}
+\frac{\partial H}{\partial q_k}(P(\dot{q}(t),q(t)),q(t)) &=& -\frac{\partial L}{\partial q_k}(X(P(\dot{q}(t),q(t)),q(t)),q(t))\\
+&=& -\frac{\partial L}{\partial q_k}(\dot{q}(t),q(t))
+\end{eqnarray*}
+Da wir aber an dieser Stele vorausgesetzt haben, die Euler-Lagrange-Gleichungen seien erfüllt, so gilt dann auch
+\begin{eqnarray*}
+\frac{\partial H}{\partial q_k}(P(\dot{q}(t),q(t)),q(t)) &=& -\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_k}(\dot{q}(t),q(t))
+=-\frac{d}{dt}P_k(\dot{q}(t),q(t))
+\end{eqnarray*}
+\end{proof}
+\end{subsection}
+
+\begin{subsection}{Konstruktion einer Lagrange-Funktion aus einer Hamilton-Funktion}
+Gegeben eine beliebige Hamilton-Funktion $H(p,q)$ mit der Eigenschaft, dass es zu jedem $x$ und $q$ genau ein $p$ gibt, so dass
+\begin{eqnarray*}
+\frac{\partial H}{\partial p_k}(p,q) &=& x_k
+\end{eqnarray*}
+gilt. Dieses $p$ bezeichnen wir mit $P^\prime(x,q)$. Nun definieren wir eine Lagrange-Funktion
+\begin{eqnarray*}
+L(\dot{q},q) &=& \sum_lP^\prime_l(\dot{q},q)\dot{q}_l-H(P^\prime(\dot{q},q),q)
+\end{eqnarray*}
+Bildet man aus dieser Lagrange-Funktion nach dem Schema des letzten Abschnitts wiederum eine Hamilton-Funktion $H^\prime(p,q)$, dann ist diese mit der ursprünglichen identisch.
+\begin{proof}
+Wir berechnen den kanonischen Impuls:
+\begin{eqnarray}
+\label{L_from_H_p}
+p_k(\dot{q},q) &=& \frac{\partial L}{\partial \dot{q}_k}(\dot{q},q)\cr
+&=& \sum_l\frac{\partial P^\prime_l}{\partial \dot{q}_k}(\dot{q},q)\dot{q}_l+P^\prime_k(\dot{q},q)
+-\sum_l\frac{\partial H}{\partial p_l}(P^\prime(\dot{q},q),q)\frac{\partial P^\prime_l}{\partial \dot{q}_k}(\dot{q},q)\cr
+&=& \sum_l\frac{\partial P^\prime_l}{\partial \dot{q}_k}(\dot{q},q)\left(\dot{q}_l-\frac{\partial H}{\partial p_l}(P^\prime(\dot{q},q),q)\right)+P^\prime_k(\dot{q},q)
+\end{eqnarray}
+Nun gilt aber nach Definition von $P^\prime(x,q)$
+\begin{eqnarray*}
+\frac{\partial H}{\partial p_k}(P^\prime(x,q),q) &=& x_k
+\end{eqnarray*}
+für alle $x$ und somit auch
+\begin{eqnarray*}
+\frac{\partial H}{\partial p_k}(P^\prime(\dot{q},q),q) &=& \dot{q}_k
+\end{eqnarray*}
+Also bleibt von \ref{L_from_H_p}
+\begin{eqnarray*}
+p_k(\dot{q},q) &=& P^\prime_k(\dot{q},q)= \frac{\partial L}{\partial \dot{q}_k}(\dot{q},q)
+\end{eqnarray*}
+Nun bilden wir, nach dem Schema des letzten Abschnitts eine Funktion $X(p,q)$ mit der Eigenschaft
+\begin{eqnarray*}
+\frac{\partial L}{\partial \dot{q}_k}(X(p,q),q) &=& p_k
+\end{eqnarray*}
+Für alle $p$ und $q$. Nun lautet die Definition einer Hamilton-Funktion $H^\prime$ nach \ref{H_from_L}
+\begin{eqnarray*}
+H^\prime(p,q) &=& \sum_lX_l(p,q)p_l-L(X(p,q),q)\\
+&=&\sum_lX_l(p,q)p_l-\sum_lP^\prime_l(X(p,q),q)X_l(p,q)+H(P^\prime(X(p,q),q),q)\\
+&=&\sum_lX_l(p,q)p_l-\sum_l\frac{\partial L}{\partial \dot{q}_l}(X(p,q),q)X_l(p,q)+H\left(\frac{\partial L}{\partial \dot{q}_k}(X(p,q),q),q\right)\\
+&=&\sum_lX_l(p,q)p_l-\sum_lp_lX_l(p,q)+H(p,q)\\
+&=&H(p,q)
+\end{eqnarray*}
+\end{proof}
+\end{subsection}
+\end{section}
+
+\begin{section}{Notwendige Eigenschaften der Lagrange-Funktion und die Konsequenzen}
+\begin{subsection}{Euler-Lagrange-Gleichung und Dynamik}
+Die allgemeine Form von Bewegungsgleichungen müssen von der Form
+\begin{eqnarray*}
+\ddot{q} &=& a ( \dot{q}, q )
+\end{eqnarray*}
+sein. Bewegungsgleichungen müssen für einen \textbf{Systemzustand} $(\dot{q},q)$ dessen zeitliche Veränderung beschreiben.
+Die zeitliche Veränderung der Koordinaten $q$ ist bereits durch die Geschwindigkeiten $\dot{q}$ gegeben, die durch den Systemzustand selbst gegeben sind. Es bleibt die Beschleunigungen $\ddot{q}$ mit Hilfe von $\dot{q}$ und $q$ zu bestimmen. Dies bringt die obige Gleichung zum Ausdruck. Die Euler-Lagrange Gleichung
+\begin{eqnarray*}
+\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_k}(\dot{q},q) &=& \frac{\partial L}{\partial q_k}(\dot{q},q)
+\end{eqnarray*}
+ist aber nicht von dieser Form. Wir schreiben die Linke Seite als
+\begin{eqnarray*}
+\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_k}(\dot{q},q) &=& \sum_l\left(\frac{\partial^2 L}{\partial \dot{q}_k\partial \dot{q}_l}(\dot{q},q)\ddot{q}_l+\frac{\partial^2 L}{\partial \dot{q}_k\partial q_l}(\dot{q},q)\dot{q}_l\right)
+\end{eqnarray*}
+und erhalten
+\begin{eqnarray*}
+\sum_l\frac{\partial^2 L}{\partial \dot{q}_k\partial \dot{q}_l}(\dot{q},q)\ddot{q}_l&=&-\sum_l\frac{\partial^2 L}{\partial \dot{q}_k\partial q_l}(\dot{q},q)\dot{q}_l+\frac{\partial L}{\partial q_k}(\dot{q},q)
+\end{eqnarray*}
+Die lässt sich auch in Matrix-Form schreiben:
+\begin{eqnarray*}
+M(\dot{q},q)\ddot{q} &=& F(\dot{q},q)
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+M_{kl}(\dot{q},q) &=& \frac{\partial^2 L}{\partial \dot{q}_k\partial \dot{q}_l}(\dot{q},q)\\
+F_k(\dot{q},q) &=& -\sum_l\frac{\partial^2 L}{\partial \dot{q}_k\partial q_l}(\dot{q},q)\dot{q}_l+\frac{\partial L}{\partial q_k}(\dot{q},q)
+\end{eqnarray*}
+Ist die Matrix $M_{kl}(\dot{q},q)$ invertierbar, dann können wir nach $\ddot{q}$ auflösen:
+\begin{eqnarray*}
+\ddot{q} &=& M^{-1}(\dot{q},q)F(\dot{q},q)
+\end{eqnarray*}
+Die Invertierbarkeit von $M(\dot{q},q)$ ist für \textbf{alle} Systemzustände $(\dot{q},q)$ notwendig.
+\end{subsection}
+
+\begin{subsection}{Der Übergang zur Hamilton-Funktion}
+Der Übergang von einer Lagrange-Funktion zu einer Hamilton-Funktion wurde in \ref{lagrange_to_hamiltion} beschrieben. Dabei wurde gefordert, dass es für alle $p$ und $q$ genau ein $X(p,q)$ gibt, welches
+\begin{eqnarray*}
+\frac{\partial L}{\partial \dot{q}}(X(p,q),p) &=& p
+\end{eqnarray*}
+erfüllt. Die Funktion
+\begin{eqnarray*}
+P_q(\dot{q}) &=& \frac{\partial L}{\partial \dot{q}}(\dot{q},q)
+\end{eqnarray*}
+ist für jedes $q$ glatt und überall wohldefiniert. Wir legen $v_0$ und $q_0$ willkürlich fest und definieren
+\begin{eqnarray*}
+p_0 &=& P_{q_0}(v_0)
+\end{eqnarray*}
+Ferner gelte für einen glatten Pfad $p(\tau)$:
+\begin{eqnarray*}
+p(0) &=& p_0\\
+p(1) &=& p_1
+\end{eqnarray*}
+und postulieren eine Funktion $x(\tau)$ so dass für $\tau\in[0,1]$
+\begin{eqnarray*}
+P_q(x(\tau),q) &=& p(\tau)
+\end{eqnarray*}
+gilt. Dann muss auch die Ableitung der obigen Gleichung nach $\tau$ gelten:
+\begin{eqnarray*}
+\frac{dp_k}{d\tau}(\tau) &=& \sum_l\frac{\partial P_{pk}}{\partial x_l}(x(\tau),q_0)\frac{dx_l}{d\tau}(\tau)\\
+&=&\sum_lM_{kl}(x(\tau),q_0)\frac{dx_l}{d\tau}(\tau)
+\end{eqnarray*}
+in Matrix-Schreibweise:
+\begin{eqnarray*}
+\frac{dp}{d\tau}(\tau) &=&M(x(\tau),q_0)\frac{dx}{d\tau}(\tau)\\
+\frac{dx}{d\tau}(\tau) &=& M^{-1}(x(\tau),q_0)\frac{dp}{d\tau}(\tau)
+\end{eqnarray*}
+Wir definieren $N(x,q)=M^{-1}(x,q)$. Die Integration
+\begin{eqnarray}
+\label{p_x_integral}
+x_1(p_1) &=& x_0+\int_0^1 N(x(\tau),q_0)\frac{dp}{d\tau}(\tau)d\tau=x_0+\int_0^1 N(x(\tau),q_0)dp
+\end{eqnarray}
+muss unabhängig vom Pfad $p(\tau)$, der von $p_0$ nach $p_1$ führt sein. Dazu verwenden wir eine zyklischen infinitesimal kleine Schleife:
+\begin{eqnarray*}
+p(\tau) &=& p_0 +\epsilon \gamma(\tau)
+\end{eqnarray*}
+mit $\gamma(0)=\gamma(1)=0$ und definieren
+\begin{eqnarray*}
+\epsilon\xi(\rho) &=& \int_0^\rho N(x(\tau),q_0)\epsilon\frac{d\gamma}{d\tau}(\tau)d\tau\\
+\xi(\rho) &=& \int_0^\rho N(x(\tau),q_0)\frac{d\gamma}{d\tau}(\tau)d\tau
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+x(\tau) &=& x_0+\epsilon \xi(\tau)
+\end{eqnarray*}
+In erster Näherung in $\epsilon$ ist
+\begin{eqnarray*}
+\xi(\rho) &=& \int_0^\rho N(x_0+\epsilon \xi(\tau),q_0)\frac{d\gamma}{d\tau}(\tau)d\tau\\
+&=& \int_0^\rho N(x_0,q_0)\frac{d\gamma}{d\tau}(\tau)d\tau+\epsilon\int_0^\rho \sum_l\frac{\partial N}{\partial x_l}(x_0,q_0)\xi_l(\tau)\frac{d\gamma}{d\tau}(\tau)d\tau\\
+&=& N(x_0,q_0)\int_0^\rho d\gamma +\epsilon\int_0^\rho \sum_l\frac{\partial N}{\partial x_l}(x_0,q_0)\xi_l(\tau)\frac{d\gamma}{d\tau}(\tau)d\tau\\
+&=& N(x_0,q_0)\gamma(\rho) +\epsilon\sum_l\frac{\partial N}{\partial x_l}(x_0,q_0)\int_0^\rho \xi_l(\tau)\frac{d\gamma}{d\tau}(\tau)d\tau\\
+\xi_k(\rho) &=&  \sum_r N_{kr}(x_0,q_0)\gamma_r(\rho) +\epsilon\sum_{lr}\frac{\partial N_{kr}}{\partial x_l}(x_0,q_0)\int_0^\rho \xi_l(\tau)\frac{d\gamma_r}{d\tau}(\tau)d\tau\\
+&=&\sum_r N_{kr}(x_0,q_0)\gamma_r(\rho) +\epsilon\sum_{lr}\frac{\partial N_{kr}}{\partial x_l}(x_0,q_0)\sum_s N_{ls}(x_0,q_0)\int_0^\rho \gamma_s(\tau)\frac{d\gamma_r}{d\tau}(\tau)d\tau
+\end{eqnarray*}
+Das letzte Integral nennen wir
+\begin{eqnarray*}
+A_{sr}(\gamma,\rho) &=& \int_0^\rho \gamma_s(\tau)\frac{d\gamma_r}{d\tau}(\tau)d\tau=\int_0^\rho \gamma_s(\tau)d\gamma_r
+\end{eqnarray*}
+Wir erhalten also in erster Näherung
+\begin{eqnarray*}
+\xi_k(\rho) &=&\sum_r N_{kr}(x_0,q_0)\gamma_r(\rho) +\epsilon\sum_{lr}\frac{\partial N_{kr}}{\partial x_l}(x_0,q_0)\sum_s N_{ls}(x_0,q_0)A_{sr}(\rho)
+\end{eqnarray*}
+und im besonderen
+\begin{eqnarray*}
+\xi_k(1) &=& \epsilon\sum_{lr}\frac{\partial N_{kr}}{\partial x_l}(x_0,q_0)\sum_s N_{ls}(x_0,q_0)A_{sr}(1)\\
+x_k(1) &=& x_{0k}+\epsilon^2\sum_{lr}\frac{\partial N_{kr}}{\partial x_l}(x_0,q_0)\sum_s N_{ls}(x_0,q_0)A_{sr}(1)
+\end{eqnarray*}
+Damit die Integration \ref{p_x_integral} weg-unabhängig wird, muss $x(1) = x_0$ gelten, also
+\begin{eqnarray*}
+\sum_{lr}\frac{\partial N_{kr}}{\partial x_l}(x_0,q_0)\sum_s N_{ls}(x_0,q_0)A_{sr}(\gamma,1) &=& 0
+\end{eqnarray*}
+und zwar für alle Schleifen $\gamma(\tau)$. $A_{sr}(\gamma,1)$ ist anti-symmetrisch. Denn:
+\begin{eqnarray*}
+A_{sr}(\gamma,1)+A_{sr}(\gamma,1) &=& \int_0^1 \gamma_s(\tau)d\gamma_r+d\gamma_s\gamma_r(\tau)\\
+ &=& \int_0^1 d\left(\gamma_s(\tau)\gamma_r(\tau)\right)=\gamma_s(1)\gamma_r(1)-\gamma_s(0)\gamma_r(0)=0-0 = 0
+\end{eqnarray*}
+Wir definieren
+\begin{eqnarray*}
+B_{krs}(x_0,q_0) &=& \sum_{l}\frac{\partial N_{kr}}{\partial x_l}(x_0,q_0) N_{ls}(x_0,q_0)
+\end{eqnarray*}
+also
+\begin{eqnarray*}
+\sum_{rs}B_{krs}(x_0,q_0)A_{sr}(\gamma,1) &=& 0
+\end{eqnarray*}
+Damit dies für alle $\gamma$ und damit für alle anti-symmetrischen Matrizen $A_{sr}$ erfüllt ist, muss
+\begin{eqnarray*}
+B_{krs}(x,q) &=& B_{ksr}(x,q) 
+\end{eqnarray*}
+gelten. Wir widmen uns nun dem Ausdruck $\frac{\partial N_{kr}}{\partial x_l}(x_0,q_0)$. Es gilt:
+\begin{eqnarray*}
+N(x,q)M(x,q) &=& \mathbb{1}\\
+0 &=& \frac{\partial}{\partial x_k}\left(N(x,q)M(x,q)\right)\\
+&=& \frac{\partial N}{\partial x_k}M+N\frac{\partial M}{\partial x_k}\\
+0 &=& \left(\frac{\partial N}{\partial x_k}M+N\frac{\partial M}{\partial x_k}\right)N\\
+&=& \frac{\partial N}{\partial x_k}+N\frac{\partial M}{\partial x_k}N\\
+\frac{\partial N}{\partial x_k} &=& -N\frac{\partial M}{\partial x_k}N
+\end{eqnarray*}
+mit Indizes und Summenkonvention:
+\begin{eqnarray*}
+\frac{\partial N_{kr}}{\partial x_l}(x,q) &=& -N_{ks}\frac{\partial M_{st}}{\partial x_l}N_{tr}=-N_{ks}\frac{\partial^3 L}{\partial \dot{x}_l\partial \dot{x}_s\partial \dot{x}_t}(x,q)N_{tr}\\
+B_{krs}(x,q) &=&-N_{k\sigma}\frac{\partial^3 L}{\partial \dot{x}_l\partial \dot{x}_\sigma\partial \dot{x}_t}(x,q)N_{tr}N_{ls}\\
+B_{krs}(x,q) &=& B_{ksr}(x,q)
+\end{eqnarray*}
+\end{subsection}
+\end{section}
+
+\ifx\makebook\undefined
+	\end{appendix}
+	\end{document}
+	\end{document}
+\else
+	\end{chapter}
+\fi
+

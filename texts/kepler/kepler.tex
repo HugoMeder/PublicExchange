@@ -1,0 +1,166 @@
+\def\titlestr{Kepler's Ellipses}
+\ifx\makebook\undefined
+	\input{../latexsrcs/preamble}
+\else
+	\begin{chapter}{\titlestr}
+\fi
+
+\begin{section}{The First Two Kepler Laws}
+The first of Kepler's laws states that planets move on elliptical orbits with the Sun located at one of the focal points.
+If we place the Sun at the origin of coordinates and the major semi-axis on the $x$-axis, we obtain
+\begin{eqnarray*}
+z(\varphi) &=&
+\begin{pmatrix}
+x(\varphi)\\
+y(\varphi)
+\end{pmatrix}
+=
+\begin{pmatrix}
+a\cos(\varphi)+f\\
+b\sin(\varphi)
+\end{pmatrix}
+\end{eqnarray*}
+where $\varphi$ plays the role of a curve parameter. $a$ and $b$ are the lengths of the major and minor semi-axes, f is the distance from the focal point to the center of the ellipse. It holds:
+\begin{eqnarray*}
+f^2 &=& a^2-b^2
+\end{eqnarray*}
+The second law states that the line connecting the Sun and the planet sweeps out equal areas in equal time intervals. The swept area as a function of $\varphi$ is:
+\begin{eqnarray*}
+A(\varphi) &=& \frac{b}{2}\left(a\varphi+f\sin(\varphi)\right)
+\end{eqnarray*}
+So it must hold:
+\begin{eqnarray*}
+\dot{A} &=& A^\prime(\varphi(t))\dot{\varphi}(t) = w
+\end{eqnarray*}
+for a constant $w$. In other words:
+\begin{eqnarray*}
+\dot{\varphi}(t) &=& \frac{w}{A^\prime(\varphi(t))} = \frac{2w}{b}\frac{1}{a+f\cos(\varphi(t))}
+\end{eqnarray*}
+\end{section}
+
+\begin{section}{The Acceleration}
+\label{ell_accel1}
+The velocity is obtained as:
+\begin{eqnarray*}
+\dot{z} &=& z^\prime(\varphi(t))\dot{\varphi}(t)
+\end{eqnarray*}
+Accordingly, the acceleration is:
+\begin{eqnarray}
+\label{abstracc}
+\ddot{z} &=& z^{\prime\prime}(\varphi(t))\dot{\varphi}^2(t)+z^\prime(\varphi(t))\ddot{\varphi}(t)
+\end{eqnarray}
+To compute $\ddot{\varphi}(t)$, we treat $\dot{\varphi}$ as a function of $\varphi$:
+\begin{eqnarray*}
+\dot{\varphi}(\varphi) &=& \frac{2w}{b}\frac{1}{a+f\cos(\varphi)}
+\end{eqnarray*}
+Then
+\begin{eqnarray*}
+\ddot{\varphi}(\varphi(t)) &=& \dot{\varphi}^\prime(\varphi(t))\dot{\varphi}(\varphi(t))\\
+&=& \frac{2w}{b}\frac{f\sin(\varphi(t))}{(a+f\cos(\varphi(t)))^2}\frac{2w}{b}\frac{1}{a+f\cos(\varphi(t))}
+\end{eqnarray*}
+Summarized we then obtain:
+\begin{eqnarray*}
+\ddot{\varphi}(\varphi(t)) &=& \left(\frac{2w}{b}\right)^2\frac{f\sin(\varphi(t))}{(a+f\cos(\varphi(t)))^3}\\
+\dot{\varphi}^2(\varphi(t)) &=& \left(\frac{2w}{b}\right)^2\frac{1}{(a+f\cos(\varphi(t)))^2}
+\end{eqnarray*}
+To simplify the further calculation, we introduce a common factor $\kappa(\varphi(t))$:
+\begin{eqnarray*}
+\kappa(\varphi(t)) &=& \left(\frac{2w}{b}\right)^2\frac{1}{(a+f\cos(\varphi(t)))^3}
+\end{eqnarray*}
+And then obtain:
+\begin{eqnarray*}
+\ddot{\varphi}(\varphi(t)) &=& f\sin(\varphi(t))\kappa(\varphi(t))\\
+\dot{\varphi}^2(\varphi(t)) &=& (a+f\cos(\varphi(t)))\kappa(\varphi(t))
+\end{eqnarray*}
+Now expression \ref{abstracc} can be easily evaluated:
+\begin{eqnarray*}
+\ddot{z}(t) &=& z^{\prime\prime}(\varphi(t))\dot{\varphi}^2(t)+z^\prime(\varphi(t))\ddot{\varphi}(t)\\
+&=& \left(z^{\prime\prime}(a+f\cos(\varphi(t)))+z^\prime(\varphi(t))f\sin(\varphi(t))\right)\kappa(\varphi(t))\\
+&=&\left(
+\begin{pmatrix}
+-a\cos(\varphi(t))\\
+-b\sin(\varphi(t))
+\end{pmatrix}
+(a+f\cos(\varphi(t)))+
+\begin{pmatrix}
+-a\sin(\varphi(t))\\
+b\cos(\varphi(t))
+\end{pmatrix}
+f\sin(\varphi(t))\right)\kappa(\varphi(t))\\
+&=&\begin{pmatrix}
+-a\cos(\varphi(t))(a+f\cos(\varphi(t))-af\sin^2(\varphi(t))\\
+-b\sin(\varphi(t))(a+f\cos(\varphi(t))+fb\cos(\varphi(t))\sin(\varphi(t))
+\end{pmatrix}
+\kappa(\varphi(t))\\
+&=&\begin{pmatrix}
+-af-a^2\cos(\varphi(t))\\
+-ab\sin(\varphi(t))
+\end{pmatrix}
+\kappa(\varphi(t))\\
+&=&-a\begin{pmatrix}
+f+a\cos(\varphi(t))\\
+b\sin(\varphi(t))
+\end{pmatrix}
+\kappa(\varphi(t))\\
+&=&-a\kappa(\varphi(t))z(\varphi(t))
+\end{eqnarray*}
+That is, the acceleration is $-a\kappa(\varphi(t))$ times the distance vector $z(\varphi(t))$. Now it is helpful to know that
+\begin{eqnarray*}
+|z(\varphi)| &=& a+f\cos(\varphi) = r
+\end{eqnarray*}
+\begin{proof}
+\begin{eqnarray*}
+|z(\varphi)|^2 &=& x^2+y^2 = \left(f+a\cos(\varphi)\right)^2+\left(b\sin(\varphi)\right)^2\\
+&=& f^2+2fa\cos(\varphi)+a^2\cos^2(\varphi)+b^2\sin^2(\varphi)\\
+&=& f^2+2fa\cos(\varphi)+a^2\cos^2(\varphi)+b^2\left(1-\cos^2(\varphi)\right)\\
+&=& f^2+b^2+2fa\cos(\varphi)+\left(a^2-b^2\right)\cos^2(\varphi)\\
+&=& a^2+2fa\cos(\varphi)+f^2\cos^2(\varphi)\\
+&=& \left(a+f\cos(\varphi)\right)^2\\
+|z(\varphi)| &=& a+f\cos(\varphi)
+\end{eqnarray*}
+\qed
+\end{proof}
+Therefore the absolute value of $\ddot{z}$ becomes:
+\begin{eqnarray}
+\label{ell_acc}
+|\ddot{z}(t)| &=& a\kappa(\varphi(t))|z(\varphi(t))|=a\left(\frac{2w}{b}\right)^2\frac{1}{(a+f\cos(\varphi(t)))^3}|z(\varphi(t))|=a\left(\frac{2w}{b}\right)^2\frac{1}{r^3(t)}r(t)\cr
+&=& a\left(\frac{2w}{b}\right)^2\frac{1}{r^2(t)}
+\end{eqnarray}
+$w$ can be expressed in terms of the orbital period $T$. After time $T$ the entire area of the ellipse is swept:
+\begin{eqnarray*}
+wT &=& \pi ab\\
+w &=& \frac{\pi ab}{T}
+\end{eqnarray*}
+Thus we obtain for the magnitude of the acceleration:
+\begin{eqnarray}
+\label{accel}
+|\ddot{z}(t)| &=& \left(2\pi\right)^2\frac{a^3}{T^2}\frac{1}{r^2(t)}
+\end{eqnarray}
+\end{section}
+
+\begin{section}{The Third Kepler Law}
+\label{ell_accel2}
+It states that for two different planets with major semi-axes $a_1$ and $a_2$ and orbital periods $T_1$ and $T_2$ it holds:
+\begin{eqnarray*}
+\frac{a_1^3}{T_1^2} &=& \frac{a_2^3}{T_2^2}
+\end{eqnarray*}
+Thus the dependence in \ref{accel} on $a$ and $T$ can be eliminated and written as
+\begin{eqnarray*}
+|\ddot{z}| &=& \frac{K}{r^2}
+\end{eqnarray*}
+\begin{eqnarray}
+\label{kdef}
+K&=&\left(2\pi\right)^2\frac{a^3}{T^2}
+\end{eqnarray}
+is a constant fixed for the solar system. We thus obtain the following law of motion:
+\begin{eqnarray}
+\label{kepler_motion}
+\ddot{z}(t) &=& -\frac{Kz(t)}{|z(t)|^3}
+\end{eqnarray}
+This law of motion now holds for \textbf{all} planets of our solar system.
+\end{section}
+\ifx\makebook\undefined
+	\end{document}
+\else
+	\end{chapter}
+\fi

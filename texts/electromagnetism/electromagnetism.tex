@@ -1,0 +1,1286 @@
+\def\titlestr{Elektromagnetismus}
+\ifx\makebook\undefined
+	\input{../latexsrcs/preamble}
+\else
+	\begin{chapter}{\titlestr}
+\fi
+\begin{section}{Elektrische und magnetische Felder, Lorentz-Kraft}
+Das elektrische Feld wird mit $\vec{E}$, das magnetische Feld mit $\vec{B}$ bezeichnet. Beide sind durch ihre Wirkung auf bewegte Ladungen $q$. Die Ladung $q$ befinde sich am Ort $\vec{x}$ habe eine Geschwindigkeit $\vec{v}$.
+Dann üben diese auf die Ladung die Lorentz-Kraft aus:
+\begin{eqnarray}
+\label{lorentz_force}
+\vec{F} &=& q\left(\vec{E}(x)+\vec{v}\times\vec{B}(x)\right)
+\end{eqnarray}
+\end{section}
+
+\begin{section}{Elektromagnetische Feldgleichungen}
+\label{incomlete_eqns}
+\begin{eqnarray}
+\label{coulomb-eqn}
+\vec{\nabla}\cdot\vec{E} &=& \frac{1}{\epsilon_0}\rho\\
+\label{no_magnetic_source_eqn}
+\vec{\nabla}\cdot\vec{B} &=& 0\\
+\label{faraday_induction_eqn}
+\vec{\nabla}\times\vec{E} &=& -\dot{\vec{B}}\\
+\label{ampere_current_makes_magnetic_field}
+\vec{\nabla}\times\vec{B} &=& \mu_0\vec{j}
+\end{eqnarray}
+\end{section}
+
+\begin{section}{Elektrostatik}
+\begin{subsection}{Elektrische Feldgleichungen}
+Wir vergessen das magnetische Feld (oder setzen es gleich Null).
+Aus der Lorentz-Kraft \ref{lorentz_force} wird
+\begin{eqnarray*}
+\vec{F} &=& q\vec{E}(x)
+\end{eqnarray*}
+Von den Feldgleichungen bleibt:
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{E} &=& \frac{1}{\epsilon_0}\rho\\
+\vec{\nabla}\times\vec{E} &=& 0\\
+0 &=& \vec{j}
+\end{eqnarray*}
+Wir ignorieren zunächst die zweitletzte Gleichung. $\vec{j}$ steht für den elektrischen Strom, also für bewegte Ladungen. Die Ladungen sollen sich also nicht bewegen.
+\end{subsection}
+
+\begin{subsection}{Kräfte zwischen Ladungen, Coulomb-Gesetz}
+In der ersten Gleichung bedeutet $\rho(x)$ die Ladungsdichte am Orte $x$. Die Gleichung besagt nun, dass der Fluss des elektrischen Feldes durch die Oberfläche eines Gebietes gleich dem
+$\frac{1}{\epsilon_0}$-Fachen des darin enthaltenen Ladung ist. Da wir aber nur eine Punkt-Ladung $q$ haben ist der Fluss des elektrischen Feldes durch die Oberfläche eines Gebietes, welches die Ladung enthält gleich $\frac{q}{\epsilon_0}$. Aus Gründen der Symmetrie nehmen wir an, dass das elektrische Feld direkt von der Ladung weg weist und im Betrage nur vom Abstand $r$ abhängt. Die Oberfläche einer Kugel vom Radius $r$ ist gleich $4\pi r^2$. damit gilt:
+\begin{eqnarray*}
+4\pi r^2 E(r) &=& \frac{q}{\epsilon_0}\\
+E(r) &=& \frac{q}{4\pi\epsilon_0r^2}
+\end{eqnarray*}
+Betrachten wir nun eine zweite Ladung $q_2$ im Abstand $r$ von $q$, dann wirkt auf diese eine Kraft
+\begin{eqnarray*}
+F &=& E(r)q_2 = \frac{1}{4\pi\epsilon_0}\frac{qq_2}{r^2}
+\end{eqnarray*}
+Dies ist das Gesetz von Coulomb.
+\end{subsection}
+
+\begin{subsection}{Positive und negative Ladungen}
+\end{subsection}
+
+\begin{subsection}{Potentielle Energie, elektrische Spannung und die Gleichung \titlemath{$\vec{\nabla}\times \vec{E}=0$}{div E}}
+\end{subsection}
+
+\begin{subsection}{Elektrisch leitende Materialien, Van-de-Graaff-Generator}
+\end{subsection}
+
+\begin{subsection}{Elektrischer Kondensator}
+\begin{subsubsection}{Kapazität}
+Zwei elektrisch leitende Platten der Fläche $A$ seien mit eine Abstand $d$ aufgebaut, die eine mit einer Ladung $Q$, die andere mit einer Ladung $-Q$ aufgeladen. Von außen gesehen
+handelt es sich um eine elektrisch neutrales Gebilde. Deshalb verschwindet das elektrische Feld außerhalb. Zwischen den Platten ist ein elektrisches Feld $E$ zu erwarten. Dieses muss den Wert
+\begin{eqnarray*}
+EA &=& \frac{Q}{\epsilon_0}\\
+E &=& \frac{Q}{\epsilon_0 A}
+\end{eqnarray*}
+Die Spannung zwischen den Platten beträgt
+\begin{eqnarray*}
+V &=& dE = \frac{d}{\epsilon_0 A}Q
+\end{eqnarray*}
+Es gilt die Beziehung
+\begin{eqnarray*}
+Q &=& \frac{\epsilon_0 A}{d}V
+\end{eqnarray*}
+Die Größe $C=\frac{\epsilon_0 A}{d}$ heißt Kapazität des Kondensators. Dann gilt:
+\begin{eqnarray*}
+Q &=& CV
+\end{eqnarray*}
+
+\end{subsubsection}
+
+\begin{subsubsection}{Energie des elektrischen Feldes}
+Wir nehmen nun an, die beiden Platten seien mit einem leitenden Draht verbunden. Durch anlegen einer Spannung $V$ wird der Kondensator mit einer Ladung $Q=CV$ aufgeladen.
+Wenn wir den Aufladevorgang kontrolliert stattfinden lassen indem wir die angelegte Spannung $V(t)$ langsam von 0 an aufsteigen lassen, dann haben wir:
+\begin{eqnarray*}
+V(t) &=& \frac{Q(t)}{C}\\
+\frac{dW}{dt} &=& V(t)I(t) =  \frac{Q(t)}{C}\frac{dQ(t)}{dt}\\
+&=&\frac{1}{2}\frac{d}{dt}\left(\frac{Q^2(t)}{C}\right)
+\end{eqnarray*}
+Die beim Aufladen geleistete Arbeit $W$ ist demnach
+\begin{eqnarray*}
+W &=&\frac{1}{2}\frac{Q^2(t)}{C}=\frac{1}{2}\frac{(\epsilon_0AE)^2}{\frac{\epsilon_0 A}{d}}=\frac{1}{2}\epsilon_0AdE^2\\
+&=&\frac{1}{2}\epsilon_0\mathcal{V}E^2
+\end{eqnarray*}
+wobei $\mathcal{V}=Ad$ das zwischen den Platten eingeschlossene Volumen ist. Die Energiedichte ist somit
+\begin{eqnarray}
+\label{E_energyDensity}
+\rho_{E_E}&=&\frac{1}{2}\epsilon_0E^2
+\end{eqnarray}
+
+\end{subsubsection}
+\end{subsection}
+
+
+\end{section}
+
+
+\begin{section}{Magnetostatik}
+\begin{subsection}{Magnetische Feldgleichungen}
+Wie im letzte Abschnitt, setzen wir diesmal $\vec{E}=0$. Dann wird \ref{lorentz_force}
+\begin{eqnarray*}
+\vec{F} &=& q\vec{v}\times\vec{B}(x)
+\end{eqnarray*}
+Und die Feld-Gleichungen werden:
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{B} &=& 0\\
+0 &=& \dot{\vec{B}}\\
+\vec{\nabla}\times\vec{B} &=& \mu_0\vec{j}
+\end{eqnarray*}
+Die zweite Gleichung besagt einfach, dass wir es in der Magnetostatik mit konstanten magnetischen Feldern zu tun haben.
+Daraus folgt auch, dass die elektrischen Ströme $\vec{j}$ konstant sein müssen.
+\end{subsection}
+
+\begin{subsection}{Es gibt keine magnetische Monopole}
+\end{subsection}
+
+\begin{subsection}{Ampèresches Gesetz}
+Wir widmen uns nun der Gleichung
+\begin{eqnarray*}
+\vec{\nabla}\times\vec{B} &=& \mu_0\vec{j}
+\end{eqnarray*}
+zu. Gegeben ein Flächenstück $F$ im Raume mit einem Rand $\partial F$. Ferner fließt ein Strom $I$ durch dieses Flächenstück. Dann ist das Linien-Integral das der Randkurve folgt des magnetischen Feldes
+gleich $\mu_0I$. In anderen Worten: elektrische Ströme erzeugen magnetische Felder.
+\end{subsection}
+
+\begin{subsection}{Die Wirkung magnetischer Felder auf elektrische Ströme}
+In einem Leiter bewegen sich Ladungen und erzeugen einen elektrischen Strom. Angenommen, $N$ Ladungen mit einer Geschwindigkeit $v$ bewegen sich in einem Leiterstück von einem Punkt $\vec{x}_A$ zu einem Punkt $\vec{x}_B$.
+Die Geschwindigkeit $\vec{v}$ bewegen sich von $\vec{x}_A$ nach ${x}_B$, also in Richtung $\vec{n}=\frac{\vec{x}_B-{x}_A}{|\vec{x}_B-{x}_A|}$. Wir bezeichnen die gerichtete Länge mit $\vec{L}=\vec{x}_B-\vec{x}A$.
+Auf jede einzelne Ladung wirkt eine Kraft
+\begin{eqnarray*}
+\vec{f} &=& q\vec{v}\times \vec{B}
+\end{eqnarray*}
+Die gesamte Kraft auf das Leiterstück ist demnach
+\begin{eqnarray*}
+\vec{F} &=& Nq\vec{v}\times \vec{B}
+\end{eqnarray*}
+Weiter legen die Ladungen in einer Zeit $\Delta T=\frac{|\vec{L}|}{|\vec{v}|}$ die Länge des Leiterstücks zurück. Das heißt, alle $N$ Ladungen haben nach einer Zeit $\Delta T$ das Leiterstück am Punkte $x_B$ verlassen.
+Der elektrische Strom ist deshalb:
+\begin{eqnarray*}
+I &=& \frac{Nq}{\Delta T}
+\end{eqnarray*}
+Die Kraft ist demnach
+\begin{eqnarray*}
+\vec{F} &=& I\Delta T\vec{v}\times \vec{B}=I\frac{|\vec{L}|}{|\vec{v}|}\vec{v}\times \vec{B}=I|\vec{L}|\vec{n}\times \vec{B}\\
+&=&I\vec{L}\times \vec{B}
+\end{eqnarray*}
+
+Damit lässt sich die Kraft, die zwischen zwei parallelen stromdurchfloßenen Leitern wirkt berechnen. Das magnetische Feld $B$ um einen einzigen Stromleiter ist
+\begin{eqnarray*}
+2\pi r B &=& \mu_0 I\\
+B &=& \frac{\mu_0 I}{2\pi r}
+\end{eqnarray*}
+Im Abstand $r$ fließe in paralleler Richtung ein Strom $I_2$, dann ist die Kraft auf diesen Leiter
+\begin{eqnarray}
+\label{parallel_currents}
+F &=& I_2LB= I_2L\frac{\mu_0 I}{2\pi r}\cr
+&=& \frac{\mu_0}{2\pi}\frac{I_2I}{r}L
+\end{eqnarray}
+Fließen die Ströme $I$ und $I_2$ in die gleiche Richtung, dann ziehen sich die Leiter an.
+Dieses Kräftegesetz wird auch ampèresche Kraftgesetz genannt.
+\end{subsection}
+
+\begin{subsection}{Elektromagnetische Maßeinheiten}
+Wählt man im Kräftegesetz \ref{parallel_currents} den Abstand $r$ und die Länge des Leiterstücks gleich groß und auch die beiden Ströme gleich, dann wird daraus
+\begin{eqnarray*}
+F &=& \frac{\mu_0}{2\pi}I^2
+\end{eqnarray*}
+Zur Zeit Ampères war das sogenannte cgs-System in Gebrauch, in welchem anstelle von Meter und Kilogramm Zentimeter und Gramm zugrunde gelegt wurden.
+Die Krafteinheit war das $dyn=10^{-5}N$. Auf dieser Grundlage wurde eine Einheit für die Stromstärke $Biot$ vorgeschlagen. Ist $F=2dyn$ ist die dazu benötigte Stromstärke $I=1Biot$:
+\begin{eqnarray*}
+2dyn &=& \frac{\mu_0}{2\pi}(1Biot)^2
+\end{eqnarray*}
+oder 
+\begin{eqnarray*}
+\mu_0 &=& 4\pi\frac{dyn}{Biot^2}=4\pi\frac{10^{-5}N}{Biot^2}
+\end{eqnarray*}
+Das $Biot$ war eine sehr große Stromstärke. Deshalb wurde beschlossen, $\frac{1}{10}Biot$ als Einheit der elektrischen Stromstärke zu verwenden und nannte diese Ampere $A$. Fließt in beiden Leitern je 1 Ampere,
+dann ist die Kraft nur noch $\frac{1}{100}$ so groß und wir erhalten:
+\begin{eqnarray*}
+\frac{2}{100}dyn &=& \frac{\mu_0}{2\pi}(1A)^2
+\end{eqnarray*}
+und damit
+\begin{eqnarray*}
+\mu_0 &=& 10^{-2}4\pi\frac{dyn}{A^2}=10^{-2}4\pi 10^{-5}\frac{N}{A^2}\\
+&=& 4\pi\cdot 10^{-7}\frac{N}{A^2}
+\end{eqnarray*}
+$\mu_0$ ist also keine gemessene Naturkonstante. Gemessen wurde eine Stromstärke die eine bestimmte Kraft $\frac{2}{100}dyn=2\cdot 10^{-7}N$ hervorruft.
+Am 20. Mai 2019 wurde hingegen die elektrische Elementarladung $e$ zur Naturkonstante erklärt und das Ampere als
+\begin{eqnarray*}
+A &=& \frac{1}{1.602176634\cdot 10^{-19}}\frac{e}{sec} \approx 6.241509074\cdot 10^{18}\frac{e}{sec}
+\end{eqnarray*}
+Entsprechen ist die elektrische Ladungseinheit Coulomb ($C$)
+\begin{eqnarray*}
+C &=& \frac{e}{1.602176634\cdot 10^{-19}}
+\end{eqnarray*}
+Diese Änderungen wurden so vorgenommen, dass sich an den Maßeinheiten praktisch nichts geändert hat. Nunmehr ist aber $\mu_0$ eine messbare Größe geworden, die allerdings sehr nahe bei $4\pi\cdot 10^{-7}\frac{N}{A^2}$ liegt.
+\end{subsection}
+
+\begin{subsection}{Magnet-Spule}
+\label{magnetic_coil}
+Wir betrachten einen Zylinder der Länge $l$ und mit einem Querschnitt $A$. Der Zylinder sei gleichmäßig mit einem isolierten Leiter (Kupferdraht) umwickelt.
+Die Anzahl der Wicklungen sei $N$. Ferner fließe im Leiter ein Strom $I$.
+
+In Gedanken bilden wir einen Längs-Schnitt durch die Spule, so das dies durch die zentrale Symmetrie-Achse verläuft. Weite denken wir uns ein Rechteck, welches in dieser Ebene liegt und die Spule eng umschließt.
+Der elektrische Strom, dar das Rechteck durchfließt ist 0. Daraus schließen wir, dass das Magnet-Feld $B$ außerhalb der Spule verschwindet.
+
+Nun denken wir uns ein weiteres Rechteck in derselben Ebene welches die Wicklungen nur auf einer Seite eng umschließt. Nun durchfließt ein Strom $NI$ das Rechteck. Daraus schließen wir, dass im Inneren der Spule
+ein Magnetfeld
+\begin{eqnarray}
+\label{B_in_coil}
+BL &=& \mu_0NI\cr
+B &=& \frac{\mu_0NI}{l} =\mu_0\frac{N}{l}I
+\end{eqnarray}
+herrscht.
+\end{subsection}
+\end{section}
+
+\begin{section}{Elektrodynamik}
+Heben wir nun die bisher auferlegten Beschränkungen auf, und erlauben die gleichzeitige Existenz von elektrischen und magnetischen Feldern, dann haben wir \ref{lorentz_force}
+\begin{eqnarray*}
+\vec{F} &=& q\left(\vec{E}(x)+\vec{v}\times\vec{B}(x)\right)
+\end{eqnarray*}
+und die Feldgleichungen 
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{E} &=& \frac{1}{\epsilon_0}\rho\\
+\vec{\nabla}\cdot\vec{B} &=& 0\\
+\vec{\nabla}\times\vec{E} &=& -\dot{\vec{B}}\\
+\vec{\nabla}\times\vec{B} &=& \mu_0\vec{j}
+\end{eqnarray*}
+Die dritte Gleichung einhält als einzige sowohl das elektrische wie auch das magnetische Feld. Daher kam diese Gleichung in der Elektrostatik in der Form $\vec{\nabla}\times \vec{B} =0$ und in der Magnetostatik in der Form $\dot{\vec{B}}=0$ vor. Beide Gleichungen verlieren hier ihre Bedeutung: ein elektrisches Potential lässt sich nicht mehr definieren und Magnetfelder können sich verändern.
+
+\begin{subsection}{Faradays Induktions-Gesetz}
+\begin{subsubsection}{Integrierte Formulierung}
+Wir müssen uns nun also der dritten Gleichung widmen. Dazu stellen wir uns eine geschlossene Kurve oder Schleife im Raume vor. Dann ist der Fluss $\Phi$ des magnetischen Feldes durch diese Schleife wohldefiniert.
+Die dritte Gleichung besagt nun, dass eine zeitliche Veränderung $\dot{\Phi}$ dieses Flusses zu einem elektrischen Feld führt, welches entlang der Schleife integriert den Betrag $-\dot{\Phi}$ annimmt.
+Sich verändernde Magnetfelder erzeugen (induzieren) ein elektrisches (Wirbel-)Feld.
+\end{subsubsection}
+
+\begin{subsubsection}{Selbst-Induktion einer Magnetspule}
+Wir haben in \ref{magnetic_coil} bereits die Magnet-Spule eingeführt. Das Magnetfeld im Inneren ist (\ref{B_in_coil})
+\begin{eqnarray*}
+B &=& \mu_0\frac{N}{l}I
+\end{eqnarray*}
+Der magnetisch Fluss durch die Spule beträgt
+\begin{eqnarray*}
+\Phi &=& \mu_0\frac{N}{l}IA
+\end{eqnarray*}
+Verändert sich der Strom $I$, dann verändert sich auch der magnetische Fluss
+\begin{eqnarray*}
+\dot{\Phi} &=& \mu_0\frac{N}{l}\dot{I}A
+\end{eqnarray*}
+$\dot{\Phi}$ induziert in einer einzigen Windung eine Spannung von
+\begin{eqnarray*}
+V &=& -\dot{\Phi} = \mu_0\frac{N}{l}\dot{I}A
+\end{eqnarray*}
+In der ganzen Wicklung ist die Spannung entsprechend
+\begin{eqnarray*}
+V &=& -\dot{\Phi} = \mu_0\frac{N^2}{l}\dot{I}A
+\end{eqnarray*}
+Die Größe $L=\mu_0\frac{N^2}{l}A$ heißt (Selbst-)Induktivität der Magnet-Spule. Also:
+\begin{eqnarray*}
+V &=& L\dot{I}
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Energie des magnetischen Feldes}
+Lassen wir den Strom von Null an allmählich ansteigen, dann ist
+\begin{eqnarray*}
+V(t) &=& L\dot{I}(t)
+\end{eqnarray*}
+Durch den Aufbau des magnetischen Feldes geleistete Arbeit (pro Zeiteinheit) ist
+\begin{eqnarray*}
+\frac{dW}{dt}(t) &=& I(t)V(t) = I(t)L\dot{I}(t)\\
+&=& \frac{1}{2}\frac{d}{dt}LI^2(t)
+\end{eqnarray*}
+oder
+\begin{eqnarray*}
+W&=& \frac{1}{2}LI^2
+\end{eqnarray*}
+Nun ist aber
+\begin{eqnarray*}
+I &=& \frac{l}{\mu_0N}B\\
+L&=&\mu_0\frac{N^2}{l}A
+\end{eqnarray*}
+und somit
+\begin{eqnarray*}
+W&=& \frac{1}{2}LI^2\\
+&=& \frac{1}{2}\mu_0\frac{N^2}{l}A\left(\frac{l}{\mu_0N}B\right)^2\\
+&=& \frac{1}{2}\frac{1}{\mu_0}\mathcal{V}B^2
+\end{eqnarray*}
+Die Energie-Dichte des magnetischen Feldes ist somit
+\begin{eqnarray}
+\label{M_energyDensity}
+\frac{W}{\mathcal{V}}&=& \rho_{E_M}=\frac{1}{2}\frac{1}{\mu_0}B^2
+\end{eqnarray}
+\end{subsubsection}
+
+\begin{subsubsection}{Relativitäts-Prinzip}
+Das oben beschriebene Induktions-Gesetz beschreibt die Induktion einer elektrischen Spannung in eine Leiterschleife, falls sich der Fluss des magnetischen Feldes durch die Schleife verändert.
+Dabei war die Schleife als unverändert gedacht und das Magnet-Feld als veränderlich.
+
+Schiebt man also eine Magneten durch eine Leiterschleife, dann wird in dieser eine Spannung induziert. Man kann sich aber auch vorstellen, dass der Magnet an Ort und Stelle bleibt und die Schleife
+über den Magneten gezogen wird. Dabei ist dieselbe induzierte Spannung zu erwarten, obwohl sich das Magnetfeld nicht verändert. Die induzierte Spannung rührt in diesem Falle von der Lorentz-Kraft \ref{lorentz_force}
+\begin{eqnarray*}
+\vec{F} &=& q\left(\vec{E}(x)+\vec{v}\times\vec{B}(x)\right)
+\end{eqnarray*}
+her. Die Ladungen in der Leiterschleife sind nun in Bewegung und erfahren eine Kraft die zur selben induzierten Spannung führt. Dies erklärt auch, warum in \ref{faraday_induction_eqn}
+keine experimentell ermittelbare Naturkonstante
+\begin{eqnarray*}
+\vec{\nabla}\times\vec{E} &=& -\dot{\vec{B}}
+\end{eqnarray*}
+vorkommt. Dies alles bedeutet, dass Faradays Induktions-Gesetz allgemein gilt, unabhängig ob sich die Leiterschleife verändert oder das Magnet-Feld.
+\end{subsubsection}
+\end{subsection}
+
+\begin{subsection}{Maxwell-Gleichungen}
+\begin{subsubsection}{Fazit zu den Gleichungen (Abschnitt \ref{incomlete_eqns})}
+Die Feld-Gleichungen beschreiben erfolgreich folgende experimentelle Befunde:
+\begin{itemize}
+	\item Coulombs Kraftgesetz zwischen elektrischen Ladungen.
+	\item es gibt keine magnetische Monopole.
+	\item Ampèresches Gesetz der Erzeugung von Magnetfeldern durch elektrische Ströme.
+	\item Faraday-Gesetz der magnetischen Induktion.
+\end{itemize}
+\end{subsubsection}
+
+\begin{subsubsection}{Die Kontinuitätsgleichung und das paradoxe Ergebnis}
+Die Kontinuitätsgleichung lautet
+\begin{eqnarray}
+\label{continuity_eqn}
+\dot{\rho} + \vec{\nabla}\cdot\vec{j} &=& 0
+\end{eqnarray}
+und beschreibt die lokale Ladungserhaltung. In Worten: In einem gegebenen Raumgebiet verändert sich die elektrische Ladung nur dadurch, dass elektrische Ströme in dieses Gebiet hinein oder herausfließen.
+Nun rekapitulieren wir die beiden Feldgleichungen, in denen $\rho$ und $\vec{j}$ vorkommen:
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{E} &=& \frac{1}{\epsilon_0}\rho\\
+\vec{\nabla}\times\vec{B} &=& \mu_0\vec{j}
+\end{eqnarray*}
+oder
+\begin{eqnarray*}
+\rho &=& \epsilon_0\vec{\nabla}\cdot\vec{E}\\
+\vec{j} &=& \frac{1}{\mu_0}\vec{\nabla}\times\vec{B}
+\end{eqnarray*}
+Es ist eine mathematische Tatsache, dass die Divergenz einer Rotation verschwindet. Anders ausgedrückt
+\begin{eqnarray*}
+\vec{\nabla}\cdot \vec{j} &=& \frac{1}{\mu_0}\vec{\nabla}\cdot \left(\vec{\nabla}\times\vec{B}\right) = 0
+\end{eqnarray*}
+In die Kontinuitätsgleichung eingesetzt führt das zu dem paradoxen Ergebnis
+\begin{eqnarray*}
+\dot{\rho} &=& 0
+\end{eqnarray*}
+Das heißt, die Ladungsdichte ist zeitlich unveränderlich.
+\end{subsubsection}
+
+\begin{subsubsection}{Maxwells Lösung}
+Dieses Problem hat Maxwell erkannt. Natürlich muss
+\begin{eqnarray*}
+\dot{\rho} + \vec{\nabla}\cdot\vec{j} &=& \epsilon_0\vec{\nabla}\cdot\dot{\vec{E}} + \vec{\nabla}\cdot\vec{j} = 0
+\end{eqnarray*}
+oder
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{j} &=&-\epsilon_0\vec{\nabla}\cdot\dot{\vec{E}}
+\end{eqnarray*}
+gelten. Um dies zu erreichen ersetzen wir die Gleichung
+\begin{eqnarray*}
+\vec{j} &=& \frac{1}{\mu_0}\vec{\nabla}\times\vec{B}
+\end{eqnarray*}
+durch
+\begin{eqnarray*}
+\vec{j} &=& \frac{1}{\mu_0}\vec{\nabla}\times\vec{B}-\epsilon_0\dot{\vec{E}}
+\end{eqnarray*}
+oder
+\begin{eqnarray*}
+\vec{\nabla}\times\vec{B} &=& \mu_0\left(\vec{j}+\epsilon_0\dot{\vec{E}}\right)
+\end{eqnarray*}
+Die so veränderte Gleichung vierte Gleichung, zusammen mit den anderen
+\begin{eqnarray}
+\label{maxwell_eqns}
+\vec{\nabla}\cdot\vec{E} &=& \frac{1}{\epsilon_0}\rho\cr
+\vec{\nabla}\cdot\vec{B} &=& 0\cr
+\vec{\nabla}\times\vec{E} &=& -\dot{\vec{B}}\cr
+\vec{\nabla}\times\vec{B} &=& \mu_0\left(\vec{j}+\epsilon_0\dot{\vec{E}}\right)
+\end{eqnarray}
+heißen Maxwell-Gleichungen. Der zusätzliche Term $\mu_0\epsilon_0\cdot\dot{\vec{E}}$ in der letzten Gleichung hat keinen Einfluss auf die Gültigkeit der vier oben genannten experimentellen Befunde, mit der einzigen Ausnahme, dass für das Ampèresche Gesetz als erzeugenden Strom anstelle von $\vec{j}$ der erweiterte Strom $\vec{j}+\epsilon_0\cdot\dot{\vec{E}}$ einzusetzen ist.
+Für diesen gilt $\vec{\nabla}\cdot \left(\vec{j}+\epsilon_0\cdot\dot{\vec{E}}\right)=0$, wie es zur Formulierung des Ampèreschen Gesetzes auch notwendig ist.
+\end{subsubsection}
+
+\begin{subsubsection}{Elektromagnetische Wellen}
+Wir untersuchen das Verhalten elektrischer und Magnetischer Felder in Abwesenheit von Ladungen $\rho$ und Strömen $\vec{j}$. Dann werden die Maxwell-Gleichungen
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{E} &=& 0\cr
+\vec{\nabla}\cdot\vec{B} &=& 0\cr
+\vec{\nabla}\times\vec{E} &=& -\dot{\vec{B}}\cr
+\vec{\nabla}\times\vec{B} &=& \epsilon_0\mu_0\dot{\vec{E}}
+\end{eqnarray*}
+Daraus lässt sich
+\begin{eqnarray*}
+\ddot{\vec{B}} &=& -\vec{\nabla}\times\dot{\vec{E}}\\
+&=&-\frac{1}{\epsilon_0\mu_0}\vec{\nabla}\times\left(\vec{\nabla}\times\vec{B}\right)
+\end{eqnarray*}
+bilden. Dies ist mathematisch äquivalent zu
+\begin{eqnarray*}
+\ddot{\vec{B}}&=& -\frac{1}{\epsilon_0\mu_0}\left(\vec{\nabla}\cdot\left(\vec{\nabla}\cdot B\right)-\Delta B\right)
+\end{eqnarray*}
+Da aber $\vec{\nabla}\cdot\vec{B}=0$ ist, gilt
+\begin{eqnarray*}
+\ddot{\vec{B}}&=& \frac{1}{\epsilon_0\mu_0}\Delta B
+\end{eqnarray*}
+Dies ist eine Wellengleichung. Eine Welle der Geschwindigkeit $\vec{v}$ und der Frequenz $\nu$ lässt sich in die Form
+\begin{eqnarray*}
+\vec{B}(x,t) &=& \vec{B}\sin\left(2\pi\nu\left(\frac{\vec{v}\cdot \vec{x}}{|\vec{v}|^2}- t\right)\right)
+\end{eqnarray*}
+bringen, denn
+\begin{eqnarray*}
+\vec{B}(\vec{x}+\vec{v}\Delta t,t+\Delta t) &=& \vec{B}\sin\left(2\pi\nu\left(\frac{\vec{v}\cdot (\vec{x}+\vec{v}\Delta t)}{|\vec{v}|^2}- t-\Delta t\right)\right)\\
+&=&\vec{B}\sin\left(2\pi\nu\left(\frac{\vec{v}\cdot \vec{x}}{|\vec{v}|^2}- t\right)\right) = \vec{B}(\vec{x},t)\\
+\vec{B}\left(t+\frac{1}{\nu}\right) &=& \sin\left(2\pi\nu\left(\frac{\vec{v}\cdot \vec{x}}{|\vec{v}|^2}- \left(t+\frac{1}{\nu}\right)\right)\right)\\
+&=& \sin\left(2\pi\nu\left(\frac{\vec{v}\cdot \vec{x}}{|\vec{v}|^2}- t\right)+2\pi\right)\\
+&=& \vec{B}\left(t\right)
+\end{eqnarray*}
+Es gilt
+\begin{eqnarray*}
+\ddot{\vec{B}}(x,t) &=& -(2\pi\nu)^2\vec{B}\sin\left(2\pi\nu\left(\frac{\vec{v}\cdot \vec{x}}{|\vec{v}|^2}- t\right)\right)\\
+&=& -(2\pi\nu)^2\vec{B}(x,t)\\
+\Delta \vec{B}(x,t) &=& -\left(\frac{2\pi\nu}{|\vec{v}|}\right)^2\vec{B}(x,t)\\
+\frac{\ddot{\vec{B}}(x,t)}{(2\pi\nu)^2} &=&\frac{\Delta \vec{B}(x,t)}{\left(\frac{2\pi\nu}{|\vec{v}|}\right)^2}\\
+\ddot{\vec{B}}(x,t) &=&\frac{(2\pi\nu)^2\Delta \vec{B}(x,t)}{\left(\frac{2\pi\nu}{|\vec{v}|}\right)^2}\\
+&=&|\vec{v}|^2\vec{B}(x,t)
+\end{eqnarray*}
+Also muss
+\begin{eqnarray*}
+|\vec{v}|^2 &=& \frac{1}{\epsilon_0\mu_0}\\
+|\vec{v}| &=& \frac{1}{\sqrt{\epsilon_0\mu_0}}
+\end{eqnarray*}
+sein. Die Geschwindigkeit $\frac{1}{\sqrt{\epsilon_0\mu_0}}$, so stellte sich heraus, lag sehr nahe bei der damals bekannten Ausbreitungsgeschwindigkeit $c$ des Lichtes.
+So postulierte Maxwell, dass Licht aus elektromagnetischen Wellen bestehe. Diese Vermutung bestätigte sich in der Folge. Also gilt
+\begin{eqnarray*}
+|\vec{v}| = c &=& \frac{1}{\sqrt{\epsilon_0\mu_0}}
+\end{eqnarray*}
+Somit gilt die heute übliche Definition der elektrischen Feldkonstanten $\epsilon_0$
+\begin{eqnarray*}
+\epsilon_0 &=& \frac{1}{c^2\mu_0}
+\end{eqnarray*}
+Die Gleichung
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{B} &=& 0
+\end{eqnarray*}
+hat zur Folge, dass $\vec{B}$ senkrecht zu Ausbreitungsrichtung $\vec{v}$ stehen muss:
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{B}(x,t) &=& 2\pi\nu\frac{\vec{v}}{c^2}\cdot\vec{B}\cos\left(2\pi\nu\left(\frac{\vec{v}\cdot \vec{x}}{c^2}- t\right)\right)=0\\
+\vec{v}\cdot\vec{B} &=& 0
+\end{eqnarray*}
+Die Größen $\vec{k}=\frac{2\pi\nu\vec{v}}{c^2}$ und $\omega=2\pi\nu$ heißen Wellenvektor und Kreisfrequenz. Die Notation vereinfacht sich zu
+\begin{eqnarray*}
+\vec{B}(x,t) &=& \vec{B}\sin\left(\vec{k}\cdot \vec{x}- \omega t\right)
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+\frac{\omega}{|\vec{k}|} &=& c
+\end{eqnarray*}
+Mit Hilfe von
+\begin{eqnarray*}
+\vec{\nabla}\times\vec{B} &=& \epsilon_0\mu_0\dot{\vec{E}}=\frac{1}{c^2}\dot{\vec{E}}
+\end{eqnarray*}
+Lässt sich $\vec{E}(x,t)$ ermitteln:
+\begin{eqnarray*}
+\dot{\vec{E}}(x,t) &=& c^2\vec{\nabla}\times\vec{B}(x,t)\\
+&=&c^2\vec{\nabla}\times\vec{B}\sin\left(\vec{k}\cdot \vec{x}- \omega t\right)\\
+&=&c^2\vec{k}\times\vec{B}\cos\left(\vec{k}\cdot \vec{x}- \omega t\right)\\
+\vec{E}(x,t) &=& -c^2\frac{\vec{k}}{\omega}\times\vec{B}\sin\left(\vec{k}\cdot \vec{x}- \omega t\right)\\
+&=& -c\vec{n}\times\vec{B}\sin\left(\vec{k}\cdot \vec{x}- \omega t\right)
+\end{eqnarray*}
+mit dem Richtungsvektor $\vec{n}=\frac{c\vec{k}}{\omega}$ der Länge 1. Also gilt
+\begin{eqnarray*}
+\vec{E}(x,t) &=& \vec{E}\sin\left(\vec{k}\cdot \vec{x}- \omega t\right)
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+\vec{E} &=& -c\vec{n}\times\vec{B}
+\end{eqnarray*}
+Die Gleichung
+\begin{eqnarray*}
+\vec{\nabla}\times\vec{E}(x,t) &=& -\dot{\vec{B}}(x,t)
+\end{eqnarray*}
+ist dann automatisch erfüllt:
+\begin{eqnarray*}
+\vec{\nabla}\times\vec{E}(x,t) &=& -\dot{\vec{B}}(x,t)\\
+-\vec{k}\times\left(c\vec{n}\times\vec{B}\right)&=& \omega\vec{B}
+\end{eqnarray*}
+Mit der Identität
+\begin{eqnarray*}
+\vec{X}\times\left(\vec{Y}\times\vec{Z}\right) &=&\left(\vec{X}\cdot\vec{Z}\right)\vec{Y}-\left(\vec{X}\cdot\vec{Y}\right)\vec{Z}
+\end{eqnarray*}
+ergibt sich
+\begin{eqnarray*}
+-\vec{k}\times\left(c\vec{n}\times\vec{B}\right)&=& -c\left(\vec{k}\cdot\vec{B}\right)\vec{n}+c\left(\vec{k}\cdot\vec{n}\right)\vec{B}\\
+&=&c|\vec{k}|\vec{B}=\omega\vec{B}
+\end{eqnarray*}
+\end{subsubsection}
+\end{subsection}
+
+\begin{subsubsection}{Energietransport, Poynting-Vektor}
+Die Kraft auf eine Ladung ist \ref{lorentz_force}
+\begin{eqnarray*}
+\vec{F} &=& q\left(\vec{E}+\vec{v}\times\vec{B}\right)
+\end{eqnarray*}
+Die Leistung, die das elektromagnetische Feld an Materie (elektrischen Ladungen) abgibt ist gleich
+\begin{eqnarray*}
+\vec{v}\cdot\vec{F} &=& q\vec{v}\cdot\left(\vec{E}+\vec{v}\times\vec{B}\right)\\
+&=&q\vec{v}\cdot\vec{E}
+\end{eqnarray*}
+In Leitungs-Dichte $\dot{\rho}_{E_{matter}}$ und Strom-Dichte ausgedrückt ist dies
+\begin{eqnarray*}
+\dot{\rho}_{E_{matter}}&=&\vec{j}\cdot\vec{E}
+\end{eqnarray*}
+Die rechte Seite lässt sich durch Felder Ausdrücken, denn wir haben
+\begin{eqnarray*}
+\vec{\nabla}\times\vec{B} &=& \mu_0\left(\vec{j}+\epsilon_0\dot{\vec{E}}\right)\\
+\vec{j} &=& \frac{\vec{\nabla}\times\vec{B}}{\mu_0}-\epsilon_0\dot{\vec{E}}
+\end{eqnarray*}
+also
+\begin{eqnarray*}
+\dot{\rho}_E&=&\left(\frac{\vec{\nabla}\times\vec{B}}{\mu_0}-\epsilon_0\dot{\vec{E}}\right)\cdot\vec{E}
+\end{eqnarray*}
+Wir widmen uns dem Ausdruck $(\vec{\nabla}\times\vec{B})\cdot\vec{E}$. Es gilt die allgemeine Vektor-Identität
+\begin{eqnarray*}
+\vec{\nabla}\cdot\left(\vec{X}\times \vec{Y}\right)&=&(\vec{\nabla}\times\vec{X})\cdot\vec{Y}-(\vec{\nabla}\times\vec{Y})\cdot\vec{X}
+\end{eqnarray*}
+Also ist
+\begin{eqnarray*}
+(\vec{\nabla}\times\vec{B})\cdot\vec{E}&=&\vec{\nabla}\cdot\left(\vec{B}\times \vec{E}\right)+(\vec{\nabla}\times\vec{E})\cdot\vec{B}
+\end{eqnarray*}
+Nun ist aber
+\begin{eqnarray*}
+\vec{\nabla}\times\vec{E} &=& -\dot{\vec{B}}
+\end{eqnarray*}
+Zusammengefasst erhalten wir somit
+\begin{eqnarray*}
+\dot{\rho}_{E_{matter}}&=&\left(\frac{\vec{\nabla}\times\vec{B}}{\mu_0}-\epsilon_0\dot{\vec{E}}\right)\cdot\vec{E}\\
+&=&\frac{1}{\mu_0}\left(\vec{\nabla}\cdot\left(\vec{B}\times \vec{E}\right)-\dot{\vec{B}}\cdot\vec{B}\right)-\epsilon_0\dot{\vec{E}}\cdot\vec{E}\\
+&=&\frac{1}{\mu_0}\vec{\nabla}\cdot\left(\vec{B}\times \vec{E}\right)-\left(\frac{1}{\mu_0}\dot{\vec{B}}\cdot\vec{B}+\epsilon_0\dot{\vec{E}}\cdot\vec{E}\right)\\
+&=&\frac{1}{\mu_0}\vec{\nabla}\cdot\left(\vec{B}\times \vec{E}\right)-\frac{1}{2}\frac{d}{dt}\left(\frac{1}{\mu_0}\vec{B}^2+\epsilon_0\vec{E}^2\right)
+\end{eqnarray*}
+Die Energie-Dichte $\rho_{E_{EM}}$ des Elektromagnetischen Feldes ist (wie wir auch schon gesehen haben
+siehe \ref{E_energyDensity} und \ref{M_energyDensity})
+\begin{eqnarray}
+\label{EM_energyDensity}
+\rho_{E_{EM}} &=& \frac{1}{2}\left(\frac{1}{\mu_0}\vec{B}^2+\epsilon_0\vec{E}^2\right)
+\end{eqnarray}
+Ferner definieren wir
+\begin{eqnarray}
+\label{S_def}
+\vec{S} &=& -\frac{1}{\mu_0}\vec{B}\times \vec{E}=\frac{1}{\mu_0}\vec{E}\times \vec{B}
+\end{eqnarray}
+Zusammengefasst erhalten wir
+\begin{eqnarray*}
+\dot{\rho}_{E_{matter}}&=&-\left(\vec{\nabla}\cdot S+\dot{\rho}_{E_{EM}}\right)\\
+\dot{\rho}_{E_{total}}+\vec{\nabla}\cdot S &=& 0
+\end{eqnarray*}
+\end{subsubsection}
+\end{section}
+
+
+\begin{section}{Vektor-Potential und Eichsymmetrie}
+Die Gleichung
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{B} &=& 0
+\end{eqnarray*}
+hat die die mathematische Konsequenz, dass das Magnetfeld als Rotation eines sogenannten Vektor-Potentials $\vec{A}$ geschrieben werden kann:
+\begin{eqnarray*}
+\vec{B} &=& \vec{\nabla}\times \vec{A}
+\end{eqnarray*}
+$\vec{A}$ ist dabei aber nicht eindeutig durch $\vec{B}$ bestimmt. Fügt man die Divergenz $\vec{\nabla}\Phi$ eines beliebigen skalaren Feldes $\Phi$ hinzu, bleibt $\vec{B}$ unverändert:
+\begin{eqnarray*}
+\vec{\nabla}\times \left(\vec{A}+\vec{\nabla}\Phi\right)
+&=& \vec{\nabla}\times \vec{A}+\vec{\nabla}\times \left(\vec{\nabla}\Phi\right)=\vec{\nabla}\times \vec{A} = \vec{B}
+\end{eqnarray*}
+Dies nennt man auch Eichfreiheit. $\vec{\nabla}\cdot\vec{B}=0$ ist dann automatisch gegeben. In
+\begin{eqnarray*}
+\vec{\nabla}\times\vec{B} &=& \mu_0\left(\vec{j}+\epsilon_0\dot{\vec{E}}\right)
+\end{eqnarray*}
+eingesetzt ergibt
+\begin{eqnarray*}
+\vec{\nabla}\times\left(\vec{\nabla}\times \vec{A}\right) &=& \mu_0\left(\vec{j}+\epsilon_0\dot{\vec{E}}\right)
+\end{eqnarray*}
+und ist mit
+\begin{eqnarray}
+\label{A_eqn_1}
+\vec{\nabla}\left(\vec{\nabla}\cdot\vec{A}\right)-\Delta \vec{A}  &=& \mu_0\left(\vec{j}+\epsilon_0\dot{\vec{E}}\right)
+\end{eqnarray}
+äquivalent. Nun ist aber
+\begin{eqnarray*}
+\vec{\nabla}\times\vec{E} &=& -\dot{\vec{B}}\\
+&=& -\vec{\nabla}\times{\dot{\vec{A}}}\\
+\vec{\nabla}\times\left(\vec{E}+\dot{\vec{A}}\right) &=& 0
+\end{eqnarray*}
+Das heißt, $\vec{E}+\dot{\vec{A}}$ kann durch die Divergenz eines skalaren Potentials ersetzt werden:
+\begin{eqnarray*}
+\vec{E}+\dot{\vec{A}} &=& \vec{\nabla}\Phi\\
+\vec{E} &=& \vec{\nabla}\Phi-\dot{\vec{A}}
+\end{eqnarray*}
+\ref{A_eqn_1} wird dann
+\begin{eqnarray*}
+\vec{\nabla}\left(\vec{\nabla}\cdot\vec{A}\right)-\Delta \vec{A}  &=& \mu_0\left(\vec{j}+\epsilon_0\left(\vec{\nabla}\dot{\Phi}-\ddot{\vec{A}}\right)\right)\\
+\mu_0\epsilon_0\ddot{\vec{A}}-\Delta \vec{A}  &=& \mu_0\vec{j}+\mu_0\epsilon_0\vec{\nabla}\dot{\Phi}-\vec{\nabla}\left(\vec{\nabla}\cdot\vec{A}\right)\\
+&=&\mu_0\vec{j}+\vec{\nabla}\left(\mu_0\epsilon_0\dot{\Phi}-\vec{\nabla}\cdot\vec{A}\right)
+\end{eqnarray*}
+Durch eine geeignete Eichung (Strahlungs-Eichung) $\vec{A}\rightarrow \vec{\nabla}\varphi$ kann erreicht werden,
+dass
+\begin{eqnarray}
+\label{radiation_gauge}
+\mu_0\epsilon_0\dot{\Phi}-\vec{\nabla}\cdot\vec{A} &=& 0
+\end{eqnarray}
+In dieser Eichung haben wir
+\begin{eqnarray*}
+\mu_0\epsilon_0\ddot{\vec{A}}-\Delta \vec{A}  &=&\mu_0\vec{j}
+\end{eqnarray*}
+Nun widmen wir uns der ersten Maxwell-Gleichung
+\begin{eqnarray*}
+\rho &=& \epsilon_0 \vec{\nabla}\cdot\vec{E}=\epsilon_0 \vec{\nabla}\cdot\left(\vec{\nabla}\Phi-\dot{\vec{A}}\right)\\
+&=& \epsilon_0 \left(\Delta\Phi-\vec{\nabla}\cdot\dot{\vec{A}}\right)=\epsilon_0 \left(\Delta\Phi-\mu_0\epsilon_0\ddot{\Phi}\right)\\
+\mu_0\epsilon_0\ddot{\Phi}-\Delta\Phi &=& -\frac{\rho}{\epsilon_0}
+\end{eqnarray*}
+Wir haben also zwei inhomogene Wellengleichungen
+\begin{eqnarray*}
+\frac{1}{c^2}\ddot{\Phi}-\Delta\Phi &=& -\frac{\rho}{\epsilon_0}\\
+\frac{1}{c^2}\ddot{\vec{A}}-\Delta \vec{A}  &=&\mu_0\vec{j}
+\end{eqnarray*}
+mit der Eichbedingung
+\begin{eqnarray*}
+\mu_0\epsilon_0\dot{\Phi}-\vec{\nabla}\cdot\vec{A} &=& 0
+\end{eqnarray*}
+Ist diese erfüllt, dann muss auch die Kontinuitäts-Gleichung gelten.
+\end{section}
+
+\begin{comment}
+\begin{section}{Elektrodynamik und spezielle Relativitätstheorie}
+Die spezielle Relativitätstheorie wurde 1905 von Einstein in seinem Beitrag \footnote{Zur Elektrodynamik bewegter Körper} formuliert.
+\begin{subsection}{Viererstrom}
+Multiplizieren wir die Ladungsdichte $\rho$ mit der Lichtgeschwindigkeit $c$, dann hat $c\rho$ dieselbe physikalische Dimension wie $\vec{j}$.
+Wir definieren den Viererstrom:
+\begin{eqnarray*}
+j^\mu &=& \begin{pmatrix} j^0\\ j^1 \\ j^2 \\ j^3 \end{pmatrix}\\
+&=& \begin{pmatrix} c\rho\\ j^1 \\ j^2 \\ j^3 \end{pmatrix}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Koordinaten, Ableitung, Kontraktion und Kontinuitätsgleichung}
+Koordinaten definieren wir analog:
+\begin{eqnarray*}
+x^\mu &=& \begin{pmatrix} x^0\\ x^1 \\ x^2 \\ x^3 \end{pmatrix}\\
+&=& \begin{pmatrix} ct\\ x^1 \\ x^2 \\ x^3 \end{pmatrix}
+\end{eqnarray*}
+Hingegen schreiben wir Ableitungen mit unteren Indizes:
+\begin{eqnarray*}
+\frac{\partial}{\partial x^\mu} = \partial_\mu &=& \begin{pmatrix} \frac{\partial}{\partial x^0}& \frac{\partial}{\partial x^1} & \frac{\partial}{\partial x^2} & \frac{\partial}{\partial x^3} \end{pmatrix}\\
+&=& \begin{pmatrix}  \frac{\partial}{c\partial t}& \partial_1 & \partial_2 & \partial_3  \end{pmatrix}
+\end{eqnarray*}
+Wird ein Objekt abgeleitet, so schreiben wir ein Komma von den unteren Index. z.B. die Matrix:
+\begin{eqnarray*}
+j^\mu_{,\nu}
+\end{eqnarray*}
+Ist eine oberer und ein unterer Index gleich wird implizit eine Summation gemeint. So lautet die Kontinuitätsgleichung:
+\begin{eqnarray*}
+j^\mu_{,\mu} &=& \sum_{\mu=0}^3j^\mu_{,\mu}\\
+&=& \frac{\partial}{c\partial t}c\rho+\sum_{k=1}^3j^k_{,k}=\frac{\partial \rho}{\partial t}+\vec{\nabla}\cdot\vec{j}\\
+&=&\dot{\rho}+\vec{\nabla}\cdot\vec{j}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Vierer-Potential und Strahlungseichung}
+Wir wollen $A^0$ so wählen, dass die Strahlungseichung \ref{radiation_gauge}
+\begin{eqnarray}
+\mu_0\epsilon_0\dot{\Phi}-\vec{\nabla}\cdot\vec{A} &=& 0
+\end{eqnarray}
+die Form
+\begin{eqnarray*}
+-A^\mu_{,\mu} &=& 0
+\end{eqnarray*}
+annimmt. Dies ist dann der Fall, wenn $A^0=-\frac{1}{c}\Phi$ gesetzt wird. Denn dann ist
+\begin{eqnarray*}
+-A^0_{,0} &=&\frac{\partial}{c\partial t}\frac{1}{c}\Phi=\frac{1}{c^2}\dot{\Phi}=\epsilon_0\mu_0\dot{\Phi}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Energie- und Impulsdichte, Kraftgesetz, Feldstärke-Tensor}
+\label{field_tensor}
+Mit $\vec{P}$ sei die Impulsdichte (der Materie, nicht des elektromagnetischen Feldes) bezeichnet. Damit die 0-Komponente $P^0$ der Impulsdichte dieselbe physikalische Dimension hat, muss die herkömmliche Energiedichte $\rho_{energie}$ durch $c$ geteilt werden.
+Die Lorentzkraft \ref{lorentz_force} auf eine Ladung $q$ ist:
+\begin{eqnarray*}
+\vec{F} &=& q\left(\vec{E}(x)+\vec{v}\times\vec{B}(x)\right)
+\end{eqnarray*}
+In Dichten ausgedrückt heißt das
+\begin{eqnarray*}
+\frac{d\vec{P}}{dt} &=& \rho\vec{E}+\vec{j}\times\vec{B}
+\end{eqnarray*}
+Für die Energiedichte gilt
+\begin{eqnarray*}
+\frac{d\rho_{energie}}{dt} &=& \vec{j}\cdot\vec{E}\\
+\frac{dP^0}{dt} &=& \frac{1}{c}\vec{j}\cdot\vec{E}
+\end{eqnarray*}
+Es ist möglich, die Lorentzkraft durch einen Feldstärke-Tensor $F^\mu_{\ \nu}$ zu beschreiben, sodass
+\begin{eqnarray}
+\label{covariant_lorentz_force}
+\frac{dP^\mu}{dt} &=& F^\mu_{\ \nu}j^\nu
+\end{eqnarray}
+gilt. Wir erhalten
+\begin{eqnarray*}
+\begin{pmatrix}
+\frac{1}{c}\frac{d\rho_{energie}}{dt}\\
+\frac{d\vec{P}}{dt}
+\end{pmatrix}
+&=&
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+\begin{pmatrix}
+c\rho\\
+\vec{j}
+\end{pmatrix}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Feldstärke-Tensor durch Vierer-Potential ausgedrückt}
+\label{field_strength_by_A}
+Wir beginnen mit
+\begin{eqnarray*}
+\vec{B} &=& \vec{\nabla}\times \vec{A}\\
+B_k &=& \epsilon_{klm}A^l_{,m}\\
+\left(\vec{B}\times\right)_b^a &=& \epsilon_{akb}B_k=\epsilon_{akb}\left(\vec{\nabla}\times\vec{A}\right)_k=\epsilon_{akb}\epsilon_{kml}A^l_{,m}\\
+&=& \epsilon_{kba}\epsilon_{kml}A^l_{,m}\\
+&=&\left(\delta_{bm}\delta_{al}-\delta_{bl}\delta_{am}\right)A^l_{,m}\\
+&=&A^a_{,b}-A^b_{,a}
+\end{eqnarray*}
+und fahren fort mit
+\begin{eqnarray*}
+\vec{E} &=& \vec{\nabla}\Phi-\dot{\vec{A}}\\
+&=&-c\vec{\nabla}A^0-c\vec{A}_{,0}\\
+E^k &=& -cA^0_{,k}-cA^k_{,0}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Raum-Zeit-Metrik, Lorentz-Transformationen}
+Die bisher gemachten Definitionen
+\begin{itemize}
+	\item $x^0=ct$
+	\item $j^0=c\rho$
+	\item $P^0=\frac{\rho_{energie}}{c}$
+	\item $\frac{\partial}{\partial x^0}=\frac{\partial}{c\partial t}$
+\end{itemize}
+sind reine Umformungen und sind ohne physikalische Bedeutung. Die Elektrodynamik ist aber eng mit der speziellen Relativitätstheorie verknüpft, denn die Lichtgeschwindigkeit $c$
+als Naturkonstante bedingt, dass die Struktur von Raum und Zeit neu konzipiert werden muss. Eine Folge davon ist, dass der Abstand zwischen zwei Ereignissen
+\begin{eqnarray*}
+\Delta x^\mu &=& x^\mu-y^\mu
+\end{eqnarray*}
+eine vom Koordinatensystem unabhängige Bedeutung hat. Dies wird durch eine Metrik
+\begin{eqnarray*}
+\eta_{\mu\nu} &=&\begin{pmatrix}
+-1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+\end{pmatrix}
+\end{eqnarray*}
+beschrieben. Wir schreiben zum Beispiel:
+\begin{eqnarray*}
+\Delta x^\mu\Delta x^\nu \eta_{\mu\nu} &=& (\Delta x,\Delta y)\\
+&=& -\Delta x^0\Delta x^0+\Delta x^1\Delta x^1+\Delta x^2\Delta x^2+\Delta x^3\Delta x^3\\
+&=& -c^2\Delta t\Delta t+\Delta x^1\Delta x^1+\Delta x^2\Delta x^2+\Delta x^3\Delta x^3\\
+&=& -c^2\Delta t\Delta t+\Delta \vec{x}\cdot\Delta \vec{x}
+\end{eqnarray*}
+Können zwei Ereignisse durch einen Lichtstrahl miteinander verbunden werden dann muss
+\begin{eqnarray*}
+\frac{|\Delta \vec{x}|}{\Delta t} &=& c
+\end{eqnarray*}
+gelten. Dann gilt aber auch
+\begin{eqnarray*}
+(\Delta x,\Delta y) &=& -c^2\Delta t\Delta t+\Delta \vec{x}\cdot\Delta \vec{x}=0
+\end{eqnarray*}
+Lorentz-Transformationen $\Lambda$ sind lineare Koordinatentransformationen die das (pseudo-) Skalarprodukt unverändert lassen:
+\begin{eqnarray*}
+\Delta x^{\prime\mu} &=& \Lambda^\mu_\nu \Delta  x^\nu\\
+(\Delta x,\Delta y) &=& (\Delta x^\prime,\Delta y^\prime)\\
+\Delta x^\mu\Delta y^\nu\eta_{\mu\nu} &=& \Lambda^\mu_\alpha \Delta  x^\alpha\Lambda^\mu_\beta \Delta  x^\beta\eta_{\mu\nu}
+=\left(\Lambda^\mu_\alpha \Lambda^\mu_\beta \eta_{\mu\nu}\right)\Delta  x^\alpha\Delta  x^\beta
+\end{eqnarray*}
+Also muss für Lorentz-Transformationen
+\begin{eqnarray*}
+\Lambda^\mu_\alpha \Lambda^\nu_\beta \eta_{\mu\nu} &=& \eta_{\alpha\beta}
+\end{eqnarray*}
+gelten. Die inverse Matrix (duale Metrik) zu $\eta_{\mu\nu}$ $\eta^{\mu\nu}$ ist in den Zahlenwerten (in unserem Fall) identisch. Es
+gilt aber grundsätzlich:
+\begin{eqnarray*}
+\eta_{\mu\nu}\eta^{\nu\sigma} &=& \delta_\mu^\sigma
+\end{eqnarray*}
+und damit gilt für Lorentz-Transformationen auch
+\begin{eqnarray*}
+\Lambda^\mu_\alpha \Lambda^\nu_\beta \eta_{\mu\nu}\eta^{\beta\gamma} &=& \eta_{\alpha\beta}\eta^{\beta\gamma}=\delta_\alpha^\gamma\\
+\Lambda^\nu_\beta \eta_{\mu\nu}\eta^{\beta\gamma} &=& \left(\Lambda^{-1}\right)^\gamma_\mu
+\end{eqnarray*}
+Daher kann
+\begin{eqnarray*}
+\frac{dP^\mu}{dt} &=& F^\mu_{\ \nu}j^\nu
+\end{eqnarray*}
+in äquivalenter Weise
+\begin{eqnarray}
+\label{momentum_per_time}
+\eta_{\lambda\mu}\frac{dP^\mu}{dt} &=& \eta_{\lambda\mu}F^\mu_{\ \nu}j^\nu\cr
+\frac{dP_\lambda}{dt} &=& F_{\lambda\nu}j^\nu
+\end{eqnarray}
+geschrieben werden. Beim runterziehen (und raufziehen) eines Index drehen die 0-Komponenten das ihr Vorzeichen.
+\end{subsection}
+
+\begin{subsection}{Antisymmetrischer Feld-Tensor}
+Wir rekapitulieren aus \ref{field_tensor}
+\begin{eqnarray*}
+F^\mu_{\ \nu} &=&
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+\end{eqnarray*}
+und ferner aus \ref{field_strength_by_A}
+\begin{eqnarray*}
+\left(\vec{B}\times\right)_b^a &=&A^b_{,a}-A^a_{,b}\\
+E^k &=& -cA^0_{,k}-cA^k_{,0}
+\end{eqnarray*}
+Durch herunterziehen des Index erhalten wir:
+\begin{eqnarray*}
+F_{\lambda \nu} &=&
+\begin{pmatrix}
+-1 & 0\\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+=\begin{pmatrix}
+0 &-\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+=\begin{pmatrix}
+0& -\frac{1}{c}E_1& -\frac{1}{c}E_2& -\frac{1}{c}E_3\\
+\frac{1}{c}E_1& 0 & B_3 & -B_2 \\
+\frac{1}{c}E_2& -B_3 & 0 & B_1 \\
+\frac{1}{c}E_3& B_2 & -B_1 & 0
+\end{pmatrix}
+\end{eqnarray*}
+und weiter
+\begin{eqnarray*}
+-\left(\vec{B}\times\right)_{ab} &=&A_{a,b}-A_{b,a}\\
+-\frac{1}{c}E^k &=& A_{k,0}-A_{0,k}
+\end{eqnarray*}
+und schließlich
+\begin{eqnarray*}
+F_{\lambda \nu} &=&
+\begin{pmatrix}
+0 &-\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 &\left(A_{\nu,0}-A_{0,\nu}\right)\\
+\left(A_{0,\lambda}-A_{\lambda,0}\right) &-\vec{B}\times\\
+\end{pmatrix}
+=A_{\lambda,\nu}-A_{\nu,\lambda}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Maxwell-Gleichungen}
+Die Maxwellgleichungen \ref{maxwell_eqns} lauten
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{E} &=& \frac{1}{\epsilon_0}\rho\cr
+\vec{\nabla}\cdot\vec{B} &=& 0\cr
+\vec{\nabla}\times\vec{E} &=& -\dot{\vec{B}}\cr
+\vec{\nabla}\times\vec{B} &=& \mu_0\left(\vec{j}+\epsilon_0\dot{\vec{E}}\right)
+\end{eqnarray*}
+Wir beginnen mit
+\begin{eqnarray*}
+c\rho =j^0 &=& c\epsilon_0\vec{\nabla}\cdot\vec{E}\\
+&=& \frac{1}{c\mu_0}\vec{\nabla}\cdot\vec{E}
+\end{eqnarray*}
+und
+\begin{eqnarray*}
+\vec{j} &=& \frac{1}{\mu_0}\vec{\nabla}\times\vec{B}-\epsilon_0\dot{\vec{E}}\\
+&=&  \frac{1}{\mu_0}\vec{\nabla}\times\vec{B}-c\epsilon_0\vec{E}_{,0}\\
+j^k &=& \frac{1}{\mu_0}\epsilon_{klm}B_{m,l}-\frac{1}{c\mu_0}\vec{E}_{,0}\\
+&=&-\frac{1}{\mu_0}\left(B\times\right)^k_{l,l}-\frac{1}{c\mu_0}\vec{E}_{,0}
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+F^{\mu\nu} &=& \eta^{\mu\alpha}\eta^{\nu\beta}F_{\alpha\beta}
+=\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+-\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+=\begin{pmatrix}
+0& \frac{1}{c}E_1& \frac{1}{c}E_2& \frac{1}{c}E_3\\
+-\frac{1}{c}E_1& 0 & -B_3 & B_2 \\
+-\frac{1}{c}E_2& B_3 & 0 & -B_1 \\
+-\frac{1}{c}E_3& -B_2 & B_1 & 0
+\end{pmatrix}
+\end{eqnarray*}
+kann das zusammengefasst werden:
+\begin{eqnarray}
+\label{inh_covariant_maxwell_eqns}
+j^\mu &=& \frac{1}{\mu_0}F^{\mu\nu}_{,\nu}
+\end{eqnarray}
+Die homogenen Maxwellgleichungen
+\begin{eqnarray*}
+\vec{\nabla}\cdot\vec{B} &=& 0\cr
+\vec{\nabla}\times\vec{E}+\dot{\vec{B}} &=& 0
+\end{eqnarray*}
+können durch den sogenannten dualen Feldstärke-Tensor $\tilde{F}$ dargestellt werden:
+\begin{eqnarray*}
+\tilde{F}^{\mu\nu} &=& \epsilon^{\mu\nu\alpha\beta}F_{\alpha\beta}
+=\epsilon^{\mu\nu\alpha\beta}
+\begin{pmatrix}
+0& -\frac{1}{c}E_1& -\frac{1}{c}E_2& -\frac{1}{c}E_3\\
+\frac{1}{c}E_1& 0 & -B_3 & B_2 \\
+\frac{1}{c}E_2& B_3 & 0 & -B_1 \\
+\frac{1}{c}E_3& -B_2 & B_1 & 0
+\end{pmatrix}
+=\begin{pmatrix}
+0& -B_1& -B_2& -B_3\\
+B_1& 0 & -\frac{1}{c}E_3 & \frac{1}{c}E_2 \\
+B_2& \frac{1}{c}E_3 & 0 & -\frac{1}{c}E_1 \\
+B_3& -\frac{1}{c}E_2 & \frac{1}{c}E_1 & 0
+\end{pmatrix}
+\end{eqnarray*}
+wobei $\epsilon^{\mu\nu\alpha\beta}=1(=-1)$ falls $\mu,\nu,\alpha,\beta$ eine gerade (ungerade) Permutation von $0,1,2,3$ ist sonst ist $\epsilon^{\mu\nu\alpha\beta}=0$.
+Sie gehen dann in
+\begin{eqnarray*}
+\tilde{F}^{\mu\nu}_{,\nu} &=& 0
+\end{eqnarray*}
+über. Bei Verwendung des Vierer-Potential ist dies unmittelbar klar:
+\begin{eqnarray*}
+\epsilon^{\mu\nu\alpha\beta}F_{\alpha\beta,\nu} &=& \epsilon^{\mu\nu\alpha\beta}\left(A_{\alpha,\beta\nu}-A_{\beta,\alpha\nu} \right)=0
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Energie-Impuls-Tensor des elektromagnetischen Feldes}
+\begin{subsubsection}{Energie-Impuls-Abgabe an Materie}
+Wir haben die Kraft \ref{covariant_lorentz_force}
+, die auf Materie wirkt 
+\begin{eqnarray*}
+\frac{dP^\mu}{dt} &=& F^\mu_{\ \nu}j^\nu
+\end{eqnarray*}
+und die inhomogenen Maxwell-Gleichungen \ref{inh_covariant_maxwell_eqns}:
+\begin{eqnarray*}
+j^\mu &=& \frac{1}{\mu_0}F^{\mu\nu}_{,\nu}
+\end{eqnarray*}
+also
+\begin{eqnarray*}
+\frac{dP^\mu}{dt} &=& \frac{1}{\mu_0}F^\mu_{\ \nu}F^{\nu\sigma}_{,\sigma}
+\end{eqnarray*}
+Dies kann auch so geschrieben werden:
+\begin{eqnarray}
+\label{energy_absorbtion}
+\frac{dP^\mu}{dt} &=& -T^{\mu\nu}_{,\nu}
+\end{eqnarray}
+denn
+\begin{eqnarray*}
+F^\mu_{\ \nu}F^{\nu\sigma}_{,\sigma} &=&\left(F^\mu_{\ \nu}F^{\nu\sigma}\right)_{,\sigma}-F^\mu_{\ \nu,\sigma}F^{\nu\sigma}\\
+F^\mu_{\ \nu,\sigma}F^{\nu\sigma} &=& \eta^{\mu\lambda}F_{\lambda\nu,\sigma}F^{\nu\sigma}\\
+F_{\lambda\nu,\sigma}F^{\nu\sigma} &=& \left(A_{\lambda,\nu\sigma}-A_{\nu,\lambda\sigma}\right)F^{\nu\sigma}\\
+&=& -A_{\nu,\sigma\lambda}F^{\nu\sigma}\\
+&=& \frac{1}{2}\left(A_{\sigma,\nu\lambda}-A_{\nu,\sigma\lambda}\right)F^{\nu\sigma}\\
+&=& \frac{1}{2}F_{\sigma\nu,\lambda}F^{\nu\sigma}\\
+&=& -\frac{1}{4}\left(F_{\nu\sigma}F^{\nu\sigma}\right)_{,\lambda}\\
+F^\mu_{\ \nu}F^{\nu\sigma}_{,\sigma} &=&\left(F^\mu_{\ \nu}F^{\nu\sigma}\right)_{,\sigma}+\frac{1}{4}\eta^{\mu\lambda}\left(F_{\nu\sigma}F^{\nu\sigma}\right)_{,\lambda}\\
+&=&\left(F^\mu_{\ \nu}F^{\nu\sigma}\right)_{,\sigma}+\frac{1}{4}\eta^{\mu\sigma}\left(F_{\nu\lambda}F^{\nu\lambda}\right)_{,\sigma}\\
+&=&\left(F^\mu_{\ \nu}F^{\nu\sigma}+\frac{1}{4}\eta^{\mu\sigma}F_{\nu\lambda}F^{\nu\lambda}\right)_{,\sigma}
+\end{eqnarray*}
+also
+\begin{eqnarray*}
+T^{\mu\nu} &=& \frac{-1}{\mu_0}\left(F^{\mu\sigma}F^{\lambda\nu}\eta_{\sigma\lambda}+\frac{1}{4}\eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\right)
+\end{eqnarray*}
+Wir wollen das durch $\vec{E}$ und $\vec{B}$ ausdrücken:
+\begin{eqnarray*}
+F^{\mu\sigma}\eta_{\sigma\lambda}F^{\lambda\nu}&=&
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+-\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+\begin{pmatrix}
+-1 & 0\\
+0 &1\\
+\end{pmatrix}
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+-\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}\\
+&=&
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}
+\begin{pmatrix}
+0 &\frac{1}{c}\vec{E}^T\\
+-\frac{1}{c}\vec{E} &-\vec{B}\times\\
+\end{pmatrix}\\
+&=&
+\begin{pmatrix}
+-\frac{\vec{E}^2}{c^2} &\frac{1}{c}\left(\vec{B}\times\vec{E}\right)^T\\
+\frac{1}{c}\vec{B}\times\vec{E} &\frac{1}{c^2}\vec{E}\vec{E}^T+\left(\vec{B}\times\right)^2
+\end{pmatrix}\\
+F_{\alpha\beta}F^{\alpha\beta} &=& -\frac{2}{c^2}\vec{E}^2+2\vec{B}^2\\
+\mu_0T^{\mu\nu} &=&\begin{pmatrix}
+\frac{\vec{E}^2}{c^2} &\frac{1}{c}\left(\vec{E}\times\vec{B}\right)^T\\
+\frac{1}{c}\vec{E}\times\vec{B} &-\frac{1}{c^2}\vec{E}\vec{E}^T-\left(\vec{B}\times\right)^2
+\end{pmatrix}
++\left(\frac{1}{2c^2}\vec{E}^2-\frac{\vec{B}^2}{2}\right)\begin{pmatrix}
+-1 & 0\\
+0 &1\\
+\end{pmatrix}
+\end{eqnarray*}
+Der Term $\left(\vec{B}\times\right)^2$ ist aufgrund von \ref{b_cross_b_cross} gleich
+\begin{eqnarray*}
+\left(\vec{B}\times\right)^2 &=& BB^T-(B\cdot B)1
+\end{eqnarray*}
+\begin{eqnarray*}
+\mu_0T^{\mu\nu} &=&
+\begin{pmatrix}
+\frac{\vec{E}^2}{c^2} &\frac{1}{c}\left(\vec{E}\times\vec{B}\right)^T\\
+\frac{1}{c}\vec{E}\times\vec{B} &-\frac{1}{c^2}\vec{E}\vec{E}^T-BB^T+(B\cdot B)1
+\end{pmatrix}
++\left(\frac{1}{2c^2}\vec{E}^2-\frac{\vec{B}^2}{2}\right)\begin{pmatrix}
+-1 & 0\\
+0 &1\\
+\end{pmatrix}\\
+&=&\begin{pmatrix}
+\frac{1}{2}\left(\frac{\vec{E}^2}{c^2}+\vec{B}^2\right) &\frac{1}{c}\left(\vec{E}\times\vec{B}\right)^T\\
+\frac{1}{c}\vec{E}\times\vec{B} &-\frac{1}{c^2}\vec{E}\vec{E}^T-BB^T+\frac{1}{2}\left(\frac{\vec{E}^2}{c^2}+\vec{B}^2\right)1
+\end{pmatrix}\\
+T^{\mu\nu} &=&\frac{1}{\mu_0}\begin{pmatrix}
+\frac{1}{2}\left(\frac{\vec{E}^2}{c^2}+\vec{B}^2\right) &\frac{1}{c}\left(\vec{E}\times\vec{B}\right)^T\\
+\frac{1}{c}\vec{E}\times\vec{B} &-\frac{1}{c^2}\vec{E}\vec{E}^T-BB^T+\frac{1}{2}\left(\frac{\vec{E}^2}{c^2}+\vec{B}^2\right)1
+\end{pmatrix}
+\end{eqnarray*}
+Mit \ref{EM_energyDensity}
+\begin{eqnarray*}
+\rho_{E_{EM}} &=& \frac{1}{2}\left(\frac{1}{\mu_0}\vec{B}^2+\epsilon_0\vec{E}^2\right)
+=\frac{1}{2\mu_0}\left(\vec{B}^2+\frac{1}{c^2}\vec{E}^2\right)
+\end{eqnarray*}
+und \ref{S_def}
+\begin{eqnarray*}
+\vec{S} &=& -\frac{1}{\mu_0}\vec{B}\times \vec{E}=\frac{1}{\mu_0}\vec{E}\times \vec{B}
+\end{eqnarray*}
+ergibt sich
+\begin{eqnarray*}
+T^{\mu\nu} &=&\begin{pmatrix}
+\rho_{E_{EM}} &\frac{1}{c}\vec{S}^T\\
+\frac{1}{c}\vec{S} &\frac{1}{\mu_0}\left(-\frac{1}{c^2}\vec{E}\vec{E}^T-BB^T+\frac{1}{2}\left(\frac{\vec{E}^2}{c^2}+\vec{B}^2\right)1\right)
+\end{pmatrix}
+\end{eqnarray*}
+Die Gleichung \ref{energy_absorbtion}
+\begin{eqnarray*}
+\frac{dP^\mu}{dt} &=& -T^{\mu\nu}_{,\nu}
+\end{eqnarray*}
+Beschreibt die \textbf{Abgabe} von Energie und Impuls an Materie (geladene Teilchen). Entsprechend beschreibt $T^{\mu\nu}_{,\nu}$
+die von Materie \textbf{abgestrahlte} elektromagnetische Energie.
+\end{subsubsection}
+
+\begin{subsubsection}{\titlemath{$E=mc^2$}{E=mc**2}}
+Wir führen ein Gedankenexperiment durch. Ein Objekt der Masse $m$ sei bezüglich einem gegebenen Koordinatensystem in Ruhe.
+Während einer begrenzten Zeitspanne strahlt der Körper in alle Richtungen elektromagnetische Strahlung ab, so dass der Körper in Ruhe bleibt. Der Gesamtimpuls der emittierten Strahlung ist also gleich Null. Die Gesamtheit der Energie $\Delta E$ die vom Körper an das elektromagnetische Feld abgegeben wurde kann durch das Integral
+\begin{eqnarray*}
+\Delta E =-c\int_{t_1}^{t2} dt\int dx^3 \frac{dP^0}{dt} &=& c\int_{t_1}^{t2} dt\int dx^3 T^{0\nu}_{,\nu}
+\end{eqnarray*}
+ausgedrückt werden. Dasselbe gilt für die Gesamtheit des abgestrahlten Impulses $\Delta\vec{p}$:
+\begin{eqnarray*}
+\Delta p^k =-\int_{t_1}^{t2} dt\int dx^3 \frac{dP^k}{dt} &=& \int_{t_1}^{t2} dt\int dx^3 T^{k\nu}_{,\nu}
+\end{eqnarray*}
+oder als Vierervektor zusammengefasst:
+\begin{eqnarray*}
+\Delta p^\mu =-\int_{t_1}^{t2} dt\int dx^3 \frac{dP^\mu}{dt} &=& \int_{t_1}^{t2} dt\int dx^3 T^{\mu\nu}_{,\nu}
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+\Delta E &=& c\Delta p^0
+\end{eqnarray*}
+wobei wir oben weiter gefordert haben dass $\Delta p^k=0$ sei. Das zweite Integral kann auch so geschrieben werden:
+\begin{eqnarray*}
+\Delta p^\mu = \frac{1}{c} \int_\Omega d\mu T^{\mu\nu}_{,\nu}(x)
+\end{eqnarray*}
+Wobei $\Omega$ ein geschlossenes Raum-Zeit-Gebiet in dem die Abstrahlung stattfindet bedeutet und $d\mu$ das vierdimensionale Volumenelement
+\begin{eqnarray*}
+d\mu &=& dx^0dx^1dx^2dx^3 = c dtdx^1dx^2dx^3
+\end{eqnarray*}
+ist. Dies ist ein sogenannter kovarianter Ausdruck. Dies bedeutet, dass $\Delta p^\mu$ sich beim Übergang zu einem anderen Inertialsystem wie ein Vierervektor transformiert. Für ein Bezugssystem, das sich mit der Geschwindigkeit $v$ in $x$-Richtung bewegt, ist die entsprechende Lorentz-Transformation (in zwei Dimensionen)
+\begin{eqnarray*}
+\Lambda^\mu_\nu &=& \frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\begin{pmatrix}
+1 & \frac{v}{c}\\
+\frac{v}{c} & 1
+\end{pmatrix}
+\end{eqnarray*}
+Und damit
+\begin{eqnarray*}
+\Delta p^{\prime\mu} &=& \Lambda^\mu_\nu\Delta p^\nu = \frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\begin{pmatrix}
+1 & \frac{v}{c}\\
+\frac{v}{c} & 1
+\end{pmatrix}
+\begin{pmatrix}
+\Delta p^0\\
+0
+\end{pmatrix}\\
+&=& \frac{\Delta p^0}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\begin{pmatrix}
+1 \\
+\frac{v}{c}
+\end{pmatrix}
+\end{eqnarray*}
+Für den eigentlichen Impulsanteil $\Delta \vec{p}^\prime$ gilt
+\begin{eqnarray*}
+\Delta \vec{p}^\prime &=& \frac{\Delta p^0}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\frac{\vec{v}}{c}=
+\frac{\Delta E}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\frac{\vec{v}}{c^2}
+\end{eqnarray*}
+Für Geschwindigkeiten $v\ll c$ gilt
+\begin{eqnarray*}
+\Delta \vec{p}^\prime &=& \Delta E\frac{\vec{v}}{c^2}
+\end{eqnarray*}
+Der Gesamtprozess sieht im bewegten System folgendermaßen aus. Ein Körper der Masse $m$ bewegt sich mit der Geschwindigkeit $\vec{v}$
+und habe einen Impuls $\vec{p}_0$. Dann emittiert er elektromagnetische Strahlung mit dem Impuls $\Delta \vec{p}^\prime$ ab.
+Nach der Impulserhaltung ist der Impuls des Körpers nach Emission $\vec{p}_0-\Delta \vec{p}^\prime$.
+Die \textbf{Geschwindigkeit} des Körpers ändert sich dabei aber \textbf{nicht}. Also muss die Impulsänderung des Körpers von einer Massenänderung herrühren\footnote{\label{einstein_emcsqr}Albert Einstein: Ist die Trägheit eines Körpers von seinem Energieinhalt abhängig?}. Für kleine Geschwindigkeiten gilt allgemein
+\begin{eqnarray*}
+\vec{p} &=& m\vec{v}
+\end{eqnarray*}
+Daher erhalten wir 
+\begin{eqnarray*}
+\tilde{m}\vec{v} &=& m\vec{v}-\Delta \vec{p}^\prime = m\vec{v}-\Delta E\frac{\vec{v}}{c^2}\\
+&=&\left(m-\frac{\Delta E}{c^2}\right)\vec{v}\\
+\tilde{m}&=&m-\frac{\Delta E}{c^2}\\
+m-\Delta m&=&m-\frac{\Delta E}{c^2}\\
+\Delta m&=&\frac{\Delta E}{c^2}\\
+\Delta E &=& \Delta mc^2
+\end{eqnarray*}
+In \footref{einstein_emcsqr} schreibt Einstein:\\\textit{Gibt ein Körper die Energie $\Delta E$ in Form von Strahlung ab, so verkleinert sich seine Masse um $\Delta m = \Delta E/c^2$. […] Die Masse eines Körpers ist ein Maß für dessen Energieinhalt […]. Es ist nicht ausgeschlossen, daß bei Körpern, deren Energie in hohem Maße veränderlich ist (z.B. bei den Radiumsalzen), eine Prüfung der Theorie gelingen wird.}
+\end{subsubsection}
+\end{subsection}
+\end{section}
+\end{comment}
+
+\ifx\makebook\undefined
+\begin{appendix}
+\fi
+\begin{section}{Vektor-Identitäten}
+\begin{subsection}{Determinante}
+Die Determinante einer $n\times n$-Matrix ist mit
+\begin{eqnarray*}
+\det{A} &=& \sum_{s\in S(n)}\sigma(s)A_{1s_1}A_{2s_2}A_{3s_3}...A_{ns_n}
+\end{eqnarray*}
+definiert, wobei $S(n)$ die Menge aller Permutationen von $1,2,3,...,n$ ist. Und $\sigma(s)$ die Parität oder das Vorzeichen der Permutation ist. Alternativ kann auch unter Benutzung der Summenkonvention 
+\begin{eqnarray*}
+\det{A} &=& \epsilon^{s_1s_2s_3...s_n}A_{1s_1}A_{2s_2}A_{3s_3}...A_{ns_n}
+\end{eqnarray*}
+geschrieben werden. Wobei $\epsilon^{s_1s_2s_3...s_n}=0$ falls $s=s_1s_2s_3...s_n$ keine Permutaion ist, als mindestens ein Index doppelt vorkommt. Andernfalls ist $\epsilon^{s_1s_2s_3...s_n}=\sigma(s)$.
+\end{subsection}
+
+\begin{subsection}{Kreuzprodukt und Determinante}
+Die Determinante aus drei Vektoren $X$, $Y$, $Z$ aus je drei Komponenten ist:
+\begin{eqnarray*}
+\det(\vec{X},\vec{Y},\vec{Z}) &=& \epsilon_{klm}X^kY^lZ^m\\
+&=&(X^1Y^2-Y^1X^2)z^3+(X^2Y^3-Y^2X^3)z^1+(X^3Y^1-Y^3X^1)z^2
+\end{eqnarray*}
+Nun definieren wir das Kreuzprodukt $\vec{X}\times\vec{Y}$ so dass
+\begin{eqnarray*}
+\det(\vec{X},\vec{Y},\vec{Z}) &=& \left(\vec{X}\times\vec{Y}\right)\cdot\vec{Z}
+\end{eqnarray*}
+für alle $\vec{Z}$ gilt. Daraus ergibt sich
+\begin{eqnarray*}
+\vec{X}\times\vec{Y}&=&\begin{pmatrix}
+X^2Y^3-Y^2X^3\\
+X^3Y^1-Y^3X^1\\
+X^1Y^2-Y^1X^2\\
+\end{pmatrix}\\
+\left(\vec{X}\times\vec{Y}\right)_k &=& \epsilon_{lmk}X^lY^m=\epsilon_{klm}X^lY^m
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Die Matrix \titlemath{$\left(\vec{X}\times\right)$}{X x}}
+Die $3\times 3$-Matrix $\left(\vec{X}\times\right)$ definieren wie folgt:
+\begin{eqnarray*}
+\left(\vec{X}\times\right)\vec{Y} &=& \vec{X}\times\vec{Y}
+\end{eqnarray*}
+für alle $\vec{Y}$. Also
+\begin{eqnarray*}
+\left(\vec{X}\times\right)\vec{Y} &=& \begin{pmatrix}
+0 & -X^3 & X^2\\
+X^3 & 0 & -X^1\\
+-X^2 & X^1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+Y^1\\
+Y^2\\
+Y^3
+\end{pmatrix}\\
+\left(\vec{X}\times\right) &=& \begin{pmatrix}
+0 & -X^3 & X^2\\
+X^3 & 0 & -X^1\\
+-X^2 & X^1 & 0
+\end{pmatrix}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Eine nützliche Identität}
+Die Verkettung zweier Kreuzprodukte
+\begin{eqnarray*}
+\vec{X}\times\left(\vec{Y}\times \vec{Z}\right) &=&\left(\vec{X}\times\right)\left(\vec{Y}\times\right)\vec{Z}
+\end{eqnarray*}
+führt zu
+\begin{eqnarray}
+\left(\vec{X}\times\right)\left(\vec{Y}\times\right) &=& 
+\begin{pmatrix}
+0 & -X^3 & X^2\\
+X^3 & 0 & -X^1\\
+-X^2 & X^1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+0 & -Y^3 & Y^2\\
+Y^3 & 0 & -Y^1\\
+-Y^2 & Y^1 & 0
+\end{pmatrix}\cr
+&=&
+\begin{pmatrix}
+-X^3Y^3-X^2Y^2 & X^2Y^1 & X^3Y^1\\
+X^1Y^2 & -X^3Y^3-X^1Y^1 & X^3Y^2\\
+X^1Y^3 & X^2Y^3 & -X^1Y^1-X^2Y^2
+\end{pmatrix}\cr
+&=&
+\begin{pmatrix}
+X^1Y^1 & X^2Y^1 & X^3Y^1\\
+X^1Y^2 & x^2Y^2 & X^3Y^2\\
+X^1Y^3 & X^2Y^3 & X^3Y^3
+\end{pmatrix}
+-\left(X^1Y^1+X^2Y^2+X^3Y^3\right)
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\cr
+\label{b_cross_b_cross}
+&=&YX^T-\left(X\cdot Y\right)1\\
+\vec{X}\times\left(\vec{Y}\times \vec{Z}\right) &=&
+\vec{Y}\left(\vec{X}\cdot \vec{Z}\right)-\left(\vec{X}\cdot\vec{Y}\right)\vec{Z}
+\end{eqnarray}
+Dies führt auch zu
+\begin{eqnarray}
+\vec{X}\times\left(\vec{Y}\times \vec{Z}\right) &=&
+\vec{Y}\left(\vec{X}\cdot \vec{Z}\right)-\left(\vec{X}\cdot\vec{Y}\right)\vec{Z}\cr
+\epsilon_{ead}X^a\left(\epsilon_{dbc}Y^bZ^c\right) &=&
+\left(\delta_{eb}\delta_{ac}-\delta_{ab}\delta_{ec}\right)X^aY^bZ^c\cr
+\epsilon_{dea}\epsilon_{dbc} &=& \delta_{eb}\delta_{ac}-\delta_{ec}\delta_{ab}
+\end{eqnarray}
+\end{subsection}
+\end{section}
+
+
+\ifx\makebook\undefined
+\end{appendix}
+	\end{document}
+\else
+	\end{chapter}
+\fi

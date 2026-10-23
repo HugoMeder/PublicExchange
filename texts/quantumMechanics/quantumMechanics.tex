@@ -1,0 +1,1132 @@
+\def\titlestr{Quantenmechanik}
+\ifx\makebook\undefined
+	\input{../latexsrcs/preamble}
+\else
+	\begin{chapter}{\titlestr}
+\fi
+\begin{section}{Plancksche Hohlraumstrahlung}
+\begin{subsection}{Elektromagnetische Schwingungsmodi in einem Volumen}
+Wir nehmen zunächst an in einem Vakuum in einem Hohlraum schwingen elektromagnetische Wellen im thermischen Gleichgewicht der Temperatur $T$. Das beschränkte Volumen $V$ führt zu Randbedingungen. Diese
+haben wiederum die Folge, dass nur bestimmte Schwingungsmodi erlaubt sind. Das entsprechende Randwertproblem ist schwierig zu lösen, selbst für so einfache Geometrien wie einem Quader.
+
+Es gibt aber die zyklische Randbedingung. In einer Dimension bedeutet das
+\begin{eqnarray*}
+E(0,t) &=& E(l,t)
+\end{eqnarray*}
+und in drei Dimensionen:
+\begin{eqnarray*}
+E(0,y,z,t) &=& E(l_x,y,z,t)\\
+E(x,0,z,t) &=& E(x,l_y,z,t)\\
+E(x,y,0,t) &=& E(x,y,z,-l_zt)
+\end{eqnarray*}
+Eine  ebene Welle siht so aus:
+\begin{eqnarray*}
+E(x,y,z,t) &=& E\sin(xk_x+yk_y+zk_z-\omega t+\phi)
+\end{eqnarray*}
+Die zyklische Randbedingung führt nun zu
+\begin{eqnarray*}
+\sin(yk_y+zk_z-\omega t+\phi) &=& \sin(l_xk_x+yk_y+zk_z-\omega t+\phi)\\
+\sin(xk_x+zk_z-\omega t+\phi) &=& \sin(xk_x+l_yk_y+zk_z-\omega t+\phi)\\
+\sin(xk_x+yk_y-\omega t+\phi) &=& \sin(xk_x+yk_y+l_zk_z-\omega t+\phi)\\
+k_xl_x &=& n_x2\pi\\
+k_yl_y &=& n_y2\pi\\
+k_zl_z &=& n_z2\pi\\
+k_x &=& n_x\frac{2\pi}{l_x}\\
+k_y &=& n_y\frac{2\pi}{l_y}\\
+k_z &=& n_z\frac{2\pi}{l_z}
+\end{eqnarray*}
+Die Dichte der Modi ist also
+\begin{eqnarray*}
+\rho(\vec{k}) &=& \frac{l_xl_yl_z}{(2\pi)^3}
+\end{eqnarray*}
+Da elektromagnetisch Wellen zwei Polarisationsrichtungen haben, muss mit 2 multipliziert werden:
+\begin{eqnarray*}
+\rho(\vec{k}) &=& 2\frac{l_xl_yl_z}{(2\pi)^3}=2\frac{V}{(2\pi)^3}
+\end{eqnarray*}
+Die Anzahl der Modi in einer Kugelschale
+zwischen $|\vec{k}|=\kappa$ und $|\vec{k}|=\kappa +\Delta\kappa$ ist
+\begin{eqnarray*}
+d N &=& \frac{4\pi}{3}\rho \kappa^2 d\kappa=\frac{4\pi}{3}2\frac{V}{(2\pi)^3} \kappa^2 d\kappa
+=\frac{4}{3}\frac{V}{(2\pi)^2} \kappa^2 d\kappa
+\end{eqnarray*}
+Für jeden $\vec{k}$-Vektor ist die zugehörige Kreisfrequenz $\omega = c|\vec{k}|$. Daher ist die Anzahl der Modi mit einer Kreisfrequenz zwischen $\omega$ und $\omega+\delta \omega$:
+\begin{eqnarray}
+\label{state_density}
+d N(\omega,V) &=& \frac{4}{3}\frac{V}{(2\pi)^2c^3} \omega^2 d\omega
+\end{eqnarray}
+Wir haben also $N$ Schwingungs-Modi mit der Kreisfrequenz $\omega$.
+\end{subsection}
+
+\begin{subsection}{Harmonischer Oszillator im Wärmebad}
+Wir betrachten einen harmonischen Oszillator mit Masse $m$ und Federkonstante $f$. Die entsprechende Hamilton-Funktion ist
+\begin{eqnarray*}
+H(p,q) &=& \frac{1}{2}\frac{p^2}{m}+\frac{1}{2}fq^2
+\end{eqnarray*}
+und daraus ergeben sich die Bewegungsgleichungen
+\begin{eqnarray*}
+\dot{p} &=& -\frac{\partial H}{\partial q} = -fq\\
+\dot{q} &=& \frac{\partial H}{\partial p} = \frac{p}{m}
+\end{eqnarray*}
+Und daraus die Kreisfrequenz:
+\begin{eqnarray*}
+\ddot{p} &=& -\frac{f}{m}p\\
+q(t) &=& a\sin(\omega t)\\
+p(t) &=& ma\omega\cos(\omega t)\\
+\omega &=& \sqrt{\frac{f}{m}}
+\end{eqnarray*}
+$a$ ist die Amplitude der Schwingung. Die Energie ist
+\begin{eqnarray*}
+E(a) &=& H(p,q) = \frac{1}{2}\frac{\left(ma\omega\cos(\omega t)\right)^2}{m}+\frac{1}{2}f\left(a\sin(\omega t)\right)^2\\
+&=& \frac{1}{2}a^2\left(\omega^2m^2\frac{\cos^2(\omega t)}{m}+f\sin^2(\omega t)\right)\\
+&=& \frac{1}{2}a^2\left(\frac{f}{m}m^2\frac{\cos^2(\omega t)}{m}+f\sin^2(\omega t)\right)\\
+&=& \frac{1}{2}a^2f\left(\cos^2(\omega t)+\sin^2(\omega t)\right)\\
+&=& \frac{1}{2}a^2f
+\end{eqnarray*}
+Der von der Kurve $p(t)$ und $q(t)$ umschlossene Phasenraum $V$ (eine Ellipse) ist:
+\begin{eqnarray*}
+V &=& \pi ma^2\omega\\
+a^2(E) &=& \frac{2E}{f}\\
+V &=& 2\pi E\frac{m}{f}\omega=\frac{2\pi E}{\omega}=E\tau
+\end{eqnarray*}
+Wobei $\tau$ die Zeit für einen Schwingungs-Zyklus ist. Die Phasenraumdichte $\omega(E)=\frac{dV}{dE}$ hängt nicht von der Energie ab:
+\begin{eqnarray*}
+\omega(E)&=&\frac{2\pi}{\omega}=\tau
+\end{eqnarray*}
+Die Wahrscheinlichkeits-Dichte im Wärmebad ist allgemein
+\begin{eqnarray*}
+\sigma(E,\beta)&=& \frac{\omega(E)e^{-\beta E}}{Z(\beta)}\\
+Z(\beta) &=& \int\omega(E)e^{-\beta E}dE
+\end{eqnarray*}
+und für den Oszillator
+\begin{eqnarray*}
+\sigma(E)&=& \frac{\tau e^{-\beta E}}{Z(\beta)}\\
+Z(\beta) &=& \int_0^\infty\tau e^{-\beta E}dE=\left(-\frac{\tau}{\beta}e^{-\beta E}\right|_0^\infty=\frac{\tau}{\beta}\\
+\sigma(E)&=& \beta e^{-\beta E}
+\end{eqnarray*}
+Der Erwartungswert für die Energie ist somit
+\begin{eqnarray*}
+\expect*{E(\omega,T)} &=& \int_0^\infty E \sigma(E) dE=\int_0^\infty \beta Ee^{-\beta E} dE=\frac{1}{\beta} = \kb T
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Die Ultraviolett-Katastrophe}
+Mit der Zustands-Dichte \ref{state_density}
+\begin{eqnarray*}
+d N(\omega,V) &=& \frac{4}{3}\frac{V}{(2\pi)^2c^3} \omega^2 d\omega
+\end{eqnarray*}
+ergibt sich eine Energie-Dichte
+\begin{eqnarray*}
+d E(\omega,V,T) &=& \frac{4}{3}\frac{V}{(2\pi)^2c^3} \omega^2 \expect*{E(\omega,T)} d\omega\\
+&=& \frac{4}{3}\frac{V}{(2\pi)^2c^3} \omega^2 \kb T d\omega
+\end{eqnarray*}
+Die Gesamtenergie $E(V,)$ ist
+\begin{eqnarray*}
+E(V,T) &=& \int_0^\infty d E(\omega,V,T) )=\int_0^\infty\frac{4}{3}\frac{V}{(2\pi)^2c^3} \omega^2 \kb T d\omega\\
+&=&\frac{4}{3}\frac{V}{(2\pi)^2c^3}\kb T \int_0^\infty\omega^2 d\omega =\infty
+\end{eqnarray*}
+Dies ist die sogenannte Ultraviolett-Katastrophe.
+\end{subsection}
+
+\begin{subsection}{Quantisierter harmonischer Oszillator}
+Auf der Suche nach einer Lösung hat Max Planck den Fall untersucht, bei dem ein Harmonischer Oszillator nur diskrete Energien annehmen kann:
+\begin{eqnarray*}
+E(\omega,n) &=& n\Delta E(\omega)
+\end{eqnarray*}
+Die Wahrscheinlichkeits-Verteilung ist dann entsprechend auch diskret:
+\begin{eqnarray*}
+p(\omega,n,\beta)&=& \frac{e^{-\beta E(\omega,n)}}{Z(\beta,\omega)}\\
+Z(\omega,\beta) &=& \sum_{n=0}^\infty e^{-\beta E(\omega,n)}= \sum_{n=0}^\infty e^{-\beta\left(n\Delta E(\omega)\right)}\\
+&=& e^{-\beta E_0(\omega)}\sum_{n=0}^\infty e^{-\beta n\Delta E(\omega)}
+\end{eqnarray*}
+Mit
+\begin{eqnarray*}
+x &=& e^{-\beta \Delta E(\omega)}
+\end{eqnarray*}
+wird
+\begin{eqnarray*}
+Z(\omega,\beta) &=& e^{-\beta E_0(\omega)}\sum_{n=0}^\infty x^n\\
+\sigma &=& \sum_{n=0}^\infty x^n\\
+x\sigma &=& \sum_{n=1}^\infty x^n\\
+(1-x)\sigma &=& 1\\
+\sigma &=& \frac{1}{1-x}\\
+Z(\omega,\beta) &=& \frac{e^{-\beta E_0(\omega)}}{1-e^{-\beta \Delta E(\omega)}}\\
+p(\omega,n,\beta)&=& \frac{e^{-\beta E(\omega,n)}}{Z(\beta,\omega)}
+=e^{-\beta n\Delta E(\omega)}\left(1-e^{-\beta \Delta E(\omega)}\right)
+\end{eqnarray*}
+Und der Erwartungswert $\expect{E(\omega,T)}$ wird
+\begin{eqnarray*}
+\expect{E(\omega,T)} &=& \sum_{n=0}^\infty \left(n\Delta E(\omega)\right)p(\omega,n,\beta)\\
+&=& \sum_{n=0}^\infty n\Delta E(\omega)p(\omega,n,\beta)\\
+&=& \left(1-e^{-\beta \Delta E(\omega)}\right)\Delta E(\omega)\sum_{n=0}^\infty n e^{-\beta n\Delta E(\omega)}\\
+&=& \left(1-e^{-\beta \Delta E(\omega)}\right)\Delta E(\omega)\sum_{n=0}^\infty n x^n\\
+\frac{d}{dx}\sum_{n=0}^\infty x^n &=& \sum_{n=0}^\infty nx^{n-1}\\
+\sum_{n=0}^\infty n x^n &=& x\frac{d}{dx}\sum_{n=0}^\infty x^n
+=x\frac{d}{dx}\frac{1}{1-x}=\frac{x}{(1-x)^2}\\
+&=&\frac{e^{-\beta \Delta E(\omega)}}{\left(1-e^{-\beta \Delta E(\omega)}\right)^2}\\
+\expect{E(\omega,T)} &=& \frac{e^{-\beta \Delta E(\omega)}}{1-e^{-\beta \Delta E(\omega)}}\Delta E(\omega)\\
+&=& \frac{1}{e^{\beta \Delta E(\omega)}-1}\Delta E(\omega)
+\end{eqnarray*}
+Ist $\beta \Delta E(\omega)\ll 1$ also $\Delta E(\omega)\ll \kb T$ wird
+\begin{eqnarray*}
+\expect{E(\omega,T)} &=& \kb T
+\end{eqnarray*}
+Für $\beta \Delta E(\omega)\gg 1$ ergibt sich
+\begin{eqnarray*}
+\expect{E(\omega,T)} &=& 0
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Die Plancksche Formel}
+Zusammen mit \ref{state_density}
+\begin{eqnarray*}
+d N(\omega,V) &=& \frac{4}{3}\frac{V}{(2\pi)^2c^3} \omega^2 d\omega
+\end{eqnarray*}
+ergibt sich eine Energie-Dichte
+\begin{eqnarray*}
+d E(\omega,V,T) &=& \frac{4}{3}\frac{V}{(2\pi)^2c^3} \omega^2 \expect*{E(\omega,T)} d\omega\\
+&=& \frac{4}{3}\frac{V}{(2\pi)^2c^3} \omega^2 \frac{1}{e^{\beta \Delta E(\omega)}-1}\Delta E(\omega) d\omega
+\end{eqnarray*}
+Ein Vergleich mit experimentellen Daten legt
+\begin{eqnarray*}
+\Delta E(\omega) &=& \frac{h\omega}{2\pi} = h\nu
+\end{eqnarray*}
+nahe, wobei $\nu$ die Frequenz ist.
+\begin{eqnarray*}
+d E(\nu,V,T) &=& \frac{4}{3}\frac{V}{(2\pi)^2c^3} (2\pi)^2\nu^2 \frac{1}{e^{\beta h\nu-1}}h\nu 2\pi d\nu\\
+&=& \frac{8h\pi}{3}\frac{V}{c^3} \nu^3 \frac{1}{e^{\beta h\nu}-1}d\nu
+\end{eqnarray*}
+Bestimmt man $h$ aus den experimentellen Daten, dann stimmt diese Energie-Verteilung sehr gut mit den Experimenten überein.
+$h$ heißt plancksches Wirkungs-Quantum. Auch der Vorfaktor stimmt, was nachträglich die zyklische Randbedingung stützt.
+Anstelle der Frequenz wird auch gerne die Wellenlänge $\lambda=\frac{c}{\nu}$ verwendet:
+\begin{eqnarray}
+\label{lambda_density}
+d E(\lambda,V,T) &=& \frac{8h\pi}{3}\frac{V}{c^3} \left(\frac{c}{\lambda}\right)^3 \frac{1}{e^{\frac{c\beta h}{\lambda}}-1}
+\left|\frac{d\nu}{d\lambda}\right|d\lambda\cr
+&=&\frac{8h\pi}{3}\frac{V}{\lambda^3} \frac{1}{e^{\frac{c\beta h}{\lambda}}-1}
+\frac{c}{\lambda^2}d\lambda\cr
+&=&\frac{8h\pi}{3}\frac{Vc}{\lambda^5} \frac{1}{e^{\frac{c\beta h}{\lambda}}-1}d\lambda
+\end{eqnarray}
+\end{subsection}
+
+\begin{subsection}{Strahlungsintensität}
+Wir wählen ein Volumenelement $d\mu$ im $\vec{k}$-Raum
+\begin{eqnarray*}
+d\mu &=& d\Omega |\vec{k}|^2d|\vec{k}|
+\end{eqnarray*}
+$d\Omega$ ist ein Oberflächenelement der Einheitskugel in $\vec{n}$-Richtung. Da $|\vec{k}|=\frac{\omega}{c}$ ist dies dasselbe wie
+\begin{eqnarray*}
+d\mu &=& d\Omega \frac{\omega^2}{c^3}d\omega
+\end{eqnarray*}
+Bei einer Zustandsdichte
+\begin{eqnarray*}
+\rho &=& 2\frac{V}{(2\pi)^3}
+\end{eqnarray*}
+gibt es
+\begin{eqnarray*}
+N &=& \rho d\mu = 2\frac{V}{(2\pi)^3}d\Omega \frac{\omega^2}{c^3}d\omega
+=2\frac{V\omega^2}{(2\pi c)^3}d\Omega d\omega
+\end{eqnarray*}
+Modi in $\vec{n}$-Richtung. Die 'Photonen' bewegen sich mit der Lichtgeschwindigkeit $c\vec{n}$. Das Volumen, das bei dieser Geschwindigkeit und einem Zeitintervall $\Delta t$ ein Flächenelement $\vec{A}$ durchströmt ist
+\begin{eqnarray*}
+V &=& c\vec{n}\cdot\vec{A}\Delta t
+\end{eqnarray*}
+Und daher
+\begin{eqnarray*}
+N &=& \rho d\mu = 2\frac{c\vec{n}\cdot\vec{A}\Delta t\omega^2}{(2\pi c)^3}d\Omega d\omega\\
+&=& 2\frac{\omega^2}{(2\pi )^3c^2}\vec{n}\cdot\vec{A}d\Omega d\omega\Delta t
+\end{eqnarray*}
+Und schließlich die Energie, die durch $\vec{A}$ fließt:
+\begin{eqnarray*}
+E(\omega,\vec{A},\Omega,\vec{n},T) &=& 2\frac{\omega^2}{(2\pi )^3c^2}\expect{E(\omega,T)}\vec{n}\cdot\vec{A}d\Omega d\omega\Delta t
+\end{eqnarray*}
+Mit $\nu=\frac{\omega}{2\pi}$, $\Omega=2\pi\nu$:
+\begin{eqnarray*}
+E(\nu,\vec{A},\Omega,\vec{n},T) &=& 2\frac{\nu^2}{c^2}\expect{E(\nu,T)}\vec{n}\cdot\vec{A}d\Omega d\nu\Delta t\\
+\end{eqnarray*}
+und
+\begin{eqnarray*}
+\expect{E(\nu,T)} &=& \frac{h\nu}{e^{\beta h\nu}-1}
+\end{eqnarray*}
+wird
+\begin{eqnarray*}
+E(\nu,\vec{A},\Omega,\vec{n},T) &=& 2\frac{h\nu^3}{c^2}\frac{1}{e^\frac{h\nu}{\kb T}-1}\vec{n}\cdot\vec{A}d\Omega d\nu\Delta t\\
+P(\nu,\vec{A},\Omega,\vec{n},T) &=& 2\frac{h\nu^3}{c^2}\frac{1}{e^\frac{h\nu}{\kb T}-1}\vec{n}\cdot\vec{A}d\Omega d\nu
+\end{eqnarray*}
+$P$ ist die Leistung, die bei der Frequenz $\nu$ durch ein Flächenelement $\vec{A}$ und einen Raumwinkel $\Omega$ in Richtung $\vec{n}$ bei der Temperatur $T$ von einem Schwarzen Strahler abgestrahlt wird.
+\begin{eqnarray*}
+I(\nu,T) &=& 2\frac{h\nu^3}{c^2}\frac{1}{e^\frac{h\nu}{\kb T}-1}
+\end{eqnarray*}
+heißt spektrale Intensität. Über den Halbraum integriert:
+\begin{eqnarray*}
+\int I(\nu,T) \vec{n}\cdot\vec{A}d\Omega d\nu
+&=& I(\nu,T)d\nu \int \vec{n}\cdot\vec{A}d\Omega \\
+&=& I(\nu,T)d\nu A\int_0^\frac{\pi}{2} \cos(\phi)2\pi\sin(\phi) d\phi \\
+&=& I(\nu,T)d\nu A\pi\int_0^\frac{\pi}{2} \sin(2\phi) d\phi \\
+&=& I(\nu,T)d\nu A\pi\left(-\frac{1}{2}\cos(2\phi)\right|_0^\frac{\pi}{2}\\
+&=& I(\nu,T)d\nu A\pi
+\end{eqnarray*}
+
+
+\end{subsection}
+
+\begin{subsection}{Gesamt-Energie-Dichte}
+Integriert man über die Frequenz $\nu$ erhält man die Gesamt-Energie:
+\begin{eqnarray*}
+E(V,T) &=& \frac{8h\pi}{3}\frac{V}{c^3} \int_0^\infty\nu^3 \frac{1}{e^{\beta h\nu}-1}d\nu
+\end{eqnarray*}
+Wir ersetzen $x=\beta h\nu$, $\nu=\frac{x}{\beta h}=\frac{\kb T}{h}x$
+\begin{eqnarray*}
+E(V,T) &=& \frac{8h\pi}{3}\frac{V}{c^3} \left(\frac{\kb T}{h}\right)^4\int_0^\infty  \frac{x^3}{e^x-1}dx
+\end{eqnarray*}
+Dabei ist
+\begin{eqnarray*}
+\int_0^\infty  \frac{x^3}{e^x-1}dx &=& \frac{\pi^4}{15}
+\end{eqnarray*}
+\begin{eqnarray*}
+E(V,T) &=& \frac{8h\pi}{3}\frac{V}{c^3} \left(\frac{\kb T}{h}\right)^4\frac{\pi^4}{15}\\
+&=& \frac{8\pi^5\kb^4}{h^3c^3 3\cdot 15}T^4V
+\end{eqnarray*}
+Analog ist die Gesamt-Strahlungsdichte
+\begin{eqnarray*}
+\int_0^\infty I(\nu,T)d\nu &=& \int_0^\infty 2\frac{h\nu^3}{c^2}\frac{1}{e^\frac{h\nu}{\kb T}-1}d\nu\\
+&=& 2\frac{h}{c^2}\left(\frac{\kb T}{h}\right)^4\int_0^\infty \frac{x^3}{e^x-1}dx\\
+&=& \frac{2(T\kb)^4}{h^3c^2}\frac{\pi^4}{15}
+\end{eqnarray*}
+
+Dies ist das Stefan-Boltzmann-Gesetz.
+\end{subsection}
+
+\begin{subsection}{Wiensches Verschiebungsgesetz}
+Wir betrachten die Energiedichte in der Wellenlänge ausgedrückt \ref{lambda_density}:
+\begin{eqnarray*}
+d E(\lambda,V,T) &=&\frac{8h\pi}{3}\frac{Vc}{\lambda^5} \frac{1}{e^{\frac{c\beta h}{\lambda}}-1}d\lambda
+\end{eqnarray*}
+Um die maximale Energiedichte zu ermitteln können Vorfaktoren ignorierte werden. Wir setzen
+\begin{eqnarray*}
+ x &=& \frac{\lambda}{c\beta h}
+\end{eqnarray*}
+und leiten ab:
+\begin{eqnarray*}
+\frac{d}{dx}\frac{1}{x^5\left(e^{x^{-1}}-1\right)}&=&0
+\end{eqnarray*}
+Dies hat aber dieselbe Lösung wie
+\begin{eqnarray*}
+\frac{d}{dx}\left(x^5\left(e^{x^{-1}}-1\right)\right)&=&0\\
+&=& 5x^4\left(e^{x^{-1}}-1\right)-x^5x^{-1}x^{-2}e^{x^{-1}}\\
+&=&\left(5x^4-x^2\right)e^{x^{-1}}-5x^3\\
+1&=&\left(x-\frac{1}{5x}\right)e^{x^{-1}}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Nullpunkt-Energie}
+Eine exakte quantenmechanische Behandlung des harmonischen Oszillators führt zu Energie-Niveaus 
+\begin{eqnarray*}
+E_n(\nu) &=& h\nu \left(\frac{1}{2}+n\right)
+\end{eqnarray*}
+Die führt erneut zu eine Ultraviolett-Katastrophe!!
+\end{subsection}
+\end{section}
+
+\begin{section}{Bohrs Modell des Wasserstoff-Atoms}
+\begin{subsection}{Fraunhoferlinien}
+\end{subsection}
+\begin{subsection}{Elektronen auf Planeten-Bahnen}
+Die Kraft zwischen zwei Ladungen ist
+\begin{eqnarray*}
+F &=& \frac{1}{4\pi\epsilon_0}\frac{q_1q_2}{r^2}
+\end{eqnarray*}
+Für das Wasserstoff-Atom:
+\begin{eqnarray*}
+F &=& \frac{1}{4\pi\epsilon_0}\frac{e^2}{r^2}
+\end{eqnarray*}
+Dies muss gleich der Zentripetal-Beschleunigung mal die Elektronen-Masse $m$ sein.
+\begin{eqnarray*}
+F &=& mr\omega^2
+\end{eqnarray*}
+Dies führt zu einem Zusammenhang zwischen $r$ und $\omega$:
+\begin{eqnarray*}
+mr\omega^2&=& \frac{1}{4\pi\epsilon_0}\frac{e^2}{r^2}\\
+\omega^2&=& \frac{1}{4\pi\epsilon_0}\frac{e^2}{mr^3}
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Quantisierungs-Bedingung}
+Der Drehimpuls $L$ hat sie selbe physikalische Einheit wie das Plancksche Wirkungs-Quantum $\hbar$.
+Für das Wasserstoff-Atom setzte Bohr an:
+\begin{eqnarray}
+\label{bohr_condition}
+L &=& n\hbar = mr^2\omega
+\end{eqnarray}
+oder
+\begin{eqnarray*}
+\omega &=& \frac{n\hbar}{mr^2}
+\end{eqnarray*}
+Das bestimmt den Radius $r$:
+\begin{eqnarray*}
+\frac{1}{4\pi\epsilon_0}\frac{e^2}{mr^3} &=& \left(\frac{n\hbar}{mr^2}\right)^2\\
+\frac{1}{4\pi\epsilon_0}\frac{e^2}{mr^3} &=& \left(\frac{n\hbar}{m}\right)^2\frac{1}{r^4}\\
+\frac{1}{4\pi\epsilon_0}\frac{e^2r}{m} &=& \left(\frac{n\hbar}{m}\right)^2\\
+r &=& \left(\frac{n\hbar}{m}\right)^2\frac{4\pi\epsilon_0m}{e^2}\\
+&=&n^2\frac{4\pi\hbar^2\epsilon_0}{e^2m}
+\end{eqnarray*}
+$a_0r$ heißt bohrsche Radius.
+\end{subsection}
+
+\begin{subsection}{Energie-Niveaus}
+Die potentielle Energie ist
+\begin{eqnarray*}
+V_n &=& -\frac{e^2}{4\pi\epsilon_0}\frac{1}{r}=-\frac{e^2}{4\pi\epsilon_0}\frac{1}{n^2}\frac{e^2m}{4\pi\hbar^2\epsilon_0}\\
+&=& -\frac{1}{n^2}\frac{e^4m}{(4\pi\epsilon_0\hbar)^2}
+\end{eqnarray*}
+Für die kinetische Energie erhalten wir
+\begin{eqnarray*}
+T_n &=& \frac{1}{2}mv^2 =\frac{1}{2}m(r\omega)^2\\
+(r\omega)^2 &=& r^2\frac{1}{4\pi\epsilon_0}\frac{e^2}{mr^3}\\
+&=& \frac{1}{4\pi\epsilon_0}\frac{e^2}{mr}\\
+&=& \frac{1}{4\pi\epsilon_0}\frac{e^2}{m}\frac{1}{n^2}\frac{e^2m}{4\pi\hbar^2\epsilon_0}\\
+&=&\frac{1}{n^2}\frac{e^4}{(4\pi\epsilon_0\hbar)^2}\\
+T_n &=& \frac{1}{2}\frac{1}{n^2}\frac{e^4m}{(4\pi\epsilon_0\hbar)^2}
+\end{eqnarray*}
+Und damit die Gesamt-Energie
+\begin{eqnarray*}
+E_n &=& -\frac{1}{2}\frac{1}{n^2}\frac{e^4m}{(4\pi\epsilon_0\hbar)^2} = -\frac{1}{2}\frac{1}{n^2}\frac{e^4m}{(2\epsilon_0 h)^2} 
+\end{eqnarray*}
+$E_1$ heißt auch Rydberg-Energie $Ry$:
+\begin{eqnarray*}
+E_n &=& -\frac{1}{n^2}Ry
+\end{eqnarray*}
+
+\end{subsection}
+\end{section}
+
+\begin{section}{Louis de Broglie}
+\begin{subsection}{Wellen-Teilchen-Dualismus}
+\end{subsection}
+\begin{subsection}{de Broglie-Hypothese}
+De Broglie nahm an, dass jeder Energie eine Frequenz zukommt:
+\begin{eqnarray*}
+E &=& h\nu = \hbar\omega\\
+\omega &=& \frac{E}{\hbar}
+\end{eqnarray*}
+Also auch einem Teilchen der Ruhemasse $m$
+\begin{eqnarray*}
+\omega_0(m) &=& \frac{mc^2}{\hbar}
+\end{eqnarray*}
+\textit{"Die Kühnheit dieser Idee war so groß – ich muss aufrichtig sagen, dass ich selber auch damals den Kopf schüttelte dazu, und ich erinnere mich sehr gut, dass Herr Lorentz mir damals sagte im vertraulichen Privatgespräch: 'Diese jungen Leute nehmen es doch gar zu leicht, alte physikalische Begriffe beiseite zu setzen!' Es war damals die Rede von Broglie-Wellen, von der heisenbergschen Unschärfe-Relation – das schien damals uns Älteren etwas sehr schwer Verständliches."'}
+\end{subsection}
+
+\begin{subsection}{Wellen in relativistischer Raum-Zeit}
+Eine Welle in einer Dimension hat typischerweise sie Form
+\begin{eqnarray*}
+\phi(t,x) &=& \sin(\omega t-kx)
+\end{eqnarray*}
+wobei $k$ die Ortsfrequenz auch Wellenzahl genannt ist. Die Ausbreitungsgeschwindigkeit $v$ ist
+\begin{eqnarray*}
+v &=& \frac{\omega}{k}
+\end{eqnarray*}
+denn
+\begin{eqnarray*}
+\omega(t+\Delta t)-k(x+v\Delta t) &=& \omega t-kx
+\end{eqnarray*}
+In relativistischen Ereignis-Koordinaten:
+\begin{eqnarray*}
+\phi(x^\mu) &=& \sin\left(\frac{\omega}{c}x^0-\vec{k}\cdot\vec{x}\right)
+\end{eqnarray*}
+oder in einer Raum-Zei mit nur einer Raum-Koordinate
+\begin{eqnarray*}
+\phi(x^\mu) &=& \sin\left(\frac{\omega}{c}x^0-kx\right)\\
+k_\mu &=& \pmat{\frac{\omega}{c} & -k}\\
+\phi(x^\mu) &=& \sin\left(k_\mu x^\mu\right)
+\end{eqnarray*}
+$k_\mu$ transformiert sich demnach wie ein dualer Vektor.
+\end{subsection}
+
+\begin{subsection}{Materie-Wellen}
+Ein ruhendes Teilchen der Masse $m$ entspricht eine stehenden Welle
+\begin{eqnarray*}
+\phi(x^\mu) &=& \sin\left(\frac{\omega_0(m)}{c}x^0\right)\\
+ &=& \sin\left(\frac{mc}{\hbar}x^0\right)
+\end{eqnarray*}
+Dies entspricht einem Wellenvektor
+\begin{eqnarray*}
+k_\mu &=& \pmat{\frac{mc}{\hbar} & 0}
+\end{eqnarray*}
+Duale Vektoren transformieren sich mit der inversen Matrix:
+\begin{eqnarray*}
+k^\prime_\mu &=& \pmat{\frac{mc}{\hbar} & 0}\gamma(v)
+\pmat{1 & -\frac{v}{c}\\
+ -\frac{v}{c} &1
+}\\
+&=& \gamma(v)\pmat{\frac{mc}{\hbar} & -\frac{mv}{\hbar}}
+\end{eqnarray*}
+Die Ausbreitungsgeschwindigkeit ist
+\begin{eqnarray*}
+v &=& \frac{\omega}{k} = \frac{c}{v}
+\end{eqnarray*}
+größer als die Lichtgeschwindigkeit! Die Wellenlänge $\lambda$ ergibt sich
+\begin{eqnarray}
+\label{de_broglie_wavelenght}
+k\lambda &=& 2\pi\cr
+\lambda &=& \frac{2\pi}{k}\cr
+\lambda(m,v) &=& \frac{2\pi}{\gamma(v)\frac{mv}{\hbar}}=\frac{2\pi\hbar}{\gamma(v)mv}\cr
+&=&\frac{h}{p}
+\end{eqnarray}
+Denn $p=\gamma(v)mv$ ist der relativistische Ausdruck für den Impuls eines Teilchens.
+$\lambda=\frac{h}{p}$ heißt die de Broglie Wellenlänge.
+\\ \\
+Wikipedia:
+
+\textit{Einstein zeigte sich tief beeindruckt und erklärte später, er glaube, dass de Broglies Doktorarbeit den ersten schwachen Lichtstrahl auf dieses leidigste unter den physikalischen Rätseln werfe.
+}
+\end{subsection}
+
+\begin{subsection}{Bohrs Quantisierungs-Bedingung}
+Bohr Quantisierungs-Bedingung \ref{bohr_condition} war
+\begin{eqnarray*}
+L &=& n\hbar = mr^2\omega
+\end{eqnarray*}
+De Broglie hingegen argumentierte anders: Der Bahnumfang muss ein Vielfaches der Wellenlänge sein:
+\begin{eqnarray*}
+2\pi r &=& n\lambda\\
+\lambda=\frac{h}{p}\\
+p &=& mr\omega\\
+2\pi r &=& n\frac{h}{rm\omega}\\
+r^2m\omega &=& n\hbar
+\end{eqnarray*}
+Die beiden Bedingungen sind Äquivalent.
+\end{subsection}
+
+\begin{subsection}{Davisson-Germer-Experiment}
+\end{subsection}
+\end{section}
+
+\begin{section}{Schrödinger-Gleichung}
+\begin{subsection}{Zeitunabhängige Variante}
+Erwin Schrödinger hat sich die Argumente de Broglie's zu Herzen genommen. Dabei war zunächst die de Broglie-Wellenlänge \ref{de_broglie_wavelenght} der Ausgangspunkt.
+\begin{eqnarray*}
+\lambda &=&\frac{h}{p}
+\end{eqnarray*}
+Damit hängt auch die Ortsfrequenz $k$ zusammen:
+\begin{eqnarray*}
+k &=& \frac{2\pi}{\lambda} = \frac{2\pi p}{h}=\frac{p}{\hbar}
+\end{eqnarray*}
+Dies kann auch als Vektor-Gleichung verstanden werden
+\begin{eqnarray*}
+\vec{k} &=&  \frac{\vec{p}}{\hbar}
+\end{eqnarray*}
+Für eine ebene Welle bedeutet dies:
+\begin{eqnarray*}
+\phi(t,\vec{x}) &=& \sin(\omega t-\vec{k}\cdot\vec{p})\\
+\vec{\nabla}\phi(t,\vec{x}) &=& -\vec{k}\cos(\omega t-\vec{k}\cdot\vec{p})\\
+\Delta\phi(t,\vec{x}) &=& -\vec{k}^2\sin(\omega t-\vec{k}\cdot\vec{p})=-\left(\frac{\vec{p}}{\hbar}\right)^2\sin(\omega t-\vec{k}\cdot\vec{p})
+\end{eqnarray*}
+Die Zeit $t$ spielt hier keine Rolle, auf eine beliebige Funktion $\phi(\vec{x})$ angewandt:
+\begin{eqnarray*}
+\Delta \phi(\vec{x}) &=&-\left(\frac{\vec{p}}{\hbar}\right)^2\phi(\vec{x})\\
+\vec{p}^2\phi(\vec{x}) &=&-\hbar^2\Delta \phi(\vec{x})
+\end{eqnarray*}
+Daher kann die kinetische Energie im Wasserstoff-Atom so geschrieben werden:
+\begin{eqnarray*}
+T\phi(\vec{x})&=&\frac{\vec{p}^2}{2m}\phi(\vec{x})=-\frac{\hbar^2}{2m}\Delta\phi(\vec{x})
+\end{eqnarray*}
+Nehmen wir nun auch noch die Potentielle Energie hinzu erhalten wir
+\begin{eqnarray*}
+E\phi(\vec{x})&=&\left(-\frac{\hbar^2}{2m}\Delta-\frac{e^2}{4\pi\epsilon_0}\frac{1}{|\vec{x}|}\right)\phi(\vec{x})
+\end{eqnarray*}
+Das ist die sogenannte zeitunabhängige Schrödinger-Gleichung für ein Wasserstoff-Atom.
+Der in Klammern stehende Ausdruck wird Hamilton-Operator genannt:
+\begin{eqnarray}
+\label{hydrogen_hamilton_operator_def}
+\hat{H}&=&-\frac{\hbar^2}{2m}\Delta-\frac{e^2}{4\pi\epsilon_0}\frac{1}{|\vec{x}|}
+\end{eqnarray}
+Also
+\begin{eqnarray*}
+E \phi(\vec{x}) &=&\hat{H}\phi(\vec{x})
+\end{eqnarray*}
+Sie stellt ein Eigenwertproblem dar. Dieses kann sogar analytisch gelöst werden:
+\begin{eqnarray*}
+\phi_{nlm}(\vec{x})&=& R_{nl}(|\vec{r}|)Y_{lm}\left(\frac{\vec{x}}{|\vec{x}|}\right)
+\end{eqnarray*}
+$n$, $l$ und $m$ sind drei ganzzahlige Quantenzahlen. Und zwar so:
+\begin{eqnarray*}
+n &>& 0\\
+l &=& 0..(n-1)\\
+m&=& -l .. l
+\end{eqnarray*}
+Die Energie $E$ ist gleich den Eigenwerten und nehmen dieselben Werte an, wie beim Bohr-Model:
+\begin{eqnarray*}
+-\frac{1}{n^2}Ry \phi_{nlm}(\vec{x}) &=&\hat{H}\phi_{nlm}(\vec{x})
+\end{eqnarray*}
+Die $Y_{nlm}$ sind komplexe Funktionen.
+\begin{eqnarray*}
+Y_{lm}\left(\pmat{ \cos(\varphi)\sin(\theta)
+\\
+\sin(\varphi)\sin(\theta)\\
+\cos(\theta) }\right) &=& p(\cos(\theta)e^{im\varphi}
+\end{eqnarray*}
+können aber auch durch reelle Funktionen ersetzt werden:
+\begin{eqnarray*}
+Y^c_{lm}\left(\pmat{ \cos(\varphi)\sin(\theta)
+\\
+\sin(\varphi)\sin(\theta)\\
+\cos(\theta) }\right) &=& p(\cos(\theta)\cos(m\varphi)\\
+Y^s_{lm}\left(\pmat{ \cos(\varphi)\sin(\theta)
+\\
+\sin(\varphi)\sin(\theta)\\
+\cos(\theta) }\right) &=& p(\cos(\theta)\sin(m\varphi)\\
+Y_{nlm} &=& Y^c_{nlm}+iY^s_{nlm}
+\end{eqnarray*}
+Die $Y^c_{nlm}$ und $Y^s_{nlm}$ bilden ein vollständiges Funktionen-System. Das heißt, jede beliebige reelle Funktion kann als Linearkombination dieser Funktionen dargestellt werden.
+\end{subsection}
+
+\begin{subsection}{Zeitabhängige, reelle Variante}
+Mit der zeitunabhängigen Variante wird der de Broglie-Beziehung
+\begin{eqnarray*}
+\lambda &=&\frac{h}{p}
+\end{eqnarray*}
+Rechnung getragen. Es wäre nun schön, wenn auch die Planck-Beziehung
+\begin{eqnarray*}
+\nu &=& \frac{E}{h}\\
+\omega &=& \frac{E}{\hbar}
+\end{eqnarray*}
+in die Gleichung einbezogen werden könnte. Noch schöner wäre es, wenn wir einen Operator finden könnten der die Dynamik der Wellenfunktion beschreibt:
+\begin{eqnarray*}
+\frac{\partial}{\partial t} \phi(t,\vec{x}) &=& \hat{O}\phi(t,\vec{x})
+\end{eqnarray*}
+Dabei stellt sich aber ein Problem. Nehmen wir an für eine Funktion $\phi(\vec{x})$ gelte
+\begin{eqnarray*}
+E\phi(\vec{x}) &=& \hat{H}\phi(\vec{x})
+\end{eqnarray*}
+Dann könnten wir versucht sein die zeitabhängige Welle
+\begin{eqnarray*}
+\phi(t,\vec{x}) &=& \sin(\omega t)\phi(\vec{x})=\sin\left(\frac{E}{\hbar} t\right)\phi(\vec{x})
+\end{eqnarray*}
+in Betracht zu ziehen. Nach der Zeit abgeleitet:
+\begin{eqnarray*}
+\frac{\partial}{\partial t} \phi(t,\vec{x}) &=& \omega\cos(\omega t)\phi(\vec{x})
+\end{eqnarray*}
+ähnlich verhält es sich mit
+\begin{eqnarray*}
+\phi(t,\vec{x}) &=& \cos(\omega t)\phi(\vec{x})\\
+\frac{\partial}{\partial t} \phi(t,\vec{x}) &=& -\omega\sin(\omega t)\phi(\vec{x})
+\end{eqnarray*}
+Eine Lösung besteht darin, anstelle einer einzigen Funktion, ein Paar von Funktionen zu betrachten zum Beispiel:
+\begin{eqnarray*}
+\phi(t,\vec{x}) &=& \pmat{\cos(\omega t)\\ \sin(\omega t)}\phi(\vec{x})\\
+\frac{\partial}{\partial t} \phi(t,\vec{x}) &=& \omega\pmat{-\sin(\omega t)\\ \cos(\omega t)}\phi(\vec{x})
+\end{eqnarray*}
+Nun müssen nur noch $\sin$ und $\cos$ miteinander vertauscht werden. Dies kann mit Hilfe einer $2\times 2$-Matrix erreicht werden:
+\begin{eqnarray*}
+\frac{\partial}{\partial t} \pmat{ 0 & 1\\ -1 & 0}\phi(t,\vec{x}) &=& \omega\pmat{ 0 & 1\\ -1 & 0}\pmat{-\sin(\omega t)\\ \cos(\omega t)}\phi(\vec{x})\\
+&=& \omega\pmat{\cos(\omega t)\\ \sin(\omega t)}\phi(\vec{x})\\
+&=& \omega \phi(t,\vec{x}) =\frac{E}{\hbar} \phi(t,\vec{x}) =\frac{\hat{H}}{\hbar} \phi(t,\vec{x}) 
+\end{eqnarray*}
+Nun gilt
+\begin{eqnarray*}
+\pmat{ 0 & 1\\ -1 & 0}\pmat{ 0 & 1\\ -1 & 0} &=& -\pmat{ 1 & 0\\ 0 & 1}
+\end{eqnarray*}
+Daher kann obige Gleichung umgeschrieben werden:
+\begin{eqnarray}
+\label{schroedinger_time_1}
+\frac{\partial}{\partial t} \phi(t,\vec{x}) &=&=-\pmat{ 0 & 1\\ -1 & 0}\frac{\hat{H}}{\hbar} \phi(t,\vec{x}) 
+\end{eqnarray}
+und wir erhalten die gewünschte Dynamik der Wellenfunktion. Diese soll nun auf eine beliebige Funktion
+\begin{eqnarray*}
+\phi(t,\vec{x}) &=&= \pmat{ \phi_1(t, \vec{x})\\ \phi_2(t, \vec{x})}
+\end{eqnarray*}
+angewandt werden können. Nun kann aber jedes beliebige $\phi(t, \vec{x})$ so dargestellt werden:
+\begin{eqnarray*}
+\phi(t, \vec{x})=\pmat{\phi_1(t, \vec{x})\\ \phi_2(t, \vec{x})} &=& 
+\pmat{
+\sum_{nlm} \tau^c_{1,nlm}(t)\phi^c_{nlm}(\vec{x})+\tau^s_{1,nlm}(t)\phi^s_{nlm}(\vec{x})\\
+\sum_{nlm} \tau^c_{2,nlm}(t)\phi^c_{nlm}(\vec{x})+\tau^s_{2,nlm}(t)\phi^s_{nlm}(\vec{x})
+}
+\end{eqnarray*}
+Wenden wir darauf den Hamilton-Operator an:
+\begin{eqnarray*}
+\hat{H}\phi(t, \vec{x})=\pmat{\phi_1(t, \vec{x})\\ \phi_2(t, \vec{x})} &=& 
+\pmat{
+\sum_{n}E_n\sum_{lm} \tau^c_{1,nlm}(t)\phi^c_{nlm}(\vec{x})+\tau^s_{1,nlm}(t)\phi^s_{nlm}(\vec{x})\\
+\sum_{n}E_n\sum_{lm} \tau^c_{2,nlm}(t)\phi^c_{nlm}(\vec{x})+\tau^s_{2,nlm}(t)\phi^s_{nlm}(\vec{x})
+}
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+E_n &=& -\frac{1}{n^2}Ry
+\end{eqnarray*}
+und weiter
+\begin{eqnarray*}
+-\pmat{ 0 & 1\\ -1 & 0}
+\frac{\hat{H}}{\hbar}\phi(t, \vec{x})&=& \frac{1}{\hbar}
+\pmat{
+-\sum_{n}E_n\sum_{lm} \tau^c_{2,nlm}(t)\phi^c_{nlm}(\vec{x})+\tau^s_{2,nlm}(t)\phi^s_{nlm}(\vec{x})\\
+\sum_{n}E_n\sum_{lm} \tau^c_{1,nlm}(t)\phi^c_{nlm}(\vec{x})+\tau^s_{1,nlm}(t)\phi^s_{nlm}(\vec{x})
+}
+\end{eqnarray*}
+dann haben wir die rechte Seite von \ref{schroedinger_time_1}. Die linke Seite ergibt:
+\begin{eqnarray*}
+\frac{\partial}{\partial t}\phi(t, \vec{x})=\pmat{\phi_1(t, \vec{x})\\ \phi_2(t, \vec{x})} &=& 
+\pmat{
+\sum_{nlm} \tau^{c\prime}_{1,nlm}(t)\phi^c_{nlm}(\vec{x})+\tau^{s\prime}_{1,nlm}(t)\phi^s_{nlm}(\vec{x})\\
+\sum_{nlm} \tau^{c\prime}_{2,nlm}(t)\phi^c_{nlm}(\vec{x})+\tau^{s\prime}_{2,nlm}(t)\phi^s_{nlm}(\vec{x})
+}
+\end{eqnarray*}
+Setzen wir die beiden Seiten gleich, dann müssen die Koeffizienten übereinstimmen, denn die $\phi^c_{nlm}$ und $\phi^s_{nlm}$ sind alle voneinander linear unabhängig:
+\begin{eqnarray*}
+-\frac{E_n}{\hbar}\tau^c_{2,nlm}(t)&=&\tau^{c\prime}_{1,nlm}(t)\\
+\frac{E_n}{\hbar}\tau^c_{1,nlm}(t)&=&\tau^{c\prime}_{2,nlm}(t)\\
+-\frac{E_n}{\hbar}\tau^s_{2,nlm}(t)&=&\tau^{s\prime}_{1,nlm}(t)\\
+\frac{E_n}{\hbar}\tau^s_{1,nlm}(t)&=&\tau^{s\prime}_{2,nlm}(t)
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+\omega_n &=& \frac{E_n}{\hbar}
+\end{eqnarray*}
+also
+\begin{eqnarray*}
+-\omega_n^2\tau^c_{2,nlm}(t)&=&\tau^{c\prime\prime}_{2,nlm}(t)\\
+-\omega_n\tau^s_{2,nlm}(t)&=&\tau^{s\prime\prime}_{2,nlm}(t)
+\end{eqnarray*}
+Ganz allgemein ist die Lösung von
+\begin{eqnarray*}
+-\omega^2\tau(t) = \tau^{\prime\prime}(t)&\Leftrightarrow& \tau(t) = a\sin(\omega t+\xi)
+\end{eqnarray*}
+also
+\begin{eqnarray*}
+\tau^c_{2,nlm}(t)&=&a^c_{nlm}\sin(\omega_n t+\xi^c_{nlm})\\
+\tau^s_{2,nlm}(t)&=&a^s_{nlm}\sin(\omega_n t+\xi^s_{nlm})
+\end{eqnarray*}
+und daher
+\begin{eqnarray*}
+\tau^c_{1,nlm}(t)&=&a^c_{nlm}\cos(\omega_n t+\xi^c_{nlm})\\
+\tau^s_{1,nlm}(t)&=&a^s_{nlm}\cos(\omega_n t+\xi^s_{nlm})
+\end{eqnarray*}
+Das heißt, die allgemeine Lösung von \ref{schroedinger_time_1} lautet
+\begin{eqnarray*}
+\phi(t, \vec{x})=\pmat{\phi_1(t, \vec{x})\\ \phi_2(t, \vec{x})} &=& \sum_{nlm} \left(a^c_{nlm}\pmat{\cos(\omega_n t+\xi^c_{nlm})\\\sin(\omega_n t+\xi^c_{nlm})}\phi^c_{nlm}
++a^s_{nlm}\pmat{\cos(\omega_n t+\xi^s_{nlm})\\\sin(\omega_n t+\xi^s_{nlm})}\phi^s_{nlm}\right)
+\end{eqnarray*}
+In anderen Worten, die Anteile zu unterschiedlichen Energie-Eigenwerten $E_n$ schwingen unabhängig voneinander mit der entsprechenden Frequenz $\omega_n$.
+\end{subsection}
+
+\begin{subsection}{Zeitabhängige, komplexe Variante}
+Dasselbe wie im letzten Abschnitt lässt sich mit komplexen Zahlen beschreiben. Die Matrix $\pmat{ 0 & 1\\ -1 & 0}$ hat, wie oben schon erwähnt, die Eigenschaft
+\begin{eqnarray*}
+\pmat{ 0 & 1\\ -1 & 0}\pmat{ 0 & 1\\ -1 & 0} &=& -\pmat{ 1 & 0\\ 0 & 1}
+\end{eqnarray*}
+Komplexe Zahlen können als Matrizen
+\begin{eqnarray*}
+a+bi &=& \pmat{ a & b\\ -b & a}
+\end{eqnarray*}
+aufgefasst werden. Das heißt
+\begin{eqnarray*}
+i &=& \pmat{ 0 & 1\\ -1 & 0}
+\end{eqnarray*}
+Das heißt
+\begin{eqnarray*}
+i^2 &=& -1
+\end{eqnarray*}
+Statt
+\begin{eqnarray*}
+\phi(t,\vec{x})&=&\pmat{\phi_1(t,\vec{x})\\ \phi_2(t,\vec{x})}
+\end{eqnarray*}
+schreiben wir
+\begin{eqnarray*}
+\phi(t,\vec{x})&=&\phi_2(t,\vec{x})+i\phi_1(t,\vec{x})
+\end{eqnarray*}
+denn
+\begin{eqnarray*}
+\pmat{ 0 & 1\\ -1 & 0}\pmat{\phi_1(t,\vec{x})\\ \phi_2(t,\vec{x})}
+&=&
+\pmat{\phi_2(t,\vec{x})\\-\phi_1(t,\vec{x})}\\
+i(\phi_2(t,\vec{x})+i\phi_1(t,\vec{x})) &=& -\phi_1(t,\vec{x})+i\phi_2(t,\vec{x})
+\end{eqnarray*}
+\ref{schroedinger_time_1} wird dann zu
+\begin{eqnarray}
+\label{schrödinger_complex}
+\frac{\partial}{\partial t} \phi(t,\vec{x}) &=&-i\frac{\hat{H}}{\hbar} \phi(t,\vec{x}) \cr
+i\hbar\frac{\partial}{\partial t} \phi(t,\vec{x}) &=&\hat{H}\phi(t,\vec{x})
+\end{eqnarray}
+In dieser Form erscheint die zeitabhängige Schrödinger-Gleichung in der Literatur.
+
+Die allgemeine Welle, die \ref{schrödinger_complex} erfüllt, ist
+\begin{eqnarray*}
+\phi(t,\vec{x}) &=& \sum_{n}e^{-i\omega_n t}\sum_{lm} a_{nlm}Y_{nlm}(\vec{x})
+\end{eqnarray*}
+wobei $a_{nlm}$ komplexe Zahlen sind, denn
+\begin{eqnarray*}
+i\hbar\frac{\partial}{\partial t}\phi(t,\vec{x}) &=& i\hbar\sum_{n}-i\omega_ne^{-i\omega_n t}\sum_{lm} a_{nlm}\phi_{nlm}(\vec{x})\\
+&=& \hbar\sum_{n}\omega_ne^{-i\omega_n t}\sum_{lm} a_{nlm}\phi_{nlm}(\vec{x})\\
+&=& \sum_{n}E_ne^{-i\omega_n t}\sum_{lm} a_{nlm}\phi_{nlm}(\vec{x})\\
+&=& \hat{H}\phi(t,\vec{x})
+\end{eqnarray*}
+Für ein bestimmtes Energie-Niveau $E_n$
+\begin{eqnarray*}
+\phi_n(t,\vec{x}) &=& e^{-i\omega_n t}\sum_{lm} a_{nlm}\phi_{nlm}(\vec{x})
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Interpretation}
+\begin{subsubsection}{Vorbereitung}
+Zunächst führen wir eine Notation ein:
+\begin{eqnarray*}
+\braket{\phi(t,\vec{x})}{\xi(t,\vec{x})}&=&\int dx^3 \phi^*(t,\vec{x})\xi(t,\vec{x})
+\end{eqnarray*}
+Für normierte Wellenfunktionen gilt
+\begin{eqnarray*}
+\braket{\phi(t,\vec{x})}{\phi(t,\vec{x})}&=&1
+\end{eqnarray*}
+Wir betrachten zwei Raum-Funktionen $\Phi_1(\vec{x})$ und $\Phi_2(\vec{x})$ mit den Eigenschaften
+\begin{eqnarray*}
+\hat{H}\Phi_1(\vec{x}) &=& E_1\Phi_1(\vec{x})\\
+\braket{\Phi_1(\vec{x})}{\Phi_1(\vec{x})} &=& 1\\
+\hat{H}\Phi_2(\vec{x}) &=& E_2\Phi_2(\vec{x})\\
+\braket{\Phi_2(\vec{x})}{\Phi_2(\vec{x})} &=& 1
+\end{eqnarray*}
+Wobei $E_1\ne E_2$. Daraus lassen sich zwei Lösungen der zeitabhängigen Schrödinger-Gleichung \ref{schrödinger_complex}
+\begin{eqnarray*}
+i\hbar\frac{\partial}{\partial t} \phi(t,\vec{x}) &=&\hat{H}\phi(t,\vec{x})
+\end{eqnarray*}
+bilden:
+\begin{eqnarray*}
+\phi_1(t,\vec{x}) &=& e^{-i\omega_1 t}\Phi_1(\vec{x})\\
+\phi_2(t,\vec{x}) &=& e^{-i\omega_2 t}\Phi_2(\vec{x})
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+\omega_1 &=& \frac{E_1}{\hbar}\\
+\omega_2 &=& \frac{E_2}{\hbar}
+\end{eqnarray*}
+Nun bilden wir eine Linearkombination $\phi$ von $\phi_1$ und $\phi_2$:
+\begin{eqnarray}
+\label{double_wave_function}
+\phi(t,\vec{x}) &=& a_1\phi_1(t,\vec{x})+a_2\phi_2(t,\vec{x})
+\end{eqnarray}
+wobei für die beiden komplexen Zahlen $a_1$ und $a_2$
+\begin{eqnarray*}
+a_1^*a_1+a_2^*a_2 &=& 1
+\end{eqnarray*}
+gilt. Das hat zur Folge, dass auch $\phi$ normiert ist:
+\begin{eqnarray*}
+\braket{\phi(t,\vec{x})}{\phi(t,\vec{x})} &=& 1
+\end{eqnarray*}
+Denn
+\begin{eqnarray*}
+\braket{\phi(t,\vec{x})}{\phi(t,\vec{x})} &=& \braket{a_1\phi_1(t,\vec{x})+a_2\phi_2(t,\vec{x})}{a_1\phi_1(t,\vec{x})+a_2\phi_2(t,\vec{x})}\\
+&=&a_1^*a_1\braket{\phi_1(t,\vec{x})}{\phi_1(t,\vec{x})}\\
+&&+a_1^*a_2\braket{\phi_1(t,\vec{x})}{\phi_2(t,\vec{x})}\\
+&&+a_2^*a_1\braket{\phi_2(t,\vec{x})}{\phi_1(t,\vec{x})}\\
+&&+a_2^*a_2\braket{\phi_2(t,\vec{x})}{\phi_2(t,\vec{x})}\\
+&=&a_1^*a_1\braket{\Phi_1(t,\vec{x})}{\Phi_1(t,\vec{x})}\\
+&&+a_2^*a_2\braket{\Phi_2(t,\vec{x})}{\Phi_2(t,\vec{x})}\\
+&=&a_1^*a_11+a_2^*a_21 = 1
+\end{eqnarray*}
+$\braket{\phi_1(t,\vec{x})}{\phi_2(t,\vec{x})}=0$ und $\braket{\phi_2(t,\vec{x})}{\phi_1(t,\vec{x})}=0$ (siehe \ref{eigen_normality}).
+Daher kann, wie oben schon angesprochen, $\phi^*(t,\vec{x})\phi(t,\vec{x})$ als Aufenthaltswahrscheinlichkeit und
+\begin{eqnarray*}
+\rho(t,\vec{x}) &=& -e\phi^*(t,\vec{x})\phi(t,\vec{x})
+\end{eqnarray*}
+als Ladungsdichte aufgefasst werden. Diese ist zwar immer noch reell und positiv, aber nicht mehr konstant.
+\end{subsubsection}
+
+\begin{subsubsection}{\titlemath{$\hat{H}$}{H} ist ein hermitescher Operator}
+Für einen beliebigen Operator $\hat{A}$ ist der dazu adjungierte Operator $\hat{A}^\dagger$ durch
+\begin{eqnarray*}
+\braket{\hat{A}^\dagger \phi}{\chi} &=& \braket{\phi}{\hat{A}\chi}
+\end{eqnarray*}
+(gültig für beliebige $\phi$ und $\chi$) definiert. Gilt $\hat{A}^\dagger = \hat{A}$, spricht man von einem selbstadjungierten oder hermiteschen Operator. Eigenwerte hermitescher Operatoren sind reell:
+\begin{eqnarray*}
+\hat{A}\phi(\vec{x}) &=& a\phi(\vec{x})\\
+\braket{\hat{A}\phi}{\phi} &=& \braket{\phi}{\hat{A}\phi}\\
+\braket{a\phi}{\phi} &=& \braket{\phi}{a\phi}\\
+a^*\braket{\phi}{\phi} &=& a\braket{\phi}{\phi}\\
+a^* &=& a
+\end{eqnarray*}
+
+
+Wir wollen nun zeigen, dass der Hamilton-Operator \ref{hydrogen_hamilton_operator_def} in der Schrödinger-Gleichung für das Wasserstoff-Atom.
+\begin{eqnarray*}
+\hat{H}&=&-\frac{\hbar^2}{2m}\Delta-\frac{e^2}{4\pi\epsilon_0}\frac{1}{|\vec{x}|}
+\end{eqnarray*}
+tatsächlich ein hermitescher Operator ist. Zunächst ist der Potential-Anteil $\frac{e^2}{4\pi\epsilon_0}\frac{1}{|\vec{x}|}$ einfach ein reelle Funktion $V(\vec{x})$. Solche können immer als hermitesche Operatoren aufgefasst werden:
+\begin{eqnarray*}
+\braket{\phi(\vec{x})}{V(\vec{x})\chi(\vec{x})} &=& \int dx^3\ \phi^*(\vec{x})\left(V(\vec{x})\chi(\vec{x})\right)\\
+&=& \int dx^3\ V(\vec{x})\left(\phi^*(\vec{x})\chi(\vec{x})\right)\\
+&=& \int dx^3\ \left(V(\vec{x})\phi^*(\vec{x})\right)\chi(\vec{x})\\
+&=& \braket{V(\vec{x})\phi(\vec{x})}{\chi(\vec{x})}
+\end{eqnarray*}
+Für den kinetischen Teil bleibt zu zeigen, dass $\Delta$ ein hermitescher Operator ist:
+\begin{eqnarray*}
+\braket{\phi(\vec{x})}{\Delta\chi(\vec{x})} &=& \int dx^3\ \phi^*(\vec{x})\left(\Delta\chi(\vec{x})\right)\\
+&=& \int dx^3\ \phi^*(\vec{x})\left(\nabla\cdot\nabla\chi(\vec{x})\right)\\
+&=& \int dx^3\ \nabla\cdot\left(\phi^*(\vec{x})\nabla\chi(\vec{x})\right)-\left(\nabla\phi^*(\vec{x})\right)\cdot\left(\nabla\chi(\vec{x})\right)
+\end{eqnarray*}
+Das Integral über die Divergenz verschwindet, da normierbare Funktionen im Unendlichen verschwinden.
+\begin{eqnarray*}
+\braket{\phi(\vec{x})}{\Delta\chi(\vec{x})} &=& -\int dx^3\ \left(\nabla\phi^*(\vec{x})\right)\cdot\left(\nabla\chi(\vec{x})\right)\\
+ &=& -\int dx^3\ \nabla\cdot\left(\nabla\phi^*(\vec{x})\right)\left(\chi(\vec{x})\right)-\left(\nabla\cdot\nabla\phi^*(\vec{x})\right)\left(\chi(\vec{x})\right)
+\end{eqnarray*}
+Erneut verschwindet die Divergenz und wir erhalten schließlich
+\begin{eqnarray*}
+\braket{\phi(\vec{x})}{\Delta\chi(\vec{x})} &=& \int dx^3\ \left(\nabla\cdot\nabla\phi^*(\vec{x})\right)\left(\chi(\vec{x})\right)\\
+ &=& \int dx^3\ \left(\Delta\phi^*(\vec{x})\right)\left(\chi(\vec{x})\right)\\
+&=&\braket{\Delta\phi(\vec{x})}{\chi(\vec{x})}
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Eigenfunktionen zu verschiedenen Eigenwerten eines hermiteschen Operators sind orthogonal}
+\label{eigen_normality}
+Es gelte für einen hermiteschen Operator $\hat{A}$ und zei Funktionen $\phi$ und $\chi$:
+\begin{eqnarray*}
+\hat{A}\phi(\vec{x}) &=& a_\phi\phi(\vec{x})\\
+\hat{A}\chi(\vec{x}) &=& a_\chi\chi(\vec{x})
+\end{eqnarray*}
+wobei die beiden reellen $a_\phi$ $a_\chi$ Eigenwerte verschieden seien.
+\begin{eqnarray*}
+\braket{\phi}{\hat{A}\chi}&=&\braket{\hat{A}\phi}{\chi}\\
+\braket{\phi}{a_\phi\chi}&=&\braket{a_\chi\phi}{\chi}\\
+a_\phi\braket{\phi}{\chi}&=&a_\chi\braket{\phi}{\chi}\\
+\left(a_\phi-a_\chi\right)\braket{\phi}{\chi}&=& 0\\
+\braket{\phi}{\chi} &=& 0
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Aufenthalts-Wahrscheinlichkeit und stationäre Ladungsdichte}
+Für ein bestimmtes Energie-Niveau $E_n$ gilt
+\begin{eqnarray*}
+\phi_n(t,\vec{x}) &=& e^{-i\omega_n t}\sum_{lm} a_{nlm}\phi_{nlm}(\vec{x})
+\end{eqnarray*}
+Multipliziert man dies mit der komplex konjugierten Welle $\phi^*_n(t,\vec{x})$ erhalten wir eine zeitunabhängige, reelle und positive Funktion $\rho(\vec{x})$, eben die Amplitude einer stehenden Welle:
+\begin{eqnarray*}
+\rho(\vec{x})&=&\phi^*_n(t,\vec{x})\phi_n(t,\vec{x})\phi_n(t,\vec{x})\phi_n(t,\vec{x})\\
+&=& \left(e^{i\omega_n t}\sum_{\lambda\mu} a^*_{n\lambda\mu}\phi^*_{n\lambda\mu}(\vec{x})\right)\left(e^{-i\omega_n t}\sum_{lm} a_{nlm}\phi_{nlm}(\vec{x})\right)\\
+&=& \left(\sum_{\lambda\mu} a^*_{n\lambda\mu}\phi^*_{n\lambda\mu}(\vec{x})\right)\left(\sum_{lm} a_{nlm}\phi_{nlm}(\vec{x})\right)
+\end{eqnarray*}
+Normiert man diese über den Raum, sodass
+\begin{eqnarray*}
+\int dx^3 \rho(\vec{x}) &=& 1 = \sum_{lm} a^*_{nlm}a_{nlm}=\sum_{lm} |a_{nlm}|^2
+\end{eqnarray*}
+wird, kann $\rho(\vec{x})$ als räumlich Wahrscheinlichkeits-Verteilung oder Aufenthalts-Wahrscheinlichkeit interpretiert werden.
+Multipliziert man diese mit der Elektronen-Ladung $-e$, kann dies als stationäre Ladungsdichte verstanden werden. Deshalb findet keine Abstrahlung von elektromagnetischer Energie statt.
+\end{subsubsection}
+
+\begin{subsubsection}{Erwartungswerte und deren Zeitableitung}
+Zu einem beliebigen hermiteschen Operator nennen wir
+\begin{eqnarray*}
+\bra{\phi}\hat{A}\ket{\phi} &=& \int dx^3 \phi^*(\vec{x})\hat{A}\phi(\vec{x})
+\end{eqnarray*}
+den Erwartungswert von $\hat{A}$. Aus dr zeitabhängigen Schrödinger-Gleichung:
+\begin{eqnarray*}
+i\hbar \dot{\phi}(t,\vec{x}) &=& \hat{H}\phi(t,\vec{x})\\
+\dot{\phi}(t,\vec{x}) &=& \frac{-i}{\hbar}\hat{H}\phi(t,\vec{x})
+\end{eqnarray*}
+erhalten wir die Zeitableitung der Wellenfunktion, und somit des Erwartungswertes:
+\begin{eqnarray*}
+\frac{\partial}{\partial t}\bra{\phi}\hat{A}\ket{\phi} &=& \int dx^3 \dot{\phi}^*(\vec{x})\hat{A}\phi(\vec{x})+\phi^*(\vec{x})\hat{A}\dot{\phi}(\vec{x})\\
+ &=& \int dx^3 \left(\frac{-i}{\hbar}\hat{H}\phi(t,\vec{x})\right)^*\hat{A}\phi(\vec{x})
++\phi^*(\vec{x})\hat{A}\left(\frac{-i}{\hbar}\hat{H}\phi(t,\vec{x})\right)\\
+ &=& \frac{i}{\hbar}\int dx^3 \left(\hat{H}\phi(t,\vec{x})\right)^*\hat{A}\phi(\vec{x})
+-\phi^*(\vec{x})\hat{A}\left(\hat{H}\phi(t,\vec{x})\right)\\
+&=&\frac{i}{\hbar}\bra{\hat{H}\phi(t,\vec{x})}\hat{A}\ket{\phi(t,\vec{x})}
+-\frac{i}{\hbar}\bra{\phi(t,\vec{x})}\hat{A}\ket{\hat{H}\phi(t,\vec{x})}\\
+&=&\frac{i}{\hbar}\bra{\phi(t,\vec{x})}\hat{H}\hat{A}\ket{\phi(t,\vec{x})}
+-\frac{i}{\hbar}\bra{\phi(t,\vec{x})}\hat{A}\hat{H}\ket{\phi(t,\vec{x})}\\
+&=&\frac{i}{\hbar}\bra{\phi(t,\vec{x})}[\hat{H},\hat{A}]\ket{\phi(t,\vec{x})}
+\end{eqnarray*}
+Formal können wir schreiben:
+\begin{eqnarray*}
+\frac{\partial}{\partial t}\hat{A} &=&\frac{i}{\hbar}[\hat{H},\hat{A}]
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Korrespondenz-Prinzip}
+Die Zeitableitung lässt sich auch auf so einfache Operatoren wie $\hat{\vec{x}}$
+\begin{eqnarray*}
+\bra{\phi}\hat{\vec{x}}\ket{\phi} &=& \int dx^3 \phi^*(\vec{x})\vec{x}\phi(\vec{x})
+\end{eqnarray*}
+anwenden:
+\begin{eqnarray*}
+\frac{\partial}{\partial t}\hat{\vec{x}} &=&\frac{i}{\hbar}[\hat{H},\hat{\vec{x}}]\cr
+[\hat{H},\hat{\vec{x}}]\phi(\vec{x}) &=& -\frac{\hbar^2\Delta}{2m}\vec{x}\phi(\vec{x})
++\vec{x}\frac{\hbar^2\Delta}{2m}\phi(\vec{x})\\
+&=& \frac{\hbar^2}{2m}\left(-\Delta\vec{x}\phi(\vec{x})+\vec{x}\Delta\phi(\vec{x})\right)\\
+\bra{\phi}\Delta\vec{x}-\vec{x}\Delta\ket{\phi}&=&\int dx^3\ \phi^*(\vec{x})\left(\Delta\vec{x}-\vec{x}\Delta\right)\phi(\vec{x})\\
+\left(\Delta\vec{x}\phi(\vec{x})\right)_k &=& \sum_l\partial_l\partial_lx_k\phi(\vec{x})\\
+&=& \sum_l\partial_l\delta_{lk}\phi(\vec{x})+\sum_l\partial_lx_k\partial_l\phi(\vec{x})\\
+&=& \partial_k\phi(\vec{x})+\sum_l\delta_{lk}\partial_l\phi(\vec{x})+\sum_lx_k\partial_l\partial_l\phi(\vec{x})\\
+&=& 2\partial_k\phi(\vec{x})+\sum_lx_k\partial_l\partial_l\phi(\vec{x})\\
+\Delta\vec{x}\phi(\vec{x}) &=& 2\vec{\nabla}\phi(\vec{x})+\vec{x}\Delta\phi(\vec{x})\\
+\left(\Delta\vec{x}-\vec{x}\Delta\right)\phi(\vec{x}) &=& 2\vec{\nabla}\phi(\vec{x})\\
+\bra{\phi}\Delta\vec{x}-\vec{x}\Delta\ket{\phi}&=&2\bra{\phi}\vec{\nabla}\ket{\phi}\cr
+[\hat{H},\hat{\vec{x}}] &=& -\frac{\hbar^2}{m}\vec{\nabla}\\
+\frac{\partial}{\partial t}\bra{\phi}\hat{\vec{x}}\ket{\phi} &=& \frac{-i}{\hbar}\frac{\hbar^2}{m}\bra{\phi}\vec{\nabla}\ket{\phi}\\
+\dot{\hat{\vec{x}}} &=& \hat{\vec{v}}  = \frac{-i\hbar}{m}\vec{\nabla}\\
+\hat{\vec{p}} &=& -i\hbar\vec{\nabla}
+\end{eqnarray*}
+$\hat{\vec{v}}$ ist der Geschwindigkeits-Operator, $\hat{\vec{p}}$ der Impulsoperator. So wird aus der klassischen Hamilton-Funktion
+\begin{eqnarray*}
+H(p,x) &=& \frac{\vec{p}^2}{2m}+V(\vec{x})
+\end{eqnarray*}
+Der Hamilton-Operator
+\begin{eqnarray*}
+\hat{H} &=& \frac{\hat{\vec{p}}^2}{2m}+V(\vec{x})=-\frac{\hbar^2\Delta}{2m}+V(\vec{x})
+\end{eqnarray*}
+Nun wenden wir dasselbe Prozedere auf $\hat{\vec{p}}$ an:
+\begin{eqnarray*}
+\frac{\partial}{\partial t}\hat{\vec{p}} &=&\frac{i}{\hbar}[\hat{H},\hat{\vec{p}}]\\
+&=& \frac{i}{\hbar}\left[\frac{\hat{\vec{p}}^2}{2m}+V(\vec{x}),\hat{\vec{p}}\right]\\
+&=& \frac{i}{\hbar}\left[V(\vec{x}),\hat{\vec{p}}\right]=\left[V(\vec{x}),\hat{\vec{\nabla}}\right]\\
+&=&V(\vec{x})\hat{\vec{\nabla}}-\hat{\vec{\nabla}}V(\vec{x})=-\vec{\nabla}V\\
+\frac{\partial}{\partial t}\hat{\vec{p}} &=&-\vec{\nabla}V
+\end{eqnarray*}
+Wir fassen zusammen:
+\begin{eqnarray*}
+\dot{\hat{\vec{x}}} &=& \frac{\hat{\vec{p}}}{m}\\
+\dot{\hat{\vec{p}}} &=&-\vec{\nabla}V
+\end{eqnarray*}
+und vergleichen dies mit den Hamilton-Gleichungen
+\begin{eqnarray*}
+\dot{\vec{x}} &=& \frac{\partial H(\vec{p},\vec{x})}{\partial \vec{p}}\\
+\dot{\vec{p}} &=&-\frac{\partial H(\vec{p},\vec{x})}{\partial \vec{x}}
+\end{eqnarray*}
+Wir erhalten also folgende Korrespondenz:
+\begin{eqnarray*}
+\dot{\hat{\vec{x}}}=\frac{i}{\hbar}[\hat{H},\hat{\vec{x}}] &\sim&\dot{\vec{x}} =\frac{\partial H(\vec{p},\vec{x})}{\partial \vec{p}}\\
+\dot{\hat{\vec{p}}}=-\frac{i}{\hbar}[\hat{H},\hat{\vec{p}}] &\sim&\dot{\vec{p}} =-\frac{\partial H(\vec{p},\vec{x})}{\partial \vec{x}}\\
+p = \frac{\partial L}{\partial \dot{x}}(\dot{x},x)&\sim& [p,x] =-i\hbar
+\end{eqnarray*}
+\end{subsubsection}
+
+\begin{subsubsection}{Heisenbergsche Unschärfe-Relation}
+\end{subsubsection}
+\end{subsection}
+
+
+\end{section}
+
+\begin{section}{Emission}
+\begin{subsection}{Schwebungen und Strom}
+Zurück zur Wellenfunktion \ref{double_wave_function}
+\begin{eqnarray*}
+\phi(t,\vec{x}) &=& a_1\phi_1(t,\vec{x})+a_2\phi_2(t,\vec{x})
+\end{eqnarray*}
+mit
+\begin{eqnarray*}
+\hat{H}\Phi_1(\vec{x}) &=& E_1\Phi_1(\vec{x})\\
+\braket{\Phi_1(\vec{x})}{\Phi_1(\vec{x})} &=& 1\\
+\hat{H}\Phi_2(\vec{x}) &=& E_2\Phi_2(\vec{x})\\
+\braket{\Phi_2(\vec{x})}{\Phi_2(\vec{x})} &=& 1\\
+E_1 &\ne& E_2\\
+\phi_1(t,\vec{x}) &=& e^{-i\omega_1 t}\Phi_1(\vec{x})\\
+\phi_2(t,\vec{x}) &=& e^{-i\omega_2 t}\Phi_2(\vec{x})\\
+\omega_1 &=& \frac{E_1}{\hbar}\\
+\omega_2 &=& \frac{E_2}{\hbar}
+\end{eqnarray*}
+Die Funktion
+\begin{eqnarray*}
+\rho(t,\vec{x}) &=& \phi^*(t,\vec{x})\phi(t,\vec{x})
+\end{eqnarray*}
+ist reell, positiv und normiert, aber nicht konstant. Multipliziert mit der elektrischen Ladung $-e$ des Elektrons
+erhalten wir eine zeitabhängige Ladungsverteilung der Gesamtladung $-e$:
+\begin{eqnarray*}
+\rho_{EM}(t,\vec{x}) &=& -e\phi^*(t,\vec{x})\phi(t,\vec{x})
+\end{eqnarray*}
+Um die elektrische Stromdichte zu erhalten, leiten wir nach der Zeit ab (wir lassen vorübergehend den Vorfaktor $-e$ weg):
+\begin{eqnarray*}
+\dot{\rho}(t,\vec{x}) &=& \dot{\phi}^*(t,\vec{x})\phi(t,\vec{x})+\phi^*(t,\vec{x})\dot{\phi}(t,\vec{x})\\
+&=& \left(-\frac{i}{\hbar}\hat{H}\phi(t,\vec{x})\right)^*\phi(t,\vec{x})+\phi^*(t,\vec{x})\left(-\frac{i}{\hbar}\hat{H}\phi(t,\vec{x})\right)
+\end{eqnarray*}
+Dabei haben wir die Schrödinger-Gleichung
+\begin{eqnarray*}
+i\hbar\dot{\phi}(t,\vec{x}) &=& \hat{H}\phi(t,\vec{x})\\
+\dot{\phi}(t,\vec{x}) &=& -\frac{i}{\hbar}\hat{H}\phi(t,\vec{x})
+\end{eqnarray*}
+benutzt.
+\begin{eqnarray*}
+\dot{\rho}(t,\vec{x}) &=& \left(-\frac{i}{\hbar}\hat{H}\phi(t,\vec{x})\right)^*\phi(t,\vec{x})+\phi^*(t,\vec{x})\left(-\frac{i}{\hbar}\hat{H}\phi(t,\vec{x})\right)\\
+&=& \frac{i}{\hbar}\left(\left(\hat{H}\phi(t,\vec{x})\right)^*\phi(t,\vec{x})-\phi^*(t,\vec{x})\left(\hat{H}\phi(t,\vec{x})\right)\right)\\
+-i\hbar\dot{\rho}(t,\vec{x})&=& \left(\hat{H}\phi(t,\vec{x})\right)^*\phi(t,\vec{x})-\phi^*(t,\vec{x})\left(\hat{H}\phi(t,\vec{x})\right)\\
+&=& \left(\hat{H}\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\phi^*(t,\vec{x})\left(\hat{H}\phi(t,\vec{x})\right)
+\end{eqnarray*}
+Ist $\phi$ eine Eigen-Funktion mit dem Eigenwert $E$, dann verschwindet der obige Ausdruck:
+\begin{eqnarray*}
+&&\left(\hat{H}\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\phi^*(t,\vec{x})\left(\hat{H}\phi(t,\vec{x})\right)\\
+&=&\left(E\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\phi^*(t,\vec{x})\left(E\phi(t,\vec{x})\right)\\
+&=&E\left(\left(\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\phi^*(t,\vec{x})\left(\phi(t,\vec{x})\right)\right)=0
+\end{eqnarray*}
+Betrachten wir nur den Potential-Anteil $V(\vec{x})=\frac{e^2}{4\pi\epsilon_0}\frac{1}{|\vec{x}|}$, dann verschwindet der Ausdruck ebenso:
+\begin{eqnarray*}
+&&\left(V(\vec{x})\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\phi^*(t,\vec{x})\left(V(\vec{x})\phi(t,\vec{x})\right)\\
+&=&V(\vec{x})\left(\phi^*(t,\vec{x})\phi(t,\vec{x})-\phi^*(t,\vec{x})\phi(t,\vec{x})\right)=0
+\end{eqnarray*}
+Wir können also $\hat{H}$ durch $-\frac{\hbar^2}{2m}\Delta$ ersetzen:
+\begin{eqnarray*}
+-i\hbar\dot{\rho}(t,\vec{x}) &=&-\frac{\hbar^2}{2m}\left(\left(\Delta\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\phi^*(t,\vec{x})\left(\Delta\phi(t,\vec{x})\right)\right)\\
+i\frac{2m}{\hbar}\dot{\rho}(t,\vec{x}) &=&\left(\Delta\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\phi^*(t,\vec{x})\left(\Delta\phi(t,\vec{x})\right)
+\end{eqnarray*}
+Wir behandeln die rechte Seite weiter:
+\begin{eqnarray*}
+&&\left(\Delta\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\phi^*(t,\vec{x})\left(\Delta\phi(t,\vec{x})\right)\\
+&=&\nabla\cdot\left(\left(\nabla\phi^*(t,\vec{x})\right)\phi(t,\vec{x})\right)-\left(\nabla\phi^*(t,\vec{x})\right)\cdot\left(\nabla\phi(t,\vec{x})\right)\\
+&&-\nabla\cdot\left(\left(\phi^*(t,\vec{x})\right)\nabla\phi(t,\vec{x})\right)+\left(\nabla\phi^*(t,\vec{x})\right)\cdot\left(\nabla\phi(t,\vec{x})\right)\\
+&=&\nabla\cdot\left(\left(\nabla\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\left(\phi^*(t,\vec{x})\right)\nabla\phi(t,\vec{x})\right)
+\end{eqnarray*}
+und erhalten schließlich
+\begin{eqnarray*}
+i\frac{2m}{\hbar}\dot{\rho}(t,\vec{x})&=&\nabla\cdot\left(\left(\nabla\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\left(\phi^*(t,\vec{x})\right)\nabla\phi(t,\vec{x})\right)\\
+\dot{\rho}(t,\vec{x})&=&-i\frac{\hbar}{2m}\nabla\cdot\left(\left(\nabla\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\left(\phi^*(t,\vec{x})\right)\nabla\phi(t,\vec{x})\right)
+\end{eqnarray*}
+Definieren wir den Wahrscheinlichkeits-Strom
+\begin{eqnarray*}
+\vec{j} &=& i\frac{\hbar}{2m}\left(\left(\nabla\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\left(\phi^*(t,\vec{x})\right)\nabla\phi(t,\vec{x})\right)
+\end{eqnarray*}
+, dann erhalten wir eine Kontinuitäts-Gleichung für die Wahrscheinlichkeit:
+\begin{eqnarray*}
+\vec{j} &=& -\nabla\cdot\vec{j}\\
+\vec{j}+\nabla\cdot\vec{j} &=& 0
+\end{eqnarray*}
+Die elektrische Stromdichte ist also
+\begin{eqnarray*}
+\vec{j}_{EM} &=& -e\vec{j}
+\end{eqnarray*}
+Weder $\rho_{EM}$ noch $\vec{j}_{EM}$ sind messbare Größen, aber sie können dennoch als Quellen eines elektromagnetischen Feldes betrachtet werden.
+
+Nun zur Wellenfunktion \ref{double_wave_function}
+\begin{eqnarray*}
+\phi(t,\vec{x}) &=& a_1\phi_1(t,\vec{x})+a_2\phi_2(t,\vec{x})\\
+&=& a_1e {-i\omega_1}\Phi_1(\vec{x})+a_2e^{-i\omega_2}\Phi_2(\vec{x})
+\end{eqnarray*}
+Die Aufenthaltswahrscheinlichkeit ist
+\begin{eqnarray*}
+\rho(t,\vec{x}) &=& \left(a_1\phi_1(t,\vec{x})+a_2\phi_2(t,\vec{x})\right)^*\left(a_1\phi_1(t,\vec{x})+a_2\phi_2(t,\vec{x})\right)\\
+&=&a_1^*a_1\Phi^*_1(\vec{x})\Phi_1(\vec{x})+a_2^*a_2\Phi^*_2(\vec{x})\Phi_2(\vec{x})\\
+&&+a_1^*a_2e^{i(\omega_1-\omega_2)t}\Phi^*_1(\vec{x})\Phi_2(\vec{x})+a_2^*a_1e^{-i(\omega_2-\omega_1)t}\Phi^*_2(\vec{x})\Phi_1(\vec{x})
+\end{eqnarray*}
+Der erste Teil beschreibt eine stationäre Aufenthaltswahrscheinlichkeit, der zweite den oszillierenden.
+\begin{eqnarray*}
+\rho_{osc}(t,\vec{x}) &=& a_1^*a_2e^{i(\omega_1-\omega_2)t}\Phi^*_1(\vec{x})\Phi_2(\vec{x})+a_2^*a_1e^{-i(\omega_2-\omega_1)t}\Phi^*_2(\vec{x})\Phi_1(\vec{x})\\
+&=& 2Re\left(a_1^*a_2e^{i(\omega_1-\omega_2)t}\Phi^*_1(\vec{x})\Phi_2(\vec{x})\right)
+\end{eqnarray*}
+und analog für den Wahrscheinlichkeits-Strom:
+\begin{eqnarray*}
+\vec{j}(t,\vec{x}) &=& i\frac{\hbar}{2m}\left(\left(\nabla\phi^*(t,\vec{x})\right)\phi(t,\vec{x})-\left(\phi^*(t,\vec{x})\right)\nabla\phi(t,\vec{x})\right)\\
+&=& \frac{\hbar}{m}Re\left(\left(\nabla\phi^*(t,\vec{x})\right)\phi(t,\vec{x})\right)\\
+\left(\nabla\phi^*(t,\vec{x})\right)\phi(t,\vec{x}) &=& e^{i(\omega_1-\omega_2)t}\left(\nabla\Phi_1^*(\vec{x})\right)\Phi_2(\vec{x})\\
+&&+e^{-i(\omega_1-\omega_2)t}\left(\nabla\Phi_2^*(\vec{x})\right)\Phi_1(\vec{x})\\
+\vec{j}_{osc} &=& \frac{\hbar}{m}Re\left(e^{i(\omega_1-\omega_2)t}\left(\nabla\Phi_1^*(\vec{x})\right)\Phi_2(\vec{x})\right)\\
+&&+\frac{\hbar}{m}Re\left(e^{-i(\omega_1-\omega_2)t}\left(\nabla\Phi_2^*(\vec{x})\right)\Phi_1(\vec{x})\right)
+\end{eqnarray*}
+\end{subsection}
+
+\begin{subsection}{Dipolstrahlung}
+bjkuigg
+hhhh
+
+\end{subsection}
+\end{section}
+
+\ifx\makebook\undefined
+	\end{document}
+\else
+	\end{chapter}
+\fi
