@@ -1,0 +1,17 @@
+\def\titlestr{Thermodynamics}
+\ifx\makebook\undefined
+	\input{../latexsrcs/preamble}
+\else
+	\begin{chapter}{\titlestr}
+\fi
+\begin{section}{Thermodynamics}
+\subsection{First Law}
+$dU=\delta Q-\delta W$, $\delta W=pdV$
+\subsection{Second Law}
+$dS\ge\delta Q/T$, $S=k_B\ln\Omega$, $dS=\delta Q_{rev}/T$ reversible
+\subsection{Thermodynamic Potentials}
+$F=U-TS$, $G=U+PV-TS$, $H=U+PV$, $dF=-SdT-PdV$
+\subsection{Ideal Gas}
+$PV=Nk_BT$, $U=\frac32 Nk_BT$, $Z=\sum e^{-\beta E_i}$, $F=-k_BT\ln Z$
+\end{section}
+

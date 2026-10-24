@@ -1,0 +1,102 @@
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************f
+% **** -----------------------------------------------------------
+% documentclass[fleqn]{report}
+%\RequirePackage{silence}
+%\WarningFilter{lualatex}{Token not allowed}
+% Einzelne Warnung eines Pakets unterdrücken:
+%\WarningFilter{pdftex}{destination with}
+
+% Alle Warnungen eines bestimmten Pakets unterdrücken:
+%\WarningsOff[lualatex]
+\PassOptionsToPackage{unicode}{hyperref}
+%\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass[a4paper,fleqn]{book}
+%\documentclass[a4paper,fleqn]{scrreprt}
+%\documentclass{styles/wissdoc-kw-eng}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+\setlength{\paperheight}{297mm}
+%\usepackage[utf8]{inputenc}
+\usepackage{german}
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{alltt}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{verbatim}
+\usepackage{mathtools}
+%\usepackage[compat=1.1.0]{tikz-feynman}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+\DeclarePairedDelimiterX\expect[1]{\langle}{\rangle}{#1}
+%\newcounter{thm}[section]
+%\newtheorem{theorem}[thm]{thm}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{proposition}[theorem]{Hilfssatz}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{definition}[theorem]{Definition}
+%\newenvironment{theorem}[Theorem]{\begin{trivlist}
+%\item[\hskip \labelsep {\textit \textit{#1}}]}{\end{trivlist}}
+%\newenvironment{proof}[1][Beweis]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand*\codeRed[1]{\textcolor[rgb]{1,0,0}{\textbf{#1}}}
+\newcommand*\codeGreen[1]{\textcolor[rgb]{0,0.5,0}{\textbf{#1}}}
+\newcommand{\lb}{[}
+\newcommand{\rb}{]}
+\newcommand{\codeCall}[1]{\textbf{\texttt{#1}}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\kb}{k_{\mathrm{B}}}
+%\newcommand{\titlemath}[1]{\texorpdfstring{#1}{}}
+\newcommand{\titlemath}[2]{\texorpdfstring{#1}{#2}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+
+
+%\newenvironment{\vspace{1ex}\noindent{\bf Proof}\hspace{0.5em}}
+%	{\hfill\qed\vspace{1ex}}
+ 
+
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+%\newcommand{\qed}{\nobreak \ifvmode \relax \else
+%      \ifdim\lastskip<1.5em \hskip-\lastskip
+%      \hskip1.5em plus0em minus0.5em \fi \nobreak
+%      \vrule height0.75em width0.5em depth0.25em\fi}
+%\newcommand{\qed}{$\square$}
+\newcommand{\qt}{\texttt}
+
+\newcommand{\bibdef}[4]{\bibitem{#1} {\bf #2:} {\it #3}\\#4}
+
+
+\newcommand{\gauss}[1]{\lfloor #1\rfloor}
+\numberwithin{equation}{section}
+
+
+%\setcounter{equation}{1}
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\newcommand{\ltri}{\vartriangleleft}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\renewcommand{\proofname}{Beweis}
+\definecolor{dblue}{RGB}{150,50,150}
+%\usepackage[colorlinks=true, linkcolor=dblue, urlcolor=cyan]{hyperref}
+\usepackage{hyperref}
+%\usepackage{cleveref}
+
+%\usepackage{crossreftools}
+
+%\addto\captionsngerman{%
+ \renewcommand{\abstractname}{Vorbemerkung}
+%}
+
