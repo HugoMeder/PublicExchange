@@ -1,0 +1,515 @@
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************f
+% **** -----------------------------------------------------------
+% documentclass[fleqn]{report}
+%\RequirePackage{silence}
+%\WarningFilter{lualatex}{Token not allowed}
+% Einzelne Warnung eines Pakets unterdrücken:
+%\WarningFilter{pdftex}{destination with}
+
+% Alle Warnungen eines bestimmten Pakets unterdrücken:
+%\WarningsOff[lualatex]
+\PassOptionsToPackage{unicode}{hyperref}
+%\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass[a4paper,fleqn]{article}
+%\documentclass[a4paper,fleqn]{scrreprt}
+%\documentclass{styles/wissdoc-kw-eng}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+\setlength{\paperheight}{297mm}
+%\usepackage[utf8]{inputenc}
+\usepackage{german}
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{alltt}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{verbatim}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+\DeclarePairedDelimiterX\expect[1]{\langle}{\rangle}{#1}
+%\newcounter{thm}[section]
+%\newtheorem{theorem}[thm]{thm}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{proposition}[theorem]{Hilfssatz}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{definition}[theorem]{Definition}
+%\newenvironment{theorem}[Theorem]{\begin{trivlist}
+%\item[\hskip \labelsep {\textit \textit{#1}}]}{\end{trivlist}}
+%\newenvironment{proof}[1][Beweis]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand*\codeRed[1]{\textcolor[rgb]{1,0,0}{\textbf{#1}}}
+\newcommand*\codeGreen[1]{\textcolor[rgb]{0,0.5,0}{\textbf{#1}}}
+\newcommand{\lb}{[}
+\newcommand{\rb}{]}
+\newcommand{\codeCall}[1]{\textbf{\texttt{#1}}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\kb}{k_{\mathrm{B}}}
+\newcommand{\titlemath}[1]{\texorpdfstring{#1}{}}
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+
+
+%\newenvironment{\vspace{1ex}\noindent{\bf Proof}\hspace{0.5em}}
+%	{\hfill\qed\vspace{1ex}}
+ 
+
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+%\newcommand{\qed}{\nobreak \ifvmode \relax \else
+%      \ifdim\lastskip<1.5em \hskip-\lastskip
+%      \hskip1.5em plus0em minus0.5em \fi \nobreak
+%      \vrule height0.75em width0.5em depth0.25em\fi}
+%\newcommand{\qed}{$\square$}
+\newcommand{\qt}{\texttt}
+
+\newcommand{\bibdef}[4]{\bibitem{#1} {\bf #2:} {\it #3}\\#4}
+
+
+\newcommand{\gauss}[1]{\lfloor #1\rfloor}
+\numberwithin{equation}{section}
+
+
+%\setcounter{equation}{1}
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\newcommand{\ltri}{\vartriangleleft}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\renewcommand{\proofname}{Beweis}
+\definecolor{dblue}{RGB}{150,50,150}
+%\usepackage[colorlinks=true, linkcolor=dblue, urlcolor=cyan]{hyperref}
+\usepackage{hyperref}
+%\usepackage{cleveref}
+
+%\usepackage{crossreftools}
+
+%\addto\captionsngerman{%
+ \renewcommand{\abstractname}{Vorbemerkung}
+%}
+
+\title{Symmetrien und Erhaltungs-Sätze}
+\begin{document}
+\author{Hugo Meder}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+\tableofcontents
+
+\begin{abstract}
+In diesem Teil geht es darum, Symmetrien physikalischer Systeme zu untersuchen. Das Noethersche Theorem schafft einen Zusammenhang
+zwischen bestimmten Symmetrien und zeitlich unveränderlichen Größen, wie Energie, Impuls usw.
+\end{abstract}
+
+\begin{section}{Symmetrien}
+\begin{subsection}{Transformationen}
+Wir betrachten für ein bestimmtes physikalisches System seinen Konfigurations-Raum $K$. Im Falle von Systemen mit verallgemeinerten Koordinate sind dies $alle$ denkbaren Koordinaten $q=(q_1,q_2,...,q_n)$ wobei $n$ die Anzahl der Koordinaten ist\footnote{Hier schließen wir auch Systeme von Feldern, z.B elektrische und Magnetische Felder nicht aus. In solchen Fällen ist der Konfigurations-Raum
+dann allerdings unendlich-dimensional.}. Weiter sei $\tilde{E}$ der Ereignis-Raum. Dieser besteht aus Paaren
+\begin{eqnarray*}
+(q,t) &\in& \tilde{E}
+\end{eqnarray*}
+Ereignisse sind mathematische Objekte (Elemente der Menge $\tilde{E}$), nicht Aussagen. Wenn wir aber sagen ein Ereignis
+$(p,t)$ habe stattgefunden oder wird stattfinden, dann bedeutet dies, dass sich das System zum Zeitpunkt $t$ eine Konfiguration $q$
+hat oder hatte. Dies ist eine Aussage und wir schreiben
+\begin{eqnarray*}
+q(t) &=& q
+\end{eqnarray*}
+Eine Transformation $\tilde{T}$ ist eine Abbildung, die Ereignissen $e\in\tilde{E}$ andere Ereignisse $\tilde{T}(e)\in\tilde{E}$
+zuordnet. 
+\begin{eqnarray*}
+\tilde{T}: \tilde{E} &\rightarrow&\tilde{E}\\
+(q,t) &\mapsto& ( q^\prime,t^\prime)=\left(\tilde{T}_q(q,t), \tilde{T}_t(q,t)\right)
+\end{eqnarray*}
+Man beachte hier, dass eine Transformation nicht nur die Konfiguration $p$ sondern auch die dem Ereignis zugeordnete Zeit $t$ verändern kann.\footnote{In der Praxis sind nur Transformationen zu betrachten, deren beide Teile $T_q$ und $T_t$ glatt sind, dass heißt, stetig ableitbar sind.}
+Um ein anschaulicheres Bild zu erhalten, betrachten wir Systeme, deren Konfigurationsraum aus einer Anzahl $n$ von Raumkoordinaten $x_k$ besteht.
+\begin{eqnarray*}
+\tilde{T}: \tilde{E} &\rightarrow&\tilde{E}\\
+(x_k,t) &\mapsto& ( x_k^\prime,t^\prime)=\left(T_x(x_k,t), T_t(x_k,t)\right)
+\end{eqnarray*}
+In diesem Falle besteht eine Transformation in einer Veränderung der Koordinaten $x_k$,und der Zeit $t$.
+Wichtige Beispiele sind:
+\begin{itemize}
+	\item räumliche Verschiebungen ($x_k^\prime=x_k+y, t^\prime=t$)
+	\item zeitliche Verschiebungen ($x_k^\prime=x_k, t^\prime=t+\Delta t$)
+	\item Raumspiegelung ($x_k^\prime=-x_k, t^\prime=t$)
+	\item räumlich Drehungen ($x_k^\prime=Rx_k, t^\prime=t$)
+	\item Zeitumkehr ($x_k^\prime=x_k, t^\prime=-t$)
+\end{itemize}
+Spiegelungen an Ebenen erhält man indem zuerst eine Raumspiegelung durchgeführt wird und dann um eine beliebige Achse um 180° gedreht wird. Dies ist dann das gleiche wie eine Spiegelung an der zur Achse senkrechten Ebene.
+
+Transformationen können nacheinander auf Ereignisse angewandt werden. Es seien $\tilde{T}^1$ und $\tilde{T}^2$ Transformationen, bezeichnen
+wir mit $\tilde{T}^1\circ \tilde{T}^2$ die Transformation
+\begin{eqnarray*}
+\tilde{T}^1\circ \tilde{T}^2: \tilde{E} &\rightarrow&\tilde{E}\\
+(q,t) &\mapsto& ( q^\prime,t^\prime)=\tilde{T}^1\left(\tilde{T}^2(q_k,t)\right)=\left(\tilde{T}^1_q\left(\tilde{T}^2(q,t)\right), \tilde{T}^1_t\left(\tilde{T}^2(q,t)\right)\right)
+\end{eqnarray*}
+Eine besonders einfache Transformation $\tilde{I}$ lässt alles unverändert und wird Identität genannt:
+\begin{eqnarray*}
+\tilde{I}: \tilde{E} &\rightarrow&\tilde{E}\\
+(q,t) &\mapsto& ( q^\prime,t^\prime)=( q,t)
+\end{eqnarray*}
+Gibt es zu einer Transformation $\tilde{T}$ eine Transformation $\tilde{T}^\prime$ mit der Eigenschaft dass $\tilde{T}^\prime\circ\tilde{T}=\tilde{I}$ dann nennen wir $\tilde{T}^\prime$ die zu $\tilde{T}$ inverse Transformation und gezeichnen sie mit $\tilde{T}^{-1}$.
+
+Eine Menge $G$ von Transformationen heißt \textbf{Transformations-Gruppe}, wenn folgendes gilt:
+\begin{itemize}
+	\item $\tilde{I}$ ist Element von $G$.
+	\item ist $\tilde{T}^1$ und $\tilde{T}^2$ in $G$ enthalten, dann ist auch $\tilde{T}^1\circ\tilde{T}^2$ in $G$ enthalten.
+	\item ist $\tilde{T}$ in $G$ enthalten, dann ist auch die Inverse $\tilde{T}^{-1}$ in $G$ enthalten.
+\end{itemize}
+Jede der oben aufgeführten Transformationen bilden je eine Transformations-Gruppe. Die beiden diskreten Transformation, die  Raumspiegelung und der Zeitumkehr bestehen jeweils aus zwei Elementen, der Transformation und der Identität $\tilde{I}$
+Verknüpft man diese mittels $\circ$ miteinander, dann erhält man eine einzige grössere Transformations-Gruppe.
+\end{subsection}
+
+\begin{subsection}{Physikalische Symmetrien}
+Eine dynamische Zeitentwicklung eines Systems ordnet jeder Zeit $t$ eine Konfiguration $q_k(t)$ zu. Diese Zeitentwicklung soll glatt sein, so
+dass aus der Zeitentwicklung auch die Zeitableitungen $\dot{q}_k(t)$ und $\ddot{q}_k(t)$ hervorgehen. Erfüllt eine Zeitentwicklung die Bewegungsgleichungen, dann sprechen wir von einer physikalischen Zeitentwicklung. Zeitentwicklungen können mittels einer Transformation $\tilde{T}$ in andere Zeitentwicklungen überführt werden. Eine Zeitentwicklung kann als eine Menge von Ereignissen $(q(t),t)$ aufgefasst werden. Diese können Transformiert werden und gehen dadurch in $(T_q(q_k(t)),T_t(t))$ über. Daraus lässt sich wieder eine Zeitentwicklung $q^\prime(t)$ gewinnen. Um diesen Vorgang zu erläutern, betrachten wir die im letzten Abschnitt beschriebenen Transformationen:
+\begin{itemize}
+	\item räumliche Verschiebungen: $x_k^\prime(t) = x_k(t)+y$
+	\item zeitliche Verschiebungen $x_k^\prime(t) = x_k(t-\Delta t)$
+	\item Raumspiegelung $x_k^\prime(t) = -x_k(t)$
+	\item räumlich Drehungen $x_k^\prime(t) = Rx_k(t)$
+	\item Zeitumkehr $x_k^\prime(t) = x_k(-t)$
+\end{itemize}
+Eine Transformation $\tilde{T}$ nennen wir eine \textbf{physikalische Symmetrie} falls sie \textbf{alle} physikalische 
+Zeitentwicklungen in physikalische Zeitentwicklungen abbildet. Bildet eine Menge physikalischer Symmetrien eine Transformations-Gruppe,
+dann nennen wir diese eine \textbf{physikalische Symmetrie-Gruppe}. Für viele wichtige Systeme sind die im letzten Abschnitt aufgeführten Transformations-Gruppen auch physikalische Symmetrie-Gruppen.
+\end{subsection}
+
+\begin{subsection}{Kontinuierliche Transformationen}
+Viele Transformations-Gruppen sind Lie-Gruppen. Diese zeichnen sich dadurch aus, dass es Umgebungen der Identität $\tilde{I}$ gibt, die deren Elemente durch reelle Zahlen parametrisiert werden können. Sind dies bezüglich einem System physikalische Symmetrie-Gruppen, dann spricht man auch von kontinuierlichen physikalischen Symmetrien. Greift man einen der Parameter heraus, dann erhält man eine einparametrige
+Transformations-Gruppe die auch eine einparametrige
+Symmetrie-Gruppe sein kann. Für einparametrige Transformations-Gruppen bezeichnen wir die Transformationen mit $\tilde{T}(\epsilon)$ wobei $\epsilon$ den Parameter bezeichnet: Es gelte $\tilde{T}(0)=\tilde{I}$ und somit $\tilde{T}(0)(q_k,t)=(q_k,t)$.
+\begin{eqnarray*}
+\tilde{T}(\epsilon): \tilde{E} &\rightarrow&\tilde{E}\\
+(q_k,t) &\mapsto& ( q_k^\prime,t^\prime)=\left(T_q(\epsilon,q_k,t), T_t(\epsilon,q_k.t)\right)
+\end{eqnarray*}
+Ist $\epsilon$ sehr klein, dann haben wir
+\begin{eqnarray*}
+T_q(\epsilon,q_k,t) &=& q_k+\vartheta_q(q_k,t)\epsilon\\
+T_t(\epsilon,q_k.t) &=& t+\vartheta_t(q_k,t)\epsilon
+\end{eqnarray*}
+wobei
+\begin{eqnarray*}
+\vartheta_q(q_k,t) &=& \left(\frac{\partial T_q(\epsilon,q_k,t)}{\partial \epsilon}\right|_{\epsilon=0}\\
+\vartheta_t(q_k,t) &=& \left(\frac{\partial T_t(\epsilon,q_k,t)}{\partial \epsilon}\right|_{\epsilon=0}
+\end{eqnarray*}
+Dies kann auch so geschrieben werden:
+\begin{eqnarray*}
+\tilde{T}(\epsilon)(q_k,t) &=& (q_k,t)+(\vartheta_q(q_k,t),\vartheta_t(q_k,t))\epsilon
+\end{eqnarray*}
+Für eine infinitesimale Transformation $\tilde{T}(\epsilon)$ mit infinitesimalem $\epsilon$ lässt sich die Transformation
+einer Zeitentwicklungen (bis zur ersten Ordnung in $\epsilon$) direkt hinschreiben:
+\begin{eqnarray*}
+q_k^\prime(t+\vartheta_t(q_k,t)\epsilon) &=& q_k(t)+\vartheta_{q_k}(q_k,t)\epsilon\\
+q_k^\prime(t) &=& q_k(t-\vartheta_t(q_k,t)\epsilon)+\vartheta_{q_k}(q_k,t-\vartheta_t(q_k,t)\epsilon)\epsilon\\
+&=& q_k(t-\vartheta_t(q_k,t)\epsilon)+\vartheta_{q_k}(q_k,t)\epsilon\\
+&=& q_k(t)-\dot{q}_k(t)\vartheta_t(q_k,t)\epsilon+\vartheta_{q_k}(q_k,t)\epsilon\\
+&=& q_k(t)+\left(-\dot{q}_k(t)\vartheta_t(q_k(t),t)+\vartheta_{q_k}(q_k(t),t)\right)\epsilon
+\end{eqnarray*}
+Ebenso lässt sich $\dot{q}^\prime(t)$ hinschreiben:
+\begin{eqnarray*}
+\dot{q}_k^\prime(t) &=& \frac{d}{dt}\left(q_k(t)-\dot{q}_k(t)\vartheta_t(q_k(t),t)\epsilon+\vartheta_{q_k}(q_k(t),t)\epsilon\right)\\
+&=& \dot{q}_k(t)\\
+&&-\left(\ddot{q}_k(t)\vartheta_t(q_k(t),t)+\dot{q}_k(t)\sum_l\frac{\partial\vartheta_t(q_k(t),t)}{\partial q_l}\dot{q}_l(t)+\dot{q}_k(t)\frac{\partial\vartheta_t(q_k(t),t)}{\partial t}\right)\epsilon\\
+&&+\left(\sum_l\frac{\partial\vartheta_{q_k}(q_k(t),t)}{\partial q_l}\dot{q}_l+\frac{\partial\vartheta_{q_k}(q_k(t),t)}{\partial t}\right)\epsilon\\
+&=& \dot{q}_k(t)\left(1-\frac{d\vartheta_t(q_k(t),t)}{dt}\epsilon\right)-\ddot{q}_k(t)\vartheta_t(q_k(t),t)\epsilon
++\frac{d\vartheta_{q_k}(q_k(t),t)}{dt}\epsilon
+\end{eqnarray*}
+Wir definieren:
+\begin{eqnarray}
+\label{by_d_epsilon_def}
+\frac{dq_k}{d\epsilon}(\dot{q},q) &=& \left(\frac{\partial}{\partial\epsilon}q^\prime_k(t)\right|_{\epsilon=0}
+=-\dot{q}_k(t)\vartheta_t(q_k(t),t)+\vartheta_{q_k}(q_k(t),t)\cr
+\frac{d\dot{q}_k}{d\epsilon}(\ddot{q},\dot{q},q) &=& \left(\frac{\partial}{\partial\epsilon}\dot{q}^\prime_k(t)\right|_{\epsilon=0}
+=-\dot{q}_k(t)\frac{d\vartheta_t(q_k(t),t)}{dt}-\ddot{q}_k(t)\vartheta_t(q_k(t),t)
++\frac{d\vartheta_{q_k}(q_k(t),t)}{dt}
+\end{eqnarray}
+\end{subsection}
+
+\begin{subsection}{Infinitesimale Transformationen des Phasen-Raums}
+\begin{subsubsection}{Problemstellung}
+Ziel ist es hier infinitesimale Transformationen in die Form
+\begin{eqnarray*}
+q^\prime_k &=& q_k+G_k(p,q)\epsilon\\
+p^\prime_k &=& p_k+F_k(p,q)\epsilon
+\end{eqnarray*}
+zu bringen.
+Zur Illustration dient eine infinitesimale Rotation um die $z$-Achse. Die konkrete Form der Lagrange-Funtion $L(\dot{q},q)$ lassen wir zunächst offen. Es gilt:
+\begin{eqnarray*}
+q_k^\prime &=& q_k+\sum_m\sum_l\varepsilon_{kml}n_mq_l\epsilon
+\end{eqnarray*}
+Ist $n$ eine Einheitsvektor in $3$-Richtung bedeutet dies:
+\begin{eqnarray*}
+q_1^\prime &=& q_1+\sum_l\varepsilon_{13l}q_l\epsilon\\
+&=& q_1-q_2\epsilon\\
+q_2^\prime &=& q_2+\sum_l\varepsilon_{23l}q_l\epsilon\\
+&=& q_2+q_1\epsilon\\
+q_3^\prime &=& q_3+\sum_l\varepsilon_{33l}q_l\epsilon\\
+&=& q_3
+\end{eqnarray*}
+Wir erhalten weiter
+\begin{eqnarray*}
+\frac{dq_k}{d\epsilon} &=& \sum_m\sum_l\varepsilon_{kml}n_mq_l\\
+\frac{d\dot{q}_k}{d\epsilon} &=& \sum_m\sum_l\varepsilon_{kml}n_m\dot{q}_l
+\end{eqnarray*}
+
+\end{subsubsection}
+
+\begin{subsubsection}{Infinitesimale Transformationen der konjugierten Impulse}
+\begin{eqnarray*}
+p_k^\prime(t) &=& \frac{\partial L}{\partial \dot{q}_k}(\dot{q}^\prime_k(t),q^\prime_k(t))
+=\frac{\partial L}{\partial \dot{q}_k}\left(\dot{q}_k(t)+\frac{d\dot{q}_k}{d\epsilon}\epsilon,q_k(t)+\frac{dq_k}{d\epsilon}\epsilon\right)\\
+&=& \frac{\partial L}{\partial \dot{q}_k}\left(\dot{q}_k(t),q_k(t)\right)
++\sum_l\frac{\partial^2 L}{\partial \dot{q}_k\partial \dot{q}_l}\left(\dot{q}_k(t),q_k(t)\right)\frac{d\dot{q}_l}{d\epsilon}\epsilon
++\sum_l\frac{\partial^2 L}{\partial \dot{q}_k\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\frac{dq_l}{d\epsilon}\epsilon\\
+&=& p_k(\dot{q},q)
++\left(\sum_l\frac{d\dot{q}_l}{d\epsilon}\frac{\partial}{\partial \dot{q}_k}\frac{\partial L}{\partial \dot{q}_l}\left(\dot{q}_k(t),q_k(t)\right)
++\sum_l\frac{dq_l}{d\epsilon}\frac{\partial}{\partial \dot{q}_k}\frac{\partial L}{\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\right)\epsilon\\
+&=& p_k(\dot{q},q)
++\left(\sum_l\frac{d\dot{q}_l}{d\epsilon}\frac{\partial}{\partial \dot{q}_k}p_l\left(\dot{q}_k(t),q_k(t)\right)
++\sum_l\frac{dq_l}{d\epsilon}\frac{\partial}{\partial \dot{q}_k}\frac{\partial L}{\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\right)\epsilon\\
+\frac{dp_k}{d\epsilon}\left(\dot{q}_k(t),q_l(t)\right) &=&\sum_l\frac{d\dot{q}_l}{d\epsilon}\frac{\partial}{\partial \dot{q}_k}p_l\left(\dot{q}_k(t),q_k(t)\right)
++\sum_l\frac{dq_l}{d\epsilon}\frac{\partial}{\partial \dot{q}_k}\frac{\partial L}{\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)
+\end{eqnarray*}
+\begin{paragraph}{Beispiel Rotation}hh
+\begin{eqnarray*}
+p_k^\prime(t) &=& p_k(\dot{q},q)
++\left(\sum_l\frac{d\dot{q}_l}{d\epsilon}\frac{\partial}{\partial \dot{q}_k}p_l\left(\dot{q}_k(t),q_k(t)\right)
++\sum_l\frac{dq_l}{d\epsilon}\frac{\partial}{\partial \dot{q}_k}\frac{\partial L}{\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\right)\epsilon\\
+&=& p_k(\dot{q},q)+\sum_l\sum_{rs}\varepsilon_{lrs}n_r\dot{q}_s\frac{\partial}{\partial \dot{q}_k}p_l\left(\dot{q}_k(t),q_k(t)\right)\epsilon\\
+&&+\sum_l\sum_{rs}\varepsilon_{lrs}n_rq_s\frac{\partial}{\partial \dot{q}_k}\frac{\partial L}{\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\epsilon\\
+\frac{dp_k}{d\epsilon}\left(\dot{q}_k(t),q_l(t)\right) &=&
+\sum_{rs}\varepsilon_{lrs}n_r\left(\dot{q}_s\frac{\partial}{\partial \dot{q}_k}p_l\left(\dot{q}_k(t),q_k(t)\right)
++q_s\frac{\partial}{\partial \dot{q}_k}\frac{\partial L}{\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\right)
+\end{eqnarray*}
+\end{paragraph}
+\end{subsubsection}
+
+\begin{subsubsection}{Annahme: \titlemath{$\vartheta_t=0$} und \titlemath{$\frac{\partial\vartheta_q}{\partial t}=0$}}
+Dann wird aus \ref{by_d_epsilon_def}:
+\begin{eqnarray*}
+\frac{dq_k}{d\epsilon}(q) &=& \vartheta_{qk}(q)\cr
+\frac{d\dot{q}_k}{d\epsilon}(\dot{q},q) &=&\frac{d\vartheta_{qk}(q_k(t),t)}{dt}
+=\sum_l\frac{\partial\vartheta_{qk}}{\partial q_l}(q)\dot{q}_l
+\end{eqnarray*}
+Dies hat zur Folge, dass
+\begin{eqnarray*}
+\frac{\partial}{\partial \dot{q}_k}\frac{d\dot{q}_l}{d\epsilon} &=& \frac{\partial}{\partial \dot{q}_k}\sum_r\frac{\partial\vartheta_{ql}}{\partial q_r}(q)\dot{q}_r=\frac{\partial\vartheta_{ql}}{\partial q_k}(q)\\
+\frac{\partial}{\partial \dot{q}_k}\frac{dq_l}{d\epsilon} &=& 0
+\end{eqnarray*}
+und somit
+\begin{eqnarray*}
+\frac{dp_k}{d\epsilon}\left(\dot{q}_k(t),q_l(t)\right) &=&\sum_l\frac{d\dot{q}_l}{d\epsilon}\frac{\partial}{\partial \dot{q}_k}p_l\left(\dot{q}_k(t),q_k(t)\right)
++\sum_l\frac{dq_l}{d\epsilon}\frac{\partial}{\partial \dot{q}_k}\frac{\partial L}{\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\\
+&=&\frac{\partial}{\partial \dot{q}_k}\sum_l\left(\frac{d\dot{q}_l}{d\epsilon}p_l\left(\dot{q}_k(t),q_k(t)\right)
++\frac{dq_l}{d\epsilon}\frac{\partial L}{\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\right)\\
+&&-\sum_l\frac{\partial\vartheta_{ql}}{\partial q_k}(q)p_l\left(\dot{q}_k(t),q_k(t)\right)
+\end{eqnarray*}
+\begin{paragraph}{Beispiel Rotation}
+In diesem Falle gilt:
+\begin{eqnarray*}
+\vartheta_{qk}(q) &=& \sum_{rs}\varepsilon_{krs}n_rq_s
+\end{eqnarray*}
+Und somit:
+\begin{eqnarray*}
+\frac{dp_k}{d\epsilon}\left(\dot{q}_k(t),q_l(t)\right) &=&\frac{\partial}{\partial \dot{q}_k}\sum_l\left(\frac{d\dot{q}_l}{d\epsilon}p_l\left(\dot{q}_k(t),q_k(t)\right)
++\frac{dq_l}{d\epsilon}\frac{\partial L}{\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\right)\\
+&&-\sum_l\frac{\partial\vartheta_{ql}}{\partial q_k}(q)p_l\left(\dot{q}_k(t),q_k(t)\right)\\
+&=&\frac{\partial}{\partial \dot{q}_k}\sum_l\left(\sum_{rs}\varepsilon_{lrs}n_r\dot{q}_sp_l\left(\dot{q}_k(t),q_k(t)\right)
++\sum_{rs}\varepsilon_{lrs}n_rq_s\frac{\partial L}{\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\right)\\
+&&-\sum_l\sum_r\varepsilon_{lrk}n_rp_l\left(\dot{q}_k(t),q_k(t)\right)
+\end{eqnarray*}
+\end{paragraph}
+\end{subsubsection}
+\end{subsection}
+
+\begin{subsection}{Scratch}
+Wir untersuchen nun die Lagrange-Bewegungsgleichungen für $q^\prime_k(t)=q_k(t)+\frac{dq_k(t)}{d\epsilon}\epsilon$. Für den kanonisch konjugierten Impuls $p^\prime(t)$ erhalten wir:
+\begin{eqnarray*}
+p_k^\prime(t) &=& \frac{\partial L}{\partial \dot{q}_k}(\dot{q}^\prime_k(t),q^\prime_k(t))
+=\frac{\partial L}{\partial \dot{q}_k}\left(\dot{q}_k(t)+\frac{d\dot{q}_k}{d\epsilon}\epsilon,q_k(t)+\frac{dq_k}{d\epsilon}\epsilon\right)\\
+&=& \frac{\partial L}{\partial \dot{q}_k}\left(\dot{q}_k(t),q_k(t)\right)
++\sum_l\frac{\partial^2 L}{\partial \dot{q}_k\partial \dot{q}_l}\left(\dot{q}_k(t),q_k(t)\right)\frac{d\dot{q}_l}{d\epsilon}\epsilon
++\sum_l\frac{\partial^2 L}{\partial \dot{q}_k\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\frac{dq_l}{d\epsilon}\epsilon
+\end{eqnarray*}
+Und ebenso für
+\begin{eqnarray*}
+\frac{\partial L}{\partial q_k}(\dot{q}^\prime_k(t),q^\prime_k(t))
+&=&\frac{\partial L}{\partial q_k}\left(\dot{q}_k(t)+\frac{d\dot{q}_k}{d\epsilon}\epsilon,q_k(t)+\frac{dq_k}{d\epsilon}\epsilon\right)\\
+&=& \frac{\partial L}{\partial q_k}\left(\dot{q}_k(t),q_k(t)\right)\\
+&&+\sum_l\frac{\partial^2 L}{\partial q_k\partial \dot{q}_l}\left(\dot{q}_k(t),q_k(t)\right)\frac{d\dot{q}_l}{d\epsilon}\epsilon
++\sum_l\frac{\partial^2 L}{\partial q_k\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\frac{dq_l}{d\epsilon}\epsilon
+\end{eqnarray*}
+Mit der Definition
+\begin{eqnarray*}
+\frac{dL}{d\epsilon}&=&\sum_l\frac{\partial L}{\partial \dot{q}_l}\left(\dot{q}_k(t),q_k(t)\right)\frac{d\dot{q}_l}{d\epsilon}
++\sum_l\frac{\partial L}{\partial q_l}\left(\dot{q}_k(t),q_l(t)\right)\frac{dq_l}{d\epsilon}
+\end{eqnarray*}
+verkürzen sich beide Ausdrücke:
+\begin{eqnarray*}
+p_k^\prime(t) &=& \frac{\partial L}{\partial \dot{q}_k}\left(\dot{q}_k(t),q_k(t)\right)
++\frac{\partial}{\partial \dot{q}_k}\frac{dL}{d\epsilon}\epsilon\\
+\frac{\partial L}{\partial q_k}(\dot{q}^\prime_k(t),q^\prime_k(t))
+&=& \frac{\partial L}{\partial q_k}\left(\dot{q}_k(t),q_k(t)\right)
++\frac{\partial}{\partial q_k}\frac{dL}{d\epsilon}\epsilon
+\end{eqnarray*}
+Wir nehmen nun an, dass $q_k(t)$ die Bewegungsgleichungen
+\begin{eqnarray*}
+\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_k}\left(\dot{q}_k(t),q_k(t)\right)-\frac{\partial L}{\partial q_k}\left(\dot{q}_k(t),q_k(t)\right) &=& 0
+\end{eqnarray*}
+erfüllt. Damit auch $q^\prime_k(t)$
+\begin{eqnarray*}
+\frac{d}{dt}p^\prime_k(t)-\frac{\partial L}{\partial q_k}(\dot{q}^\prime_k(t),q^\prime_k(t)) &=& 0
+\end{eqnarray*}
+muss
+\begin{eqnarray*}
+\frac{d}{dt}\frac{\partial}{\partial \dot{q}_k}\frac{dL}{d\epsilon}\epsilon-\frac{\partial}{\partial q_k}\frac{dL}{d\epsilon}\epsilon &=&0\\
+\frac{d}{dt}\frac{\partial}{\partial \dot{q}_k}\frac{dL}{d\epsilon}-\frac{\partial}{\partial q_k}\frac{dL}{d\epsilon} &=&0
+\end{eqnarray*}
+gelten. Unter der Bedingung, dass $q_k(t)$ die Bewegungsgleichungen erfüllt gilt:
+\begin{eqnarray*}
+\frac{dL}{d\epsilon}&=&\sum_l\frac{\partial L}{\partial \dot{q}_l}\left(\dot{q}_k(t),q_k(t)\right)\left(-\dot{q}_l(t)\frac{d\vartheta_t(q_k(t),t)}{dt}
++\frac{d\vartheta_{q_l}(q_k(t),t)}{dt}\right)\\
+&&+\sum_l\left(\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_l}\left(\dot{q}_k(t),q_l(t)\right)\right)\vartheta_{q_l}(q_k(t),t)\\
+&&+\frac{dL}{dt}\left(\dot{q}_k(t),q_k(t)\right)\vartheta_t(q_k(t),t)\\
+&=&-\left(\sum_l\frac{\partial L}{\partial \dot{q}_l}\left(\dot{q}_k(t),q_k(t)\right)\dot{q}_l(t)\right)\frac{d\vartheta_t(q_k(t),t)}{dt}\\
+&&+\frac{d}{dt}\left(\sum_l\frac{\partial L}{\partial \dot{q}_l}\left(\dot{q}_k(t),q_l(t)\right)\vartheta_{q_l}(q_k(t),t)\right)\\
+&&+\frac{dL}{dt}\left(\dot{q}_k(t),q_k(t)\right)\vartheta_t(q_k(t),t)
+\end{eqnarray*}
+.............................................................
+\begin{eqnarray*}
+\frac{dL}{d\epsilon}&=&\sum_l\frac{\partial L}{\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{d\dot{q}_l}{d\epsilon}(\dot{q}_k,q_k)
++\sum_l\frac{\partial L}{\partial q_l}(\dot{q}_k,q_k)\frac{dq_l}{d\epsilon}(\ddot{q}_k,\dot{q}_k,q_k)\\
+\frac{\partial}{\partial q_k}\frac{dL}{d\epsilon}&=&\sum_l\frac{\partial^2 L}{\partial \dot{q}_l\partial q_k}(\dot{q}_k,q_k)\frac{d\dot{q}_l}{d\epsilon}(\ddot{q}_k,\dot{q}_k,q_k)
++\sum_l\frac{\partial^2 L}{\partial q_l\partial q_k}(\dot{q}_k,q_k)\frac{dq_l}{d\epsilon}(\dot{q}_k,q_k)\\
+&&+\sum_l\frac{\partial L}{\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{\partial}{\partial q_k}\frac{d\dot{q}_l}{d\epsilon}(\ddot{q}_k,\dot{q}_k,q_k)
++\sum_l\frac{\partial L}{\partial q_l}(\dot{q}_k,q_k)\frac{\partial}{\partial q_k}\frac{dq_l}{d\epsilon}(\dot{q}_k,q_k)\\
+&=&\frac{d}{d\epsilon}\frac{\partial L}{\partial q_k}(\dot{q}_k,q_k)\\
+&&+\sum_l\frac{\partial L}{\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{\partial}{\partial q_k}\frac{d\dot{q}_l}{d\epsilon}(\ddot{q}_k,\dot{q}_k,q_k)
++\sum_l\frac{\partial L}{\partial q_l}(\dot{q}_k,q_k)\frac{\partial}{\partial q_k}\frac{dq_l}{d\epsilon}(\dot{q}_k,q_k)\\
+&=&\frac{d}{d\epsilon}\frac{\partial L}{\partial q_k}(\dot{q}_k,q_k)\\
+&&+\sum_l\frac{\partial L}{\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{\partial}{\partial q_k}\frac{d\dot{q}_l}{d\epsilon}(\ddot{q}_k,\dot{q}_k,q_k)
++\sum_l\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{\partial}{\partial q_k}\frac{dq_l}{d\epsilon}(\dot{q}_k,q_k)\\
+&=&\frac{d}{d\epsilon}\frac{\partial L}{\partial q_k}(\dot{q}_k,q_k)+\frac{d}{dt}\sum_l\frac{\partial L}{\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{\partial}{\partial q_k}\frac{dq_l}{d\epsilon}(\dot{q}_k,q_k)\\
+\frac{\partial}{\partial \dot{q}_k}\frac{dL}{d\epsilon}&=&\frac{d}{d\epsilon}\frac{\partial L}{\partial \dot{q}_k}(\dot{q}_k,q_k)\\
+&&+\sum_l\frac{\partial L}{\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{\partial}{\partial \dot{q}_k}\frac{d\dot{q}_l}{d\epsilon}(\ddot{q}_k,\dot{q}_k,q_k)
++\sum_l\frac{\partial L}{\partial q_l}(\dot{q}_k,q_k)\frac{\partial}{\partial \dot{q}_k}\frac{dq_l}{d\epsilon}(\dot{q}_k,q_k)\\
+&=&\frac{d}{d\epsilon}\frac{\partial L}{\partial \dot{q}_k}(\dot{q}_k,q_k)\\
+&&+\sum_l\frac{\partial L}{\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{\partial}{\partial \dot{q}_k}\frac{d\dot{q}_l}{d\epsilon}(\ddot{q}_k,\dot{q}_k,q_k)
++\sum_l\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{\partial}{\partial \dot{q}_k}\frac{dq_l}{d\epsilon}(\dot{q}_k,q_k)\\
+&=&\frac{d}{d\epsilon}\frac{\partial L}{\partial \dot{q}_k}(\dot{q}_k,q_k)
++\frac{d}{dt}\sum_l\frac{\partial L}{\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{\partial}{\partial \dot{q}_k}\frac{dq_l}{d\epsilon}(\dot{q}_k,q_k)\\
+\frac{d}{dt}\frac{\partial}{\partial \dot{q}_k}\frac{dL}{d\epsilon}
+&=&\frac{d}{dt}\frac{d}{d\epsilon}\frac{\partial L}{\partial \dot{q}_k}(\dot{q}_k,q_k)\\
+&&+\frac{d^2}{dt^2}\sum_l\frac{\partial L}{\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{\partial}{\partial \dot{q}_k}\frac{dq_l}{d\epsilon}(\dot{q}_k,q_k)\\
+&=&\frac{d}{dt}\left(\sum_l\frac{\partial^2 L}{\partial \dot{q}_k\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{d\dot{q}_l}{d\epsilon}
++\sum_l\frac{\partial^2 L}{\partial \dot{q}_k\partial q_l}(\dot{q}_k,q_k)\frac{dq_l}{d\epsilon}\right)\\
+&&+\frac{d^2}{dt^2}\sum_l\frac{\partial L}{\partial \dot{q}_l}(\dot{q}_k,q_k)\frac{\partial}{\partial \dot{q}_k}\frac{dq_l}{d\epsilon}(\dot{q}_k,q_k)
+\end{eqnarray*}
+..........................................................................
+\begin{eqnarray*}
+\dot{p}^\prime_k &=& -\frac{\partial}{\partial q_k}H(p^\prime,q^\prime)\\
+\dot{q}^\prime_k &=& \frac{\partial}{\partial p_k}H(p^\prime,q^\prime)\\
+\dot{p}_k+\frac{d\dot{p}_k}{d\epsilon}\epsilon &=& -\frac{\partial}{\partial q_k}H\left(p+\epsilon\frac{dp}{d\epsilon},q+\epsilon\frac{dq}{d\epsilon}\right)\\
+\dot{q}_k+\frac{d\dot{q}_k}{d\epsilon}\epsilon &=& \frac{\partial}{\partial q_k}H\left(p+\epsilon\frac{dp}{d\epsilon},q+\epsilon\frac{dq}{d\epsilon}\right)\\
+\dot{p}_k+\frac{d\dot{p}_k}{d\epsilon}\epsilon &=& -\frac{\partial}{\partial q_k}H\left(p,q\right)
+-\epsilon\sum_l\frac{\partial^2}{\partial q_k\partial p_l}H\left(p,q\right)\frac{dp_l}{d\epsilon}
+-\epsilon\sum_l\frac{\partial^2}{\partial q_k\partial q_l}H\left(p,q\right)\frac{dq_l}{d\epsilon}\\
+\dot{q}_k+\frac{d\dot{q}_k}{d\epsilon}\epsilon &=& \frac{\partial}{\partial p_k}H\left(p,q\right)
++\epsilon\sum_l\frac{\partial^2}{\partial p_k\partial p_l}H\left(p,q\right)\frac{dp_l}{d\epsilon}
++\epsilon\sum_l\frac{\partial^2}{\partial p_k\partial q_l}H\left(p,q\right)\frac{dq_l}{d\epsilon}\\
+\frac{d\dot{p}_k}{d\epsilon} &=& 
+-\sum_l\frac{\partial^2}{\partial q_k\partial p_l}H\left(p,q\right)\frac{dp_l}{d\epsilon}
+-\sum_l\frac{\partial^2}{\partial q_k\partial q_l}H\left(p,q\right)\frac{dq_l}{d\epsilon}\\
+\frac{d\dot{q}_k}{d\epsilon} &=& 
++\sum_l\frac{\partial^2}{\partial p_k\partial p_l}H\left(p,q\right)\frac{dp_l}{d\epsilon}
++\sum_l\frac{\partial^2}{\partial p_k\partial q_l}H\left(p,q\right)\frac{dq_l}{d\epsilon}\\
+\frac{d\dot{p}_k}{d\epsilon} &=& 
+\sum_l\frac{\partial}{\partial p_l}\dot{p}_k\frac{dp_l}{d\epsilon}
++\sum_l\frac{\partial}{\partial q_l}\dot{q}_k\frac{dq_l}{d\epsilon}\\
+\frac{d\dot{q}_k}{d\epsilon} &=& 
++\sum_l\frac{\partial^2}{\partial p_k\partial p_l}H\left(p,q\right)\frac{dp_l}{d\epsilon}
++\sum_l\frac{\partial^2}{\partial p_k\partial q_l}H\left(p,q\right)\frac{dq_l}{d\epsilon}\\
+\end{eqnarray*}
+Poisson-Klammer:
+\begin{eqnarray*}
+\{A(p,q),B(p,q)\} &=& \sum_k\left(\frac{\partial A}{\partial q_k}(p,q)\frac{\partial B}{\partial p_k}(p,q)
+-\frac{\partial A}{\partial p_k}(p,q)\frac{\partial B}{\partial q_k}(p,q)\right)\\
+\{A(p,q),H(p,q)\} &=& \sum_k\left(\frac{\partial A}{\partial q_k}(p,q)\frac{\partial H}{\partial p_k}(p,q)
+-\frac{\partial A}{\partial p_k}(p,q)\frac{\partial H}{\partial q_k}(p,q)\right)\\
+&=& \sum_k\left(\frac{\partial A}{\partial q_k}(p,q)\dot{q}_k(p,q)
++\frac{\partial A}{\partial p_k}(p,q)\dot{p}_k(p,q)\right)\\
+&=&\dot{A}(p,q)\\
+\{q_m,p_l\} &=& \sum_k\left(\frac{\partial q_m}{\partial q_k}(p,q)\frac{\partial p_l}{\partial p_k}(p,q)
+-\frac{\partial q_m}{\partial p_k}(p,q)\frac{\partial p_l}{\partial q_k}(p,q)\right)\\
+&=& \sum_k\delta_{mk}\delta_{lk}\\
+&=&\delta_{ml}\\
+\{G(p,q),p_l\} &=& \frac{\partial G}{\partial q_l}(p,q)\\
+\{G(p,q),q_l\} &=& -\frac{\partial G}{\partial p_l}(p,q)
+\end{eqnarray*}
+Infinitesimale Transformation der Bewegungsgleichungen:
+\begin{eqnarray*}
+\frac{d\dot{p}_k}{d\epsilon} &=& 
+-\sum_l\frac{\partial^2}{\partial q_k\partial p_l}H\left(p,q\right)\frac{dp_l}{d\epsilon}
+-\sum_l\frac{\partial^2}{\partial q_k\partial q_l}H\left(p,q\right)\frac{dq_l}{d\epsilon}\\
+\frac{d\dot{q}_k}{d\epsilon} &=& 
++\sum_l\frac{\partial^2}{\partial p_k\partial p_l}H\left(p,q\right)\frac{dp_l}{d\epsilon}
++\sum_l\frac{\partial^2}{\partial p_k\partial q_l}H\left(p,q\right)\frac{dq_l}{d\epsilon}
+\end{eqnarray*}
+Infinitesimale Transformation:
+\begin{eqnarray*}
+p^\prime_k &=& p_k+\frac{dp_k}{d\epsilon}\epsilon\\
+q^\prime_k &=& q_k+\frac{dq_k}{d\epsilon}\epsilon\\
+G^\prime(p^\prime,q^\prime) &=& G\left(p+\frac{dp}{d\epsilon}\epsilon,q+\frac{dq}{d\epsilon}\epsilon\right)\\
+&=&G(p,q)+\sum_k\left(
+\frac{\partial G}{\partial p_k}\frac{dp_k}{d\epsilon}(p,q)+
+\frac{\partial G}{\partial q_k}\frac{dq_k}{d\epsilon}(p,q)
+\right)\epsilon\\
+&=&G(p,q)+\sum_k\left(
+-\{G,q_k\}\frac{dp_k}{d\epsilon}(p,q)+
+\{G,p_k\}\frac{dq_k}{d\epsilon}(p,q)
+\right)\epsilon
+\end{eqnarray*}
+Kanonische infinitesimale Transformation:
+\begin{eqnarray*}
+\{q^\prime_l,p^\prime_m\} &=& \delta_{lm}\\
+&=& \left\{q_l+\frac{dq_l}{d\epsilon}\epsilon,p_m+\frac{dp_m}{d\epsilon}\epsilon\right\}\\
+&=& \delta_{ml}+\left(\left\{q_l,\frac{dp_m}{d\epsilon}\right\}+\left\{\frac{dq_l}{d\epsilon},p_m\right\}\right)\epsilon\\
+&=& \delta_{ml}+\left(-\left\{\frac{dp_m}{d\epsilon},q_l\right\}+\left\{\frac{dq_l}{d\epsilon},p_m\right\}\right)\epsilon\\
+&=& \delta_{ml}+\left(\frac{\partial}{\partial p_l}\frac{dp_m}{d\epsilon}+\frac{\partial}{\partial q_m}\frac{dq_l}{d\epsilon}\right)\epsilon\\
+\frac{\partial}{\partial p_l}\frac{dp_m}{d\epsilon}&=&-\frac{\partial}{\partial q_m}\frac{dq_l}{d\epsilon}
+\end{eqnarray*}
+scratch
+\begin{eqnarray*}
+\frac{\partial}{\partial q_k}L\left(\dot{q}+\frac{d\dot{q}}{d\epsilon}\epsilon,q+\frac{dq}{d\epsilon}\epsilon\right) &=&
+\frac{\partial}{\partial q_k}L\left(\dot{q},q\right)
++\sum_l\left(\frac{\partial^2}{\partial q_k\partial \dot{q}_l}L\left(\dot{q},q\right)\frac{d\dot{q}_l}{d\epsilon}\epsilon
++\frac{\partial^2}{\partial q_k\partial q_l}L\left(\dot{q},q\right)\frac{dq_l}{d\epsilon}\epsilon\right)\\
+&=&\frac{\partial}{\partial q_k}L\left(\dot{q},q\right)
++\frac{\partial}{\partial q_k}\sum_l\left(\frac{\partial}{\partial \dot{q}_l}L\left(\dot{q},q\right)\frac{d\dot{q}_l}{d\epsilon}\epsilon
++\frac{\partial}{\partial q_l}L\left(\dot{q},q\right)\frac{\partial}{\partial q_k}\frac{dq_l}{d\epsilon}\epsilon\right)\\
+&&-\sum_l\left(\frac{\partial}{\partial \dot{q}_l}L\left(\dot{q},q\right)\frac{\partial}{\partial q_k}\frac{d\dot{q}_l}{d\epsilon}\epsilon
++\frac{\partial}{\partial q_l}L\left(\dot{q},q\right)\frac{\partial}{\partial q_k}\frac{dq_l}{d\epsilon}\epsilon\right)\\
+&=&\frac{\partial}{\partial q_k}L\left(\dot{q},q\right)
++\frac{\partial}{\partial q_k}\sum_l\left(\frac{\partial}{\partial \dot{q}_l}L\left(\dot{q},q\right)\frac{d\dot{q}_l}{d\epsilon}\epsilon
++\frac{\partial}{\partial q_l}L\left(\dot{q},q\right)\frac{dq_l}{d\epsilon}\epsilon\right)\\
+&&-\sum_l\left(\frac{\partial}{\partial \dot{q}_l}L\left(\dot{q},q\right)\frac{\partial}{\partial q_k}\frac{d\dot{q}_l}{d\epsilon}\epsilon
++\frac{d}{dt}\left(\frac{\partial}{\partial \dot{q}_l}L\left(\dot{q},q\right)\right)\frac{\partial}{\partial q_k}\frac{dq_l}{d\epsilon}\epsilon\right)\\
+&=&\frac{\partial}{\partial q_k}L\left(\dot{q},q\right)
++\frac{\partial}{\partial q_k}\sum_l\left(\frac{\partial}{\partial \dot{q}_l}L\left(\dot{q},q\right)\frac{d\dot{q}_l}{d\epsilon}\epsilon
++\frac{\partial}{\partial q_l}L\left(\dot{q},q\right)\frac{dq_l}{d\epsilon}\epsilon\right)\\
+&&-\frac{d}{dt}\sum_l\left(\frac{\partial}{\partial \dot{q}_l}L\left(\dot{q},q\right)\frac{\partial}{\partial q_k}\frac{dq_l}{d\epsilon}\right)\epsilon
+\end{eqnarray*}
+\end{subsection}
+\end{section}
+
+\end{document}
